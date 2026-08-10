@@ -7,8 +7,13 @@ import {
   type Study,
   type EvidenceAssertion,
 } from "@/lib/schemas";
-import { getModalities } from "./entities";
+import { getDisorders, getModalities } from "./entities";
 import { EvidenceIndex } from "@/lib/evidence/metrics";
+import {
+  computeProfiles,
+  type ConvergenceProfile,
+} from "@/lib/evidence/convergence";
+import { detectGaps, type EvidenceGap } from "@/lib/evidence/gaps";
 
 let studies: Study[] | null = null;
 let assertions: EvidenceAssertion[] | null = null;
@@ -38,4 +43,22 @@ export function getEvidenceIndex(): EvidenceIndex {
     );
   }
   return index;
+}
+
+let profilesByDisorder: Map<string, ConvergenceProfile[]> | null = null;
+let gaps: EvidenceGap[] | null = null;
+
+export function getProfilesByDisorder(): Map<string, ConvergenceProfile[]> {
+  if (!profilesByDisorder) {
+    const idx = getEvidenceIndex();
+    profilesByDisorder = new Map(
+      getDisorders().map((d) => [d.id, computeProfiles(idx, d.id)]),
+    );
+  }
+  return profilesByDisorder;
+}
+
+export function getGaps(): EvidenceGap[] {
+  if (!gaps) gaps = detectGaps(getProfilesByDisorder());
+  return gaps;
 }

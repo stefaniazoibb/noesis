@@ -1,5 +1,6 @@
 import { getEvidenceIndex } from "@/lib/repo/evidence";
 import type { EvidenceFilters } from "./metrics";
+import { computeProfiles, type ConvergenceProfile } from "./convergence";
 import type { VizMode } from "@/lib/schemas";
 
 /**
@@ -25,8 +26,51 @@ export function sequentialColor(value: number, max: number): string {
   return SEQ[Math.round(t * (SEQ.length - 1))];
 }
 
+/**
+ * Gaps-mode categories, priority-ordered (a region gets the first that
+ * applies across its profiles). Colors: three categorical slots + the status
+ * red reserved for the conflict state. Definitions in docs/METRICS.md.
+ */
+export const GAP_CATEGORIES = [
+  {
+    key: "conflicting",
+    value: 4,
+    color: "#e66767",
+    label: "Conflicting",
+    definition: "same finding type reported with opposite directions",
+  },
+  {
+    key: "convergent",
+    value: 3,
+    color: "#3987e5",
+    label: "Convergent",
+    definition: "evidence from ≥2 independent modality categories",
+  },
+  {
+    key: "single_category",
+    value: 2,
+    color: "#d95926",
+    label: "Single category",
+    definition: "≥2 studies, all in one modality category",
+  },
+  {
+    key: "single_study",
+    value: 1,
+    color: "#9085e9",
+    label: "Single study",
+    definition: "exactly one indexed study",
+  },
+] as const;
+
+function gapCategoryValue(p: ConvergenceProfile): number {
+  if (p.conflicts.length > 0) return 4;
+  if (p.modalityCategories.length >= 2) return 3;
+  if (p.studyIds.length >= 2) return 2;
+  return 1;
+}
+
 export interface OverlayResult {
-  kind: "counts" | "convergence" | null;
+  kind: "counts" | "convergence" | "gaps" | null;
   /** region id -> hex color */
   colors: Map<string, string>;
   /** region id -> metric value */
@@ -58,6 +102,22 @@ export function computeOverlay(
       [...values.entries()].map(([r, v]) => [r, sequentialColor(v, max)]),
     );
     return { kind: "counts", colors, values, max };
+  }
+  if (mode === "gaps") {
+    const values = new Map<string, number>();
+    for (const p of computeProfiles(index, disorder, filters)) {
+      values.set(
+        p.region,
+        Math.max(values.get(p.region) ?? 0, gapCategoryValue(p)),
+      );
+    }
+    const byValue = new Map<number, string>(
+      GAP_CATEGORIES.map((c) => [c.value, c.color]),
+    );
+    const colors = new Map(
+      [...values.entries()].map(([r, v]) => [r, byValue.get(v)!]),
+    );
+    return { kind: "gaps", colors, values, max: 4 };
   }
   if (mode === "convergence") {
     const values = index.convergence(disorder, filters);

@@ -8,6 +8,7 @@ const MODES: { mode: VizMode; label: string }[] = [
   { mode: "anatomical", label: "Anatomy" },
   { mode: "disorder", label: "Evidence" },
   { mode: "convergence", label: "Convergence" },
+  { mode: "gaps", label: "Gaps" },
 ];
 
 export function FilterBar() {
@@ -18,7 +19,8 @@ export function FilterBar() {
   const selectedModalities = useVizStore((s) => s.modalities);
   const toggleModality = useVizStore((s) => s.toggleModality);
 
-  const evidenceMode = mode === "disorder" || mode === "convergence";
+  const evidenceMode =
+    mode === "disorder" || mode === "convergence" || mode === "gaps";
 
   return (
     <div className="pointer-events-auto flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-950/80 p-1.5 backdrop-blur">

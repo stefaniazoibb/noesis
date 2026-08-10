@@ -72,6 +72,20 @@ Each gap carries the study ids behind it (full provenance chain).
 Run `npm run report:gaps` to print the profiles and detected gaps for the
 current corpus.
 
+## Gaps visualization mode (3D brain)
+
+Each region with evidence is classified by the structure of its indexed
+evidence, first matching category wins (per disorder; across all indexed
+disorders the highest-priority category among a region's profiles is shown):
+
+1. **Conflicting** — the profile has ≥1 directional conflict (same finding
+   type, opposite directions).
+2. **Convergent** — evidence from ≥2 independent modality categories.
+3. **Single category** — ≥2 studies, all in one modality category.
+4. **Single study** — exactly one indexed study.
+
+Regions with no indexed evidence keep the anatomical base color.
+
 ## Not yet implemented
 
 Disorder specificity, network centrality, and representation similarity are
