@@ -1,25 +1,32 @@
 {
   "artifactId": "disorder_evidence_pca_v1",
   "entityType": "disorder",
-  "method": "evidence features -> log1p(counts) -> z-score -> PCA",
+  "method": "evidence features -> log1p(counts) -> z-score -> PCA (+UMAP projection)",
   "inputs": [
     "data/studies/studies.json",
     "data/evidence/assertions.json",
     "data/modalities/modalities.json"
   ],
-  "corpusVersion": "2fcd0e77931c",
+  "corpusVersion": "606b76e86516",
   "params": {
-    "nComponents": 4,
-    "nFeatures": 58,
-    "droppedZeroVarianceColumns": 92,
+    "nComponents": 8,
+    "nFeatures": 69,
+    "droppedZeroVarianceColumns": 105,
     "seed": 42,
+    "umapNeighbors": 10,
     "note": "Features describe the indexed evidence corpus, not biology."
   },
   "created": "2026-08-10",
-  "dim": 4,
+  "dim": 8,
   "ids": [
+    "adhd",
     "alzheimers_disease",
+    "bipolar_disorder",
+    "dissociative_identity_disorder",
+    "generalized_anxiety_disorder",
+    "huntingtons_disease",
     "major_depressive_disorder",
+    "obsessive_compulsive_disorder",
     "parkinsons_disease",
     "post_traumatic_stress_disorder",
     "schizophrenia"
@@ -28,24 +35,94 @@
   "projections": {
     "pca": [
       [
-        -3.0157,
-        0.1505
+        3.3515,
+        -6.1148
       ],
       [
-        -3.9259,
-        1.2707
+        -3.1707,
+        0.7242
       ],
       [
-        1.2627,
-        -7.8303
+        0.2502,
+        -0.8022
       ],
       [
-        -3.3494,
-        3.4363
+        -1.0972,
+        -1.1907
       ],
       [
-        9.0284,
-        2.9728
+        -0.8561,
+        -1.8349
+      ],
+      [
+        -0.9721,
+        -3.0053
+      ],
+      [
+        -4.9725,
+        2.6553
+      ],
+      [
+        0.6064,
+        2.3233
+      ],
+      [
+        1.0517,
+        -4.5317
+      ],
+      [
+        -4.2271,
+        5.9201
+      ],
+      [
+        10.0357,
+        5.8568
+      ]
+    ],
+    "umap": [
+      [
+        -1.4817,
+        1.0652
+      ],
+      [
+        -2.5026,
+        -0.0551
+      ],
+      [
+        -1.8684,
+        0.4849
+      ],
+      [
+        -2.6742,
+        0.7294
+      ],
+      [
+        -2.0675,
+        1.5006
+      ],
+      [
+        -0.814,
+        0.8164
+      ],
+      [
+        -1.8291,
+        -0.5432
+      ],
+      [
+        -2.7177,
+        1.9065
+      ],
+      [
+        -1.1201,
+        1.7778
+      ],
+      [
+        -1.1257,
+        -0.4105
+      ],
+      [
+        -3.0988,
+        1.2511
       ]
     ]
   }

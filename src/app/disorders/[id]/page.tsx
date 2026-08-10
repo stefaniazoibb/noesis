@@ -6,6 +6,7 @@ import { getRegion } from "@/lib/repo/atlas";
 import { EVIDENCE_LEVEL_LABEL, NO_FILTERS } from "@/lib/evidence/metrics";
 import { StudyListItem } from "@/evidence/StudyListItem";
 import { GapsSection } from "@/evidence/GapsSection";
+import { PersonalExperienceNote } from "@/components/PersonalExperienceNote";
 
 export function generateStaticParams() {
   return getDisorders().map((d) => ({ id: d.id }));
@@ -62,6 +63,8 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
           {disorder.overview}
         </p>
       )}
+
+      <PersonalExperienceNote />
 
       <section className="mt-8 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
         <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">

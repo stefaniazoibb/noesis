@@ -26,6 +26,12 @@ PTSD = "post_traumatic_stress_disorder"
 SCZ = "schizophrenia"
 AD = "alzheimers_disease"
 PD = "parkinsons_disease"
+BD = "bipolar_disorder"
+GAD = "generalized_anxiety_disorder"
+OCD = "obsessive_compulsive_disorder"
+DID = "dissociative_identity_disorder"
+HD = "huntingtons_disease"
+ADHD = "adhd"
 
 # groups: (regions, direction, findingType, statement)
 STUDIES = [
@@ -491,6 +497,290 @@ STUDIES = [
             (["sub_mid_brainstem"], "decreased", "structural_difference",
              "Reduced substantia nigra pars compacta neuromelanin-MRI signal in PD (sensitivity/specificity 0.82); SN lies in the midbrain, mapped to the brainstem mesh in this atlas."),
         ],
+    ),
+    # ------------------------------------------------------- Bipolar disorder
+    dict(
+        id="study_hibar_2016", pmid="26857596", disorders=[BD],
+        modalities=["smri"], findingType="volumetric", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="ENIGMA Bipolar Disorder Working Group meta-analysis",
+        finding="Smaller hippocampal and amygdala volumes and enlarged lateral ventricles in bipolar I disorder versus controls; no significant BD-I vs BD-II volume differences.",
+        groups=[
+            (S("hippocampus"), "decreased", "volumetric",
+             "Smaller hippocampal volume in bipolar I disorder versus controls (ENIGMA-BD)."),
+            (S("amygdala"), "decreased", "volumetric",
+             "Smaller amygdala volume in bipolar I disorder versus controls (ENIGMA-BD)."),
+        ],
+    ),
+    dict(
+        id="study_hibar_2018", pmid="28461699", disorders=[BD],
+        modalities=["smri"], findingType="structural_difference", direction="decreased",
+        sampleSize=6503, causal="correlational",
+        population="6503 individuals, ENIGMA Bipolar Disorder Working Group",
+        finding="Thinner cortex in bipolar disorder with strongest effects in left pars opercularis (d=-0.29), left fusiform gyrus (d=-0.29) and left rostral middle frontal cortex (d=-0.28); longer illness duration associated with more thinning.",
+        groups=[
+            (C("parsopercularis", ["lh"]), "decreased", "structural_difference",
+             "Thinner left pars opercularis in bipolar disorder (Cohen's d = -0.29, ENIGMA-BD's strongest cortical effect)."),
+            (C("fusiform", ["lh"]), "decreased", "structural_difference",
+             "Thinner left fusiform gyrus in bipolar disorder (Cohen's d = -0.29, ENIGMA-BD)."),
+            (C("rostralmiddlefrontal", ["lh"]), "decreased", "structural_difference",
+             "Thinner left rostral middle frontal cortex in bipolar disorder (Cohen's d = -0.28, ENIGMA-BD)."),
+        ],
+    ),
+    dict(
+        id="study_chen_2011", pmid="21320248", disorders=[BD],
+        modalities=["fmri"], findingType="activation", direction="mixed",
+        sampleSize=None, causal="correlational",
+        population="quantitative meta-analysis of fMRI studies in bipolar disorder",
+        finding="Underactivation of inferior frontal gyrus and putamen with overactivation of limbic structures (parahippocampal gyrus, hippocampus, amygdala) in bipolar disorder; IFG underactivity most evident in mania.",
+        groups=[
+            (C("parsopercularis") + C("parstriangularis"), "decreased", "activation",
+             "Inferior frontal gyrus underactivation in bipolar disorder (IFG mapped to DK pars opercularis/triangularis), across cognitive and emotional paradigms."),
+            (S("putamen"), "decreased", "activation",
+             "Putamen underactivation in bipolar disorder versus controls."),
+            (C("parahippocampal") + S("hippocampus") + S("amygdala"), "increased", "activation",
+             "Overactivation of medial temporal limbic structures (parahippocampal gyrus, hippocampus, amygdala) in bipolar disorder, mainly during emotional processing."),
+        ],
+    ),
+    dict(
+        id="study_schumer_2023", pmid="36782061", disorders=[BD],
+        modalities=["fmri"], findingType="activation", direction="mixed",
+        sampleSize=13768, causal="correlational",
+        population="5745 BD and 8023 controls across 506 neuroimaging experiments",
+        finding="Condition-dependent functional differences in bipolar disorder: right posterior cingulate (rest), left amygdala (emotion), left superior/right inferior parietal lobules (cognition), and left medial orbitofrontal hyperactivation (cognition).",
+        groups=[
+            (C("posteriorcingulate", ["rh"]), None, "activation",
+             "Functional differences in right posterior cingulate cortex during resting-state experiments in bipolar disorder."),
+            (S("amygdala", ["lh"]), None, "activation",
+             "Functional differences in left amygdala during emotional experiments in bipolar disorder."),
+            (C("superiorparietal", ["lh"]) + C("inferiorparietal", ["rh"]), None, "activation",
+             "Functional differences in left superior and right inferior parietal lobules during cognitive experiments in bipolar disorder."),
+            (C("medialorbitofrontal", ["lh"]), "increased", "activation",
+             "Left medial orbitofrontal hyperactivation during cognitive experiments in bipolar disorder."),
+        ],
+    ),
+    dict(
+        id="study_nguyen_2021", pmid="33074144", disorders=[BD],
+        modalities=["tms"], findingType="stimulation_response", direction="decreased",
+        sampleSize=274, causal="interventional",
+        population="274 patients with bipolar depression (14 studies)",
+        finding="rTMS outperformed sham for bipolar depression (response OR 2.72); significant clinical response specifically for high-frequency rTMS over left DLPFC (OR 2.57).",
+        groups=[
+            (C("rostralmiddlefrontal", ["lh"]) + C("caudalmiddlefrontal", ["lh"]), "decreased", "stimulation_response",
+             "High-frequency rTMS over left DLPFC (DK rostral/caudal middle frontal) improved bipolar depression response versus sham (OR 2.57)."),
+        ],
+    ),
+    # ------------------------------------------------------- Generalized anxiety disorder
+    dict(
+        id="study_kolesar_2019", pmid="31835287", disorders=[GAD],
+        modalities=["fmri", "smri"], findingType="other", direction=None,
+        sampleSize=None, causal="correlational",
+        population="85 structural, connectivity and task-based MRI studies of GAD",
+        finding="Systematic review and meta-analyses report widely distributed structural and functional neural differences in GAD versus controls, limited by small samples (no single-region meta-analytic mapping asserted).",
+        groups=[],
+    ),
+    dict(
+        id="study_ou_2024", pmid="38638086", disorders=[GAD],
+        modalities=["smri"], findingType="structural_difference", direction=None,
+        sampleSize=None, causal="correlational",
+        population="voxel-based morphometry studies of GAD",
+        finding="Modest grey-matter alterations in left superior temporal gyrus in GAD; anxiety severity correlated with grey matter in right insula, lenticular nucleus, putamen and striatum.",
+        groups=[
+            (C("superiortemporal", ["lh"]), None, "structural_difference",
+             "Modest grey-matter alterations in left superior temporal gyrus in GAD (VBM meta-analysis; direction not established)."),
+            (C("insula", ["rh"]) + S("putamen", ["rh"]), None, "structural_difference",
+             "Anxiety severity correlated with grey-matter alterations in right insula and putamen/lenticular regions in GAD."),
+        ],
+    ),
+    dict(
+        id="study_qi_2024", pmid="39208534", disorders=[GAD],
+        modalities=["tms"], findingType="stimulation_response", direction="decreased",
+        sampleSize=None, causal="interventional",
+        population="7 randomized controlled trials of non-invasive brain stimulation for GAD",
+        finding="Non-invasive brain stimulation improved GAD symptoms versus controls (HARS scores, response, remission); cTBS and rTMS outperformed tDCS. Stimulation targets not specified in the abstract, so no region is asserted.",
+        groups=[],
+    ),
+    # ------------------------------------------------------- Obsessive-compulsive disorder
+    dict(
+        id="study_boedhoe_2018", pmid="29377733", disorders=[OCD],
+        modalities=["smri"], findingType="structural_difference", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="pediatric and adult OCD patients vs controls (ENIGMA-OCD)",
+        finding="Lower transverse temporal surface area and thinner inferior parietal cortex in adult OCD; thinner inferior and superior parietal cortices in pediatric OCD (d -0.10 to -0.33).",
+        groups=[
+            (C("transversetemporal"), "decreased", "structural_difference",
+             "Lower transverse temporal cortex surface area in adult OCD versus controls (ENIGMA-OCD)."),
+            (C("inferiorparietal"), "decreased", "structural_difference",
+             "Thinner inferior parietal cortex in adult and pediatric OCD versus controls (ENIGMA-OCD)."),
+            (C("superiorparietal"), "decreased", "structural_difference",
+             "Thinner superior parietal cortex in pediatric OCD versus controls (ENIGMA-OCD)."),
+        ],
+    ),
+    dict(
+        id="study_boedhoe_2017", pmid="27609241", disorders=[OCD],
+        modalities=["smri"], findingType="volumetric", direction="mixed",
+        sampleSize=None, causal="correlational",
+        population="worldwide meta- and mega-analysis of pediatric and adult OCD (ENIGMA-OCD)",
+        finding="Adults with OCD had smaller hippocampus (d=-0.13) and larger pallidum (d=0.16); unmedicated pediatric patients had larger thalamus (d=0.38).",
+        groups=[
+            (S("hippocampus"), "decreased", "volumetric",
+             "Smaller hippocampal volume in adult OCD versus controls (Cohen's d = -0.13, ENIGMA-OCD)."),
+            (S("pallidum"), "increased", "volumetric",
+             "Larger pallidum volume in adult OCD versus controls (Cohen's d = 0.16, ENIGMA-OCD)."),
+            (S("thalamus"), "increased", "volumetric",
+             "Larger thalamic volume in unmedicated pediatric OCD versus controls (Cohen's d = 0.38, ENIGMA-OCD)."),
+        ],
+    ),
+    dict(
+        id="study_riesel_2019", pmid="30838682", disorders=[OCD],
+        modalities=["eeg"], findingType="electrophysiological", direction="increased",
+        sampleSize=None, causal="correlational",
+        population="meta-analysis of error-related negativity studies in OCD",
+        finding="Increased error-related negativity amplitudes in OCD during response-conflict tasks (SMD -0.55), independent of symptom severity and age — a candidate endophenotype (scalp-level ERP; no atlas region asserted).",
+        groups=[],
+    ),
+    dict(
+        id="study_perera_2021", pmid="33775927", disorders=[OCD],
+        modalities=["tms"], findingType="stimulation_response", direction="decreased",
+        sampleSize=781, causal="interventional",
+        population="781 participants in 26 randomized sham-controlled rTMS trials",
+        finding="rTMS reduced Y-BOCS scores in OCD versus sham (Hedges g = 0.64); bilateral DLPFC targeting produced the largest effect.",
+        groups=[
+            (C("rostralmiddlefrontal") + C("caudalmiddlefrontal"), "decreased", "stimulation_response",
+             "rTMS targeting bilateral DLPFC (DK rostral/caudal middle frontal) reduced OCD symptom severity versus sham (Hedges g = 0.64)."),
+        ],
+    ),
+    # ------------------------------------------------------- Dissociative identity disorder
+    dict(
+        id="study_blihar_2021", pmid="33433297", disorders=[DID],
+        modalities=["smri"], findingType="volumetric", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="meta-analysis pooling 3 volumetric studies of DID",
+        finding="Bilaterally smaller hippocampi in DID (with comorbid PTSD) versus healthy controls, and smaller left hippocampus versus PTSD patients; no significant amygdala difference. Very small literature (3 studies).",
+        groups=[
+            (S("hippocampus"), "decreased", "volumetric",
+             "Smaller hippocampal volume bilaterally in DID versus healthy controls (meta-analysis of only 3 studies; left hippocampus also smaller than in PTSD)."),
+        ],
+    ),
+    dict(
+        id="study_vermetten_2006", pmid="16585437", disorders=[DID],
+        modalities=["smri"], findingType="volumetric", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="patients with DID vs healthy subjects (single-site study)",
+        finding="Hippocampal volume 19.2% smaller and amygdala volume 31.6% smaller in DID versus healthy subjects.",
+        groups=[
+            (S("hippocampus"), "decreased", "volumetric",
+             "Hippocampal volume 19.2% smaller in DID versus healthy subjects (single study)."),
+            (S("amygdala"), "decreased", "volumetric",
+             "Amygdala volume 31.6% smaller in DID versus healthy subjects (single study; the later 3-study meta-analysis found no significant amygdala difference)."),
+        ],
+    ),
+    # ------------------------------------------------------- Huntington's disease
+    dict(
+        id="study_tabrizi_2011", pmid="21130037", disorders=[HD],
+        modalities=["smri"], findingType="volumetric", direction="decreased",
+        sampleSize=345, causal="correlational",
+        population="116 premanifest, 114 early-HD and 115 controls (TRACK-HD, 12-month longitudinal)",
+        finding="Higher annualized rates of whole-brain and caudate atrophy in premanifest (caudate +1.37%/yr) and early HD (+2.86%/yr) versus controls, with grey- and white-matter atrophy even far from predicted onset.",
+        groups=[
+            (S("caudate"), "decreased", "volumetric",
+             "Accelerated caudate atrophy in premanifest (+1.37%/yr) and early (+2.86%/yr) Huntington's disease versus controls (TRACK-HD)."),
+        ],
+    ),
+    dict(
+        id="study_hobbs_2010", pmid="20150305", disorders=[HD],
+        modalities=["smri"], findingType="volumetric", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="longitudinal MR imaging of HD patients and controls",
+        finding="Caudate volume differences detectable ~14 years before motor onset; caudate atrophy rates ~10-fold higher than controls, with accelerating ventricular enlargement.",
+        groups=[
+            (S("caudate"), "decreased", "volumetric",
+             "Caudate atrophy detectable ~14 years before motor onset in Huntington's disease, progressing ~10-fold faster than in controls."),
+        ],
+    ),
+    dict(
+        id="study_rosas_2005", pmid="16157910", disorders=[HD],
+        modalities=["smri"], findingType="structural_difference", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="presymptomatic carriers of the HD mutation",
+        finding="Regionally selective cortical thinning in preclinical Huntington's disease, semi-independent of striatal volume loss and correlated with cognitive performance (specific regions not named in the abstract).",
+        groups=[],
+    ),
+    dict(
+        id="study_ponomareva_2014", pmid="25015843", disorders=[HD],
+        modalities=["eeg"], findingType="electrophysiological", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="preclinical carriers of the HD mutation vs controls",
+        finding="Reduced relative EEG power at the theta-alpha border (7-8 Hz) in preclinical HD; spectral shifts correlated with CAG repeat number and disease burden (scalp-level; no atlas region asserted).",
+        groups=[],
+    ),
+    # ------------------------------------------------------- ADHD
+    dict(
+        id="study_hoogman_2017", pmid="28219628", disorders=[ADHD],
+        modalities=["smri"], findingType="volumetric", direction="decreased",
+        sampleSize=3242, causal="correlational",
+        population="1713 participants with ADHD and 1529 controls, 23 sites (ENIGMA-ADHD)",
+        finding="Smaller accumbens (d=-0.15), amygdala (-0.19), caudate (-0.11), hippocampus (-0.11) and putamen (-0.14) in ADHD, with largest effects in children — consistent with delayed maturation; no pallidum or thalamus differences.",
+        groups=[
+            (S("accumbens"), "decreased", "volumetric",
+             "Smaller nucleus accumbens volume in ADHD versus controls (Cohen's d = -0.15, ENIGMA-ADHD mega-analysis)."),
+            (S("amygdala"), "decreased", "volumetric",
+             "Smaller amygdala volume in ADHD versus controls (Cohen's d = -0.19, ENIGMA-ADHD mega-analysis)."),
+            (S("caudate"), "decreased", "volumetric",
+             "Smaller caudate volume in ADHD versus controls (Cohen's d = -0.11, ENIGMA-ADHD mega-analysis)."),
+            (S("hippocampus"), "decreased", "volumetric",
+             "Smaller hippocampal volume in ADHD versus controls (Cohen's d = -0.11, ENIGMA-ADHD mega-analysis)."),
+            (S("putamen"), "decreased", "volumetric",
+             "Smaller putamen volume in ADHD versus controls (Cohen's d = -0.14, ENIGMA-ADHD mega-analysis)."),
+        ],
+    ),
+    dict(
+        id="study_hoogman_2019", pmid="31014101", disorders=[ADHD],
+        modalities=["smri"], findingType="structural_difference", direction="decreased",
+        sampleSize=None, causal="correlational",
+        population="children, adolescents and adults with ADHD (ENIGMA-ADHD + Generation-R)",
+        finding="Lower cortical surface area in children with ADHD (mainly frontal, cingulate, temporal; total surface area d=-0.21) and lower fusiform and temporal pole thickness; no differences in adolescents or adults.",
+        groups=[
+            (C("fusiform"), "decreased", "structural_difference",
+             "Lower fusiform gyrus cortical thickness in children with ADHD (ENIGMA-ADHD); absent in adolescents and adults."),
+            (C("temporalpole"), "decreased", "structural_difference",
+             "Lower temporal pole cortical thickness in children with ADHD (ENIGMA-ADHD); absent in adolescents and adults."),
+        ],
+    ),
+    dict(
+        id="study_arns_2013", pmid="23086616", disorders=[ADHD],
+        modalities=["eeg"], findingType="electrophysiological", direction=None,
+        sampleSize=1770, causal="correlational",
+        population="1253 children/adolescents with ADHD and 517 without (9 studies)",
+        finding="Elevated theta/beta ratio is not a reliable diagnostic marker of ADHD (heterogeneous effects, driven partly by changing control-group values), though a subgroup deviates and TBR may have prognostic value (scalp-level; no atlas region asserted).",
+        groups=[],
+    ),
+    dict(
+        id="study_wang_2025", pmid="39947841", disorders=[ADHD],
+        modalities=["fmri"], findingType="activation", direction="mixed",
+        sampleSize=None, causal="correlational",
+        population="children with ADHD; ALE meta-analysis of task-based studies",
+        finding="Hypoactivation in frontoparietal network, putamen, insula, cingulate and middle temporal gyrus with hyperactivation in occipital regions, middle frontal gyrus and parahippocampal gyrus in children with ADHD.",
+        groups=[
+            (S("putamen"), "decreased", "activation",
+             "Putamen hypoactivation during executive/attention tasks in children with ADHD."),
+            (C("insula"), "decreased", "activation",
+             "Insula hypoactivation during executive/attention tasks in children with ADHD."),
+            (C("middletemporal"), "decreased", "activation",
+             "Middle temporal gyrus hypoactivation during executive/attention tasks in children with ADHD."),
+            (C("rostralmiddlefrontal") + C("caudalmiddlefrontal"), "increased", "activation",
+             "Middle frontal gyrus hyperactivation (DK rostral/caudal middle frontal) during tasks in children with ADHD."),
+            (C("parahippocampal"), "increased", "activation",
+             "Parahippocampal hyperactivation during tasks in children with ADHD."),
+        ],
+    ),
+    dict(
+        id="study_fu_2025", pmid="39829146", disorders=[ADHD],
+        modalities=["tms"], findingType="stimulation_response", direction="decreased",
+        sampleSize=325, causal="interventional",
+        population="325 ADHD patients in 8 studies",
+        finding="TMS improved inattention (SMD -0.94) and hyperactivity/impulsivity (SMD -0.98) versus non-TMS interventions, persisting at 1-month follow-up for inattention; only minor adverse events. Targets not named in the abstract, so no region is asserted.",
+        groups=[],
     ),
     dict(
         id="study_cho_2021", pmid="32886201", disorders=[PD],

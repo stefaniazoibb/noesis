@@ -3,305 +3,305 @@
   "components": [
     {
       "index": 0,
-      "explainedVarianceRatio": 0.2504,
+      "explainedVarianceRatio": 0.2198,
       "topFeatures": [
         {
-          "feature": "alzheimers_disease|stimulation",
-          "loading": 0.4469
+          "feature": "post_traumatic_stress_disorder|stimulation",
+          "loading": 0.3596
         },
         {
-          "feature": "post_traumatic_stress_disorder|stimulation",
-          "loading": 0.4469
+          "feature": "alzheimers_disease|stimulation",
+          "loading": 0.3596
+        },
+        {
+          "feature": "obsessive_compulsive_disorder|stimulation",
+          "loading": 0.3596
         },
         {
           "feature": "major_depressive_disorder|stimulation",
-          "loading": 0.4149
+          "loading": 0.3346
         },
         {
           "feature": "post_traumatic_stress_disorder|electrophysiology",
-          "loading": 0.4149
+          "loading": 0.3346
+        },
+        {
+          "feature": "bipolar_disorder|stimulation",
+          "loading": 0.3346
         },
         {
           "feature": "alzheimers_disease|direction",
-          "loading": 0.3595
+          "loading": 0.2592
         },
         {
-          "feature": "post_traumatic_stress_disorder|direction",
-          "loading": -0.1754
-        },
-        {
-          "feature": "schizophrenia|imaging",
-          "loading": -0.1662
-        },
-        {
-          "feature": "major_depressive_disorder|imaging",
-          "loading": -0.1432
+          "feature": "adhd|direction",
+          "loading": 0.2228
         }
       ]
     },
     {
       "index": 1,
-      "explainedVarianceRatio": 0.2051,
+      "explainedVarianceRatio": 0.1538,
       "topFeatures": [
         {
-          "feature": "major_depressive_disorder|imaging",
-          "loading": 0.4349
+          "feature": "dissociative_identity_disorder|imaging",
+          "loading": 0.367
         },
         {
-          "feature": "major_depressive_disorder|direction",
-          "loading": -0.4077
+          "feature": "major_depressive_disorder|imaging",
+          "loading": 0.3558
         },
         {
           "feature": "post_traumatic_stress_disorder|imaging",
-          "loading": 0.382
+          "loading": 0.3504
         },
         {
-          "feature": "parkinsons_disease|direction",
-          "loading": 0.3639
+          "feature": "dissociative_identity_disorder|direction",
+          "loading": -0.3446
         },
         {
-          "feature": "parkinsons_disease|imaging",
-          "loading": -0.3205
-        },
-        {
-          "feature": "post_traumatic_stress_disorder|direction",
-          "loading": -0.3008
+          "feature": "major_depressive_disorder|direction",
+          "loading": -0.3306
         },
         {
           "feature": "alzheimers_disease|imaging",
-          "loading": 0.2958
+          "loading": 0.2602
         },
         {
-          "feature": "alzheimers_disease|direction",
-          "loading": -0.2043
+          "feature": "bipolar_disorder|imaging",
+          "loading": 0.2219
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|direction",
+          "loading": -0.1989
         }
       ]
     },
     {
       "index": 2,
-      "explainedVarianceRatio": 0.1055,
+      "explainedVarianceRatio": 0.1121,
       "topFeatures": [
         {
           "feature": "parkinsons_disease|imaging",
-          "loading": 0.543
+          "loading": 0.4014
         },
         {
-          "feature": "schizophrenia|direction",
-          "loading": -0.4704
+          "feature": "adhd|imaging",
+          "loading": 0.3816
         },
         {
           "feature": "parkinsons_disease|direction",
-          "loading": -0.4303
+          "loading": -0.3774
         },
         {
-          "feature": "major_depressive_disorder|direction",
-          "loading": -0.2683
+          "feature": "adhd|direction",
+          "loading": -0.2993
         },
         {
-          "feature": "major_depressive_disorder|imaging",
-          "loading": 0.2364
+          "feature": "huntingtons_disease|direction",
+          "loading": -0.2702
         },
         {
-          "feature": "parkinsons_disease|stimulation",
-          "loading": -0.2202
+          "feature": "huntingtons_disease|imaging",
+          "loading": 0.2702
         },
         {
-          "feature": "schizophrenia|imaging",
-          "loading": -0.2193
+          "feature": "dissociative_identity_disorder|direction",
+          "loading": -0.2585
         },
         {
-          "feature": "post_traumatic_stress_disorder|imaging",
-          "loading": 0.2107
+          "feature": "dissociative_identity_disorder|imaging",
+          "loading": 0.2268
         }
       ]
     },
     {
       "index": 3,
-      "explainedVarianceRatio": 0.1004,
+      "explainedVarianceRatio": 0.0688,
       "topFeatures": [
         {
-          "feature": "schizophrenia|electrophysiology",
-          "loading": 0.5385
-        },
-        {
-          "feature": "schizophrenia|direction",
-          "loading": -0.4123
-        },
-        {
-          "feature": "schizophrenia|stimulation",
-          "loading": 0.3644
-        },
-        {
-          "feature": "post_traumatic_stress_disorder|direction",
-          "loading": -0.3227
-        },
-        {
-          "feature": "major_depressive_disorder|direction",
-          "loading": 0.2533
+          "feature": "obsessive_compulsive_disorder|imaging",
+          "loading": 0.4288
         },
         {
           "feature": "schizophrenia|imaging",
-          "loading": 0.2263
+          "loading": 0.3719
         },
         {
-          "feature": "alzheimers_disease|imaging",
-          "loading": -0.1986
+          "feature": "schizophrenia|electrophysiology",
+          "loading": 0.37
         },
         {
-          "feature": "parkinsons_disease|stimulation",
-          "loading": -0.179
+          "feature": "major_depressive_disorder|direction",
+          "loading": 0.3422
+        },
+        {
+          "feature": "major_depressive_disorder|imaging",
+          "loading": -0.3091
+        },
+        {
+          "feature": "huntingtons_disease|imaging",
+          "loading": -0.2134
+        },
+        {
+          "feature": "huntingtons_disease|direction",
+          "loading": 0.2134
+        },
+        {
+          "feature": "obsessive_compulsive_disorder|direction",
+          "loading": -0.1984
         }
       ]
     },
     {
       "index": 4,
-      "explainedVarianceRatio": 0.0721,
+      "explainedVarianceRatio": 0.0648,
       "topFeatures": [
         {
-          "feature": "parkinsons_disease|stimulation",
-          "loading": 0.5551
+          "feature": "huntingtons_disease|direction",
+          "loading": 0.4352
         },
         {
-          "feature": "alzheimers_disease|imaging",
-          "loading": -0.4071
+          "feature": "huntingtons_disease|imaging",
+          "loading": -0.4352
         },
         {
-          "feature": "post_traumatic_stress_disorder|imaging",
-          "loading": 0.3566
+          "feature": "schizophrenia|electrophysiology",
+          "loading": -0.3631
         },
         {
-          "feature": "schizophrenia|imaging",
-          "loading": 0.3142
-        },
-        {
-          "feature": "alzheimers_disease|direction",
-          "loading": 0.2559
+          "feature": "post_traumatic_stress_disorder|direction",
+          "loading": 0.3279
         },
         {
           "feature": "schizophrenia|direction",
-          "loading": 0.2223
+          "loading": 0.2992
         },
         {
-          "feature": "parkinsons_disease|direction",
-          "loading": -0.211
+          "feature": "bipolar_disorder|imaging",
+          "loading": 0.2767
         },
         {
-          "feature": "schizophrenia|stimulation",
-          "loading": -0.1953
+          "feature": "bipolar_disorder|direction",
+          "loading": -0.2316
+        },
+        {
+          "feature": "obsessive_compulsive_disorder|direction",
+          "loading": 0.179
         }
       ]
     },
     {
       "index": 5,
-      "explainedVarianceRatio": 0.0617,
+      "explainedVarianceRatio": 0.0568,
       "topFeatures": [
         {
+          "feature": "generalized_anxiety_disorder|imaging",
+          "loading": 0.5292
+        },
+        {
           "feature": "schizophrenia|stimulation",
-          "loading": 0.7539
-        },
-        {
-          "feature": "schizophrenia|electrophysiology",
-          "loading": -0.5331
-        },
-        {
-          "feature": "schizophrenia|imaging",
-          "loading": 0.1962
+          "loading": 0.4645
         },
         {
           "feature": "alzheimers_disease|imaging",
-          "loading": -0.1672
+          "loading": -0.2588
         },
         {
-          "feature": "major_depressive_disorder|direction",
-          "loading": -0.1364
+          "feature": "post_traumatic_stress_disorder|imaging",
+          "loading": 0.2583
+        },
+        {
+          "feature": "obsessive_compulsive_disorder|imaging",
+          "loading": -0.228
+        },
+        {
+          "feature": "schizophrenia|direction",
+          "loading": -0.221
         },
         {
           "feature": "post_traumatic_stress_disorder|direction",
-          "loading": 0.1276
+          "loading": -0.1777
         },
         {
-          "feature": "major_depressive_disorder|stimulation",
-          "loading": 0.0896
-        },
-        {
-          "feature": "post_traumatic_stress_disorder|electrophysiology",
-          "loading": 0.0896
+          "feature": "bipolar_disorder|imaging",
+          "loading": -0.1627
         }
       ]
     },
     {
       "index": 6,
-      "explainedVarianceRatio": 0.0585,
+      "explainedVarianceRatio": 0.045,
       "topFeatures": [
         {
           "feature": "schizophrenia|imaging",
-          "loading": 0.4805
-        },
-        {
-          "feature": "alzheimers_disease|imaging",
-          "loading": 0.4782
-        },
-        {
-          "feature": "alzheimers_disease|direction",
-          "loading": -0.3149
-        },
-        {
-          "feature": "parkinsons_disease|stimulation",
-          "loading": 0.309
-        },
-        {
-          "feature": "major_depressive_disorder|stimulation",
-          "loading": 0.285
-        },
-        {
-          "feature": "post_traumatic_stress_disorder|electrophysiology",
-          "loading": 0.285
+          "loading": 0.3927
         },
         {
           "feature": "schizophrenia|direction",
-          "loading": -0.2673
+          "loading": 0.3599
         },
         {
-          "feature": "parkinsons_disease|direction",
-          "loading": -0.2304
+          "feature": "parkinsons_disease|stimulation",
+          "loading": 0.3329
+        },
+        {
+          "feature": "generalized_anxiety_disorder|imaging",
+          "loading": 0.3287
+        },
+        {
+          "feature": "schizophrenia|stimulation",
+          "loading": 0.281
+        },
+        {
+          "feature": "bipolar_disorder|direction",
+          "loading": 0.2727
+        },
+        {
+          "feature": "parkinsons_disease|imaging",
+          "loading": -0.2155
+        },
+        {
+          "feature": "huntingtons_disease|imaging",
+          "loading": 0.2067
         }
       ]
     },
     {
       "index": 7,
-      "explainedVarianceRatio": 0.048,
+      "explainedVarianceRatio": 0.0441,
       "topFeatures": [
         {
           "feature": "parkinsons_disease|stimulation",
-          "loading": 0.5636
+          "loading": 0.5944
         },
         {
-          "feature": "schizophrenia|imaging",
-          "loading": -0.4431
+          "feature": "parkinsons_disease|direction",
+          "loading": -0.4047
         },
         {
-          "feature": "post_traumatic_stress_disorder|direction",
-          "loading": -0.338
-        },
-        {
-          "feature": "major_depressive_disorder|stimulation",
-          "loading": -0.2482
-        },
-        {
-          "feature": "post_traumatic_stress_disorder|electrophysiology",
-          "loading": -0.2482
-        },
-        {
-          "feature": "schizophrenia|stimulation",
-          "loading": 0.238
+          "feature": "adhd|imaging",
+          "loading": -0.2673
         },
         {
           "feature": "alzheimers_disease|imaging",
-          "loading": 0.2302
+          "loading": -0.2261
         },
         {
-          "feature": "schizophrenia|direction",
-          "loading": -0.1679
+          "feature": "bipolar_disorder|imaging",
+          "loading": -0.2101
+        },
+        {
+          "feature": "major_depressive_disorder|direction",
+          "loading": -0.196
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|imaging",
+          "loading": 0.1895
+        },
+        {
+          "feature": "obsessive_compulsive_disorder|direction",
+          "loading": 0.1675
         }
       ]
     }

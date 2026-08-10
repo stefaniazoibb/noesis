@@ -14,7 +14,9 @@ export default function AssistantPage() {
         </h1>
         <p className="mt-1 text-sm text-zinc-500">
           Answers are synthesized only from the indexed corpus and always
-          cite DOI/PMID-verified studies. Not a diagnostic tool.
+          cite DOI/PMID-verified studies. Not a diagnostic tool — research
+          averages often cannot describe an individual&rsquo;s experience;
+          for anything personal, talk with a licensed clinician you trust.
         </p>
       </div>
       <div className="mt-4 min-h-0 flex-1">

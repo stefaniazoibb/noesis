@@ -1583,6 +1583,960 @@
     }
   },
   {
+    "id": "study_hibar_2016",
+    "title": "Subcortical volumetric abnormalities in bipolar disorder.",
+    "authors": [
+      "Hibar DP",
+      "Westlye LT",
+      "van Erp TG",
+      "Rasmussen J",
+      "Leonardo CD",
+      "Faskowitz J"
+    ],
+    "year": 2016,
+    "journal": "Molecular psychiatry",
+    "doi": "10.1038/mp.2015.227",
+    "pmid": "26857596",
+    "disorders": [
+      "bipolar_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Smaller hippocampal and amygdala volumes and enlarged lateral ventricles in bipolar I disorder versus controls; no significant BD-I vs BD-II volume differences.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "ENIGMA Bipolar Disorder Working Group meta-analysis",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_hibar_2018",
+    "title": "Cortical abnormalities in bipolar disorder: an MRI analysis of 6503 individuals from the ENIGMA Bipolar Disorder Working Group.",
+    "authors": [
+      "Hibar DP",
+      "Westlye LT",
+      "Doan NT",
+      "Jahanshad N",
+      "Cheung JW",
+      "Ching CRK"
+    ],
+    "year": 2018,
+    "journal": "Molecular psychiatry",
+    "doi": "10.1038/mp.2017.73",
+    "pmid": "28461699",
+    "disorders": [
+      "bipolar_disorder"
+    ],
+    "regions": [
+      "dk_lh_parsopercularis",
+      "dk_lh_fusiform",
+      "dk_lh_rostralmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Thinner cortex in bipolar disorder with strongest effects in left pars opercularis (d=-0.29), left fusiform gyrus (d=-0.29) and left rostral middle frontal cortex (d=-0.28); longer illness duration associated with more thinning.",
+    "direction": "decreased",
+    "sampleSize": 6503,
+    "population": "6503 individuals, ENIGMA Bipolar Disorder Working Group",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_chen_2011",
+    "title": "A quantitative meta-analysis of fMRI studies in bipolar disorder.",
+    "authors": [
+      "Chen CH",
+      "Suckling J",
+      "Lennox BR",
+      "Ooi C",
+      "Bullmore ET"
+    ],
+    "year": 2011,
+    "journal": "Bipolar disorders",
+    "doi": "10.1111/j.1399-5618.2011.00893.x",
+    "pmid": "21320248",
+    "disorders": [
+      "bipolar_disorder"
+    ],
+    "regions": [
+      "dk_lh_parsopercularis",
+      "dk_rh_parsopercularis",
+      "dk_lh_parstriangularis",
+      "dk_rh_parstriangularis",
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "dk_lh_parahippocampal",
+      "dk_rh_parahippocampal",
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "Underactivation of inferior frontal gyrus and putamen with overactivation of limbic structures (parahippocampal gyrus, hippocampus, amygdala) in bipolar disorder; IFG underactivity most evident in mania.",
+    "direction": "mixed",
+    "sampleSize": null,
+    "population": "quantitative meta-analysis of fMRI studies in bipolar disorder",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_schumer_2023",
+    "title": "Prefrontal, parietal, and limbic condition-dependent differences in bipolar disorder: a large-scale meta-analysis of functional neuroimaging studies.",
+    "authors": [
+      "Schumer MC",
+      "Chase HW",
+      "Rozovsky R",
+      "Eickhoff SB",
+      "Phillips ML"
+    ],
+    "year": 2023,
+    "journal": "Molecular psychiatry",
+    "doi": "10.1038/s41380-023-01974-8",
+    "pmid": "36782061",
+    "disorders": [
+      "bipolar_disorder"
+    ],
+    "regions": [
+      "dk_rh_posteriorcingulate",
+      "sub_lh_amygdala",
+      "dk_lh_superiorparietal",
+      "dk_rh_inferiorparietal",
+      "dk_lh_medialorbitofrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "Condition-dependent functional differences in bipolar disorder: right posterior cingulate (rest), left amygdala (emotion), left superior/right inferior parietal lobules (cognition), and left medial orbitofrontal hyperactivation (cognition).",
+    "direction": "mixed",
+    "sampleSize": 13768,
+    "population": "5745 BD and 8023 controls across 506 neuroimaging experiments",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_nguyen_2021",
+    "title": "The efficacy of repetitive transcranial magnetic stimulation (rTMS) for bipolar depression: A systematic review and meta-analysis.",
+    "authors": [
+      "Nguyen TD",
+      "Hieronymus F",
+      "Lorentzen R",
+      "McGirr A",
+      "Østergaard SD"
+    ],
+    "year": 2021,
+    "journal": "Journal of affective disorders",
+    "doi": "10.1016/j.jad.2020.10.013",
+    "pmid": "33074144",
+    "disorders": [
+      "bipolar_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "rTMS outperformed sham for bipolar depression (response OR 2.72); significant clinical response specifically for high-frequency rTMS over left DLPFC (OR 2.57).",
+    "direction": "decreased",
+    "sampleSize": 274,
+    "population": "274 patients with bipolar depression (14 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_kolesar_2019",
+    "title": "Systematic review and meta-analyses of neural structural and functional differences in generalized anxiety disorder and healthy controls using magnetic resonance imaging.",
+    "authors": [
+      "Kolesar TA",
+      "Bilevicius E",
+      "Wilson AD",
+      "Kornelsen J"
+    ],
+    "year": 2019,
+    "journal": "NeuroImage. Clinical",
+    "doi": "10.1016/j.nicl.2019.102016",
+    "pmid": "31835287",
+    "disorders": [
+      "generalized_anxiety_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "fmri",
+      "smri"
+    ],
+    "findingType": "other",
+    "finding": "Systematic review and meta-analyses report widely distributed structural and functional neural differences in GAD versus controls, limited by small samples (no single-region meta-analytic mapping asserted).",
+    "direction": null,
+    "sampleSize": null,
+    "population": "85 structural, connectivity and task-based MRI studies of GAD",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_ou_2024",
+    "title": "Grey matter alterations in generalized anxiety disorder: A voxel-wise meta-analysis of voxel-based morphometry studies.",
+    "authors": [
+      "Ou CH",
+      "Cheng CS",
+      "Lin PL",
+      "Lee CL"
+    ],
+    "year": 2024,
+    "journal": "International journal of developmental neuroscience : the official journal of the International Society for Developmental Neuroscience",
+    "doi": "10.1002/jdn.10330",
+    "pmid": "38638086",
+    "disorders": [
+      "generalized_anxiety_disorder"
+    ],
+    "regions": [
+      "dk_lh_superiortemporal",
+      "dk_rh_insula",
+      "sub_rh_putamen"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Modest grey-matter alterations in left superior temporal gyrus in GAD; anxiety severity correlated with grey matter in right insula, lenticular nucleus, putamen and striatum.",
+    "direction": null,
+    "sampleSize": null,
+    "population": "voxel-based morphometry studies of GAD",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_qi_2024",
+    "title": "Non-invasive brain stimulation in the treatment of generalized anxiety disorder: A systematic review and meta-analysis.",
+    "authors": [
+      "Qi L",
+      "Wang S",
+      "Li X",
+      "Yu Y",
+      "Wang W",
+      "Li Q"
+    ],
+    "year": 2024,
+    "journal": "Journal of psychiatric research",
+    "doi": "10.1016/j.jpsychires.2024.07.046",
+    "pmid": "39208534",
+    "disorders": [
+      "generalized_anxiety_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "Non-invasive brain stimulation improved GAD symptoms versus controls (HARS scores, response, remission); cTBS and rTMS outperformed tDCS. Stimulation targets not specified in the abstract, so no region is asserted.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "7 randomized controlled trials of non-invasive brain stimulation for GAD",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_boedhoe_2018",
+    "title": "Cortical Abnormalities Associated With Pediatric and Adult Obsessive-Compulsive Disorder: Findings From the ENIGMA Obsessive-Compulsive Disorder Working Group.",
+    "authors": [
+      "Boedhoe PSW",
+      "Schmaal L",
+      "Abe Y",
+      "Alonso P",
+      "Ameis SH",
+      "Anticevic A"
+    ],
+    "year": 2018,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2017.17050485",
+    "pmid": "29377733",
+    "disorders": [
+      "obsessive_compulsive_disorder"
+    ],
+    "regions": [
+      "dk_lh_transversetemporal",
+      "dk_rh_transversetemporal",
+      "dk_lh_inferiorparietal",
+      "dk_rh_inferiorparietal",
+      "dk_lh_superiorparietal",
+      "dk_rh_superiorparietal"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Lower transverse temporal surface area and thinner inferior parietal cortex in adult OCD; thinner inferior and superior parietal cortices in pediatric OCD (d -0.10 to -0.33).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "pediatric and adult OCD patients vs controls (ENIGMA-OCD)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_boedhoe_2017",
+    "title": "Distinct Subcortical Volume Alterations in Pediatric and Adult OCD: A Worldwide Meta- and Mega-Analysis.",
+    "authors": [
+      "Boedhoe PS",
+      "Schmaal L",
+      "Abe Y",
+      "Ameis SH",
+      "Arnold PD",
+      "Batistuzzo MC"
+    ],
+    "year": 2017,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2016.16020201",
+    "pmid": "27609241",
+    "disorders": [
+      "obsessive_compulsive_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "sub_lh_pallidum",
+      "sub_rh_pallidum",
+      "sub_lh_thalamus",
+      "sub_rh_thalamus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Adults with OCD had smaller hippocampus (d=-0.13) and larger pallidum (d=0.16); unmedicated pediatric patients had larger thalamus (d=0.38).",
+    "direction": "mixed",
+    "sampleSize": null,
+    "population": "worldwide meta- and mega-analysis of pediatric and adult OCD (ENIGMA-OCD)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_riesel_2019",
+    "title": "The erring brain: Error-related negativity as an endophenotype for OCD-A review and meta-analysis.",
+    "authors": [
+      "Riesel A"
+    ],
+    "year": 2019,
+    "journal": "Psychophysiology",
+    "doi": "10.1111/psyp.13348",
+    "pmid": "30838682",
+    "disorders": [
+      "obsessive_compulsive_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Increased error-related negativity amplitudes in OCD during response-conflict tasks (SMD -0.55), independent of symptom severity and age — a candidate endophenotype (scalp-level ERP; no atlas region asserted).",
+    "direction": "increased",
+    "sampleSize": null,
+    "population": "meta-analysis of error-related negativity studies in OCD",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_perera_2021",
+    "title": "Repetitive Transcranial Magnetic Stimulation for Obsessive-Compulsive Disorder: A Meta-analysis of Randomized, Sham-Controlled Trials.",
+    "authors": [
+      "Perera MPN",
+      "Mallawaarachchi S",
+      "Miljevic A",
+      "Bailey NW",
+      "Herring SE",
+      "Fitzgerald PB"
+    ],
+    "year": 2021,
+    "journal": "Biological psychiatry. Cognitive neuroscience and neuroimaging",
+    "doi": "10.1016/j.bpsc.2021.03.010",
+    "pmid": "33775927",
+    "disorders": [
+      "obsessive_compulsive_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_rh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "rTMS reduced Y-BOCS scores in OCD versus sham (Hedges g = 0.64); bilateral DLPFC targeting produced the largest effect.",
+    "direction": "decreased",
+    "sampleSize": 781,
+    "population": "781 participants in 26 randomized sham-controlled rTMS trials",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_blihar_2021",
+    "title": "A Meta-Analysis of Hippocampal and Amygdala Volumes in Patients Diagnosed With Dissociative Identity Disorder.",
+    "authors": [
+      "Blihar D",
+      "Crisafio A",
+      "Delgado E",
+      "Buryak M",
+      "Gonzalez M",
+      "Waechter R"
+    ],
+    "year": 2021,
+    "journal": "Journal of trauma & dissociation : the official journal of the International Society for the Study of Dissociation (ISSD)",
+    "doi": "10.1080/15299732.2020.1869650",
+    "pmid": "33433297",
+    "disorders": [
+      "dissociative_identity_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Bilaterally smaller hippocampi in DID (with comorbid PTSD) versus healthy controls, and smaller left hippocampus versus PTSD patients; no significant amygdala difference. Very small literature (3 studies).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "meta-analysis pooling 3 volumetric studies of DID",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_vermetten_2006",
+    "title": "Hippocampal and amygdalar volumes in dissociative identity disorder.",
+    "authors": [
+      "Vermetten E",
+      "Schmahl C",
+      "Lindner S",
+      "Loewenstein RJ",
+      "Bremner JD"
+    ],
+    "year": 2006,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/ajp.2006.163.4.630",
+    "pmid": "16585437",
+    "disorders": [
+      "dissociative_identity_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Hippocampal volume 19.2% smaller and amygdala volume 31.6% smaller in DID versus healthy subjects.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with DID vs healthy subjects (single-site study)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_tabrizi_2011",
+    "title": "Biological and clinical changes in premanifest and early stage Huntington's disease in the TRACK-HD study: the 12-month longitudinal analysis.",
+    "authors": [
+      "Tabrizi SJ",
+      "Scahill RI",
+      "Durr A",
+      "Roos RA",
+      "Leavitt BR",
+      "Jones R"
+    ],
+    "year": 2011,
+    "journal": "The Lancet. Neurology",
+    "doi": "10.1016/S1474-4422(10)70276-3",
+    "pmid": "21130037",
+    "disorders": [
+      "huntingtons_disease"
+    ],
+    "regions": [
+      "sub_lh_caudate",
+      "sub_rh_caudate"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Higher annualized rates of whole-brain and caudate atrophy in premanifest (caudate +1.37%/yr) and early HD (+2.86%/yr) versus controls, with grey- and white-matter atrophy even far from predicted onset.",
+    "direction": "decreased",
+    "sampleSize": 345,
+    "population": "116 premanifest, 114 early-HD and 115 controls (TRACK-HD, 12-month longitudinal)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_hobbs_2010",
+    "title": "Onset and progression of pathologic atrophy in Huntington disease: a longitudinal MR imaging study.",
+    "authors": [
+      "Hobbs NZ",
+      "Barnes J",
+      "Frost C",
+      "Henley SM",
+      "Wild EJ",
+      "Macdonald K"
+    ],
+    "year": 2010,
+    "journal": "AJNR. American journal of neuroradiology",
+    "doi": "10.3174/ajnr.A2018",
+    "pmid": "20150305",
+    "disorders": [
+      "huntingtons_disease"
+    ],
+    "regions": [
+      "sub_lh_caudate",
+      "sub_rh_caudate"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Caudate volume differences detectable ~14 years before motor onset; caudate atrophy rates ~10-fold higher than controls, with accelerating ventricular enlargement.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "longitudinal MR imaging of HD patients and controls",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_rosas_2005",
+    "title": "Regional cortical thinning in preclinical Huntington disease and its relationship to cognition.",
+    "authors": [
+      "Rosas HD",
+      "Hevelone ND",
+      "Zaleta AK",
+      "Greve DN",
+      "Salat DH",
+      "Fischl B"
+    ],
+    "year": 2005,
+    "journal": "Neurology",
+    "doi": "10.1212/01.wnl.0000174432.87383.87",
+    "pmid": "16157910",
+    "disorders": [
+      "huntingtons_disease"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Regionally selective cortical thinning in preclinical Huntington's disease, semi-independent of striatal volume loss and correlated with cognitive performance (specific regions not named in the abstract).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "presymptomatic carriers of the HD mutation",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_ponomareva_2014",
+    "title": "Alpha-theta border EEG abnormalities in preclinical Huntington's disease.",
+    "authors": [
+      "Ponomareva N",
+      "Klyushnikov S",
+      "Abramycheva N",
+      "Malina D",
+      "Scheglova N",
+      "Fokin V"
+    ],
+    "year": 2014,
+    "journal": "Journal of the neurological sciences",
+    "doi": "10.1016/j.jns.2014.06.035",
+    "pmid": "25015843",
+    "disorders": [
+      "huntingtons_disease"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Reduced relative EEG power at the theta-alpha border (7-8 Hz) in preclinical HD; spectral shifts correlated with CAG repeat number and disease burden (scalp-level; no atlas region asserted).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "preclinical carriers of the HD mutation vs controls",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_hoogman_2017",
+    "title": "Subcortical brain volume differences in participants with attention deficit hyperactivity disorder in children and adults: a cross-sectional mega-analysis.",
+    "authors": [
+      "Hoogman M",
+      "Bralten J",
+      "Hibar DP",
+      "Mennes M",
+      "Zwiers MP",
+      "Schweren LSJ"
+    ],
+    "year": 2017,
+    "journal": "The lancet. Psychiatry",
+    "doi": "10.1016/S2215-0366(17)30049-4",
+    "pmid": "28219628",
+    "disorders": [
+      "adhd"
+    ],
+    "regions": [
+      "sub_lh_accumbens",
+      "sub_rh_accumbens",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala",
+      "sub_lh_caudate",
+      "sub_rh_caudate",
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "sub_lh_putamen",
+      "sub_rh_putamen"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Smaller accumbens (d=-0.15), amygdala (-0.19), caudate (-0.11), hippocampus (-0.11) and putamen (-0.14) in ADHD, with largest effects in children — consistent with delayed maturation; no pallidum or thalamus differences.",
+    "direction": "decreased",
+    "sampleSize": 3242,
+    "population": "1713 participants with ADHD and 1529 controls, 23 sites (ENIGMA-ADHD)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_hoogman_2019",
+    "title": "Brain Imaging of the Cortex in ADHD: A Coordinated Analysis of Large-Scale Clinical and Population-Based Samples.",
+    "authors": [
+      "Hoogman M",
+      "Muetzel R",
+      "Guimaraes JP",
+      "Shumskaya E",
+      "Mennes M",
+      "Zwiers MP"
+    ],
+    "year": 2019,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2019.18091033",
+    "pmid": "31014101",
+    "disorders": [
+      "adhd"
+    ],
+    "regions": [
+      "dk_lh_fusiform",
+      "dk_rh_fusiform",
+      "dk_lh_temporalpole",
+      "dk_rh_temporalpole"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Lower cortical surface area in children with ADHD (mainly frontal, cingulate, temporal; total surface area d=-0.21) and lower fusiform and temporal pole thickness; no differences in adolescents or adults.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "children, adolescents and adults with ADHD (ENIGMA-ADHD + Generation-R)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_arns_2013",
+    "title": "A decade of EEG Theta/Beta Ratio Research in ADHD: a meta-analysis.",
+    "authors": [
+      "Arns M",
+      "Conners CK",
+      "Kraemer HC"
+    ],
+    "year": 2013,
+    "journal": "Journal of attention disorders",
+    "doi": "10.1177/1087054712460087",
+    "pmid": "23086616",
+    "disorders": [
+      "adhd"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Elevated theta/beta ratio is not a reliable diagnostic marker of ADHD (heterogeneous effects, driven partly by changing control-group values), though a subgroup deviates and TBR may have prognostic value (scalp-level; no atlas region asserted).",
+    "direction": null,
+    "sampleSize": 1770,
+    "population": "1253 children/adolescents with ADHD and 517 without (9 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_wang_2025",
+    "title": "Neural correlates of executive function and attention in children with ADHD: An ALE meta-analysis of task-based functional connectivity studies.",
+    "authors": [
+      "Wang M",
+      "Yu J",
+      "Kim HD",
+      "Cruz AB"
+    ],
+    "year": 2025,
+    "journal": "Psychiatry research",
+    "doi": "10.1016/j.psychres.2024.116338",
+    "pmid": "39947841",
+    "disorders": [
+      "adhd"
+    ],
+    "regions": [
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "dk_lh_middletemporal",
+      "dk_rh_middletemporal",
+      "dk_lh_rostralmiddlefrontal",
+      "dk_rh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal",
+      "dk_lh_parahippocampal",
+      "dk_rh_parahippocampal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "Hypoactivation in frontoparietal network, putamen, insula, cingulate and middle temporal gyrus with hyperactivation in occipital regions, middle frontal gyrus and parahippocampal gyrus in children with ADHD.",
+    "direction": "mixed",
+    "sampleSize": null,
+    "population": "children with ADHD; ALE meta-analysis of task-based studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_fu_2025",
+    "title": "Efficacy and Safety of Transcranial Magnetic Stimulation for Attention-Deficit Hyperactivity Disorder: A Systematic Review and Meta-Analysis.",
+    "authors": [
+      "Fu B",
+      "Zhou X",
+      "Zhou X",
+      "Li X",
+      "Chen Z",
+      "Zhang Y"
+    ],
+    "year": 2025,
+    "journal": "Brain and behavior",
+    "doi": "10.1002/brb3.70246",
+    "pmid": "39829146",
+    "disorders": [
+      "adhd"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "TMS improved inattention (SMD -0.94) and hyperactivity/impulsivity (SMD -0.98) versus non-TMS interventions, persisting at 1-month follow-up for inattention; only minor adverse events. Targets not named in the abstract, so no region is asserted.",
+    "direction": "decreased",
+    "sampleSize": 325,
+    "population": "325 ADHD patients in 8 studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
     "id": "study_cho_2021",
     "title": "Diagnostic performance of neuromelanin-sensitive magnetic resonance imaging for patients with Parkinson's disease and factor analysis for its heterogeneity: a systematic review and meta-analysis.",
     "authors": [

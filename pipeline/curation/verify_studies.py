@@ -23,6 +23,19 @@ def norm(s):
     return "".join(c for c in (s or "").lower() if c.isalnum())
 
 
+def same_target(doi_a: str, doi_b: str) -> bool:
+    """True when two DOIs resolve to the same landing URL (legacy aliases)."""
+    try:
+        final = [
+            str(httpx.head(f"https://doi.org/{d}", follow_redirects=True,
+                           timeout=30).url)
+            for d in (doi_a, doi_b)
+        ]
+        return final[0] == final[1]
+    except httpx.HTTPError:
+        return False
+
+
 def main():
     studies = json.loads((REPO / "data/studies/studies.json").read_text())
     pmids = [s["pmid"] for s in studies]
@@ -49,8 +62,12 @@ def main():
                 oa = resp.json()
                 oa_doi = (oa.get("doi") or "").replace("https://doi.org/", "")
                 if s["doi"] and oa_doi and s["doi"].lower() != oa_doi.lower():
-                    problems.append(
-                        f"{s['id']}: DOI {s['doi']} != OpenAlex {oa_doi}")
+                    if same_target(s["doi"], oa_doi):
+                        print(f"  note: {s['id']}: OpenAlex DOI {oa_doi} is a "
+                              f"legacy alias of {s['doi']} (same target)")
+                    else:
+                        problems.append(
+                            f"{s['id']}: DOI {s['doi']} != OpenAlex {oa_doi}")
             elif resp.status_code != 404:
                 print(f"  note: OpenAlex HTTP {resp.status_code} for {s['pmid']}")
         except httpx.HTTPError as e:

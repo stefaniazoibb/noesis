@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getDisorders } from "@/lib/repo/entities";
+import { PersonalExperienceNote } from "@/components/PersonalExperienceNote";
 
 export const metadata: Metadata = {
   title: "Disorders — NOĒSIS",
@@ -24,7 +25,8 @@ export default function DisordersPage() {
         disorder and — once the curated corpus is ingested — its study-level
         evidence.
       </p>
-      <ul className="mt-8 space-y-3">
+      <PersonalExperienceNote compact />
+      <ul className="mt-6 space-y-3">
         {disorders.map((d) => (
           <li key={d.id}>
             <Link

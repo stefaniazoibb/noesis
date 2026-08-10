@@ -28,6 +28,104 @@
     "synonyms": ["AD", "Alzheimer disease", "Alzheimers disease"]
   },
   {
+    "id": "bipolar_disorder",
+    "name": "Bipolar disorder",
+    "category": "psychiatric",
+    "overview": "A mood disorder characterized by episodes of mania or hypomania, typically alternating with depressive episodes. Neuroimaging research has repeatedly examined fronto-limbic emotion-regulation circuitry, with heterogeneous findings across illness phases and medication states.",
+    "synonyms": ["BD", "bipolar affective disorder", "manic depression", "bipolar I", "bipolar II"]
+  },
+  {
+    "id": "generalized_anxiety_disorder",
+    "name": "Generalized anxiety disorder",
+    "category": "psychiatric",
+    "overview": "An anxiety disorder characterized by excessive, difficult-to-control worry across multiple domains, with somatic tension and hyperarousal. Research has focused on threat-processing and emotion-regulation circuitry; the imaging literature is smaller and more mixed than for depression.",
+    "synonyms": ["GAD", "generalised anxiety disorder", "anxiety disorder"]
+  },
+  {
+    "id": "obsessive_compulsive_disorder",
+    "name": "Obsessive-compulsive disorder",
+    "category": "psychiatric",
+    "overview": "A disorder characterized by intrusive obsessions and repetitive compulsions. Cortico-striato-thalamo-cortical circuitry is the dominant framework in its neuroimaging literature, studied across structural, functional, and stimulation modalities.",
+    "synonyms": ["OCD", "obsessive compulsive disorder"]
+  },
+  {
+    "id": "dissociative_identity_disorder",
+    "name": "Dissociative identity disorder",
+    "category": "psychiatric",
+    "overview": "A dissociative disorder involving two or more distinct personality states and recurrent gaps in recall, strongly associated with early-life trauma. Formerly called multiple personality disorder. Its neuroimaging literature is small, based on modest samples, and scientifically contested — indexed evidence here is correspondingly limited.",
+    "synonyms": ["DID", "multiple personality disorder", "dissociative disorder"]
+  },
+  {
+    "id": "huntingtons_disease",
+    "name": "Huntington's disease",
+    "category": "neurodegenerative",
+    "overview": "An autosomal-dominant neurodegenerative disease caused by a CAG-repeat expansion in the huntingtin gene, presenting with chorea, cognitive decline, and psychiatric symptoms. Progressive striatal degeneration is its pathological hallmark, and striatal atrophy is measurable years before motor onset.",
+    "synonyms": ["HD", "Huntington disease", "Huntington chorea"]
+  },
+  {
+    "id": "adhd",
+    "name": "Attention-deficit/hyperactivity disorder",
+    "category": "psychiatric",
+    "overview": "A neurodevelopmental disorder characterized by developmentally inappropriate inattention, hyperactivity, and impulsivity. Neuroimaging and electrophysiology research spans fronto-striatal circuitry and oscillatory markers, with effect sizes that are typically small at the group level.",
+    "synonyms": ["ADHD", "attention deficit hyperactivity disorder", "attention deficit disorder", "ADD"]
+  },
+  {
+    "id": "panic_disorder",
+    "name": "Panic disorder",
+    "category": "psychiatric",
+    "overview": "An anxiety disorder characterized by recurrent unexpected panic attacks and persistent concern about further attacks. Research has focused on fear-circuitry and interoceptive processing; its dedicated neuroimaging literature is smaller than that of depression or PTSD.",
+    "synonyms": ["panic attacks disorder"]
+  },
+  {
+    "id": "anorexia_nervosa",
+    "name": "Anorexia nervosa",
+    "category": "psychiatric",
+    "overview": "An eating disorder characterized by restriction of energy intake, significantly low body weight, intense fear of weight gain, and disturbed body image. Neuroimaging findings are complicated by the confound of starvation state, which itself alters brain structure.",
+    "synonyms": ["AN", "anorexia"]
+  },
+  {
+    "id": "substance_use_disorder",
+    "name": "Substance use disorders",
+    "category": "psychiatric",
+    "overview": "A group of disorders characterized by compulsive substance use despite harmful consequences. Reward, salience, and executive-control circuitry are the dominant frameworks in the imaging literature, with findings varying substantially by substance.",
+    "synonyms": ["SUD", "addiction", "substance dependence", "drug use disorder", "alcohol use disorder"]
+  },
+  {
+    "id": "autism_spectrum_disorder",
+    "name": "Autism spectrum disorder",
+    "category": "psychiatric",
+    "overview": "A neurodevelopmental condition characterized by differences in social communication together with restricted, repetitive behaviors and interests. Neuroimaging findings are notably heterogeneous, with age- and subgroup-dependent patterns rather than a single consistent signature.",
+    "synonyms": ["ASD", "autism"]
+  },
+  {
+    "id": "frontotemporal_dementia",
+    "name": "Frontotemporal dementia",
+    "category": "neurodegenerative",
+    "overview": "A group of neurodegenerative disorders with progressive degeneration of frontal and temporal lobes, presenting as behavioral-variant or primary progressive aphasia syndromes. Frontal and anterior temporal atrophy on structural imaging supports differential diagnosis from Alzheimer's disease.",
+    "synonyms": ["FTD", "frontotemporal lobar degeneration", "FTLD", "Pick disease", "behavioural variant FTD"]
+  },
+  {
+    "id": "lewy_body_dementia",
+    "name": "Dementia with Lewy bodies",
+    "category": "neurodegenerative",
+    "overview": "An alpha-synuclein-associated dementia characterized by fluctuating cognition, recurrent visual hallucinations, REM-sleep behavior disorder, and parkinsonism. Imaging research emphasizes relative preservation of medial temporal structures compared with Alzheimer's disease.",
+    "synonyms": ["DLB", "Lewy body dementia", "Lewy body disease"]
+  },
+  {
+    "id": "multiple_system_atrophy",
+    "name": "Multiple system atrophy",
+    "category": "neurodegenerative",
+    "overview": "A rapidly progressive alpha-synucleinopathy combining autonomic failure with parkinsonian or cerebellar features. Imaging research focuses on putaminal, pontine, and cerebellar changes that support differential diagnosis from Parkinson's disease.",
+    "synonyms": ["MSA", "Shy-Drager syndrome", "olivopontocerebellar atrophy", "striatonigral degeneration"]
+  },
+  {
+    "id": "als",
+    "name": "Amyotrophic lateral sclerosis",
+    "category": "neurodegenerative",
+    "overview": "A progressive motor neuron disease affecting upper and lower motor neurons, causing weakness, spasticity, and muscle atrophy; cognitive and behavioral change overlaps with frontotemporal dementia in a subset. Imaging research centers on motor cortex and corticospinal tract degeneration.",
+    "synonyms": ["ALS", "motor neurone disease", "MND", "Lou Gehrig disease"]
+  },
+  {
     "id": "parkinsons_disease",
     "name": "Parkinson's disease",
     "category": "neurodegenerative",
