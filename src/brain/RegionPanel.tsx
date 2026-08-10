@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useVizStore } from "@/state/vizStore";
 import { getRegion } from "@/lib/repo/atlas";
 import { getDisorder, getModalities } from "@/lib/repo/entities";
@@ -47,6 +48,12 @@ export function RegionPanel() {
             aria-hidden
           />
         </div>
+        <Link
+          href="/ml"
+          className="mt-2 inline-block text-[11px] text-zinc-500 underline decoration-zinc-700 hover:text-zinc-300"
+        >
+          View in representation space →
+        </Link>
       </div>
 
       <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4">
