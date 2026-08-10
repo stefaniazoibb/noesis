@@ -37,7 +37,7 @@ export const DEFAULT_VIZ_STATE: VizState = {
   disorders: [],
   modalities: [],
   hemispheres: { left: true, right: true },
-  showSubcortical: true,
+  showSubcortical: false,
   filters: { yearMin: null, yearMax: null, evidenceLevels: null },
 };
 
