@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GlobalSearch } from "./GlobalSearch";
 
 const PLANNED = ["Evidence", "Assistant", "ML Lab"];
 
@@ -15,6 +16,9 @@ export function TopNav() {
         <span className="hidden text-[11px] text-zinc-500 sm:inline">
           An AI atlas of brain, behavior &amp; evidence
         </span>
+      </div>
+      <div className="flex flex-1 justify-center px-4">
+        <GlobalSearch />
       </div>
       <nav className="flex items-center gap-4 text-sm">
         <Link href="/brain" className="text-zinc-200 hover:text-white">

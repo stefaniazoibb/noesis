@@ -1,5 +1,11 @@
 "use client";
 
+import { Suspense, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
+import { useVizStore } from "@/state/vizStore";
+import { getRegion } from "@/lib/repo/atlas";
+import { getDisorder, getModality } from "@/lib/repo/entities";
+import { VizModeSchema } from "@/lib/schemas";
 import { BrainViewer } from "@/brain/BrainViewer";
 import { RegionPanel } from "@/brain/RegionPanel";
 import { ViewerControls } from "@/brain/ViewerControls";
@@ -7,9 +13,43 @@ import { FilterBar } from "@/brain/FilterBar";
 import { Legend } from "@/brain/Legend";
 import { HoverLabel } from "@/brain/HoverLabel";
 
+/** Applies ?region= / ?disorder= / ?mode= / ?modality= once on mount, so
+ *  search results and disorder pages can deep-link into a viz state. */
+function DeepLink() {
+  const params = useSearchParams();
+  const applied = useRef(false);
+  useEffect(() => {
+    if (applied.current) return;
+    applied.current = true;
+    const s = useVizStore.getState();
+    const region = params.get("region");
+    const disorder = params.get("disorder");
+    const modality = params.get("modality");
+    const mode = VizModeSchema.safeParse(params.get("mode"));
+
+    if (region && getRegion(region)) {
+      s.selectRegion(region);
+      if (region.startsWith("sub_")) s.setShowSubcortical(true);
+    }
+    if (disorder && getDisorder(disorder)) {
+      s.setActiveDisorder(disorder);
+      s.setMode(mode.success ? mode.data : "disorder");
+    } else if (mode.success) {
+      s.setMode(mode.data);
+    }
+    if (modality && getModality(modality)) {
+      s.applyPatch({ modalities: [modality] });
+    }
+  }, [params]);
+  return null;
+}
+
 export default function BrainPage() {
   return (
     <div className="relative min-h-0 flex-1">
+      <Suspense fallback={null}>
+        <DeepLink />
+      </Suspense>
       <div className="absolute inset-0">
         <BrainViewer />
       </div>
