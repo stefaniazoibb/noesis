@@ -1,0 +1,52 @@
+{
+  "artifactId": "disorder_evidence_pca_v1",
+  "entityType": "disorder",
+  "method": "evidence features -> log1p(counts) -> z-score -> PCA",
+  "inputs": [
+    "data/studies/studies.json",
+    "data/evidence/assertions.json",
+    "data/modalities/modalities.json"
+  ],
+  "corpusVersion": "2fcd0e77931c",
+  "params": {
+    "nComponents": 4,
+    "nFeatures": 58,
+    "droppedZeroVarianceColumns": 92,
+    "seed": 42,
+    "note": "Features describe the indexed evidence corpus, not biology."
+  },
+  "created": "2026-08-10",
+  "dim": 4,
+  "ids": [
+    "alzheimers_disease",
+    "major_depressive_disorder",
+    "parkinsons_disease",
+    "post_traumatic_stress_disorder",
+    "schizophrenia"
+  ],
+  "vectorsFile": "disorder.vectors.f32",
+  "projections": {
+    "pca": [
+      [
+        -3.0157,
+        0.1505
+      ],
+      [
+        -3.9259,
+        1.2707
+      ],
+      [
+        1.2627,
+        -7.8303
+      ],
+      [
+        -3.3494,
+        3.4363
+      ],
+      [
+        9.0284,
+        2.9728
+      ]
+    ]
+  }
+}

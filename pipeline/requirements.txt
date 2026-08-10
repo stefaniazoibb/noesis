@@ -7,3 +7,5 @@ trimesh
 fast-simplification
 pydantic
 httpx
+scikit-learn
+umap-learn

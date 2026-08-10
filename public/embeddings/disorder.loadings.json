@@ -1,0 +1,157 @@
+{
+  "artifactId": "disorder_evidence_pca_v1",
+  "components": [
+    {
+      "index": 0,
+      "explainedVarianceRatio": 0.4098,
+      "topFeatures": [
+        {
+          "feature": "dk_lh_inferiorparietal|imaging",
+          "loading": 0.1899
+        },
+        {
+          "feature": "dk_rh_middletemporal|imaging",
+          "loading": 0.1899
+        },
+        {
+          "feature": "dk_lh_transversetemporal|electrophysiology",
+          "loading": 0.1899
+        },
+        {
+          "feature": "dk_rh_precentral|imaging",
+          "loading": 0.1899
+        },
+        {
+          "feature": "sub_lh_thalamus|imaging",
+          "loading": 0.1899
+        },
+        {
+          "feature": "dk_lh_supramarginal|stimulation",
+          "loading": 0.1899
+        },
+        {
+          "feature": "dk_lh_middletemporal|imaging",
+          "loading": 0.1899
+        },
+        {
+          "feature": "dk_lh_superiortemporal|stimulation",
+          "loading": 0.1899
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "explainedVarianceRatio": 0.2883,
+      "topFeatures": [
+        {
+          "feature": "sub_lh_hippocampus|imaging",
+          "loading": 0.2349
+        },
+        {
+          "feature": "sub_rh_putamen|imaging",
+          "loading": -0.2342
+        },
+        {
+          "feature": "dk_rh_precentral|stimulation",
+          "loading": -0.2342
+        },
+        {
+          "feature": "dk_lh_precentral|stimulation",
+          "loading": -0.2342
+        },
+        {
+          "feature": "sub_rh_caudate|imaging",
+          "loading": -0.2342
+        },
+        {
+          "feature": "sub_mid_brainstem|imaging",
+          "loading": -0.2342
+        },
+        {
+          "feature": "sub_lh_putamen|imaging",
+          "loading": -0.2342
+        },
+        {
+          "feature": "sub_lh_caudate|imaging",
+          "loading": -0.2342
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "explainedVarianceRatio": 0.2038,
+      "topFeatures": [
+        {
+          "feature": "sub_lh_amygdala|imaging",
+          "loading": 0.284
+        },
+        {
+          "feature": "dk_rh_rostralmiddlefrontal|imaging",
+          "loading": -0.2667
+        },
+        {
+          "feature": "dk_lh_precuneus|imaging",
+          "loading": -0.2667
+        },
+        {
+          "feature": "sub_rh_amygdala|imaging",
+          "loading": 0.2667
+        },
+        {
+          "feature": "dk_rh_precuneus|imaging",
+          "loading": -0.2667
+        },
+        {
+          "feature": "dk_rh_posteriorcingulate|imaging",
+          "loading": -0.2493
+        },
+        {
+          "feature": "dk_lh_posteriorcingulate|imaging",
+          "loading": -0.2493
+        },
+        {
+          "feature": "dk_rh_parahippocampal|imaging",
+          "loading": -0.231
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "explainedVarianceRatio": 0.0981,
+      "topFeatures": [
+        {
+          "feature": "dk_rh_lateralorbitofrontal|imaging",
+          "loading": 0.3714
+        },
+        {
+          "feature": "dk_lh_lateralorbitofrontal|imaging",
+          "loading": 0.3714
+        },
+        {
+          "feature": "dk_rh_rostralmiddlefrontal|stimulation",
+          "loading": -0.2981
+        },
+        {
+          "feature": "dk_rh_caudalmiddlefrontal|stimulation",
+          "loading": -0.2981
+        },
+        {
+          "feature": "dk_lh_caudalmiddlefrontal|electrophysiology",
+          "loading": -0.2599
+        },
+        {
+          "feature": "dk_rh_superiorfrontal|imaging",
+          "loading": -0.2599
+        },
+        {
+          "feature": "dk_lh_rostralmiddlefrontal|electrophysiology",
+          "loading": -0.2599
+        },
+        {
+          "feature": "dk_lh_superiorfrontal|imaging",
+          "loading": -0.2466
+        }
+      ]
+    }
+  ]
+}

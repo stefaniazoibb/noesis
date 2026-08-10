@@ -3,7 +3,7 @@
  * referential integrity (ARCHITECTURE.md §4). Run: npm run validate:data
  * The build must fail on any violation — this is the no-fabrication backstop.
  */
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
 import {
@@ -13,6 +13,7 @@ import {
   NetworkSchema,
   StudySchema,
   EvidenceAssertionSchema,
+  EmbeddingSetManifestSchema,
 } from "../src/lib/schemas";
 
 const DATA = join(import.meta.dirname, "..", "data");
@@ -75,6 +76,48 @@ for (const a of assertions) {
     errors.push(`${a.id}: disorder ${a.disorder} not listed in ${a.studyId}`);
 }
 
+// embedding artifacts (optional until the pipeline has run)
+let embeddingSets = 0;
+const knownIdsFor: Record<string, Set<string>> = {
+  region: regionIds,
+  disorder: disorderIds,
+  study: studyIds,
+};
+for (const entity of ["region", "disorder", "study"] as const) {
+  const rel = `embeddings/${entity}.manifest.json`;
+  const path = join(DATA, rel);
+  if (!existsSync(path)) continue;
+  const parsed = EmbeddingSetManifestSchema.safeParse(
+    JSON.parse(readFileSync(path, "utf8")),
+  );
+  if (!parsed.success) {
+    errors.push(`data/${rel}: ${parsed.error.issues[0]?.message}`);
+    continue;
+  }
+  const m = parsed.data;
+  embeddingSets += 1;
+  const known = knownIdsFor[m.entityType];
+  for (const id of m.ids) {
+    if (known.size > 0 && !known.has(id))
+      errors.push(`data/${rel}: unknown ${m.entityType} id ${id}`);
+  }
+  const vectorsPath = join(DATA, "embeddings", m.vectorsFile);
+  if (!existsSync(vectorsPath)) {
+    errors.push(`data/${rel}: missing vectors file ${m.vectorsFile}`);
+  } else {
+    const expected = m.ids.length * m.dim * 4;
+    const actual = statSync(vectorsPath).size;
+    if (actual !== expected)
+      errors.push(
+        `data/${rel}: vectors file is ${actual} bytes, expected ${expected}`,
+      );
+  }
+  for (const [name, proj] of Object.entries(m.projections)) {
+    if (proj.length !== m.ids.length)
+      errors.push(`data/${rel}: projection ${name} has ${proj.length} points for ${m.ids.length} ids`);
+  }
+}
+
 if (errors.length > 0) {
   console.error(`data validation FAILED (${errors.length} error${errors.length > 1 ? "s" : ""}):`);
   for (const e of errors) console.error(`  - ${e}`);
@@ -84,5 +127,6 @@ if (errors.length > 0) {
 console.log(
   `data validation OK — regions: ${regionIds.size}, disorders: ${disorders.length}, ` +
     `modalities: ${modalities.length}, networks: ${networks.length}, ` +
-    `studies: ${studies.length}, assertions: ${assertions.length}`,
+    `studies: ${studies.length}, assertions: ${assertions.length}, ` +
+    `embedding sets: ${embeddingSets}`,
 );

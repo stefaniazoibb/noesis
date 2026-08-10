@@ -1,0 +1,309 @@
+{
+  "artifactId": "region_evidence_pca_v1",
+  "components": [
+    {
+      "index": 0,
+      "explainedVarianceRatio": 0.2504,
+      "topFeatures": [
+        {
+          "feature": "alzheimers_disease|stimulation",
+          "loading": 0.4469
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|stimulation",
+          "loading": 0.4469
+        },
+        {
+          "feature": "major_depressive_disorder|stimulation",
+          "loading": 0.4149
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|electrophysiology",
+          "loading": 0.4149
+        },
+        {
+          "feature": "alzheimers_disease|direction",
+          "loading": 0.3595
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|direction",
+          "loading": -0.1754
+        },
+        {
+          "feature": "schizophrenia|imaging",
+          "loading": -0.1662
+        },
+        {
+          "feature": "major_depressive_disorder|imaging",
+          "loading": -0.1432
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "explainedVarianceRatio": 0.2051,
+      "topFeatures": [
+        {
+          "feature": "major_depressive_disorder|imaging",
+          "loading": 0.4349
+        },
+        {
+          "feature": "major_depressive_disorder|direction",
+          "loading": -0.4077
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|imaging",
+          "loading": 0.382
+        },
+        {
+          "feature": "parkinsons_disease|direction",
+          "loading": 0.3639
+        },
+        {
+          "feature": "parkinsons_disease|imaging",
+          "loading": -0.3205
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|direction",
+          "loading": -0.3008
+        },
+        {
+          "feature": "alzheimers_disease|imaging",
+          "loading": 0.2958
+        },
+        {
+          "feature": "alzheimers_disease|direction",
+          "loading": -0.2043
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "explainedVarianceRatio": 0.1055,
+      "topFeatures": [
+        {
+          "feature": "parkinsons_disease|imaging",
+          "loading": 0.543
+        },
+        {
+          "feature": "schizophrenia|direction",
+          "loading": -0.4704
+        },
+        {
+          "feature": "parkinsons_disease|direction",
+          "loading": -0.4303
+        },
+        {
+          "feature": "major_depressive_disorder|direction",
+          "loading": -0.2683
+        },
+        {
+          "feature": "major_depressive_disorder|imaging",
+          "loading": 0.2364
+        },
+        {
+          "feature": "parkinsons_disease|stimulation",
+          "loading": -0.2202
+        },
+        {
+          "feature": "schizophrenia|imaging",
+          "loading": -0.2193
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|imaging",
+          "loading": 0.2107
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "explainedVarianceRatio": 0.1004,
+      "topFeatures": [
+        {
+          "feature": "schizophrenia|electrophysiology",
+          "loading": 0.5385
+        },
+        {
+          "feature": "schizophrenia|direction",
+          "loading": -0.4123
+        },
+        {
+          "feature": "schizophrenia|stimulation",
+          "loading": 0.3644
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|direction",
+          "loading": -0.3227
+        },
+        {
+          "feature": "major_depressive_disorder|direction",
+          "loading": 0.2533
+        },
+        {
+          "feature": "schizophrenia|imaging",
+          "loading": 0.2263
+        },
+        {
+          "feature": "alzheimers_disease|imaging",
+          "loading": -0.1986
+        },
+        {
+          "feature": "parkinsons_disease|stimulation",
+          "loading": -0.179
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "explainedVarianceRatio": 0.0721,
+      "topFeatures": [
+        {
+          "feature": "parkinsons_disease|stimulation",
+          "loading": 0.5551
+        },
+        {
+          "feature": "alzheimers_disease|imaging",
+          "loading": -0.4071
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|imaging",
+          "loading": 0.3566
+        },
+        {
+          "feature": "schizophrenia|imaging",
+          "loading": 0.3142
+        },
+        {
+          "feature": "alzheimers_disease|direction",
+          "loading": 0.2559
+        },
+        {
+          "feature": "schizophrenia|direction",
+          "loading": 0.2223
+        },
+        {
+          "feature": "parkinsons_disease|direction",
+          "loading": -0.211
+        },
+        {
+          "feature": "schizophrenia|stimulation",
+          "loading": -0.1953
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "explainedVarianceRatio": 0.0617,
+      "topFeatures": [
+        {
+          "feature": "schizophrenia|stimulation",
+          "loading": 0.7539
+        },
+        {
+          "feature": "schizophrenia|electrophysiology",
+          "loading": -0.5331
+        },
+        {
+          "feature": "schizophrenia|imaging",
+          "loading": 0.1962
+        },
+        {
+          "feature": "alzheimers_disease|imaging",
+          "loading": -0.1672
+        },
+        {
+          "feature": "major_depressive_disorder|direction",
+          "loading": -0.1364
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|direction",
+          "loading": 0.1276
+        },
+        {
+          "feature": "major_depressive_disorder|stimulation",
+          "loading": 0.0896
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|electrophysiology",
+          "loading": 0.0896
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "explainedVarianceRatio": 0.0585,
+      "topFeatures": [
+        {
+          "feature": "schizophrenia|imaging",
+          "loading": 0.4805
+        },
+        {
+          "feature": "alzheimers_disease|imaging",
+          "loading": 0.4782
+        },
+        {
+          "feature": "alzheimers_disease|direction",
+          "loading": -0.3149
+        },
+        {
+          "feature": "parkinsons_disease|stimulation",
+          "loading": 0.309
+        },
+        {
+          "feature": "major_depressive_disorder|stimulation",
+          "loading": 0.285
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|electrophysiology",
+          "loading": 0.285
+        },
+        {
+          "feature": "schizophrenia|direction",
+          "loading": -0.2673
+        },
+        {
+          "feature": "parkinsons_disease|direction",
+          "loading": -0.2304
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "explainedVarianceRatio": 0.048,
+      "topFeatures": [
+        {
+          "feature": "parkinsons_disease|stimulation",
+          "loading": 0.5636
+        },
+        {
+          "feature": "schizophrenia|imaging",
+          "loading": -0.4431
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|direction",
+          "loading": -0.338
+        },
+        {
+          "feature": "major_depressive_disorder|stimulation",
+          "loading": -0.2482
+        },
+        {
+          "feature": "post_traumatic_stress_disorder|electrophysiology",
+          "loading": -0.2482
+        },
+        {
+          "feature": "schizophrenia|stimulation",
+          "loading": 0.238
+        },
+        {
+          "feature": "alzheimers_disease|imaging",
+          "loading": 0.2302
+        },
+        {
+          "feature": "schizophrenia|direction",
+          "loading": -0.1679
+        }
+      ]
+    }
+  ]
+}

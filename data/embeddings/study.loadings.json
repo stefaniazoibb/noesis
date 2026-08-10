@@ -1,0 +1,309 @@
+{
+  "artifactId": "study_evidence_pca_v1",
+  "components": [
+    {
+      "index": 0,
+      "explainedVarianceRatio": 0.1446,
+      "topFeatures": [
+        {
+          "feature": "region|dk_lh_parstriangularis",
+          "loading": 0.2997
+        },
+        {
+          "feature": "region|dk_lh_middletemporal",
+          "loading": 0.2997
+        },
+        {
+          "feature": "region|dk_lh_inferiorparietal",
+          "loading": 0.2997
+        },
+        {
+          "feature": "region|dk_rh_inferiorparietal",
+          "loading": 0.2997
+        },
+        {
+          "feature": "region|dk_rh_middletemporal",
+          "loading": 0.2997
+        },
+        {
+          "feature": "region|dk_lh_parsopercularis",
+          "loading": 0.2997
+        },
+        {
+          "feature": "region|dk_rh_parahippocampal",
+          "loading": 0.2304
+        },
+        {
+          "feature": "region|dk_rh_superiortemporal",
+          "loading": 0.2102
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "explainedVarianceRatio": 0.1154,
+      "topFeatures": [
+        {
+          "feature": "region|dk_rh_medialorbitofrontal",
+          "loading": 0.2865
+        },
+        {
+          "feature": "region|dk_lh_medialorbitofrontal",
+          "loading": 0.2865
+        },
+        {
+          "feature": "region|dk_rh_caudalanteriorcingulate",
+          "loading": 0.286
+        },
+        {
+          "feature": "region|dk_lh_caudalanteriorcingulate",
+          "loading": 0.286
+        },
+        {
+          "feature": "region|dk_lh_rostralanteriorcingulate",
+          "loading": 0.2748
+        },
+        {
+          "feature": "region|dk_rh_rostralanteriorcingulate",
+          "loading": 0.2748
+        },
+        {
+          "feature": "region|dk_rh_lateralorbitofrontal",
+          "loading": 0.2278
+        },
+        {
+          "feature": "region|dk_lh_lateralorbitofrontal",
+          "loading": 0.2278
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "explainedVarianceRatio": 0.1046,
+      "topFeatures": [
+        {
+          "feature": "region|sub_rh_accumbens",
+          "loading": 0.3105
+        },
+        {
+          "feature": "region|sub_lh_accumbens",
+          "loading": 0.3105
+        },
+        {
+          "feature": "region|sub_rh_amygdala",
+          "loading": 0.2452
+        },
+        {
+          "feature": "region|sub_rh_pallidum",
+          "loading": 0.2369
+        },
+        {
+          "feature": "region|sub_rh_thalamus",
+          "loading": 0.2369
+        },
+        {
+          "feature": "region|sub_lh_amygdala",
+          "loading": 0.2349
+        },
+        {
+          "feature": "region|sub_rh_putamen",
+          "loading": 0.2254
+        },
+        {
+          "feature": "region|sub_lh_putamen",
+          "loading": 0.2254
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "explainedVarianceRatio": 0.0741,
+      "topFeatures": [
+        {
+          "feature": "region|dk_rh_precuneus",
+          "loading": 0.2543
+        },
+        {
+          "feature": "region|dk_lh_precuneus",
+          "loading": 0.2543
+        },
+        {
+          "feature": "category|stimulation",
+          "loading": -0.2411
+        },
+        {
+          "feature": "finding|stimulation_response",
+          "loading": -0.2411
+        },
+        {
+          "feature": "disorder|alzheimers_disease",
+          "loading": 0.2326
+        },
+        {
+          "feature": "category|imaging",
+          "loading": 0.2261
+        },
+        {
+          "feature": "region|dk_lh_rostralmiddlefrontal",
+          "loading": -0.2115
+        },
+        {
+          "feature": "region|dk_lh_caudalmiddlefrontal",
+          "loading": -0.2115
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "explainedVarianceRatio": 0.0711,
+      "topFeatures": [
+        {
+          "feature": "region|dk_rh_transversetemporal",
+          "loading": 0.2552
+        },
+        {
+          "feature": "region|dk_lh_transversetemporal",
+          "loading": 0.2552
+        },
+        {
+          "feature": "region|dk_rh_rostralmiddlefrontal",
+          "loading": -0.2331
+        },
+        {
+          "feature": "region|dk_lh_precuneus",
+          "loading": -0.2293
+        },
+        {
+          "feature": "region|dk_rh_precuneus",
+          "loading": -0.2293
+        },
+        {
+          "feature": "finding|functional_connectivity",
+          "loading": -0.2088
+        },
+        {
+          "feature": "year",
+          "loading": -0.1895
+        },
+        {
+          "feature": "disorder|alzheimers_disease",
+          "loading": -0.1837
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "explainedVarianceRatio": 0.0665,
+      "topFeatures": [
+        {
+          "feature": "region|dk_rh_superiorfrontal",
+          "loading": 0.2968
+        },
+        {
+          "feature": "direction|mixed",
+          "loading": 0.294
+        },
+        {
+          "feature": "region|dk_lh_superiorfrontal",
+          "loading": 0.2815
+        },
+        {
+          "feature": "region|dk_lh_transversetemporal",
+          "loading": 0.2664
+        },
+        {
+          "feature": "region|dk_rh_transversetemporal",
+          "loading": 0.2664
+        },
+        {
+          "feature": "direction|decreased",
+          "loading": -0.2639
+        },
+        {
+          "feature": "region|sub_lh_hippocampus",
+          "loading": -0.2523
+        },
+        {
+          "feature": "region|sub_rh_hippocampus",
+          "loading": -0.2413
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "explainedVarianceRatio": 0.06,
+      "topFeatures": [
+        {
+          "feature": "region|sub_lh_pallidum",
+          "loading": 0.2887
+        },
+        {
+          "feature": "region|sub_lh_thalamus",
+          "loading": 0.2887
+        },
+        {
+          "feature": "disorder|parkinsons_disease",
+          "loading": -0.2883
+        },
+        {
+          "feature": "region|sub_lh_putamen",
+          "loading": -0.272
+        },
+        {
+          "feature": "region|sub_rh_putamen",
+          "loading": -0.272
+        },
+        {
+          "feature": "region|sub_lh_caudate",
+          "loading": -0.2255
+        },
+        {
+          "feature": "region|sub_rh_caudate",
+          "loading": -0.2255
+        },
+        {
+          "feature": "direction|decreased",
+          "loading": -0.2223
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "explainedVarianceRatio": 0.0457,
+      "topFeatures": [
+        {
+          "feature": "disorder|post_traumatic_stress_disorder",
+          "loading": 0.3581
+        },
+        {
+          "feature": "finding|electrophysiological",
+          "loading": -0.2473
+        },
+        {
+          "feature": "category|electrophysiology",
+          "loading": -0.2473
+        },
+        {
+          "feature": "region|dk_rh_rostralmiddlefrontal",
+          "loading": 0.2462
+        },
+        {
+          "feature": "region|dk_rh_caudalmiddlefrontal",
+          "loading": 0.235
+        },
+        {
+          "feature": "log_sample_size",
+          "loading": -0.2246
+        },
+        {
+          "feature": "sample_size_missing",
+          "loading": 0.2076
+        },
+        {
+          "feature": "finding|volumetric",
+          "loading": 0.1803
+        }
+      ]
+    }
+  ]
+}
