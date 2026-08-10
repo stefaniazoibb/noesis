@@ -1,0 +1,9 @@
+nibabel
+mne
+numpy
+scipy
+scikit-image
+trimesh
+fast-simplification
+pydantic
+httpx

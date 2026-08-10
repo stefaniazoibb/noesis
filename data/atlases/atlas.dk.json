@@ -1,0 +1,838 @@
+{
+  "atlas": "dk",
+  "name": "Desikan-Killiany (fsaverage) + aseg subcortical",
+  "space": "fsaverage_surface_RAS",
+  "source": "FreeSurfer fsaverage via MNE-Python; see data/provenance/",
+  "regions": [
+    {
+      "id": "dk_lh_bankssts",
+      "atlas": "dk",
+      "sourceName": "bankssts",
+      "name": "Banks of the superior temporal sulcus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#196428"
+    },
+    {
+      "id": "dk_lh_caudalanteriorcingulate",
+      "atlas": "dk",
+      "sourceName": "caudalanteriorcingulate",
+      "name": "Caudal anterior cingulate cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#7d64a0"
+    },
+    {
+      "id": "dk_lh_caudalmiddlefrontal",
+      "atlas": "dk",
+      "sourceName": "caudalmiddlefrontal",
+      "name": "Caudal middle frontal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#641900"
+    },
+    {
+      "id": "dk_lh_cuneus",
+      "atlas": "dk",
+      "sourceName": "cuneus",
+      "name": "Cuneus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#dc1464"
+    },
+    {
+      "id": "dk_lh_entorhinal",
+      "atlas": "dk",
+      "sourceName": "entorhinal",
+      "name": "Entorhinal cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#dc140a"
+    },
+    {
+      "id": "dk_lh_fusiform",
+      "atlas": "dk",
+      "sourceName": "fusiform",
+      "name": "Fusiform gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#b4dc8c"
+    },
+    {
+      "id": "dk_lh_inferiorparietal",
+      "atlas": "dk",
+      "sourceName": "inferiorparietal",
+      "name": "Inferior parietal cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#dc3cdc"
+    },
+    {
+      "id": "dk_lh_inferiortemporal",
+      "atlas": "dk",
+      "sourceName": "inferiortemporal",
+      "name": "Inferior temporal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#b42878"
+    },
+    {
+      "id": "dk_lh_isthmuscingulate",
+      "atlas": "dk",
+      "sourceName": "isthmuscingulate",
+      "name": "Isthmus of the cingulate cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#8c148c"
+    },
+    {
+      "id": "dk_lh_lateraloccipital",
+      "atlas": "dk",
+      "sourceName": "lateraloccipital",
+      "name": "Lateral occipital cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#141e8c"
+    },
+    {
+      "id": "dk_lh_lateralorbitofrontal",
+      "atlas": "dk",
+      "sourceName": "lateralorbitofrontal",
+      "name": "Lateral orbitofrontal cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#234b32"
+    },
+    {
+      "id": "dk_lh_lingual",
+      "atlas": "dk",
+      "sourceName": "lingual",
+      "name": "Lingual gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#e18c8c"
+    },
+    {
+      "id": "dk_lh_medialorbitofrontal",
+      "atlas": "dk",
+      "sourceName": "medialorbitofrontal",
+      "name": "Medial orbitofrontal cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#c8234b"
+    },
+    {
+      "id": "dk_lh_middletemporal",
+      "atlas": "dk",
+      "sourceName": "middletemporal",
+      "name": "Middle temporal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#a06432"
+    },
+    {
+      "id": "dk_lh_parahippocampal",
+      "atlas": "dk",
+      "sourceName": "parahippocampal",
+      "name": "Parahippocampal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#14dc3c"
+    },
+    {
+      "id": "dk_lh_paracentral",
+      "atlas": "dk",
+      "sourceName": "paracentral",
+      "name": "Paracentral lobule",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#3cdc3c"
+    },
+    {
+      "id": "dk_lh_parsopercularis",
+      "atlas": "dk",
+      "sourceName": "parsopercularis",
+      "name": "Pars opercularis",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#dcb48c"
+    },
+    {
+      "id": "dk_lh_parsorbitalis",
+      "atlas": "dk",
+      "sourceName": "parsorbitalis",
+      "name": "Pars orbitalis",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#146432"
+    },
+    {
+      "id": "dk_lh_parstriangularis",
+      "atlas": "dk",
+      "sourceName": "parstriangularis",
+      "name": "Pars triangularis",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#dc3c14"
+    },
+    {
+      "id": "dk_lh_pericalcarine",
+      "atlas": "dk",
+      "sourceName": "pericalcarine",
+      "name": "Pericalcarine cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#78643c"
+    },
+    {
+      "id": "dk_lh_postcentral",
+      "atlas": "dk",
+      "sourceName": "postcentral",
+      "name": "Postcentral gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#dc1414"
+    },
+    {
+      "id": "dk_lh_posteriorcingulate",
+      "atlas": "dk",
+      "sourceName": "posteriorcingulate",
+      "name": "Posterior cingulate cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#dcb4dc"
+    },
+    {
+      "id": "dk_lh_precentral",
+      "atlas": "dk",
+      "sourceName": "precentral",
+      "name": "Precentral gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#3c14dc"
+    },
+    {
+      "id": "dk_lh_precuneus",
+      "atlas": "dk",
+      "sourceName": "precuneus",
+      "name": "Precuneus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#a08cb4"
+    },
+    {
+      "id": "dk_lh_rostralanteriorcingulate",
+      "atlas": "dk",
+      "sourceName": "rostralanteriorcingulate",
+      "name": "Rostral anterior cingulate cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#50148c"
+    },
+    {
+      "id": "dk_lh_rostralmiddlefrontal",
+      "atlas": "dk",
+      "sourceName": "rostralmiddlefrontal",
+      "name": "Rostral middle frontal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#4b327d"
+    },
+    {
+      "id": "dk_lh_superiorfrontal",
+      "atlas": "dk",
+      "sourceName": "superiorfrontal",
+      "name": "Superior frontal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#14dca0"
+    },
+    {
+      "id": "dk_lh_superiorparietal",
+      "atlas": "dk",
+      "sourceName": "superiorparietal",
+      "name": "Superior parietal cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#14b48c"
+    },
+    {
+      "id": "dk_lh_superiortemporal",
+      "atlas": "dk",
+      "sourceName": "superiortemporal",
+      "name": "Superior temporal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#8cdcdc"
+    },
+    {
+      "id": "dk_lh_supramarginal",
+      "atlas": "dk",
+      "sourceName": "supramarginal",
+      "name": "Supramarginal gyrus",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#50a014"
+    },
+    {
+      "id": "dk_lh_frontalpole",
+      "atlas": "dk",
+      "sourceName": "frontalpole",
+      "name": "Frontal pole",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#640064"
+    },
+    {
+      "id": "dk_lh_temporalpole",
+      "atlas": "dk",
+      "sourceName": "temporalpole",
+      "name": "Temporal pole",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#4614aa"
+    },
+    {
+      "id": "dk_lh_transversetemporal",
+      "atlas": "dk",
+      "sourceName": "transversetemporal",
+      "name": "Transverse temporal cortex",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#9696c8"
+    },
+    {
+      "id": "dk_lh_insula",
+      "atlas": "dk",
+      "sourceName": "insula",
+      "name": "Insula",
+      "hemisphere": "left",
+      "kind": "cortical",
+      "system": "insula",
+      "color": "#ffc020"
+    },
+    {
+      "id": "dk_rh_bankssts",
+      "atlas": "dk",
+      "sourceName": "bankssts",
+      "name": "Banks of the superior temporal sulcus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#196428"
+    },
+    {
+      "id": "dk_rh_caudalanteriorcingulate",
+      "atlas": "dk",
+      "sourceName": "caudalanteriorcingulate",
+      "name": "Caudal anterior cingulate cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#7d64a0"
+    },
+    {
+      "id": "dk_rh_caudalmiddlefrontal",
+      "atlas": "dk",
+      "sourceName": "caudalmiddlefrontal",
+      "name": "Caudal middle frontal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#641900"
+    },
+    {
+      "id": "dk_rh_cuneus",
+      "atlas": "dk",
+      "sourceName": "cuneus",
+      "name": "Cuneus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#dc1464"
+    },
+    {
+      "id": "dk_rh_entorhinal",
+      "atlas": "dk",
+      "sourceName": "entorhinal",
+      "name": "Entorhinal cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#dc140a"
+    },
+    {
+      "id": "dk_rh_fusiform",
+      "atlas": "dk",
+      "sourceName": "fusiform",
+      "name": "Fusiform gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#b4dc8c"
+    },
+    {
+      "id": "dk_rh_inferiorparietal",
+      "atlas": "dk",
+      "sourceName": "inferiorparietal",
+      "name": "Inferior parietal cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#dc3cdc"
+    },
+    {
+      "id": "dk_rh_inferiortemporal",
+      "atlas": "dk",
+      "sourceName": "inferiortemporal",
+      "name": "Inferior temporal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#b42878"
+    },
+    {
+      "id": "dk_rh_isthmuscingulate",
+      "atlas": "dk",
+      "sourceName": "isthmuscingulate",
+      "name": "Isthmus of the cingulate cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#8c148c"
+    },
+    {
+      "id": "dk_rh_lateraloccipital",
+      "atlas": "dk",
+      "sourceName": "lateraloccipital",
+      "name": "Lateral occipital cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#141e8c"
+    },
+    {
+      "id": "dk_rh_lateralorbitofrontal",
+      "atlas": "dk",
+      "sourceName": "lateralorbitofrontal",
+      "name": "Lateral orbitofrontal cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#234b32"
+    },
+    {
+      "id": "dk_rh_lingual",
+      "atlas": "dk",
+      "sourceName": "lingual",
+      "name": "Lingual gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#e18c8c"
+    },
+    {
+      "id": "dk_rh_medialorbitofrontal",
+      "atlas": "dk",
+      "sourceName": "medialorbitofrontal",
+      "name": "Medial orbitofrontal cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#c8234b"
+    },
+    {
+      "id": "dk_rh_middletemporal",
+      "atlas": "dk",
+      "sourceName": "middletemporal",
+      "name": "Middle temporal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#a06432"
+    },
+    {
+      "id": "dk_rh_parahippocampal",
+      "atlas": "dk",
+      "sourceName": "parahippocampal",
+      "name": "Parahippocampal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#14dc3c"
+    },
+    {
+      "id": "dk_rh_paracentral",
+      "atlas": "dk",
+      "sourceName": "paracentral",
+      "name": "Paracentral lobule",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#3cdc3c"
+    },
+    {
+      "id": "dk_rh_parsopercularis",
+      "atlas": "dk",
+      "sourceName": "parsopercularis",
+      "name": "Pars opercularis",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#dcb48c"
+    },
+    {
+      "id": "dk_rh_parsorbitalis",
+      "atlas": "dk",
+      "sourceName": "parsorbitalis",
+      "name": "Pars orbitalis",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#146432"
+    },
+    {
+      "id": "dk_rh_parstriangularis",
+      "atlas": "dk",
+      "sourceName": "parstriangularis",
+      "name": "Pars triangularis",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#dc3c14"
+    },
+    {
+      "id": "dk_rh_pericalcarine",
+      "atlas": "dk",
+      "sourceName": "pericalcarine",
+      "name": "Pericalcarine cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "occipital",
+      "color": "#78643c"
+    },
+    {
+      "id": "dk_rh_postcentral",
+      "atlas": "dk",
+      "sourceName": "postcentral",
+      "name": "Postcentral gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#dc1414"
+    },
+    {
+      "id": "dk_rh_posteriorcingulate",
+      "atlas": "dk",
+      "sourceName": "posteriorcingulate",
+      "name": "Posterior cingulate cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#dcb4dc"
+    },
+    {
+      "id": "dk_rh_precentral",
+      "atlas": "dk",
+      "sourceName": "precentral",
+      "name": "Precentral gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#3c14dc"
+    },
+    {
+      "id": "dk_rh_precuneus",
+      "atlas": "dk",
+      "sourceName": "precuneus",
+      "name": "Precuneus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#a08cb4"
+    },
+    {
+      "id": "dk_rh_rostralanteriorcingulate",
+      "atlas": "dk",
+      "sourceName": "rostralanteriorcingulate",
+      "name": "Rostral anterior cingulate cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "cingulate",
+      "color": "#50148c"
+    },
+    {
+      "id": "dk_rh_rostralmiddlefrontal",
+      "atlas": "dk",
+      "sourceName": "rostralmiddlefrontal",
+      "name": "Rostral middle frontal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#4b327d"
+    },
+    {
+      "id": "dk_rh_superiorfrontal",
+      "atlas": "dk",
+      "sourceName": "superiorfrontal",
+      "name": "Superior frontal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#14dca0"
+    },
+    {
+      "id": "dk_rh_superiorparietal",
+      "atlas": "dk",
+      "sourceName": "superiorparietal",
+      "name": "Superior parietal cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#14b48c"
+    },
+    {
+      "id": "dk_rh_superiortemporal",
+      "atlas": "dk",
+      "sourceName": "superiortemporal",
+      "name": "Superior temporal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#8cdcdc"
+    },
+    {
+      "id": "dk_rh_supramarginal",
+      "atlas": "dk",
+      "sourceName": "supramarginal",
+      "name": "Supramarginal gyrus",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "parietal",
+      "color": "#50a014"
+    },
+    {
+      "id": "dk_rh_frontalpole",
+      "atlas": "dk",
+      "sourceName": "frontalpole",
+      "name": "Frontal pole",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "frontal",
+      "color": "#640064"
+    },
+    {
+      "id": "dk_rh_temporalpole",
+      "atlas": "dk",
+      "sourceName": "temporalpole",
+      "name": "Temporal pole",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#4614aa"
+    },
+    {
+      "id": "dk_rh_transversetemporal",
+      "atlas": "dk",
+      "sourceName": "transversetemporal",
+      "name": "Transverse temporal cortex",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "temporal",
+      "color": "#9696c8"
+    },
+    {
+      "id": "dk_rh_insula",
+      "atlas": "dk",
+      "sourceName": "insula",
+      "name": "Insula",
+      "hemisphere": "right",
+      "kind": "cortical",
+      "system": "insula",
+      "color": "#ffc020"
+    },
+    {
+      "id": "sub_lh_thalamus",
+      "atlas": "dk",
+      "sourceName": "aseg_10",
+      "name": "Thalamus",
+      "hemisphere": "left",
+      "kind": "subcortical",
+      "system": "diencephalon",
+      "color": "#7a9e9f"
+    },
+    {
+      "id": "sub_lh_caudate",
+      "atlas": "dk",
+      "sourceName": "aseg_11",
+      "name": "Caudate nucleus",
+      "hemisphere": "left",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_lh_putamen",
+      "atlas": "dk",
+      "sourceName": "aseg_12",
+      "name": "Putamen",
+      "hemisphere": "left",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_lh_pallidum",
+      "atlas": "dk",
+      "sourceName": "aseg_13",
+      "name": "Globus pallidus",
+      "hemisphere": "left",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_lh_hippocampus",
+      "atlas": "dk",
+      "sourceName": "aseg_17",
+      "name": "Hippocampus",
+      "hemisphere": "left",
+      "kind": "subcortical",
+      "system": "limbic",
+      "color": "#8f7ab0"
+    },
+    {
+      "id": "sub_lh_amygdala",
+      "atlas": "dk",
+      "sourceName": "aseg_18",
+      "name": "Amygdala",
+      "hemisphere": "left",
+      "kind": "subcortical",
+      "system": "limbic",
+      "color": "#8f7ab0"
+    },
+    {
+      "id": "sub_lh_accumbens",
+      "atlas": "dk",
+      "sourceName": "aseg_26",
+      "name": "Nucleus accumbens",
+      "hemisphere": "left",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_rh_thalamus",
+      "atlas": "dk",
+      "sourceName": "aseg_49",
+      "name": "Thalamus",
+      "hemisphere": "right",
+      "kind": "subcortical",
+      "system": "diencephalon",
+      "color": "#7a9e9f"
+    },
+    {
+      "id": "sub_rh_caudate",
+      "atlas": "dk",
+      "sourceName": "aseg_50",
+      "name": "Caudate nucleus",
+      "hemisphere": "right",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_rh_putamen",
+      "atlas": "dk",
+      "sourceName": "aseg_51",
+      "name": "Putamen",
+      "hemisphere": "right",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_rh_pallidum",
+      "atlas": "dk",
+      "sourceName": "aseg_52",
+      "name": "Globus pallidus",
+      "hemisphere": "right",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_rh_hippocampus",
+      "atlas": "dk",
+      "sourceName": "aseg_53",
+      "name": "Hippocampus",
+      "hemisphere": "right",
+      "kind": "subcortical",
+      "system": "limbic",
+      "color": "#8f7ab0"
+    },
+    {
+      "id": "sub_rh_amygdala",
+      "atlas": "dk",
+      "sourceName": "aseg_54",
+      "name": "Amygdala",
+      "hemisphere": "right",
+      "kind": "subcortical",
+      "system": "limbic",
+      "color": "#8f7ab0"
+    },
+    {
+      "id": "sub_rh_accumbens",
+      "atlas": "dk",
+      "sourceName": "aseg_58",
+      "name": "Nucleus accumbens",
+      "hemisphere": "right",
+      "kind": "subcortical",
+      "system": "basal_ganglia",
+      "color": "#b0847a"
+    },
+    {
+      "id": "sub_mid_brainstem",
+      "atlas": "dk",
+      "sourceName": "aseg_16",
+      "name": "Brainstem",
+      "hemisphere": "midline",
+      "kind": "subcortical",
+      "system": "brainstem",
+      "color": "#9a9a86"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "dataset": "fsaverage",
+  "description": "FreeSurfer fsaverage template subject: pial surfaces, Desikan-Killiany parcellation (aparc.annot), and aseg.mgz subcortical segmentation. Used to build all 3D geometry and the atlas region table.",
+  "origin": "FreeSurfer (Martinos Center); retrieved via mne.datasets.fetch_fsaverage (MNE-Python 1.12.1)",
+  "license": "FreeSurfer license terms; redistributed as part of the MNE-Python fsaverage dataset bundle",
+  "retrievedDate": "2026-08-10",
+  "localPath": "~/mne_data/MNE-fsaverage-data/fsaverage",
+  "derivedArtifacts": [
+    "public/meshes/cortex_{lh,rh}.glb (pial, decimated to ~18k verts/hemisphere)",
+    "public/meshes/cortex_{lh,rh}.regions.json (vertex-to-region maps)",
+    "public/meshes/sub_*.glb (aseg-derived subcortical structures)",
+    "data/atlases/atlas.dk.json (region table from annot color table + aseg labels)"
+  ],
+  "limitations": [
+    "fsaverage is a population-average template; it does not represent any individual brain.",
+    "Decimation (~9x) smooths fine gyral detail; region boundaries are approximate at mesh edges.",
+    "Region labels on decimated vertices were transferred by nearest-neighbor from the full-resolution surface."
+  ]
+}
