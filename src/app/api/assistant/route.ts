@@ -12,6 +12,7 @@ import { getAtlas } from "@/lib/repo/atlas";
 import { getDisorders, getModalities } from "@/lib/repo/entities";
 import { getStudies } from "@/lib/repo/evidence";
 import { VizStatePatchSchema } from "@/lib/schemas";
+import { generateQuestion, rankedGapsFor } from "@/ai/questions";
 
 const DISCLAIMER =
   "AI-generated synthesis based on indexed evidence. Verify against the original publications.";
@@ -80,6 +81,52 @@ export async function POST(req: NextRequest) {
     };
 
     if (intent.intent === "viz_command") return vizResponse(intent);
+    if (intent.intent === "research_questions") {
+      const disorderId = intent.disorders[0];
+      if (!disorderId) {
+        return NextResponse.json({
+          type: "answer",
+          answer:
+            "Tell me which disorder to generate research questions for (e.g. \"generate research questions about OCD\") — I derive them from that disorder's detected evidence gaps.",
+          citations: [],
+          flags: { strippedCitations: 0, uncitedSentences: 0 },
+          disclaimer: null,
+        });
+      }
+      const gaps = rankedGapsFor(disorderId).slice(0, 2);
+      if (gaps.length === 0) return noEvidenceAnswer();
+      const questions = (
+        await Promise.all(gaps.map((g) => generateQuestion(g)))
+      ).filter((q) => q !== null);
+      const answer = questions
+        .map(
+          (q, i) =>
+            `${i + 1}. ${q.question}\n` +
+            `Why: ${q.rationale}\n` +
+            `Hypothesis: ${q.hypothesis}\n` +
+            `Gap: ${q.provenance.ruleName} (${q.rank.explanation}).`,
+        )
+        .join("\n\n");
+      const seen = new Set<string>();
+      const citations = questions
+        .flatMap((q) => q.provenance.studies)
+        .filter((s) => !seen.has(s.id) && seen.add(s.id));
+      return NextResponse.json({
+        type: "answer",
+        answer:
+          `AI-generated research opportunities derived from detected evidence gaps:\n\n${answer}`,
+        citations,
+        flags: {
+          strippedCitations: questions.reduce(
+            (n, q) => n + q.flags.strippedCitations,
+            0,
+          ),
+          uncitedSentences: 0,
+        },
+        disclaimer:
+          "AI-generated research opportunities based on the indexed evidence — not validated research conclusions.",
+      });
+    }
     if (intent.intent === "smalltalk") {
       return NextResponse.json({
         type: "answer",

@@ -7,6 +7,7 @@ import { EVIDENCE_LEVEL_LABEL, NO_FILTERS } from "@/lib/evidence/metrics";
 import { StudyListItem } from "@/evidence/StudyListItem";
 import { GapsSection } from "@/evidence/GapsSection";
 import { PersonalExperienceNote } from "@/components/PersonalExperienceNote";
+import { ResearchOpportunities } from "@/components/ResearchOpportunities";
 
 export function generateStaticParams() {
   return getDisorders().map((d) => ({ id: d.id }));
@@ -128,6 +129,8 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
       </section>
 
       <GapsSection disorderId={disorder.id} />
+
+      <ResearchOpportunities disorderId={disorder.id} />
 
       <section className="mt-4">
         <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">

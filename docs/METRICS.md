@@ -86,6 +86,18 @@ disorders the highest-priority category among a region's profiles is shown):
 
 Regions with no indexed evidence keep the anatomical base color.
 
+## Research-question ranking
+
+Generated research questions are ranked by a transparent rule — never by a
+model score: `score = gap magnitude × rule weight`, with weights
+GAP-CONFLICT 3 (resolving contradictions), GAP-IMG-EP 2 and GAP-OBS-INT 2
+(missing-modality/intervention gaps), GAP-ATTENTION 1. The question *type*
+is likewise fixed per rule (conflict → methodological, imaging/EP →
+cross-modal, observational/intervention → interventional, attention →
+comparative). The LLM writes only the prose; candidate regions, modalities,
+provenance, and ranking are deterministic, and inline citations are
+validated against the gap's own studies.
+
 ## Not yet implemented
 
 Disorder specificity, network centrality, and representation similarity are

@@ -11,7 +11,7 @@ import { getDisorders, getModalities } from "@/lib/repo/entities";
  */
 
 export const IntentSchema = z.object({
-  intent: z.enum(["question", "viz_command", "smalltalk"]),
+  intent: z.enum(["question", "viz_command", "research_questions", "smalltalk"]),
   disorders: z.array(z.string()),
   regions: z.array(z.string()),
   modalities: z.array(z.string()),
@@ -44,6 +44,7 @@ const SYSTEM = `You are the query parser for NOĒSIS, a brain-evidence atlas. Cl
 
 - intent "question": the user asks about evidence, regions, disorders, studies, or the literature.
 - intent "viz_command": the user asks to change the 3D visualization (switch mode, filter modalities, select a disorder or region, show subcortex). If a message both asks a question and changes the view, prefer "question".
+- intent "research_questions": the user asks to generate/propose research questions, research opportunities, or hypotheses (e.g. "generate research questions about OCD").
 - intent "smalltalk": greetings or anything else.
 
 Entity linking rules: use ONLY ids from the catalogs below. Map synonyms (e.g. "depression" -> major_depressive_disorder, "DLPFC" -> rostral/caudal middle frontal regions, "hippocampus" -> both hemisphere ids unless one side is named). If nothing matches, leave the list empty — never invent ids.
