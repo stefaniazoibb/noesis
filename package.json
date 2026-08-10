@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "validate:data": "tsx scripts/validate-data.ts",
+    "report:gaps": "tsx scripts/report-gaps.ts",
     "test": "vitest run"
   },
   "dependencies": {

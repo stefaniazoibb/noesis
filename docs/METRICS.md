@@ -38,6 +38,40 @@ their own. These labels summarize the **indexed corpus only** — the corpus is
 curated and small, not a systematic review, and the labels must not be read
 as clinical consensus.
 
+## Convergence profile (disorder–region)
+
+Computed by `src/lib/evidence/convergence.ts`. Each dimension is reported
+separately and never collapsed into a single score.
+
+| Dimension | Definition |
+|---|---|
+| Study convergence | Distinct studies with ≥1 assertion for the pair (= study count above). |
+| Modality convergence | Distinct modality categories (= cross-modal convergence above); per-category study lists are also reported. |
+| Direction consistency | Unit = a distinct (study, finding type, direction) tuple with direction increased/decreased. Consistency = (units agreeing with the majority direction of their finding type) / (all directional units). Reported as **not assessed** with fewer than 2 units. |
+| Conflict | Same finding type reported with opposite directions. The report lists the study ids on each side plus their year range, sample sizes, and populations — possible reasons for disagreement are surfaced for the researcher, never adjudicated automatically. |
+| Intervention coverage | Distinct studies whose assertions carry `causalSupport: interventional` (vs `correlational`). |
+
+**Not assessed** (the current study schema cannot support them; shown
+explicitly instead of being approximated): dataset convergence,
+methodological convergence, population convergence, longitudinal convergence.
+
+## Evidence-gap rules
+
+Detected by `src/lib/evidence/gaps.ts`. Gaps describe the **indexed corpus**,
+which is curated and small — a detected gap may reflect a curation gap rather
+than a gap in the literature, and every consumer must display that caveat.
+Each gap carries the study ids behind it (full provenance chain).
+
+| Rule | Fires when | Magnitude |
+|---|---|---|
+| GAP-IMG-EP | ≥3 distinct imaging studies for the pair, 0 electrophysiology studies | imaging study count |
+| GAP-OBS-INT | ≥3 distinct correlational studies for the pair, 0 interventional | correlational study count |
+| GAP-CONFLICT | a conflict (above) with ≥2 distinct studies on each side | smaller side |
+| GAP-ATTENTION | region has ≥3 studies for disorder A and 0 for disorder B, where A and B share ≥2 implicated regions in the corpus | study count in A |
+
+Run `npm run report:gaps` to print the profiles and detected gaps for the
+current corpus.
+
 ## Not yet implemented
 
 Disorder specificity, network centrality, and representation similarity are
