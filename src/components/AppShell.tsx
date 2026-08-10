@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const PLANNED = ["Disorders", "Evidence", "Assistant", "ML Lab"];
+const PLANNED = ["Evidence", "Assistant", "ML Lab"];
 
 export function TopNav() {
   return (
@@ -19,6 +19,9 @@ export function TopNav() {
       <nav className="flex items-center gap-4 text-sm">
         <Link href="/brain" className="text-zinc-200 hover:text-white">
           Brain
+        </Link>
+        <Link href="/disorders" className="text-zinc-200 hover:text-white">
+          Disorders
         </Link>
         {PLANNED.map((label) => (
           <span

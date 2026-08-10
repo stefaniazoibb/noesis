@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "id": "default_mode_network",
+    "name": "Default mode network",
+    "description": "A large-scale network engaged during rest and internally directed cognition. Region memberships are not yet populated — they will be ingested from a documented parcellation with provenance, not hand-assigned.",
+    "regions": [],
+    "membershipSource": null,
+    "synonyms": ["DMN", "default network"]
+  },
+  {
+    "id": "salience_network",
+    "name": "Salience network",
+    "description": "A network implicated in detecting behaviorally relevant stimuli and coordinating switching between large-scale networks. Region memberships pending documented parcellation ingestion.",
+    "regions": [],
+    "membershipSource": null,
+    "synonyms": ["SN", "ventral attention network", "cingulo-opercular network"]
+  },
+  {
+    "id": "frontoparietal_control_network",
+    "name": "Frontoparietal control network",
+    "description": "A network associated with executive control and adaptive task processing. Region memberships pending documented parcellation ingestion.",
+    "regions": [],
+    "membershipSource": null,
+    "synonyms": ["FPCN", "central executive network", "CEN", "executive control network"]
+  },
+  {
+    "id": "limbic_network",
+    "name": "Limbic network",
+    "description": "A grouping of medial temporal and orbitofrontal structures involved in affect and memory. Region memberships pending documented parcellation ingestion.",
+    "regions": [],
+    "membershipSource": null,
+    "synonyms": ["limbic system network"]
+  }
+]

@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "id": "major_depressive_disorder",
+    "name": "Major depressive disorder",
+    "category": "psychiatric",
+    "overview": "A mood disorder characterized by persistent low mood and/or loss of interest or pleasure, together with cognitive and somatic symptoms, causing significant functional impairment. Neuroimaging and electrophysiology research has repeatedly implicated limbic and prefrontal systems, though findings across studies are heterogeneous.",
+    "synonyms": ["MDD", "major depression", "depression", "unipolar depression"]
+  },
+  {
+    "id": "post_traumatic_stress_disorder",
+    "name": "Post-traumatic stress disorder",
+    "category": "psychiatric",
+    "overview": "A trauma- and stressor-related disorder that can develop after exposure to actual or threatened death, serious injury, or violence, characterized by intrusive re-experiencing, avoidance, negative alterations in cognition and mood, and hyperarousal. Research has focused on fear-processing and threat-regulation circuitry, with mixed and evolving findings.",
+    "synonyms": ["PTSD", "post traumatic stress disorder", "posttraumatic stress disorder"]
+  },
+  {
+    "id": "schizophrenia",
+    "name": "Schizophrenia",
+    "category": "psychiatric",
+    "overview": "A psychotic disorder characterized by positive symptoms (hallucinations, delusions, disorganized thought), negative symptoms (avolition, blunted affect), and cognitive impairment. It is studied across structural, functional, and electrophysiological modalities, with widespread and heterogeneous findings rather than a single localized alteration.",
+    "synonyms": ["SCZ", "schizophrenia spectrum disorder"]
+  },
+  {
+    "id": "alzheimers_disease",
+    "name": "Alzheimer's disease",
+    "category": "neurodegenerative",
+    "overview": "A progressive neurodegenerative disease and the most common cause of dementia, typically presenting with early episodic memory impairment. Its defining neuropathology is the accumulation of amyloid-beta plaques and tau neurofibrillary tangles, accompanied by progressive atrophy that is studied extensively with structural imaging and PET.",
+    "synonyms": ["AD", "Alzheimer disease", "Alzheimers disease"]
+  },
+  {
+    "id": "parkinsons_disease",
+    "name": "Parkinson's disease",
+    "category": "neurodegenerative",
+    "overview": "A progressive neurodegenerative disorder characterized by bradykinesia, rigidity, and resting tremor, frequently accompanied by non-motor symptoms. Its pathological hallmark is the degeneration of dopaminergic neurons of the substantia nigra with alpha-synuclein pathology; basal ganglia circuits are a major focus of imaging and stimulation research.",
+    "synonyms": ["PD", "Parkinson disease", "Parkinsons disease"]
+  }
+]
