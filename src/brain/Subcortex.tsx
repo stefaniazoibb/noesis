@@ -6,8 +6,10 @@ import { useGLTF } from "@react-three/drei";
 import { useVizStore } from "@/state/vizStore";
 import { subcorticalRegions } from "@/lib/repo/atlas";
 import type { Region } from "@/lib/schemas";
+import { useOverlayResult } from "./useOverlay";
 
 function Structure({ region }: { region: Region }) {
+  const overlay = useOverlayResult();
   const { scene } = useGLTF(`/meshes/${region.id}.glb`);
   const setHover = useVizStore((s) => s.setHover);
   const selectRegion = useVizStore((s) => s.selectRegion);
@@ -37,7 +39,11 @@ function Structure({ region }: { region: Region }) {
       }}
     >
       <meshStandardMaterial
-        color={region.color}
+        color={
+          overlay.kind === null
+            ? region.color
+            : (overlay.colors.get(region.id) ?? "#3a3f45")
+        }
         roughness={0.55}
         emissive={selected ? "#c58f3c" : hovered ? "#39678c" : "#000000"}
         emissiveIntensity={selected || hovered ? 0.6 : 0}

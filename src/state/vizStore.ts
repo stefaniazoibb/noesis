@@ -22,6 +22,9 @@ interface VizStore extends VizState {
   selectRegion: (id: string | null) => void;
   toggleHemisphere: (side: "left" | "right") => void;
   setShowSubcortical: (v: boolean) => void;
+  setMode: (mode: VizState["mode"]) => void;
+  setActiveDisorder: (id: string | null) => void;
+  toggleModality: (id: string) => void;
   requestView: (name: ViewPresetName) => void;
   /** the only mutation path the AI assistant is allowed to use */
   applyPatch: (patch: VizStatePatch) => void;
@@ -39,6 +42,14 @@ export const useVizStore = create<VizStore>((set) => ({
       hemispheres: { ...s.hemispheres, [side]: !s.hemispheres[side] },
     })),
   setShowSubcortical: (v) => set({ showSubcortical: v }),
+  setMode: (mode) => set({ mode }),
+  setActiveDisorder: (id) => set({ disorders: id ? [id] : [] }),
+  toggleModality: (id) =>
+    set((s) => ({
+      modalities: s.modalities.includes(id)
+        ? s.modalities.filter((m) => m !== id)
+        : [...s.modalities, id],
+    })),
   requestView: (name) =>
     set((s) => ({
       viewRequest: { name, nonce: (s.viewRequest?.nonce ?? 0) + 1 },

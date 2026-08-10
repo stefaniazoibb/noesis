@@ -7,6 +7,8 @@ import type { ThreeEvent } from "@react-three/fiber";
 import { useVizStore } from "@/state/vizStore";
 import { useSidecar, type SidecarData } from "./sidecar";
 import { createCortexAssets } from "./cortexMaterial";
+import { useOverlayResult } from "./useOverlay";
+import { hexToRgb } from "@/lib/evidence/overlay";
 
 function firstGeometry(scene: THREE.Object3D): THREE.BufferGeometry | null {
   let g: THREE.BufferGeometry | null = null;
@@ -62,6 +64,28 @@ export function CortexHemisphere({ hemi }: { hemi: "lh" | "rh" }) {
   useEffect(() => {
     assets.setTranslucent(showSub);
   }, [showSub, assets]);
+
+  // evidence overlay -> per-region color texture
+  const overlay = useOverlayResult();
+  useEffect(() => {
+    if (!sidecar) return;
+    if (overlay.kind === null) {
+      assets.setOverlay(null);
+      return;
+    }
+    const rgba = new Uint8Array(256 * 4);
+    sidecar.regionIndexToId.forEach((id, i) => {
+      const hex = overlay.colors.get(id);
+      if (hex) {
+        const [r, g, b] = hexToRgb(hex);
+        rgba[i * 4] = r;
+        rgba[i * 4 + 1] = g;
+        rgba[i * 4 + 2] = b;
+        rgba[i * 4 + 3] = 217; // 85% mix; anatomy stays faintly visible
+      }
+    });
+    assets.setOverlay(rgba);
+  }, [overlay, sidecar, assets]);
 
   if (!geometry || !sidecar) return null;
   return (

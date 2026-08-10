@@ -3,6 +3,8 @@
 import { BrainViewer } from "@/brain/BrainViewer";
 import { RegionPanel } from "@/brain/RegionPanel";
 import { ViewerControls } from "@/brain/ViewerControls";
+import { FilterBar } from "@/brain/FilterBar";
+import { Legend } from "@/brain/Legend";
 import { HoverLabel } from "@/brain/HoverLabel";
 
 export default function BrainPage() {
@@ -13,14 +15,15 @@ export default function BrainPage() {
       </div>
       <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-4">
         <div className="flex items-start justify-between gap-4">
-          <ViewerControls />
+          <div className="flex max-w-[60%] flex-col items-start gap-2">
+            <FilterBar />
+            <ViewerControls />
+          </div>
           <RegionPanel />
         </div>
         <div className="flex items-end justify-between gap-4">
           <HoverLabel />
-          <span className="pointer-events-none rounded bg-zinc-950/60 px-2 py-1 text-[10px] uppercase tracking-wider text-zinc-600">
-            Anatomical mode · Desikan-Killiany (fsaverage)
-          </span>
+          <Legend />
         </div>
       </div>
     </div>

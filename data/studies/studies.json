@@ -1,1 +1,1625 @@
-[]
+[
+  {
+    "id": "study_schmaal_2016",
+    "title": "Subcortical brain alterations in major depressive disorder: findings from the ENIGMA Major Depressive Disorder working group.",
+    "authors": [
+      "Schmaal L",
+      "Veltman DJ",
+      "van Erp TG",
+      "Sämann PG",
+      "Frodl T",
+      "Jahanshad N"
+    ],
+    "year": 2016,
+    "journal": "Molecular psychiatry",
+    "doi": "10.1038/mp.2015.69",
+    "pmid": "26122586",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Robust smaller hippocampal volumes in MDD versus controls; moderated by age of onset and first-episode vs recurrent status.",
+    "direction": "decreased",
+    "sampleSize": 8927,
+    "population": "1728 MDD patients vs 7199 controls, 15 worldwide samples (ENIGMA-MDD)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_schmaal_2017",
+    "title": "Cortical abnormalities in adults and adolescents with major depression based on brain scans from 20 cohorts worldwide in the ENIGMA Major Depressive Disorder Working Group.",
+    "authors": [
+      "Schmaal L",
+      "Hibar DP",
+      "Sämann PG",
+      "Hall GB",
+      "Baune BT",
+      "Jahanshad N"
+    ],
+    "year": 2017,
+    "journal": "Molecular psychiatry",
+    "doi": "10.1038/mp.2016.60",
+    "pmid": "27137745",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [
+      "dk_lh_lateralorbitofrontal",
+      "dk_rh_lateralorbitofrontal",
+      "dk_lh_medialorbitofrontal",
+      "dk_rh_medialorbitofrontal",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_lh_caudalanteriorcingulate",
+      "dk_rh_caudalanteriorcingulate",
+      "dk_lh_posteriorcingulate",
+      "dk_rh_posteriorcingulate",
+      "dk_lh_insula",
+      "dk_rh_insula"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Adults with MDD showed thinner cortical gray matter than controls in orbitofrontal cortex, anterior and posterior cingulate, insula and temporal lobes (d -0.10 to -0.14).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "adults and adolescents with MDD vs controls, 20 cohorts (ENIGMA-MDD)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_videbech_2004",
+    "title": "Hippocampal volume and depression: a meta-analysis of MRI studies.",
+    "authors": [
+      "Videbech P",
+      "Ravnkilde B"
+    ],
+    "year": 2004,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.161.11.1957",
+    "pmid": "15514393",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Hippocampal volume reduced in unipolar depression (left -8%, right -10%); number of depressive episodes correlated with right-sided reduction.",
+    "direction": "decreased",
+    "sampleSize": 630,
+    "population": "351 patients with unipolar depression vs 279 healthy subjects (12 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_zhou_2024",
+    "title": "Distinctive intrinsic functional connectivity alterations of anterior cingulate cortex subdivisions in major depressive disorder: A systematic review and meta-analysis.",
+    "authors": [
+      "Zhou Z",
+      "Gao Y",
+      "Bao W",
+      "Liang K",
+      "Cao L",
+      "Tang M"
+    ],
+    "year": 2024,
+    "journal": "Neuroscience and biobehavioral reviews",
+    "doi": "10.1016/j.neubiorev.2024.105583",
+    "pmid": "38365137",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_lh_caudalanteriorcingulate",
+      "dk_rh_caudalanteriorcingulate"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "functional_connectivity",
+    "finding": "Subregion-specific altered resting-state functional connectivity of the ACC in MDD: subgenual ACC with emotion-related regions, pregenual with sensorimotor, dorsal with cognition-related regions.",
+    "direction": "mixed",
+    "sampleSize": null,
+    "population": "44 ACC-based resting-state fMRI studies of MDD",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_fan_2025",
+    "title": "Revisiting Resting-State Functional Connectivity of the Amygdala and Subgenual Anterior Cingulate Cortex in Adolescents and Adults With Depression.",
+    "authors": [
+      "Fan S",
+      "Wang Y",
+      "Wang Y",
+      "Zang Y"
+    ],
+    "year": 2025,
+    "journal": "Biological psychiatry. Cognitive neuroscience and neuroimaging",
+    "doi": "10.1016/j.bpsc.2024.11.004",
+    "pmid": "39566882",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "functional_connectivity",
+    "finding": "Reduced sgACC-amygdala resting-state connectivity in adults with recurrent MDD; adolescent patients comparable to controls; small samples inflate effects.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "adolescents and adults with MDD vs healthy controls",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_vandervinne_2017",
+    "title": "Frontal alpha asymmetry as a diagnostic marker in depression: Fact or fiction? A meta-analysis.",
+    "authors": [
+      "van der Vinne N",
+      "Vollebregt MA",
+      "van Putten MJAM",
+      "Arns M"
+    ],
+    "year": 2017,
+    "journal": "NeuroImage. Clinical",
+    "doi": "10.1016/j.nicl.2017.07.006",
+    "pmid": "28761811",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Frontal alpha asymmetry showed a non-significant, negligible overall effect size, indicating limited diagnostic value in MDD (scalp-level EEG; no atlas region mapped).",
+    "direction": null,
+    "sampleSize": 4044,
+    "population": "1883 MDD vs 2161 controls (16 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_luo_2025",
+    "title": "Meta analysis of resting frontal alpha asymmetry as a biomarker of depression.",
+    "authors": [
+      "Luo Y",
+      "Tang M",
+      "Fan X"
+    ],
+    "year": 2025,
+    "journal": "Npj mental health research",
+    "doi": "10.1038/s44184-025-00117-x",
+    "pmid": "39820155",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Small but significant frontal alpha asymmetry effect (F4-F3) with high heterogeneity; limited standalone diagnostic utility (scalp-level EEG; no atlas region mapped).",
+    "direction": null,
+    "sampleSize": 4532,
+    "population": "1928 MDD vs 2604 controls (23 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_kan_2023",
+    "title": "Effects of repetitive transcranial magnetic stimulation of the left dorsolateral prefrontal cortex on symptom domains in neuropsychiatric disorders: a systematic review and cross-diagnostic meta-analysis.",
+    "authors": [
+      "Kan RLD",
+      "Padberg F",
+      "Giron CG",
+      "Lin TTZ",
+      "Zhang BBB",
+      "Brunoni AR"
+    ],
+    "year": 2023,
+    "journal": "The lancet. Psychiatry",
+    "doi": "10.1016/S2215-0366(23)00026-3",
+    "pmid": "36898403",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "rTMS of the left DLPFC produced a medium reduction of depressive symptoms (Hedges g -0.73) in a cross-diagnostic meta-analysis.",
+    "direction": "decreased",
+    "sampleSize": 7905,
+    "population": "7905 patients across neuropsychiatric disorders (174 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_bromis_2018",
+    "title": "Meta-Analysis of 89 Structural MRI Studies in Posttraumatic Stress Disorder and Comparison With Major Depressive Disorder.",
+    "authors": [
+      "Bromis K",
+      "Calem M",
+      "Reinders AATS",
+      "Williams SCR",
+      "Kempton MJ"
+    ],
+    "year": 2018,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2018.17111199",
+    "pmid": "30021460",
+    "disorders": [
+      "post_traumatic_stress_disorder",
+      "major_depressive_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "PTSD associated with reduced hippocampus, insula and anterior cingulate volumes and reduced total brain volume; hippocampal reduction shared with MDD.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "89 structural MRI studies; PTSD patients, trauma-exposed and non-exposed controls; MDD comparison",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_etkin_2007",
+    "title": "Functional neuroimaging of anxiety: a meta-analysis of emotional processing in PTSD, social anxiety disorder, and specific phobia.",
+    "authors": [
+      "Etkin A",
+      "Wager TD"
+    ],
+    "year": 2007,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2007.07030504",
+    "pmid": "17898336",
+    "disorders": [
+      "post_traumatic_stress_disorder"
+    ],
+    "regions": [
+      "sub_lh_amygdala",
+      "sub_rh_amygdala",
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_lh_caudalanteriorcingulate",
+      "dk_rh_caudalanteriorcingulate",
+      "dk_lh_medialorbitofrontal",
+      "dk_rh_medialorbitofrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "Amygdala and insula hyperactivation during emotional processing across anxiety disorders including PTSD; PTSD-specific hypoactivation of dorsal/rostral ACC and ventromedial PFC.",
+    "direction": "mixed",
+    "sampleSize": null,
+    "population": "patients with PTSD, social anxiety disorder or specific phobia vs matched controls",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_smith_2005",
+    "title": "Bilateral hippocampal volume reduction in adults with post-traumatic stress disorder: a meta-analysis of structural MRI studies.",
+    "authors": [
+      "Smith ME"
+    ],
+    "year": 2005,
+    "journal": "Hippocampus",
+    "doi": "10.1002/hipo.20102",
+    "pmid": "15988763",
+    "disorders": [
+      "post_traumatic_stress_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Bilateral hippocampal volume reduction in adult PTSD (left -6.9%, right -6.6%); differences smaller versus trauma-exposed controls.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "adults with PTSD vs controls (13 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_karl_2006",
+    "title": "A meta-analysis of structural brain abnormalities in PTSD.",
+    "authors": [
+      "Karl A",
+      "Schaefer M",
+      "Malta LS",
+      "Dörfel D",
+      "Rohleder N",
+      "Werner A"
+    ],
+    "year": 2006,
+    "journal": "Neuroscience and biobehavioral reviews",
+    "doi": "10.1016/j.neubiorev.2006.03.004",
+    "pmid": "16730374",
+    "disorders": [
+      "post_traumatic_stress_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "sub_lh_amygdala",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Smaller bilateral hippocampus, left amygdala and anterior cingulate in adult PTSD; pediatric samples showed no hippocampal difference.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "adults and children with PTSD, trauma-exposed and healthy controls",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_logue_2018",
+    "title": "Smaller Hippocampal Volume in Posttraumatic Stress Disorder: A Multisite ENIGMA-PGC Study: Subcortical Volumetry Results From Posttraumatic Stress Disorder Consortia.",
+    "authors": [
+      "Logue MW",
+      "van Rooij SJH",
+      "Dennis EL",
+      "Davis SL",
+      "Hayes JP",
+      "Stevens JS"
+    ],
+    "year": 2018,
+    "journal": "Biological psychiatry",
+    "doi": "10.1016/j.biopsych.2017.09.006",
+    "pmid": "29217296",
+    "disorders": [
+      "post_traumatic_stress_disorder"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Significantly smaller hippocampi in current PTSD versus trauma-exposed controls (d = -0.17); smaller amygdalae did not survive multiple-comparison correction.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "multisite ENIGMA-PGC PTSD consortium sample",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_wang_2016",
+    "title": "Altered resting-state functional activity in posttraumatic stress disorder: A quantitative meta-analysis.",
+    "authors": [
+      "Wang T",
+      "Liu J",
+      "Zhang J",
+      "Zhan W",
+      "Li L",
+      "Wu M"
+    ],
+    "year": 2016,
+    "journal": "Scientific reports",
+    "doi": "10.1038/srep27131",
+    "pmid": "27251865",
+    "disorders": [
+      "post_traumatic_stress_disorder"
+    ],
+    "regions": [
+      "dk_rh_insula",
+      "dk_lh_superiortemporal",
+      "dk_rh_superiortemporal",
+      "dk_lh_transversetemporal",
+      "dk_rh_transversetemporal",
+      "dk_lh_superiorfrontal",
+      "dk_rh_superiorfrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "Resting-state hyperactivity in right anterior insula, hypoactivity in dorsomedial PFC vs non-trauma controls; pooled hypoactivity in posterior insula, superior temporal and Heschl's gyrus.",
+    "direction": "mixed",
+    "sampleSize": 644,
+    "population": "286 PTSD patients, 203 trauma-exposed and 155 non-trauma controls (15 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_harris_2021",
+    "title": "Transcranial magnetic stimulation as a treatment for posttraumatic stress disorder: A meta-analysis.",
+    "authors": [
+      "Harris A",
+      "Reece J"
+    ],
+    "year": 2021,
+    "journal": "Journal of affective disorders",
+    "doi": "10.1016/j.jad.2021.04.003",
+    "pmid": "33940319",
+    "disorders": [
+      "post_traumatic_stress_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_rh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "TMS reduced PTSD symptoms with a large overall effect (d = 1.17); high-frequency stimulation outperformed low-frequency; left vs right DLPFC targets did not differ.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with PTSD in TMS treatment studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_popescu_2019",
+    "title": "Post-traumatic stress disorder is associated with altered modulation of prefrontal alpha band oscillations during working memory.",
+    "authors": [
+      "Popescu M",
+      "Popescu EA",
+      "DeGraba TJ",
+      "Fernandez-Fidalgo DJ",
+      "Riedy G",
+      "Hughes JD"
+    ],
+    "year": 2019,
+    "journal": "Clinical neurophysiology : official journal of the International Federation of Clinical Neurophysiology",
+    "doi": "10.1016/j.clinph.2019.06.227",
+    "pmid": "31408789",
+    "disorders": [
+      "post_traumatic_stress_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Higher PTSD scores associated with reduced task-related modulation of alpha-band power in left middle frontal gyrus during working memory.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "service members with PTSD symptoms performing a working-memory task",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_vanerp_2016",
+    "title": "Subcortical brain volume abnormalities in 2028 individuals with schizophrenia and 2540 healthy controls via the ENIGMA consortium.",
+    "authors": [
+      "van Erp TG",
+      "Hibar DP",
+      "Rasmussen JM",
+      "Glahn DC",
+      "Pearlson GD",
+      "Andreassen OA"
+    ],
+    "year": 2016,
+    "journal": "Molecular psychiatry",
+    "doi": "10.1038/mp.2015.63",
+    "pmid": "26033243",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala",
+      "sub_lh_thalamus",
+      "sub_rh_thalamus",
+      "sub_lh_accumbens",
+      "sub_rh_accumbens",
+      "sub_lh_pallidum",
+      "sub_rh_pallidum"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Smaller hippocampus (d=-0.46), amygdala (-0.31), thalamus (-0.31) and accumbens (-0.25), and larger pallidum (+0.21) and lateral ventricles in schizophrenia.",
+    "direction": "mixed",
+    "sampleSize": 4568,
+    "population": "2028 individuals with schizophrenia vs 2540 healthy controls (ENIGMA)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_vanerp_2018",
+    "title": "Cortical Brain Abnormalities in 4474 Individuals With Schizophrenia and 5098 Control Subjects via the Enhancing Neuro Imaging Genetics Through Meta Analysis (ENIGMA) Consortium.",
+    "authors": [
+      "van Erp TGM",
+      "Walton E",
+      "Hibar DP",
+      "Schmaal L",
+      "Jiang W",
+      "Glahn DC"
+    ],
+    "year": 2018,
+    "journal": "Biological psychiatry",
+    "doi": "10.1016/j.biopsych.2018.04.023",
+    "pmid": "29960671",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Widespread thinner cortex and smaller surface area in schizophrenia, largest effects in frontal and temporal lobe regions (no single-region mapping asserted).",
+    "direction": "decreased",
+    "sampleSize": 9572,
+    "population": "4474 individuals with schizophrenia vs 5098 controls (ENIGMA)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_honea_2005",
+    "title": "Regional deficits in brain volume in schizophrenia: a meta-analysis of voxel-based morphometry studies.",
+    "authors": [
+      "Honea R",
+      "Crow TJ",
+      "Passingham D",
+      "Mackay CE"
+    ],
+    "year": 2005,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.162.12.2233",
+    "pmid": "16330585",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [
+      "dk_lh_superiortemporal",
+      "sub_lh_hippocampus",
+      "dk_lh_parahippocampal"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Most consistent gray-matter deficits in left superior temporal gyrus and left medial temporal lobe across VBM studies.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "voxel-based morphometry studies of schizophrenia vs healthy comparison subjects",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_jardri_2011",
+    "title": "Cortical activations during auditory verbal hallucinations in schizophrenia: a coordinate-based meta-analysis.",
+    "authors": [
+      "Jardri R",
+      "Pouchet A",
+      "Pins D",
+      "Thomas P"
+    ],
+    "year": 2011,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2010.09101522",
+    "pmid": "20952459",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [
+      "dk_lh_parsopercularis",
+      "dk_lh_parstriangularis",
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "dk_lh_precentral",
+      "dk_rh_precentral",
+      "dk_lh_middletemporal",
+      "dk_rh_middletemporal",
+      "dk_lh_superiortemporal",
+      "dk_rh_superiortemporal",
+      "dk_lh_inferiorparietal",
+      "dk_rh_inferiorparietal",
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "dk_lh_parahippocampal",
+      "dk_rh_parahippocampal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "AVH episodes associated with increased activation in a bilateral fronto-temporal network: Broca's area, anterior insula, precentral gyrus, middle/superior temporal gyri, inferior parietal lobule and hippocampus/parahippocampal region.",
+    "direction": "increased",
+    "sampleSize": null,
+    "population": "patients with schizophrenia experiencing auditory verbal hallucinations (capture studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_modinos_2013",
+    "title": "Neuroanatomy of auditory verbal hallucinations in schizophrenia: a quantitative meta-analysis of voxel-based morphometry studies.",
+    "authors": [
+      "Modinos G",
+      "Costafreda SG",
+      "van Tol MJ",
+      "McGuire PK",
+      "Aleman A",
+      "Allen P"
+    ],
+    "year": 2013,
+    "journal": "Cortex; a journal devoted to the study of the nervous system and behavior",
+    "doi": "10.1016/j.cortex.2012.01.009",
+    "pmid": "22370252",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [
+      "dk_lh_superiortemporal",
+      "dk_rh_superiortemporal",
+      "dk_lh_transversetemporal",
+      "dk_rh_transversetemporal"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "AVH severity associated with gray-matter volume reduction in left (significant) and right (marginal) superior temporal gyri including Heschl's gyrus.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with schizophrenia; AVH-severity correlation studies (n=8 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_adriano_2012",
+    "title": "Hippocampal volume reduction in first-episode and chronic schizophrenia: a review and meta-analysis.",
+    "authors": [
+      "Adriano F",
+      "Caltagirone C",
+      "Spalletta G"
+    ],
+    "year": 2012,
+    "journal": "The Neuroscientist : a review journal bringing neurobiology, neurology and psychiatry",
+    "doi": "10.1177/1073858410395147",
+    "pmid": "21531988",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Significant bilateral hippocampal volume reduction in schizophrenia, of equal size in first-episode and chronic patients.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "first-episode and chronic schizophrenia patients vs healthy controls (44 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_umbricht_2005",
+    "title": "Mismatch negativity in schizophrenia: a meta-analysis.",
+    "authors": [
+      "Umbricht D",
+      "Krljes S"
+    ],
+    "year": 2005,
+    "journal": "Schizophrenia research",
+    "doi": "10.1016/j.schres.2004.12.002",
+    "pmid": "15927795",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [
+      "dk_lh_transversetemporal",
+      "dk_rh_transversetemporal"
+    ],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Robust mismatch negativity amplitude reduction in chronic schizophrenia (mean d = 0.99), interpreted by the authors as indexing auditory-cortex information-processing abnormalities.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with schizophrenia vs controls (32 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_slotema_2012",
+    "title": "Meta-analysis of repetitive transcranial magnetic stimulation in the treatment of auditory verbal hallucinations: update and effects after one month.",
+    "authors": [
+      "Slotema CW",
+      "Aleman A",
+      "Daskalakis ZJ",
+      "Sommer IE"
+    ],
+    "year": 2012,
+    "journal": "Schizophrenia research",
+    "doi": "10.1016/j.schres.2012.08.025",
+    "pmid": "23031191",
+    "disorders": [
+      "schizophrenia"
+    ],
+    "regions": [
+      "dk_lh_superiortemporal",
+      "dk_lh_supramarginal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "rTMS to the left temporoparietal area reduced auditory verbal hallucinations; effect size decreased as larger trials were added and may not persist beyond one month.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with medication-resistant auditory verbal hallucinations",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_lombardi_2020",
+    "title": "Structural magnetic resonance imaging for the early diagnosis of dementia due to Alzheimer's disease in people with mild cognitive impairment.",
+    "authors": [
+      "Lombardi G",
+      "Crescioli G",
+      "Cavedo E",
+      "Lucenteforte E",
+      "Casazza G",
+      "Bellatorre AG"
+    ],
+    "year": 2020,
+    "journal": "The Cochrane database of systematic reviews",
+    "doi": "10.1002/14651858.CD009628.pub2",
+    "pmid": "32119112",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Total hippocampal volume predicted progression from MCI to Alzheimer's dementia with pooled sensitivity 0.73 and specificity 0.71 (low-certainty evidence).",
+    "direction": null,
+    "sampleSize": 3935,
+    "population": "3935 people with mild cognitive impairment followed for progression to AD dementia (33 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_zhang_2023",
+    "title": "Hippocampal subfield volumes in mild cognitive impairment and alzheimer's disease: a systematic review and meta-analysis.",
+    "authors": [
+      "Zhang J",
+      "Xie L",
+      "Cheng C",
+      "Liu Y",
+      "Zhang X",
+      "Wang H"
+    ],
+    "year": 2023,
+    "journal": "Brain imaging and behavior",
+    "doi": "10.1007/s11682-023-00804-3",
+    "pmid": "37768441",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Hippocampal subfield volume reductions in MCI and AD were widespread (largest in subiculum/presubiculum); no subfield outperformed whole-hippocampus volume for discrimination.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "MCI and AD patients vs controls (20 FreeSurfer studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_park_2021",
+    "title": "Diagnostic performance of the medial temporal lobe atrophy scale in patients with Alzheimer's disease: a systematic review and meta-analysis.",
+    "authors": [
+      "Park HY",
+      "Park CR",
+      "Suh CH",
+      "Shim WH",
+      "Kim SJ"
+    ],
+    "year": 2021,
+    "journal": "European radiology",
+    "doi": "10.1007/s00330-021-08227-8",
+    "pmid": "34510246",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "dk_lh_parahippocampal",
+      "dk_rh_parahippocampal"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Visual medial temporal lobe atrophy scale differentiated AD from controls with pooled sensitivity 74% and specificity 88%, comparable to hippocampal volumetry.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "AD patients vs healthy controls (21 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_boccia_2015",
+    "title": "Neuroanatomy of Alzheimer's Disease and Late-Life Depression: A Coordinate-Based Meta-Analysis of MRI Studies.",
+    "authors": [
+      "Boccia M",
+      "Acierno M",
+      "Piccardi L"
+    ],
+    "year": 2015,
+    "journal": "Journal of Alzheimer's disease : JAD",
+    "doi": "10.3233/JAD-142955",
+    "pmid": "25869784",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus",
+      "dk_lh_posteriorcingulate",
+      "dk_rh_posteriorcingulate"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "AD linked to bilateral hippocampal volume reduction with pronounced atrophy in left anterior hippocampus and bilateral posterior cingulate cortex, partially distinct from late-life depression.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "AD and late-life depression patients; coordinate-based meta-analysis of MRI studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_jacobs_2013",
+    "title": "Meta-analysis of functional network alterations in Alzheimer's disease: toward a network biomarker.",
+    "authors": [
+      "Jacobs HI",
+      "Radua J",
+      "Lückmann HC",
+      "Sack AT"
+    ],
+    "year": 2013,
+    "journal": "Neuroscience and biobehavioral reviews",
+    "doi": "10.1016/j.neubiorev.2013.03.009",
+    "pmid": "23523750",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "dk_lh_precuneus",
+      "dk_rh_precuneus",
+      "dk_lh_posteriorcingulate",
+      "dk_rh_posteriorcingulate"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "functional_connectivity",
+    "finding": "Stage-dependent alterations of large-scale network components in AD, differentially affecting medial parietal regions and subcortical areas; early compensatory changes.",
+    "direction": "mixed",
+    "sampleSize": 2451,
+    "population": "1196 patients and 1255 controls; default-mode connectivity and task activation studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_eyler_2019",
+    "title": "Resting State Abnormalities of the Default Mode Network in Mild Cognitive Impairment: A Systematic Review and Meta-Analysis.",
+    "authors": [
+      "Eyler LT",
+      "Elman JA",
+      "Hatton SN",
+      "Gough S",
+      "Mischel AK",
+      "Hagler DJ"
+    ],
+    "year": 2019,
+    "journal": "Journal of Alzheimer's disease : JAD",
+    "doi": "10.3233/JAD-180847",
+    "pmid": "31177210",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "dk_lh_posteriorcingulate",
+      "dk_rh_posteriorcingulate",
+      "dk_lh_precuneus",
+      "dk_rh_precuneus"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "functional_connectivity",
+    "finding": "Meta-analytic hypoconnectivity of the default mode network in posterior cingulate/precuneus in MCI, but with substantial inconsistency across studies; no usable biomarker yet.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "people with mild cognitive impairment (a risk state for AD) vs healthy controls (31 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_wang_2024",
+    "title": "Shared and differing functional connectivity abnormalities of the default mode network in mild cognitive impairment and Alzheimer's disease.",
+    "authors": [
+      "Wang Y",
+      "Li Q",
+      "Yao L",
+      "He N",
+      "Tang Y",
+      "Chen L"
+    ],
+    "year": 2024,
+    "journal": "Cerebral cortex (New York, N.Y. : 1991)",
+    "doi": "10.1093/cercor/bhae094",
+    "pmid": "38521993",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_lh_precuneus",
+      "dk_rh_precuneus",
+      "dk_lh_posteriorcingulate",
+      "dk_rh_posteriorcingulate",
+      "dk_rh_rostralmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "functional_connectivity",
+    "finding": "AD showed decreased within-DMN connectivity in mPFC/ACC and precuneus/PCC (shared with MCI) and increased connectivity between DMN and right dorsolateral prefrontal cortex.",
+    "direction": "mixed",
+    "sampleSize": null,
+    "population": "MCI and AD patients vs controls; seed-based DMN resting-state fMRI studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_smailovic_2018",
+    "title": "Quantitative EEG power and synchronization correlate with Alzheimer's disease CSF biomarkers.",
+    "authors": [
+      "Smailovic U",
+      "Koenig T",
+      "Kåreholt I",
+      "Andersson T",
+      "Kramberger MG",
+      "Winblad B"
+    ],
+    "year": 2018,
+    "journal": "Neurobiology of aging",
+    "doi": "10.1016/j.neurobiolaging.2017.11.005",
+    "pmid": "29245058",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "AD-like CSF biomarker profiles correlated with increased global theta/delta EEG power and decreased alpha/beta power and synchronization (global measures; no atlas region mapped).",
+    "direction": "mixed",
+    "sampleSize": 637,
+    "population": "637 memory-clinic patients (subjective cognitive decline, MCI, AD)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_chou_2020_ad",
+    "title": "A systematic review and meta-analysis of rTMS effects on cognitive enhancement in mild cognitive impairment and Alzheimer's disease.",
+    "authors": [
+      "Chou YH",
+      "Ton That V",
+      "Sundman M"
+    ],
+    "year": 2020,
+    "journal": "Neurobiology of aging",
+    "doi": "10.1016/j.neurobiolaging.2019.08.020",
+    "pmid": "31783330",
+    "disorders": [
+      "alzheimers_disease"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_rh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "Active rTMS improved cognitive function over sham (effect size 0.77); high-frequency left DLPFC and low-frequency right DLPFC improved memory; effects lasted 4-12 weeks.",
+    "direction": "increased",
+    "sampleSize": 293,
+    "population": "293 patients with MCI or AD (13 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_he_2020",
+    "title": "Progressive brain changes in Parkinson's disease: A meta-analysis of structural magnetic resonance imaging studies.",
+    "authors": [
+      "He H",
+      "Liang L",
+      "Tang T",
+      "Luo J",
+      "Wang Y",
+      "Cui H"
+    ],
+    "year": 2020,
+    "journal": "Brain research",
+    "doi": "10.1016/j.brainres.2020.146847",
+    "pmid": "32330518",
+    "disorders": [
+      "parkinsons_disease"
+    ],
+    "regions": [
+      "sub_lh_caudate",
+      "sub_rh_caudate",
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "sub_lh_accumbens",
+      "sub_rh_accumbens",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Progressive volume reductions in caudate (-0.62%/yr), putamen (-0.97%/yr), accumbens (-5.40%/yr) and amygdala (-3.55%/yr) in PD; heterogeneity warrants caution.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "longitudinal structural MRI studies of Parkinson's disease vs controls",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_xing_2020",
+    "title": "Coordinate based meta-analysis of motor functional imaging in Parkinson's: disease-specific patterns and modulation by dopamine replacement and deep brain stimulation.",
+    "authors": [
+      "Xing Y",
+      "Tench C",
+      "Wongwandee M",
+      "Schwarz ST",
+      "Bajaj N",
+      "Auer DP"
+    ],
+    "year": 2020,
+    "journal": "Brain imaging and behavior",
+    "doi": "10.1007/s11682-019-00061-3",
+    "pmid": "30809759",
+    "disorders": [
+      "parkinsons_disease"
+    ],
+    "regions": [
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "sub_rh_thalamus",
+      "sub_rh_pallidum",
+      "dk_lh_superiorfrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "Reduced motor-task activation in bilateral putamen, left SMA, right thalamus and right medial globus pallidus in unmedicated PD; normalized under dopaminergic medication.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "people with Parkinson's disease vs healthy controls; upper-extremity motor task fMRI",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_chou_2015_pd",
+    "title": "Effects of repetitive transcranial magnetic stimulation on motor symptoms in Parkinson disease: a systematic review and meta-analysis.",
+    "authors": [
+      "Chou YH",
+      "Hickey PT",
+      "Sundman M",
+      "Song AW",
+      "Chen NK"
+    ],
+    "year": 2015,
+    "journal": "JAMA neurology",
+    "doi": "10.1001/jamaneurol.2014.4380",
+    "pmid": "25686212",
+    "disorders": [
+      "parkinsons_disease"
+    ],
+    "regions": [
+      "dk_lh_precentral",
+      "dk_rh_precentral"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "rTMS improved motor symptoms (pooled SMD 0.46); high-frequency stimulation of primary motor cortex had the largest significant effect (SMD 0.77).",
+    "direction": "decreased",
+    "sampleSize": 470,
+    "population": "470 patients with Parkinson's disease (20 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_li_2022",
+    "title": "Effects of Repetitive Transcranial Magnetic Stimulation on Motor Symptoms in Parkinson's Disease: A Meta-Analysis.",
+    "authors": [
+      "Li R",
+      "He Y",
+      "Qin W",
+      "Zhang Z",
+      "Su J",
+      "Guan Q"
+    ],
+    "year": 2022,
+    "journal": "Neurorehabilitation and neural repair",
+    "doi": "10.1177/15459683221095034",
+    "pmid": "35616427",
+    "disorders": [
+      "parkinsons_disease"
+    ],
+    "regions": [
+      "dk_lh_precentral",
+      "dk_rh_precentral"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "rTMS relieved PD motor symptoms (SMD 0.64); high-frequency M1 stimulation most effective (SMD 0.79), improving akinesia, rigidity and tremor.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with Parkinson's disease (32 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_wang_2019_pd",
+    "title": "The diagnostic value of SNpc using NM-MRI in Parkinson's disease: meta-analysis.",
+    "authors": [
+      "Wang X",
+      "Zhang Y",
+      "Zhu C",
+      "Li G",
+      "Kang J",
+      "Chen F"
+    ],
+    "year": 2019,
+    "journal": "Neurological sciences : official journal of the Italian Neurological Society and of the Italian Society of Clinical Neurophysiology",
+    "doi": "10.1007/s10072-019-04014-y",
+    "pmid": "31392640",
+    "disorders": [
+      "parkinsons_disease"
+    ],
+    "regions": [
+      "sub_mid_brainstem"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Reduced substantia nigra pars compacta neuromelanin signal/volume discriminated PD from controls (sensitivity 0.82, specificity 0.82).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with Parkinson's disease vs controls; neuromelanin-sensitive MRI studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_cho_2021",
+    "title": "Diagnostic performance of neuromelanin-sensitive magnetic resonance imaging for patients with Parkinson's disease and factor analysis for its heterogeneity: a systematic review and meta-analysis.",
+    "authors": [
+      "Cho SJ",
+      "Bae YJ",
+      "Kim JM",
+      "Kim D",
+      "Baik SH",
+      "Sunwoo L"
+    ],
+    "year": 2021,
+    "journal": "European radiology",
+    "doi": "10.1007/s00330-020-07240-7",
+    "pmid": "32886201",
+    "disorders": [
+      "parkinsons_disease"
+    ],
+    "regions": [
+      "sub_mid_brainstem"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Neuromelanin-sensitive MRI of substantia nigra discriminated PD from controls with pooled sensitivity 89% and specificity 83%.",
+    "direction": "decreased",
+    "sampleSize": 701,
+    "population": "403 PD patients vs 298 controls (12 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  }
+]
