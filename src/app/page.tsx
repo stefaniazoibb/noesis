@@ -23,7 +23,13 @@ export default function LandingPage() {
         >
           Explore disorders
         </Link>
-        {["Explore evidence", "Ask the AI"].map((l) => (
+        <Link
+          href="/assistant"
+          className="rounded-md border border-zinc-800 px-5 py-2.5 text-sm text-zinc-300 transition-colors hover:border-zinc-700 hover:text-zinc-100"
+        >
+          Ask the AI
+        </Link>
+        {["Explore evidence"].map((l) => (
           <span
             key={l}
             title="In development"

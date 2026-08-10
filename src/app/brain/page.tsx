@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useVizStore } from "@/state/vizStore";
 import { getRegion } from "@/lib/repo/atlas";
@@ -12,6 +12,7 @@ import { ViewerControls } from "@/brain/ViewerControls";
 import { FilterBar } from "@/brain/FilterBar";
 import { Legend } from "@/brain/Legend";
 import { HoverLabel } from "@/brain/HoverLabel";
+import { AssistantPanel } from "@/components/AssistantPanel";
 
 /** Applies ?region= / ?disorder= / ?mode= / ?modality= once on mount, so
  *  search results and disorder pages can deep-link into a viz state. */
@@ -45,6 +46,7 @@ function DeepLink() {
 }
 
 export default function BrainPage() {
+  const [assistantOpen, setAssistantOpen] = useState(false);
   return (
     <div className="relative min-h-0 flex-1">
       <Suspense fallback={null}>
@@ -62,7 +64,20 @@ export default function BrainPage() {
           <RegionPanel />
         </div>
         <div className="flex items-end justify-between gap-4">
-          <HoverLabel />
+          <div className="pointer-events-auto flex flex-col items-start gap-2">
+            {assistantOpen && <AssistantPanel variant="drawer" />}
+            <div className="flex items-end gap-2">
+              <button
+                type="button"
+                onClick={() => setAssistantOpen((v) => !v)}
+                aria-expanded={assistantOpen}
+                className="rounded-md border border-zinc-800 bg-zinc-950/80 px-3 py-1.5 text-xs text-zinc-300 backdrop-blur transition-colors hover:border-zinc-700 hover:text-zinc-100"
+              >
+                {assistantOpen ? "Close assistant" : "Assistant"}
+              </button>
+              <HoverLabel />
+            </div>
+          </div>
           <Legend />
         </div>
       </div>
