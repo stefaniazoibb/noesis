@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAssertions, getStudies, getStudy } from "@/lib/repo/evidence";
 import { getDisorder, getModalities } from "@/lib/repo/entities";
 import { getRegion } from "@/lib/repo/atlas";
+import { SaveToNotebook } from "@/components/SaveToNotebook";
 
 export function generateStaticParams() {
   return getStudies().map((s) => ({ id: s.id }));
@@ -31,9 +32,21 @@ export default async function StudyPage(props: PageProps<"/evidence/[id]">) {
       <Link href="/evidence" className="text-xs text-zinc-500 hover:text-zinc-300">
         ← Evidence browser
       </Link>
-      <h1 className="mt-3 text-xl font-light leading-snug text-zinc-100">
-        {study.title}
-      </h1>
+      <div className="mt-3 flex items-start justify-between gap-3">
+        <h1 className="text-xl font-light leading-snug text-zinc-100">
+          {study.title}
+        </h1>
+        <SaveToNotebook
+          entry={{
+            key: `study:${study.id}`,
+            type: "study",
+            title: study.title,
+            subtitle: `${study.authors[0]} et al. · ${study.journal} · ${study.year}`,
+            href: `/evidence/${study.id}`,
+            aiGenerated: false,
+          }}
+        />
+      </div>
       <p className="mt-2 text-sm text-zinc-400">
         {study.authors.join(", ")}
         {study.authors.length >= 6 ? ", et al." : ""} · {study.journal} ·{" "}

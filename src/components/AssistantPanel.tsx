@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useVizStore } from "@/state/vizStore";
 import { getRegion } from "@/lib/repo/atlas";
+import { SaveToNotebook } from "@/components/SaveToNotebook";
 
 interface Citation {
   id: string;
@@ -208,6 +209,28 @@ export function AssistantPanel({ variant }: { variant: "page" | "drawer" }) {
                   <p className="mt-1.5 text-[10px] text-zinc-600">
                     {m.disclaimer}
                   </p>
+                )}
+                {!m.error && m.citations && m.citations.length > 0 && (
+                  <div className="mt-1.5">
+                    <SaveToNotebook
+                      compact
+                      entry={{
+                        key: `answer:${i}:${m.text.slice(0, 40)}`,
+                        type: "answer",
+                        title:
+                          messages[i - 1]?.role === "user"
+                            ? messages[i - 1].text.slice(0, 80)
+                            : "Assistant answer",
+                        body: m.text,
+                        citations: m.citations.map((c) => ({
+                          id: c.id,
+                          title: c.title,
+                          url: citationUrl(c),
+                        })),
+                        aiGenerated: true,
+                      }}
+                    />
+                  </div>
                 )}
               </div>
             )}

@@ -7,6 +7,7 @@ import { getDisorder, getModalities } from "@/lib/repo/entities";
 import { getEvidenceIndex, getStudy } from "@/lib/repo/evidence";
 import { EVIDENCE_LEVEL_LABEL } from "@/lib/evidence/metrics";
 import { StudyListItem } from "@/evidence/StudyListItem";
+import { SaveToNotebook } from "@/components/SaveToNotebook";
 import { useEvidenceFilters } from "./useOverlay";
 
 const HEMI_LABEL = { left: "Left hemisphere", right: "Right hemisphere", midline: "Midline" };
@@ -48,12 +49,25 @@ export function RegionPanel() {
             aria-hidden
           />
         </div>
-        <Link
-          href="/ml"
-          className="mt-2 inline-block text-[11px] text-zinc-500 underline decoration-zinc-700 hover:text-zinc-300"
-        >
-          View in representation space →
-        </Link>
+        <div className="mt-2 flex items-center gap-3">
+          <Link
+            href="/ml"
+            className="text-[11px] text-zinc-500 underline decoration-zinc-700 hover:text-zinc-300"
+          >
+            View in representation space →
+          </Link>
+          <SaveToNotebook
+            compact
+            entry={{
+              key: `region:${region.id}`,
+              type: "region",
+              title: region.name,
+              subtitle: `${HEMI_LABEL[region.hemisphere]} · ${KIND_LABEL[region.kind]}`,
+              href: `/brain?region=${region.id}`,
+              aiGenerated: false,
+            }}
+          />
+        </div>
       </div>
 
       <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4">

@@ -43,6 +43,8 @@ def main() -> int:
         page.wait_for_timeout(800)
         panel = page.locator("aside").inner_text()
         check("region picking returns a named region", "hemisphere" in panel.lower())
+        page.get_by_role("button", name="Save", exact=True).click()
+        page.wait_for_timeout(300)
 
         page.get_by_role("button", name="Evidence", exact=True).click()
         page.locator("select").first.select_option("schizophrenia")
@@ -91,6 +93,13 @@ def main() -> int:
         page.get_by_role("searchbox").fill("amygdala")
         page.wait_for_timeout(600)
         check("search results", page.locator("li button").count() > 0)
+
+        print("notebook")
+        page.goto(f"{BASE}/notebook", timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(500)
+        nb = page.locator("main").inner_text().upper()
+        check("saved region appears in notebook", "BRAIN REGIONS (1)" in nb)
 
         print("assistant (graceful without key / answers with key)")
         page.goto(f"{BASE}/assistant", timeout=60_000)

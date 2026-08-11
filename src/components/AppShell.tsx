@@ -34,6 +34,9 @@ export function TopNav() {
         <Link href="/ml" className="text-zinc-200 hover:text-white">
           ML Lab
         </Link>
+        <Link href="/notebook" className="text-zinc-200 hover:text-white">
+          Notebook
+        </Link>
       </nav>
     </header>
   );

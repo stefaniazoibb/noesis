@@ -8,6 +8,7 @@ import { StudyListItem } from "@/evidence/StudyListItem";
 import { GapsSection } from "@/evidence/GapsSection";
 import { PersonalExperienceNote } from "@/components/PersonalExperienceNote";
 import { ResearchOpportunities } from "@/components/ResearchOpportunities";
+import { SaveToNotebook } from "@/components/SaveToNotebook";
 
 export function generateStaticParams() {
   return getDisorders().map((d) => ({ id: d.id }));
@@ -49,9 +50,21 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
         <h1 className="text-2xl font-light tracking-wide text-zinc-100">
           {disorder.name}
         </h1>
-        <span className="shrink-0 rounded-full border border-zinc-700 px-2.5 py-0.5 text-[11px] capitalize text-zinc-400">
-          {disorder.category}
-        </span>
+        <div className="flex shrink-0 items-center gap-2">
+          <span className="rounded-full border border-zinc-700 px-2.5 py-0.5 text-[11px] capitalize text-zinc-400">
+            {disorder.category}
+          </span>
+          <SaveToNotebook
+            entry={{
+              key: `disorder:${disorder.id}`,
+              type: "disorder",
+              title: disorder.name,
+              subtitle: disorder.category,
+              href: `/disorders/${disorder.id}`,
+              aiGenerated: false,
+            }}
+          />
+        </div>
       </div>
       {disorder.synonyms.length > 0 && (
         <p className="mt-1 text-xs text-zinc-500">

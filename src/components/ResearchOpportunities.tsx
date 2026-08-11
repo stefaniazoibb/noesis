@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SaveToNotebook } from "@/components/SaveToNotebook";
 
 interface Question {
   question: string;
@@ -147,6 +148,24 @@ export function ResearchOpportunities({ disorderId }: { disorderId: string }) {
               {q.candidateRegions.map((r) => r.name).join(", ")} · Modalities:{" "}
               {q.candidateModalities.join(", ")}
             </p>
+            <div className="mt-2">
+              <SaveToNotebook
+                compact
+                entry={{
+                  key: `question:${disorderId}:${q.question.slice(0, 60)}`,
+                  type: "question",
+                  title: clean(q.question),
+                  subtitle: `${q.questionType.replace(/_/g, "-")} · gap: ${q.provenance.ruleName}`,
+                  body: `Why: ${clean(q.rationale)}\n\nHypothesis: ${clean(q.hypothesis)}\n\nMethodology: ${clean(q.methodologyNotes)}\n\nLimitations: ${clean(q.limitations)}`,
+                  citations: q.provenance.studies.map((s) => ({
+                    id: s.id,
+                    title: s.title,
+                    url: studyUrl(s),
+                  })),
+                  aiGenerated: true,
+                }}
+              />
+            </div>
             <details className="mt-2">
               <summary className="cursor-pointer text-[11px] text-zinc-500 hover:text-zinc-300">
                 Provenance chain &amp; ranking
