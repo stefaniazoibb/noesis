@@ -19,33 +19,38 @@ Status date: 2026-08-11. Mirrors the session task list; update both together.
 | Research-question generation | deterministic ranking + grounded LLM prose + provenance UI (not yet live-tested) |
 | Personal-experience note | lived-experience/clinician message on disorder surfaces |
 
-## Partially complete
+## Also completed (2026-08-11)
 
-- **#5 Disorder comparison** — brain Compare overlay mode + legend + dual
-  select are committed (WIP); missing: /compare page (shared/specific region
-  tables, modality overlap, cross-disorder direction differences, embedding
-  cosine with computational-similarity labeling), deep link `disorder2`,
-  browser tests.
+- **#5 Disorder comparison** — /compare page (shared/specific regions,
+  modality overlap, direction differences, embedding cosine) + brain
+  Compare overlay + `disorder2` deep link; unit + e2e tested.
+- **#6 /evidence browser** — filterable corpus + /evidence/[id] study detail
+  with assertions, brain deep links, curation-status badge; search study
+  results now land here.
+- **#9 tooling** — `pipeline/curation/mark_verified.py` +
+  `verified_by_human.json` registry (rebuild-safe); the review itself
+  remains with Stefania.
+- **e2e + CI** — `npm run e2e` (self-contained runner + 16-check smoke
+  suite, all passing); GitHub Actions gates (validate:data, tsc, lint,
+  vitest, build).
 
 ## Broken
 
-- None known. All gates green (tsc, lint, 20 tests, build, validate:data).
+- None known. All gates green (tsc, lint, 26 tests, build, validate:data,
+  16-check e2e).
 
 ## Missing / not started (priority order)
 
-**P0 — finish what's open, verify the AI layer**
-1. Finish #5 comparison page + tests.
-2. #8 Live end-to-end AI verification (assistant + question generation) —
+**P0 — verify the AI layer**
+1. #8 Live end-to-end AI verification (assistant + question generation) —
    **blocked on ANTHROPIC_API_KEY in `.env.local`** (owner: Stefania).
-3. #9 Human spot-check of the corpus; flip `curation.verifiedByHuman` via a
-   small pipeline script (owner: Stefania, tooling: us).
+2. #9 Human spot-check of the corpus using `mark_verified.py`
+   (owner: Stefania).
 
-**P1 — evidence surface + corpus breadth + engineering hygiene**
-4. #6 /evidence browser (filterable studies/assertions, study detail views).
-5. #15 Curate the 8 roster disorders (panic, anorexia, SUD, ASD, FTD, DLB,
+**P1 — corpus breadth**
+3. #15 Curate the 8 roster disorders (panic, anorexia, SUD, ASD, FTD, DLB,
    MSA, ALS) via the standard sweep->curate->verify pipeline.
-6. Commit a repo e2e suite (promote the ad-hoc Playwright scripts) + CI
-   (GitHub Actions: validate:data, tsc, lint, vitest, build).
+4. E2e job in CI (headless WebGL setup).
 
 **P2 — depth features**
 7. #7 Research notebook (localStorage first; human-in-the-loop save/approve).

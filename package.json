@@ -9,7 +9,8 @@
     "lint": "eslint",
     "validate:data": "tsx scripts/validate-data.ts",
     "report:gaps": "tsx scripts/report-gaps.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "e2e": "python3 e2e/run.py"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.116.0",
