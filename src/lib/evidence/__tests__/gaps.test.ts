@@ -116,7 +116,7 @@ describe("detectGaps", () => {
     expect(g!.conflictingStudyIds).toHaveLength(2);
   });
 
-  it("GAP-ATTENTION fires only for related disorders (>=2 shared regions)", () => {
+  it("GAP-ATTENTION fires only for related disorders (>=3 shared regions AND >=50% overlap)", () => {
     const studies = [
       study("study_a", { disorders: ["dis_a"] }),
       study("study_b", { disorders: ["dis_a"] }),
@@ -125,17 +125,20 @@ describe("detectGaps", () => {
       study("study_e", { disorders: ["dis_c"] }),
     ];
     const assertions = [
-      // dis_a: region_1 heavily studied + shares region_2/region_3 with dis_b
+      // dis_a: region_1 heavily studied + shares region_2/3/4 with dis_b
       assertion({ studyId: "study_a", disorder: "dis_a", region: "region_1" }),
       assertion({ studyId: "study_b", disorder: "dis_a", region: "region_1" }),
       assertion({ studyId: "study_c", disorder: "dis_a", region: "region_1" }),
       assertion({ studyId: "study_a", disorder: "dis_a", region: "region_2" }),
       assertion({ studyId: "study_b", disorder: "dis_a", region: "region_3" }),
-      // dis_b shares region_2 and region_3, lacks region_1 -> related, gap
+      assertion({ studyId: "study_c", disorder: "dis_a", region: "region_4" }),
+      // dis_b shares regions 2,3,4 (overlap 3/3 = 100%), lacks region_1 -> gap
       assertion({ studyId: "study_d", disorder: "dis_b", region: "region_2" }),
       assertion({ studyId: "study_d", disorder: "dis_b", region: "region_3" }),
-      // dis_c shares only region_2 -> unrelated, no gap
+      assertion({ studyId: "study_d", disorder: "dis_b", region: "region_4" }),
+      // dis_c shares only regions 2,3 (below the 3-region floor) -> no gap
       assertion({ studyId: "study_e", disorder: "dis_c", region: "region_2" }),
+      assertion({ studyId: "study_e", disorder: "dis_c", region: "region_3" }),
     ];
     const gaps = detectGaps(
       profilesFor(studies, assertions, ["dis_a", "dis_b", "dis_c"]),
@@ -145,5 +148,27 @@ describe("detectGaps", () => {
     expect(attention[0].disorder).toBe("dis_b");
     expect(attention[0].region).toBe("region_1");
     expect(attention[0].referenceDisorder).toBe("dis_a");
+  });
+
+  it("GAP-ATTENTION requires overlap ratio, not just absolute shared count", () => {
+    // both disorders implicate 13+ regions but share only 3
+    // -> shared >= 3 passes the floor, but 3/13 ≈ 23% < 25% -> no gap
+    const mk = (disorder: string, studyId: string, regions: string[]) =>
+      regions.map((region) => assertion({ studyId, disorder, region }));
+    const studies = [
+      study("study_a", { disorders: ["dis_a"] }),
+      study("study_b", { disorders: ["dis_a"] }),
+      study("study_c", { disorders: ["dis_a"] }),
+      study("study_d", { disorders: ["dis_c"] }),
+    ];
+    const assertions = [
+      assertion({ studyId: "study_a", disorder: "dis_a", region: "region_hot" }),
+      assertion({ studyId: "study_b", disorder: "dis_a", region: "region_hot" }),
+      assertion({ studyId: "study_c", disorder: "dis_a", region: "region_hot" }),
+      ...mk("dis_a", "study_a", ["s1", "s2", "s3", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9"]),
+      ...mk("dis_c", "study_d", ["s1", "s2", "s3", "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10"]),
+    ];
+    const gaps = detectGaps(profilesFor(studies, assertions, ["dis_a", "dis_c"]));
+    expect(gaps.filter((x) => x.ruleId === "GAP-ATTENTION")).toHaveLength(0);
   });
 });

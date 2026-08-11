@@ -67,7 +67,7 @@ Each gap carries the study ids behind it (full provenance chain).
 | GAP-IMG-EP | ≥3 distinct imaging studies for the pair, 0 electrophysiology studies | imaging study count |
 | GAP-OBS-INT | ≥3 distinct correlational studies for the pair, 0 interventional | correlational study count |
 | GAP-CONFLICT | a conflict (above) with ≥2 distinct studies on each side | smaller side |
-| GAP-ATTENTION | region has ≥3 studies for disorder A and 0 for disorder B, where A and B share ≥2 implicated regions in the corpus | study count in A |
+| GAP-ATTENTION | region has ≥3 studies for disorder A and 0 for disorder B, where A and B are related: they share ≥3 implicated regions AND the overlap covers ≥50% of the smaller disorder's implicated-region set (tightened 2026-08-11 from ≥2 shared regions, which made nearly every disorder pair "related" at 19 disorders; sensitivity: ≥2→168 gaps, 25%→124, 40%→80, 50%→48) | study count in A |
 
 Run `npm run report:gaps` to print the profiles and detected gaps for the
 current corpus.

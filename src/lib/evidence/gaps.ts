@@ -29,7 +29,7 @@ export const GAP_RULES = {
   "GAP-ATTENTION": {
     name: "Cross-disorder attention asymmetry",
     definition:
-      "A region has ≥3 studies for one disorder but none for a related disorder (related = the two disorders share ≥2 implicated regions in the corpus). Magnitude = study count in the reference disorder.",
+      "A region has ≥3 studies for one disorder but none for a related disorder. Related = the two disorders share ≥3 implicated regions AND that overlap covers ≥50% of the smaller disorder's implicated-region set (both criteria, so broad disorders don't count as related to everything). Magnitude = study count in the reference disorder.",
   },
 } as const;
 
@@ -51,7 +51,8 @@ export interface EvidenceGap {
 
 const MIN_STRONG = 3;
 const MIN_CONFLICT_SIDE = 2;
-const MIN_SHARED_REGIONS = 2;
+const MIN_SHARED_REGIONS = 3;
+const MIN_OVERLAP_RATIO = 0.5;
 
 /**
  * Detect gaps over per-disorder profiles. `profilesByDisorder` must cover
@@ -120,10 +121,15 @@ export function detectGaps(
       if (p.studyIds.length < MIN_STRONG) continue;
       for (const [disorderB, regionsB] of regionsOf) {
         if (disorderB === disorderA || regionsB.has(p.region)) continue;
-        const shared = [...regionsOf.get(disorderA)!].filter((r) =>
-          regionsB.has(r),
-        ).length;
-        if (shared < MIN_SHARED_REGIONS) continue;
+        const regionsA = regionsOf.get(disorderA)!;
+        const shared = [...regionsA].filter((r) => regionsB.has(r)).length;
+        const smaller = Math.min(regionsA.size, regionsB.size);
+        if (
+          shared < MIN_SHARED_REGIONS ||
+          smaller === 0 ||
+          shared / smaller < MIN_OVERLAP_RATIO
+        )
+          continue;
         gaps.push({
           ruleId: "GAP-ATTENTION",
           disorder: disorderB,
