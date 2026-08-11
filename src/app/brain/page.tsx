@@ -25,6 +25,7 @@ function DeepLink() {
     const s = useVizStore.getState();
     const region = params.get("region");
     const disorder = params.get("disorder");
+    const disorder2 = params.get("disorder2");
     const modality = params.get("modality");
     const mode = VizModeSchema.safeParse(params.get("mode"));
 
@@ -33,8 +34,15 @@ function DeepLink() {
       if (region.startsWith("sub_")) s.setShowSubcortical(true);
     }
     if (disorder && getDisorder(disorder)) {
-      s.setActiveDisorder(disorder);
-      s.setMode(mode.success ? mode.data : "disorder");
+      if (disorder2 && getDisorder(disorder2)) {
+        s.applyPatch({
+          disorders: [disorder, disorder2],
+          mode: mode.success ? mode.data : "compare",
+        });
+      } else {
+        s.setActiveDisorder(disorder);
+        s.setMode(mode.success ? mode.data : "disorder");
+      }
     } else if (mode.success) {
       s.setMode(mode.data);
     }

@@ -17,9 +17,17 @@ export default function DisordersPage() {
   const disorders = getDisorders();
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-10">
-      <h1 className="text-2xl font-light tracking-wide text-zinc-100">
-        Disorder library
-      </h1>
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h1 className="text-2xl font-light tracking-wide text-zinc-100">
+          Disorder library
+        </h1>
+        <Link
+          href="/compare"
+          className="text-xs text-zinc-400 underline decoration-zinc-700 hover:text-zinc-200"
+        >
+          Compare disorders →
+        </Link>
+      </div>
       <p className="mt-2 text-sm text-zinc-400">
         {disorders.length} disorders indexed. Each page summarizes the
         disorder and — once the curated corpus is ingested — its study-level
