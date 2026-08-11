@@ -7,122 +7,194 @@
     "data/evidence/assertions.json",
     "data/modalities/modalities.json"
   ],
-  "corpusVersion": "606b76e86516",
+  "corpusVersion": "ac4d97d111e2",
   "params": {
     "nComponents": 8,
-    "nFeatures": 69,
-    "droppedZeroVarianceColumns": 105,
+    "nFeatures": 71,
+    "droppedZeroVarianceColumns": 109,
     "seed": 42,
-    "umapNeighbors": 10,
+    "umapNeighbors": 15,
     "note": "Features describe the indexed evidence corpus, not biology."
   },
-  "created": "2026-08-10",
+  "created": "2026-08-11",
   "dim": 8,
   "ids": [
     "adhd",
+    "als",
     "alzheimers_disease",
+    "anorexia_nervosa",
+    "autism_spectrum_disorder",
     "bipolar_disorder",
     "dissociative_identity_disorder",
+    "frontotemporal_dementia",
     "generalized_anxiety_disorder",
     "huntingtons_disease",
+    "lewy_body_dementia",
     "major_depressive_disorder",
+    "multiple_system_atrophy",
     "obsessive_compulsive_disorder",
+    "panic_disorder",
     "parkinsons_disease",
     "post_traumatic_stress_disorder",
-    "schizophrenia"
+    "schizophrenia",
+    "substance_use_disorder"
   ],
   "vectorsFile": "disorder.vectors.f32",
   "projections": {
     "pca": [
       [
-        3.3515,
-        -6.1148
+        1.8027,
+        -3.147
       ],
       [
-        -3.1707,
-        0.7242
+        -2.2305,
+        -2.8007
       ],
       [
-        0.2502,
-        -0.8022
+        -0.734,
+        3.3257
       ],
       [
-        -1.0972,
-        -1.1907
+        -1.5566,
+        -0.9235
       ],
       [
-        -0.8561,
-        -1.8349
+        -0.5869,
+        -2.6507
       ],
       [
-        -0.9721,
-        -3.0053
+        2.8287,
+        -0.1849
       ],
       [
-        -4.9725,
-        2.6553
+        -1.3983,
+        -1.0458
       ],
       [
-        0.6064,
-        2.3233
+        -2.611,
+        1.8933
       ],
       [
-        1.0517,
-        -4.5317
+        -1.8167,
+        -1.5708
       ],
       [
-        -4.2271,
-        5.9201
+        -2.4161,
+        -2.0197
       ],
       [
-        10.0357,
-        5.8568
+        -1.1461,
+        -1.6119
+      ],
+      [
+        -1.746,
+        5.7902
+      ],
+      [
+        -2.329,
+        -2.0804
+      ],
+      [
+        2.159,
+        -0.2007
+      ],
+      [
+        -1.67,
+        -0.0048
+      ],
+      [
+        -1.7136,
+        -3.9235
+      ],
+      [
+        0.2965,
+        8.2237
+      ],
+      [
+        13.1311,
+        -1.3398
+      ],
+      [
+        1.7368,
+        4.2712
       ]
     ],
     "umap": [
       [
-        -1.4817,
-        1.0652
+        -2.2951,
+        25.7425
       ],
       [
-        -2.5026,
-        -0.0551
+        -3.1203,
+        24.7798
       ],
       [
-        -1.8684,
-        0.4849
+        -3.3135,
+        26.1844
       ],
       [
-        -2.6742,
-        0.7294
+        -2.8153,
+        27.0294
       ],
       [
-        -2.0675,
-        1.5006
+        -1.6226,
+        25.5349
       ],
       [
-        -0.814,
-        0.8164
+        -3.5573,
+        27.0796
       ],
       [
-        -1.8291,
-        -0.5432
+        -3.6641,
+        26.4139
       ],
       [
-        -2.7177,
-        1.9065
+        -4.4785,
+        25.8335
       ],
       [
-        -1.1201,
-        1.7778
+        -2.0853,
+        26.7219
       ],
       [
-        -1.1257,
-        -0.4105
+        -2.9757,
+        26.6146
       ],
       [
-        -3.0988,
-        1.2511
+        -2.6186,
+        25.1426
+      ],
+      [
+        -4.3483,
+        26.5571
+      ],
+      [
+        -3.0069,
+        25.5569
+      ],
+      [
+        -2.535,
+        26.2679
+      ],
+      [
+        -2.3692,
+        27.4164
+      ],
+      [
+        -1.4868,
+        26.1048
+      ],
+      [
+        -4.8518,
+        26.3512
+      ],
+      [
+        -1.9521,
+        25.0423
+      ],
+      [
+        -3.7237,
+        25.438
       ]
     ]
   }

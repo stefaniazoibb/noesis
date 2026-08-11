@@ -7,6 +7,7 @@ assistant's graceful degradation. Requires: pip install playwright &&
 playwright install chromium. Assumes the app on http://localhost:3000.
 """
 
+import re
 import sys
 
 from playwright.sync_api import sync_playwright
@@ -63,7 +64,8 @@ def main() -> int:
         print("evidence browser")
         page.goto(f"{BASE}/evidence", timeout=60_000)
         page.wait_for_load_state("networkidle")
-        check("corpus listed", "of 62 studies" in page.locator("main").inner_text())
+        m = re.search(r"(\d+) of (\d+) studies", page.locator("main").inner_text())
+        check("corpus listed", bool(m) and int(m.group(2)) >= 60)
         page.locator("main li a").first.click()
         page.wait_for_url("**/evidence/study_*", timeout=15_000)
         detail = page.locator("main").inner_text()

@@ -1583,6 +1583,1146 @@
     }
   },
   {
+    "id": "study_pan_2023",
+    "title": "Gray Matter Alterations in Panic Disorder: A Voxel-Wise Meta-Analysis.",
+    "authors": [
+      "Pan A",
+      "Liu S",
+      "Hu S",
+      "Dai J",
+      "Yi J"
+    ],
+    "year": 2023,
+    "journal": "Psychiatry and clinical psychopharmacology",
+    "doi": "10.5152/pcp.2023.23684",
+    "pmid": "38765308",
+    "disorders": [
+      "panic_disorder"
+    ],
+    "regions": [
+      "sub_rh_amygdala"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Gray-matter alterations in left paracingulate gyrus and right amygdala in panic disorder; clinical severity associated with fronto-cingulate alterations (directions not established).",
+    "direction": null,
+    "sampleSize": null,
+    "population": "voxel-wise meta-analysis of panic disorder VBM studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_wu_2018",
+    "title": "Gray matter changes in panic disorder: A voxel-based meta-analysis and meta-analytic connectivity modeling.",
+    "authors": [
+      "Wu Y",
+      "Zhong Y",
+      "Ma Z",
+      "Lu X",
+      "Zhang N",
+      "Fox PT"
+    ],
+    "year": 2018,
+    "journal": "Psychiatry research. Neuroimaging",
+    "doi": "10.1016/j.pscychresns.2018.09.009",
+    "pmid": "30340800",
+    "disorders": [
+      "panic_disorder"
+    ],
+    "regions": [
+      "dk_lh_superiorfrontal",
+      "dk_rh_superiorfrontal",
+      "dk_lh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_rh_insula",
+      "dk_rh_superiortemporal",
+      "dk_rh_middletemporal",
+      "dk_rh_lateralorbitofrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Lower gray-matter volume in bilateral dorsomedial prefrontal cortex, left DLPFC, right insula, right superior and middle temporal gyri and right superior orbital frontal cortex in panic disorder.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "voxel-based meta-analysis with meta-analytic connectivity modeling",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_li_2014",
+    "title": "Repetitive transcranial magnetic stimulation (rTMS) for panic disorder in adults.",
+    "authors": [
+      "Li H",
+      "Wang J",
+      "Li C",
+      "Xiao Z"
+    ],
+    "year": 2014,
+    "journal": "The Cochrane database of systematic reviews",
+    "doi": "10.1002/14651858.CD009083.pub2",
+    "pmid": "25230088",
+    "disorders": [
+      "panic_disorder"
+    ],
+    "regions": [
+      "dk_rh_rostralmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "Evidence for rTMS (1 Hz over right DLPFC) in panic disorder is very limited: two small RCTs with skewed outcomes and high attrition risk — insufficient to establish efficacy.",
+    "direction": null,
+    "sampleSize": 40,
+    "population": "2 randomized controlled trials, n=40 (Cochrane review)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_walton_2022",
+    "title": "Brain Structure in Acutely Underweight and Partially Weight-Restored Individuals With Anorexia Nervosa: A Coordinated Analysis by the ENIGMA Eating Disorders Working Group.",
+    "authors": [
+      "Walton E",
+      "Bernardoni F",
+      "Batury VL",
+      "Bahnsen K",
+      "Larivière S",
+      "Abbate-Daga G"
+    ],
+    "year": 2022,
+    "journal": "Biological psychiatry",
+    "doi": "10.1016/j.biopsych.2022.04.022",
+    "pmid": "36031441",
+    "disorders": [
+      "anorexia_nervosa"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Sizable, widespread reductions in cortical thickness and subcortical volumes in acute AN (d up to 0.95 — the largest ENIGMA psychiatric effect sizes to date), linked to low BMI and less pronounced after partial weight restoration (no single-region mapping asserted).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "acutely underweight and partially weight-restored individuals with AN (ENIGMA coordinated analysis)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_titova_2013",
+    "title": "Anorexia nervosa is linked to reduced brain structure in reward and somatosensory regions: a meta-analysis of VBM studies.",
+    "authors": [
+      "Titova OE",
+      "Hjorth OC",
+      "Schiöth HB",
+      "Brooks SJ"
+    ],
+    "year": 2013,
+    "journal": "BMC psychiatry",
+    "doi": "10.1186/1471-244X-13-110",
+    "pmid": "23570420",
+    "disorders": [
+      "anorexia_nervosa"
+    ],
+    "regions": [
+      "dk_lh_inferiorparietal",
+      "sub_rh_putamen",
+      "sub_rh_pallidum",
+      "sub_rh_caudate"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Global gray- and white-matter reductions in AN with regional decreases in left hypothalamus, left inferior parietal lobe, right lentiform nucleus and right caudate.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "VBM meta-analysis of anorexia nervosa",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_bahadori_2025",
+    "title": "Efficacy of transcranial magnetic stimulation in anorexia nervosa: a systematic review and meta-analysis.",
+    "authors": [
+      "Bahadori AR",
+      "Javadnia P",
+      "Bordbar S",
+      "Zafari R",
+      "Taherkhani T",
+      "Davari A"
+    ],
+    "year": 2025,
+    "journal": "Eating and weight disorders : EWD",
+    "doi": "10.1007/s40519-025-01716-5",
+    "pmid": "39812947",
+    "disorders": [
+      "anorexia_nervosa"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_rh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "TMS (primarily DLPFC-targeted) produced a significant BMI increase and reduction in Eating Disorder Examination Questionnaire scores; longer sessions more effective.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "17 studies (9 meta-analyzed) of TMS in anorexia nervosa",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_mackey_2019",
+    "title": "Mega-Analysis of Gray Matter Volume in Substance Dependence: General and Substance-Specific Regional Effects.",
+    "authors": [
+      "Mackey S",
+      "Allgaier N",
+      "Chaarani B",
+      "Spechler P",
+      "Orr C",
+      "Bunn J"
+    ],
+    "year": 2019,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2018.17040415",
+    "pmid": "30336705",
+    "disorders": [
+      "substance_use_disorder"
+    ],
+    "regions": [
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "dk_lh_medialorbitofrontal",
+      "dk_rh_medialorbitofrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Lower gray-matter volume/thickness across substance dependence, greatest for alcohol; substance-general effects in insula and medial orbitofrontal cortex.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "ENIGMA-Addiction mega-analysis across substances",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_yang_2016",
+    "title": "Cortical and subcortical gray matter shrinkage in alcohol-use disorders: a voxel-based meta-analysis.",
+    "authors": [
+      "Yang X",
+      "Tian F",
+      "Zhang H",
+      "Zeng J",
+      "Chen T",
+      "Wang S"
+    ],
+    "year": 2016,
+    "journal": "Neuroscience and biobehavioral reviews",
+    "doi": "10.1016/j.neubiorev.2016.03.034",
+    "pmid": "27108216",
+    "disorders": [
+      "substance_use_disorder"
+    ],
+    "regions": [
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "dk_lh_superiortemporal",
+      "dk_rh_superiortemporal",
+      "sub_lh_caudate",
+      "sub_rh_caudate",
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "dk_lh_rostralmiddlefrontal",
+      "dk_rh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal",
+      "dk_lh_precentral",
+      "dk_rh_precentral",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "sub_lh_thalamus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Gray-matter reductions in corticostriatal-limbic circuits in alcohol use disorder: bilateral insula, superior temporal gyrus, striatum, DLPFC, precentral gyrus, ACC, left thalamus and right hippocampus.",
+    "direction": "decreased",
+    "sampleSize": 931,
+    "population": "433 alcohol-use-disorder patients vs 498 controls (12 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_schacht_2013",
+    "title": "Functional neuroimaging studies of alcohol cue reactivity: a quantitative meta-analysis and systematic review.",
+    "authors": [
+      "Schacht JP",
+      "Anton RF",
+      "Myrick H"
+    ],
+    "year": 2013,
+    "journal": "Addiction biology",
+    "doi": "10.1111/j.1369-1600.2012.00464.x",
+    "pmid": "22574861",
+    "disorders": [
+      "substance_use_disorder"
+    ],
+    "regions": [
+      "sub_lh_accumbens",
+      "sub_rh_accumbens",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_lh_medialorbitofrontal",
+      "dk_rh_medialorbitofrontal",
+      "dk_lh_posteriorcingulate",
+      "dk_rh_posteriorcingulate",
+      "dk_lh_precuneus",
+      "dk_rh_precuneus",
+      "dk_lh_superiortemporal",
+      "dk_rh_superiortemporal"
+    ],
+    "networks": [],
+    "modalities": [
+      "fmri"
+    ],
+    "findingType": "activation",
+    "finding": "Alcohol cues robustly activated ventral striatum, anterior cingulate and ventromedial prefrontal cortex; patients showed greater posterior cingulate, precuneus and superior temporal activation than controls.",
+    "direction": "increased",
+    "sampleSize": null,
+    "population": "quantitative meta-analysis of alcohol cue-reactivity fMRI studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_hamidovic_2019",
+    "title": "The P300 in alcohol use disorder: A meta-analysis and meta-regression.",
+    "authors": [
+      "Hamidovic A",
+      "Wang Y"
+    ],
+    "year": 2019,
+    "journal": "Progress in neuro-psychopharmacology & biological psychiatry",
+    "doi": "10.1016/j.pnpbp.2019.109716",
+    "pmid": "31369766",
+    "disorders": [
+      "substance_use_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Reduced P300 amplitudes in alcohol use disorder (visual significant, auditory marginal; large effect sizes) with increased auditory P300 latency (scalp-level ERP; no atlas region asserted).",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "meta-analysis and meta-regression of P300 studies in alcohol use disorder",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_zhang_2019",
+    "title": "Effects of repetitive transcranial magnetic stimulation (rTMS) on craving and substance consumption in patients with substance dependence: a systematic review and meta-analysis.",
+    "authors": [
+      "Zhang JJQ",
+      "Fong KNK",
+      "Ouyang RG",
+      "Siu AMH",
+      "Kranz GS"
+    ],
+    "year": 2019,
+    "journal": "Addiction (Abingdon, England)",
+    "doi": "10.1111/add.14753",
+    "pmid": "31328353",
+    "disorders": [
+      "substance_use_disorder"
+    ],
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_lh_caudalmiddlefrontal"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "Excitatory rTMS of left DLPFC reduced craving versus sham (Hedges g = -0.62), with dose-response by pulse number; consumption also reduced by left-DLPFC and deep bilateral DLPFC/insula stimulation.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "patients with substance dependence in rTMS trials",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_vanrooij_2018",
+    "title": "Cortical and Subcortical Brain Morphometry Differences Between Patients With Autism Spectrum Disorder and Healthy Individuals Across the Lifespan: Results From the ENIGMA ASD Working Group.",
+    "authors": [
+      "van Rooij D",
+      "Anagnostou E",
+      "Arango C",
+      "Auzias G",
+      "Behrmann M",
+      "Busatto GF"
+    ],
+    "year": 2018,
+    "journal": "The American journal of psychiatry",
+    "doi": "10.1176/appi.ajp.2017.17010100",
+    "pmid": "29145754",
+    "disorders": [
+      "autism_spectrum_disorder"
+    ],
+    "regions": [
+      "sub_lh_pallidum",
+      "sub_rh_pallidum",
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala",
+      "sub_lh_accumbens",
+      "sub_rh_accumbens"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Smaller pallidum, putamen, amygdala and nucleus accumbens volumes in ASD (|d| ≈ 0.13) with increased frontal and decreased temporal cortical thickness; altered developmental trajectories around adolescence.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "ENIGMA-ASD mega-analysis across the lifespan",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_deniz_2026",
+    "title": "Alterations in Amygdala and Hippocampal Volumes in Autism Spectrum Disorder: Meta-analysis.",
+    "authors": [
+      "Deniz Y",
+      "Maidi AZM",
+      "An SL",
+      "Hong Y"
+    ],
+    "year": 2026,
+    "journal": "Journal of autism and developmental disorders",
+    "doi": "10.1007/s10803-026-07312-5",
+    "pmid": "41926017",
+    "disorders": [
+      "autism_spectrum_disorder"
+    ],
+    "regions": [
+      "sub_lh_amygdala",
+      "sub_rh_amygdala",
+      "sub_lh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Increased bilateral amygdala (d 0.24-0.30) and left hippocampal (d 0.44) volumes in ASD; right hippocampus not significant; high heterogeneity and potential publication bias — preliminary findings that conflict with the ENIGMA-ASD direction.",
+    "direction": "increased",
+    "sampleSize": null,
+    "population": "meta-analysis of amygdala and hippocampal volumes in ASD",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_neo_2023",
+    "title": "Resting-state EEG power differences in autism spectrum disorder: a systematic review and meta-analysis.",
+    "authors": [
+      "Neo WS",
+      "Foti D",
+      "Keehn B",
+      "Kelleher B"
+    ],
+    "year": 2023,
+    "journal": "Translational psychiatry",
+    "doi": "10.1038/s41398-023-02681-2",
+    "pmid": "38097538",
+    "disorders": [
+      "autism_spectrum_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Reduced relative alpha power (g = -0.35) and increased gamma power (relative g = 1.06) at rest in autistic individuals, with substantial heterogeneity (scalp-level EEG; no atlas region asserted).",
+    "direction": "mixed",
+    "sampleSize": 2701,
+    "population": "1246 autistic and 1455 neurotypical individuals (41 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_chen_2024",
+    "title": "A network meta-analysis of non-invasive brain stimulation interventions for autism spectrum disorder: Evidence from randomized controlled trials.",
+    "authors": [
+      "Chen YB",
+      "Lin HY",
+      "Wang LJ",
+      "Hung KC",
+      "Brunoni AR",
+      "Chou PH"
+    ],
+    "year": 2024,
+    "journal": "Neuroscience and biobehavioral reviews",
+    "doi": "10.1016/j.neubiorev.2024.105807",
+    "pmid": "38981573",
+    "disorders": [
+      "autism_spectrum_disorder"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "No rTMS intervention significantly improved autistic symptoms; the only significant effect came from anodal tDCS over left DLPFC (a non-TMS modality). Honest negative evidence for TMS in ASD.",
+    "direction": null,
+    "sampleSize": null,
+    "population": "randomized controlled NIBS trials in ASD (network meta-analysis)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_pan_2012",
+    "title": "Gray matter atrophy in behavioral variant frontotemporal dementia: a meta-analysis of voxel-based morphometry studies.",
+    "authors": [
+      "Pan PL",
+      "Song W",
+      "Yang J",
+      "Huang R",
+      "Chen K",
+      "Gong QY"
+    ],
+    "year": 2012,
+    "journal": "Dementia and geriatric cognitive disorders",
+    "doi": "10.1159/000338176",
+    "pmid": "22722668",
+    "disorders": [
+      "frontotemporal_dementia"
+    ],
+    "regions": [
+      "dk_lh_superiorfrontal",
+      "dk_rh_superiorfrontal",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_lh_caudalanteriorcingulate",
+      "dk_rh_caudalanteriorcingulate",
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "sub_lh_caudate",
+      "sub_rh_caudate",
+      "sub_lh_putamen",
+      "sub_rh_putamen"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Gray-matter decreases in anterior medial frontal cortex (extending across frontal areas), insula and subcortical striatal regions in behavioral-variant FTD; frontoinsular and anterior cingulate atrophy diagnostically important.",
+    "direction": "decreased",
+    "sampleSize": 534,
+    "population": "237 bvFTD patients vs 297 controls (11 VBM studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_kamalian_2022",
+    "title": "Convergent regional brain abnormalities in behavioral variant frontotemporal dementia: A neuroimaging meta-analysis of 73 studies.",
+    "authors": [
+      "Kamalian A",
+      "Khodadadifar T",
+      "Saberi A",
+      "Masoudi M",
+      "Camilleri JA",
+      "Eickhoff CR"
+    ],
+    "year": 2022,
+    "journal": "Alzheimer's & dementia (Amsterdam, Netherlands)",
+    "doi": "10.1002/dad2.12318",
+    "pmid": "35664889",
+    "disorders": [
+      "frontotemporal_dementia"
+    ],
+    "regions": [
+      "dk_lh_rostralanteriorcingulate",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_lh_caudalanteriorcingulate",
+      "dk_rh_caudalanteriorcingulate",
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "sub_lh_amygdala",
+      "sub_rh_amygdala",
+      "sub_lh_caudate",
+      "sub_rh_caudate",
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri",
+      "fmri"
+    ],
+    "findingType": "other",
+    "finding": "Convergent structural and functional abnormalities in anterior cingulate, anterior insula, amygdala, paracingulate, striatum and hippocampus in bvFTD, linked to emotional processing, interoception and reward dysfunction.",
+    "direction": null,
+    "sampleSize": null,
+    "population": "neuroimaging meta-analysis of 73 bvFTD studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_pan_2026",
+    "title": "EEG spectral power differences in Alzheimer's disease and frontotemporal dementia.",
+    "authors": [
+      "Pan Y",
+      "Zhu L",
+      "Wang ZL"
+    ],
+    "year": 2026,
+    "journal": "The International journal of neuroscience",
+    "doi": "10.1080/00207454.2025.2591129",
+    "pmid": "41246936",
+    "disorders": [
+      "frontotemporal_dementia",
+      "alzheimers_disease"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Distinct resting-EEG signatures: AD showed posterior alpha decrease with frontal theta increase; FTD showed a focused alpha reduction at frontal/central sites (scalp-level; no atlas region asserted).",
+    "direction": "mixed",
+    "sampleSize": null,
+    "population": "AD and FTD patients vs healthy controls (replicated in an open dataset)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_olgun_2024",
+    "title": "A comparative transcranial magnetic stimulation study: Assessing cortical excitability and plasticity in Alzheimer's disease, dementia with Lewy bodies and Frontotemporal dementia.",
+    "authors": [
+      "Olğun Y",
+      "Aksoy Poyraz C",
+      "Bozluolçay M",
+      "Gündüz A",
+      "Poyraz BÇ"
+    ],
+    "year": 2024,
+    "journal": "Psychogeriatrics : the official journal of the Japanese Psychogeriatric Society",
+    "doi": "10.1111/psyg.13070",
+    "pmid": "38131520",
+    "disorders": [
+      "alzheimers_disease",
+      "lewy_body_dementia",
+      "frontotemporal_dementia"
+    ],
+    "regions": [
+      "dk_lh_precentral",
+      "dk_rh_precentral"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "Reduced resting motor thresholds and impaired LTP-like plasticity at motor cortex in AD and DLB but not FTD, consistent with early sparing of motor networks in FTD.",
+    "direction": null,
+    "sampleSize": null,
+    "population": "comparative TMS study of AD, DLB, FTD and healthy controls",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_zhong_2014",
+    "title": "Voxelwise meta-analysis of gray matter abnormalities in dementia with Lewy bodies.",
+    "authors": [
+      "Zhong J",
+      "Pan P",
+      "Dai Z",
+      "Shi H"
+    ],
+    "year": 2014,
+    "journal": "European journal of radiology",
+    "doi": "10.1016/j.ejrad.2014.06.014",
+    "pmid": "25043498",
+    "disorders": [
+      "lewy_body_dementia"
+    ],
+    "regions": [
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "dk_rh_middletemporal",
+      "dk_rh_superiortemporal",
+      "sub_lh_putamen",
+      "sub_lh_pallidum"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Decreased gray matter in right lateral temporal/insular cortex and left lenticular nucleus/insular cortex in DLB; left superior temporal atrophy more likely with lower MMSE.",
+    "direction": "decreased",
+    "sampleSize": 437,
+    "population": "218 DLB patients vs 219 healthy controls (7 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_oppedal_2019",
+    "title": "A signature pattern of cortical atrophy in dementia with Lewy bodies: A study on 333 patients from the European DLB consortium.",
+    "authors": [
+      "Oppedal K",
+      "Ferreira D",
+      "Cavallin L",
+      "Lemstra AW",
+      "Ten Kate M",
+      "Padovani A"
+    ],
+    "year": 2019,
+    "journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
+    "doi": "10.1016/j.jalz.2018.09.011",
+    "pmid": "30439333",
+    "disorders": [
+      "lewy_body_dementia"
+    ],
+    "regions": [
+      "sub_lh_hippocampus",
+      "sub_rh_hippocampus"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "A hippocampal-sparing signature: DLB shows more global atrophy than controls but less medial temporal atrophy than Alzheimer's disease.",
+    "direction": null,
+    "sampleSize": 333,
+    "population": "333 DLB patients, European DLB consortium",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_franciotti_2020",
+    "title": "Anterior EEG slowing in dementia with Lewy bodies: a multicenter European cohort study.",
+    "authors": [
+      "Franciotti R",
+      "Pilotto A",
+      "Moretti DV",
+      "Falasca NW",
+      "Arnaldi D",
+      "Taylor JP"
+    ],
+    "year": 2020,
+    "journal": "Neurobiology of aging",
+    "doi": "10.1016/j.neurobiolaging.2020.04.023",
+    "pmid": "32450445",
+    "disorders": [
+      "lewy_body_dementia"
+    ],
+    "regions": [],
+    "networks": [],
+    "modalities": [
+      "eeg"
+    ],
+    "findingType": "electrophysiological",
+    "finding": "Dominant-frequency slowing to the prealpha band in DLB with an anterior-posterior gradient (slower anteriorly), correlating with cognitive impairment; AD and controls kept alpha (scalp-level; no atlas region asserted).",
+    "direction": "decreased",
+    "sampleSize": 325,
+    "population": "144 DLB, 116 AD and 65 controls (European DLB Consortium, 7 centers)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_sako_2014",
+    "title": "The difference in putamen volume between MSA and PD: evidence from a meta-analysis.",
+    "authors": [
+      "Sako W",
+      "Murakami N",
+      "Izumi Y",
+      "Kaji R"
+    ],
+    "year": 2014,
+    "journal": "Parkinsonism & related disorders",
+    "doi": "10.1016/j.parkreldis.2014.04.028",
+    "pmid": "24844749",
+    "disorders": [
+      "multiple_system_atrophy"
+    ],
+    "regions": [
+      "sub_lh_putamen",
+      "sub_rh_putamen"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "volumetric",
+    "finding": "Putamen volume significantly more reduced in MSA than in Parkinson's disease — a candidate marker for early differential diagnosis.",
+    "direction": "decreased",
+    "sampleSize": 264,
+    "population": "84 MSA and 180 PD patients (6 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_shao_2015",
+    "title": "Voxelwise meta-analysis of gray matter anomalies in Parkinson variant of multiple system atrophy and Parkinson's disease using anatomic likelihood estimation.",
+    "authors": [
+      "Shao N",
+      "Yang J",
+      "Shang H"
+    ],
+    "year": 2015,
+    "journal": "Neuroscience letters",
+    "doi": "10.1016/j.neulet.2014.12.007",
+    "pmid": "25484255",
+    "disorders": [
+      "multiple_system_atrophy"
+    ],
+    "regions": [
+      "sub_lh_putamen",
+      "sub_rh_putamen",
+      "dk_lh_insula",
+      "dk_rh_insula",
+      "sub_mid_brainstem"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Gray-matter reductions in bilateral putamen, claustrum, insula, midbrain and left cerebellum in MSA-P; early-stage putaminal atrophy did not reliably distinguish MSA-P from PD by VBM.",
+    "direction": "decreased",
+    "sampleSize": null,
+    "population": "ALE meta-analysis of MSA-P (Parkinson variant) VBM studies",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_sheng_2015",
+    "title": "Motor and extra-motor gray matter atrophy in amyotrophic lateral sclerosis: quantitative meta-analyses of voxel-based morphometry studies.",
+    "authors": [
+      "Sheng L",
+      "Ma H",
+      "Zhong J",
+      "Shang H",
+      "Shi H",
+      "Pan P"
+    ],
+    "year": 2015,
+    "journal": "Neurobiology of aging",
+    "doi": "10.1016/j.neurobiolaging.2015.08.018",
+    "pmid": "26362941",
+    "disorders": [
+      "als"
+    ],
+    "regions": [
+      "dk_lh_postcentral",
+      "dk_rh_postcentral"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Consistent gray-matter atrophy in frontal, temporal and somatosensory areas in ALS, related to disease duration and severity — a multisystem degeneration beyond motor cortex.",
+    "direction": "decreased",
+    "sampleSize": 880,
+    "population": "454 ALS patients vs 426 controls (20 studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_shen_2016",
+    "title": "Voxel-Wise Meta-Analysis of Gray Matter Changes in Amyotrophic Lateral Sclerosis.",
+    "authors": [
+      "Shen D",
+      "Cui L",
+      "Fang J",
+      "Cui B",
+      "Li D",
+      "Tai H"
+    ],
+    "year": 2016,
+    "journal": "Frontiers in aging neuroscience",
+    "doi": "10.3389/fnagi.2016.00064",
+    "pmid": "27065078",
+    "disorders": [
+      "als"
+    ],
+    "regions": [
+      "dk_rh_precentral",
+      "sub_lh_putamen",
+      "sub_lh_pallidum",
+      "dk_rh_rostralanteriorcingulate"
+    ],
+    "networks": [],
+    "modalities": [
+      "smri"
+    ],
+    "findingType": "structural_difference",
+    "finding": "Gray-matter reductions in right precentral gyrus, left Rolandic operculum, left lenticular nucleus and right anterior cingulate/paracingulate in ALS; precentral atrophy tracks severity and duration.",
+    "direction": "decreased",
+    "sampleSize": 1260,
+    "population": "638 ALS patients vs 622 controls (29 VBM studies)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
+    "id": "study_menon_2017",
+    "title": "Cortical hyperexcitability and disease spread in amyotrophic lateral sclerosis.",
+    "authors": [
+      "Menon P",
+      "Geevasinga N",
+      "van den Bos M",
+      "Yiannikas C",
+      "Kiernan MC",
+      "Vucic S"
+    ],
+    "year": 2017,
+    "journal": "European journal of neurology",
+    "doi": "10.1111/ene.13295",
+    "pmid": "28436181",
+    "disorders": [
+      "als"
+    ],
+    "regions": [
+      "dk_lh_precentral",
+      "dk_rh_precentral"
+    ],
+    "networks": [],
+    "modalities": [
+      "tms"
+    ],
+    "findingType": "stimulation_response",
+    "finding": "Cortical hyperexcitability over both motor cortices in ALS — reduced resting motor threshold, reduced short-interval intracortical inhibition, shorter silent period, larger MEPs — most prominent over the dominant hemisphere and consistent with contiguous disease spread.",
+    "direction": "increased",
+    "sampleSize": null,
+    "population": "sporadic ALS patients (threshold-tracking TMS)",
+    "coordinates": [],
+    "effectSize": null,
+    "source": "pubmed",
+    "curation": {
+      "method": "manual",
+      "verifiedByHuman": false,
+      "metadataVerifiedAgainst": "pubmed_efetch",
+      "curatedDate": "2026-08-10"
+    }
+  },
+  {
     "id": "study_hibar_2016",
     "title": "Subcortical volumetric abnormalities in bipolar disorder.",
     "authors": [
