@@ -1,0 +1,97 @@
+[
+  {
+    "id": "adhd",
+    "evidenceCV1": -0.813,
+    "metamapCV1": -0.9732
+  },
+  {
+    "id": "als",
+    "evidenceCV1": 0.626,
+    "metamapCV1": 0.4863
+  },
+  {
+    "id": "alzheimers_disease",
+    "evidenceCV1": 1.2557,
+    "metamapCV1": 1.3311
+  },
+  {
+    "id": "anorexia_nervosa",
+    "evidenceCV1": -0.3737,
+    "metamapCV1": -0.5093
+  },
+  {
+    "id": "autism_spectrum_disorder",
+    "evidenceCV1": -0.1934,
+    "metamapCV1": -0.4183
+  },
+  {
+    "id": "bipolar_disorder",
+    "evidenceCV1": -2.0676,
+    "metamapCV1": -1.8234
+  },
+  {
+    "id": "dissociative_identity_disorder",
+    "evidenceCV1": 0.5394,
+    "metamapCV1": 0.3409
+  },
+  {
+    "id": "frontotemporal_dementia",
+    "evidenceCV1": 0.6889,
+    "metamapCV1": 0.6294
+  },
+  {
+    "id": "generalized_anxiety_disorder",
+    "evidenceCV1": 0.0936,
+    "metamapCV1": 0.1561
+  },
+  {
+    "id": "huntingtons_disease",
+    "evidenceCV1": -0.0698,
+    "metamapCV1": -0.1167
+  },
+  {
+    "id": "lewy_body_dementia",
+    "evidenceCV1": 0.7619,
+    "metamapCV1": 1.1224
+  },
+  {
+    "id": "major_depressive_disorder",
+    "evidenceCV1": 1.2318,
+    "metamapCV1": 0.7124
+  },
+  {
+    "id": "multiple_system_atrophy",
+    "evidenceCV1": -0.1267,
+    "metamapCV1": 0.054
+  },
+  {
+    "id": "obsessive_compulsive_disorder",
+    "evidenceCV1": -1.2161,
+    "metamapCV1": -1.3772
+  },
+  {
+    "id": "panic_disorder",
+    "evidenceCV1": 0.6075,
+    "metamapCV1": 0.8936
+  },
+  {
+    "id": "parkinsons_disease",
+    "evidenceCV1": -0.4474,
+    "metamapCV1": -0.3002
+  },
+  {
+    "id": "post_traumatic_stress_disorder",
+    "evidenceCV1": 1.4561,
+    "metamapCV1": 1.6552
+  },
+  {
+    "id": "schizophrenia",
+    "evidenceCV1": 0.0106,
+    "metamapCV1": -0.0084
+  },
+  {
+    "id": "substance_use_disorder",
+    "evidenceCV1": -1.9638,
+    "metamapCV1": -1.8548
+  }
+]

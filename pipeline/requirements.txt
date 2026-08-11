@@ -11,3 +11,6 @@ scikit-learn
 umap-learn
 nilearn
 neuroquery
+torch
+fastapi
+uvicorn

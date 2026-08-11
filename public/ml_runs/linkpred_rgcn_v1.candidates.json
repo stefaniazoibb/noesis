@@ -1,0 +1,122 @@
+[
+  {
+    "disorder": "autism_spectrum_disorder",
+    "region": "sub_lh_caudate",
+    "score": 0.9952,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "panic_disorder",
+    "region": "dk_rh_rostralanteriorcingulate",
+    "score": 0.9775,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "substance_use_disorder",
+    "region": "sub_lh_hippocampus",
+    "score": 0.8065,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "obsessive_compulsive_disorder",
+    "region": "sub_rh_amygdala",
+    "score": 0.6794,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "frontotemporal_dementia",
+    "region": "sub_lh_pallidum",
+    "score": 0.6606,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "generalized_anxiety_disorder",
+    "region": "sub_lh_putamen",
+    "score": 0.6531,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "panic_disorder",
+    "region": "sub_lh_hippocampus",
+    "score": 0.6427,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "parkinsons_disease",
+    "region": "sub_lh_hippocampus",
+    "score": 0.5696,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "frontotemporal_dementia",
+    "region": "dk_rh_superiortemporal",
+    "score": 0.5328,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "lewy_body_dementia",
+    "region": "sub_lh_amygdala",
+    "score": 0.5277,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "adhd",
+    "region": "dk_lh_precentral",
+    "score": 0.4727,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "lewy_body_dementia",
+    "region": "dk_rh_rostralanteriorcingulate",
+    "score": 0.4638,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "major_depressive_disorder",
+    "region": "sub_lh_putamen",
+    "score": 0.4229,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "lewy_body_dementia",
+    "region": "sub_lh_caudate",
+    "score": 0.3963,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "als",
+    "region": "dk_rh_caudalanteriorcingulate",
+    "score": 0.3849,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "autism_spectrum_disorder",
+    "region": "sub_rh_caudate",
+    "score": 0.3803,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "huntingtons_disease",
+    "region": "sub_lh_pallidum",
+    "score": 0.3239,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "generalized_anxiety_disorder",
+    "region": "dk_lh_insula",
+    "score": 0.3076,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "lewy_body_dementia",
+    "region": "sub_rh_amygdala",
+    "score": 0.3015,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  },
+  {
+    "disorder": "post_traumatic_stress_disorder",
+    "region": "dk_lh_posteriorcingulate",
+    "score": 0.2916,
+    "label": "MODEL-SUGGESTED \u2014 not evidence"
+  }
+]

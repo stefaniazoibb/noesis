@@ -15,6 +15,7 @@ import {
   EvidenceAssertionSchema,
   EmbeddingSetManifestSchema,
   RegionScalarMapSchema,
+  ModelRunSchema,
 } from "../src/lib/schemas";
 import { readdirSync } from "node:fs";
 
@@ -142,6 +143,29 @@ if (existsSync(metamapDir)) {
   }
 }
 
+// ML Lab ModelRun artifacts (optional, validated when present)
+let mlRuns = 0;
+const runsDir = join(DATA, "ml_runs");
+if (existsSync(runsDir)) {
+  for (const file of readdirSync(runsDir)) {
+    if (!file.endsWith(".run.json")) continue;
+    const parsed = ModelRunSchema.safeParse(
+      JSON.parse(readFileSync(join(runsDir, file), "utf8")),
+    );
+    if (!parsed.success) {
+      errors.push(
+        `data/ml_runs/${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ")}`,
+      );
+      continue;
+    }
+    for (const out of Object.values(parsed.data.outputs)) {
+      if (!existsSync(join(runsDir, out)))
+        errors.push(`data/ml_runs/${file}: missing output file ${out}`);
+    }
+    mlRuns += 1;
+  }
+}
+
 if (errors.length > 0) {
   console.error(`data validation FAILED (${errors.length} error${errors.length > 1 ? "s" : ""}):`);
   for (const e of errors) console.error(`  - ${e}`);
@@ -152,5 +176,5 @@ console.log(
   `data validation OK — regions: ${regionIds.size}, disorders: ${disorders.length}, ` +
     `modalities: ${modalities.length}, networks: ${networks.length}, ` +
     `studies: ${studies.length}, assertions: ${assertions.length}, ` +
-    `embedding sets: ${embeddingSets}, metamaps: ${metamaps}`,
+    `embedding sets: ${embeddingSets}, metamaps: ${metamaps}, ml runs: ${mlRuns}`,
 );

@@ -39,19 +39,39 @@ export const EmbeddingSetManifestSchema = z.object({
   ),
 });
 
-/** Reserved for the ML Lab (post-MVP). A run without a declared split
- *  strategy must not render. */
+/** ML Lab run manifest. A run without a declared split strategy /
+ *  validation protocol must not render (docs/METRICS.md defines each). */
 export const ModelRunSchema = z.object({
   runId: z.string().min(1),
-  task: z.enum(["classification", "regression", "clustering", "representation"]),
+  task: z.enum([
+    "classification",
+    "regression",
+    "clustering",
+    "representation",
+    "alignment",
+    "link_prediction",
+  ]),
   datasetDef: z.string().min(1),
-  splitStrategy: z.enum(["subject_level", "site_aware", "nested_cv"]),
+  /** grouped_pair_level: disorder-region pairs held out whole (subject-level
+   *  analog for corpus graphs); permutation_test: refit-under-permutation
+   *  significance for small-n in-sample fits */
+  splitStrategy: z.enum([
+    "subject_level",
+    "site_aware",
+    "nested_cv",
+    "grouped_pair_level",
+    "permutation_test",
+  ]),
   preprocessing: z.string().min(1),
   model: z.string().min(1),
+  /** exact reproduction config (seed included) */
+  config: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])),
   metrics: z.record(z.string(), z.number()),
   uncertainty: z.record(z.string(), z.number()).nullable(),
   modelVersion: z.string(),
   created: z.string(),
+  /** task-specific payload files, name -> filename in the same directory */
+  outputs: z.record(z.string(), z.string()),
 });
 
 export type RegionScalarMap = z.infer<typeof RegionScalarMapSchema>;

@@ -70,10 +70,16 @@ tuning (P2 item 10) has become more pressing.
 11. #12 first increment DONE (2026-08-11): NeuroQuery meta-analytic maps —
     `pipeline/metamaps/build_metamaps.py` (BSD-3-Clause verified), 19
     RegionScalarMap artifacts, Meta-map viz mode with a labeled
-    model-generated stratum (never merged with corpus metrics). Remaining
-    #12 scope: Python FastAPI service behind the artifact contracts;
-    CCA/contrastive alignment; heterogeneous graph artifact + GNN link
-    prediction; ML Lab with enforced subject-level splits.
+    model-generated stratum (never merged with corpus metrics).
+12. #12 second increment DONE (2026-08-11): `pipeline/mlruns/` ModelRun
+    pipelines — CCA alignment (permutation-validated; honest negative at
+    n=19) and relational-GCN link prediction (grouped pair-level split,
+    study-leakage-free graph, CF baseline); FastAPI compute service
+    (`pipeline/service/app.py`, never a runtime dependency); `/ml/lab` UI
+    rendering only schema-valid runs. Possible future #12 scope: real
+    modality encoders (OpenNeuro EEG/MRI, subject-level splits for real),
+    contrastive alignment once >2 views exist, richer graph (edge
+    types/directions), run comparison UI.
 
 ## Technical debt register
 

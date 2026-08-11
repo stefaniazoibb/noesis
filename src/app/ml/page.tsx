@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { getRegion } from "@/lib/repo/atlas";
 import { getDisorder } from "@/lib/repo/entities";
 import { getStudy } from "@/lib/repo/evidence";
@@ -100,6 +101,13 @@ export default function MlPage() {
         </h1>
         <p className="text-xs text-zinc-500">
           Learned evidence-space representation — not anatomical distance.
+          {" · "}
+          <Link
+            href="/ml/lab"
+            className="text-zinc-400 underline-offset-2 hover:text-zinc-200 hover:underline"
+          >
+            Model runs →
+          </Link>
         </p>
       </div>
 

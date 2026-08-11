@@ -108,6 +108,49 @@ automated literature text mining, not curated studies, never merged with the
 corpus metrics; negative values clip to 0 for display. Provenance:
 `data/provenance/neuroquery.json`.
 
+## ML Lab model runs (`/ml/lab`)
+
+Every run is a `ModelRun` artifact (schema in `src/lib/schemas/artifacts.ts`)
+built by `pipeline/mlruns/` and served from `public/ml_runs/`. A run without
+a valid manifest and declared split strategy / validation protocol is never
+rendered. Model outputs are a separate stratum from the curated corpus —
+**ML importance ≠ biological causality**, and candidate links are hypotheses
+about the corpus, never evidence.
+
+### Representation alignment (`alignment_cca_v1`)
+
+CCA between the 19 disorder evidence-corpus embeddings (PCA-8) and the 19
+NeuroQuery meta-map region profiles (83 regions, column-z-scored, PCA-8).
+Reported per component: canonical correlation (in-sample) and a permutation
+p-value from 1000 refits under row-shuffled Y
+(p = (1 + #perm ≥ observed) / (1 + N)). With n=19, in-sample correlations
+are near-guaranteed to be high — only permutation-significant components
+indicate alignment beyond chance, and the UI applies Bonferroni correction
+across the tested components (α = 0.05/k) before calling any component
+significant. Current result (v1) is an honest negative: cc1 = 0.98 with
+perm p = 0.54, and no component survives correction. Interpretation caveat: both views derive
+from the research literature, so even a significant alignment measures
+curation/automated-mining **consistency**, not independent validation.
+
+### Graph link prediction (`linkpred_rgcn_v1`)
+
+Heterogeneous graph of disorders, regions, and Yeo networks; positives are
+the distinct disorder–region pairs from the curated assertions. **Split:**
+grouped at the pair level, 70/15/15 (all assertions of a pair held out
+together); message passing sees train pairs only; **study nodes are excluded
+from the graph** because a study linking D and R creates a two-hop
+D–study–R path that leaks held-out pairs (the graph analog of a
+subject-level-split violation). Model: 2-layer relational GCN with learned
+node embeddings and a dot-product decoder; model selection on validation
+ROC-AUC; seeded evaluation negatives disjoint from all positives (per-epoch
+training negatives exclude positives only, so evaluation negatives may also
+be sampled as training negatives — standard practice, but it makes reported
+AUC mildly optimistic). Reported:
+test ROC-AUC, test average precision, and a non-learned
+collaborative-filtering baseline (Jaccard-weighted disorder-disorder voting
+over train pairs) for context. Candidate links = highest-scored pairs absent
+from the corpus, always labeled "model-suggested — not evidence".
+
 ## Research-question ranking
 
 Generated research questions are ranked by a transparent rule — never by a
