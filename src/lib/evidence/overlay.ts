@@ -69,8 +69,15 @@ function gapCategoryValue(p: ConvergenceProfile): number {
   return 1;
 }
 
+/** Compare-mode categories: three all-pairs-safe categorical slots. */
+export const COMPARE_CATEGORIES = [
+  { key: "a_only", value: 1, color: "#3987e5" },
+  { key: "b_only", value: 2, color: "#d95926" },
+  { key: "shared", value: 3, color: "#199e70" },
+] as const;
+
 export interface OverlayResult {
-  kind: "counts" | "convergence" | "gaps" | null;
+  kind: "counts" | "convergence" | "gaps" | "compare" | null;
   /** region id -> hex color */
   colors: Map<string, string>;
   /** region id -> metric value */
@@ -91,10 +98,27 @@ const EMPTY: OverlayResult = {
  */
 export function computeOverlay(
   mode: VizMode,
-  disorder: string | null,
+  disorders: string[],
   filters: EvidenceFilters,
 ): OverlayResult {
   const index = getEvidenceIndex();
+  const disorder = disorders[0] ?? null;
+  if (mode === "compare") {
+    const [a, b] = disorders;
+    if (!a || !b) return EMPTY;
+    const inA = new Set(index.studyCounts(a, filters).keys());
+    const inB = new Set(index.studyCounts(b, filters).keys());
+    const values = new Map<string, number>();
+    for (const r of inA) values.set(r, inB.has(r) ? 3 : 1);
+    for (const r of inB) if (!inA.has(r)) values.set(r, 2);
+    const byValue = new Map<number, string>(
+      COMPARE_CATEGORIES.map((c) => [c.value, c.color]),
+    );
+    const colors = new Map(
+      [...values.entries()].map(([r, v]) => [r, byValue.get(v)!]),
+    );
+    return { kind: "compare", colors, values, max: 3 };
+  }
   if (mode === "disorder") {
     const values = index.studyCounts(disorder, filters);
     const max = Math.max(0, ...values.values());

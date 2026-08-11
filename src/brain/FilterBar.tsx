@@ -9,18 +9,24 @@ const MODES: { mode: VizMode; label: string }[] = [
   { mode: "disorder", label: "Evidence" },
   { mode: "convergence", label: "Convergence" },
   { mode: "gaps", label: "Gaps" },
+  { mode: "compare", label: "Compare" },
 ];
 
 export function FilterBar() {
   const mode = useVizStore((s) => s.mode);
   const setMode = useVizStore((s) => s.setMode);
   const activeDisorder = useVizStore((s) => s.disorders[0] ?? "");
+  const secondDisorder = useVizStore((s) => s.disorders[1] ?? "");
   const setActiveDisorder = useVizStore((s) => s.setActiveDisorder);
+  const applyPatch = useVizStore((s) => s.applyPatch);
   const selectedModalities = useVizStore((s) => s.modalities);
   const toggleModality = useVizStore((s) => s.toggleModality);
 
   const evidenceMode =
-    mode === "disorder" || mode === "convergence" || mode === "gaps";
+    mode === "disorder" ||
+    mode === "convergence" ||
+    mode === "gaps" ||
+    mode === "compare";
 
   return (
     <div className="pointer-events-auto flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-950/80 p-1.5 backdrop-blur">
@@ -47,17 +53,46 @@ export function FilterBar() {
           <span className="mx-1 h-4 w-px bg-zinc-800" aria-hidden />
           <select
             value={activeDisorder}
-            onChange={(e) => setActiveDisorder(e.target.value || null)}
+            onChange={(e) =>
+              mode === "compare"
+                ? applyPatch({
+                    disorders: [e.target.value, secondDisorder].filter(Boolean),
+                  })
+                : setActiveDisorder(e.target.value || null)
+            }
             aria-label="Disorder"
             className="rounded border border-zinc-800 bg-zinc-900 px-2 py-1 text-xs text-zinc-200"
           >
-            <option value="">All indexed disorders</option>
+            <option value="">
+              {mode === "compare" ? "First disorder…" : "All indexed disorders"}
+            </option>
             {getDisorders().map((d) => (
               <option key={d.id} value={d.id}>
                 {d.name}
               </option>
             ))}
           </select>
+          {mode === "compare" && (
+            <select
+              value={secondDisorder}
+              onChange={(e) =>
+                applyPatch({
+                  disorders: [activeDisorder, e.target.value].filter(Boolean),
+                })
+              }
+              aria-label="Second disorder"
+              className="rounded border border-zinc-800 bg-zinc-900 px-2 py-1 text-xs text-zinc-200"
+            >
+              <option value="">Second disorder…</option>
+              {getDisorders()
+                .filter((d) => d.id !== activeDisorder)
+                .map((d) => (
+                  <option key={d.id} value={d.id}>
+                    {d.name}
+                  </option>
+                ))}
+            </select>
+          )}
           <span className="mx-1 h-4 w-px bg-zinc-800" aria-hidden />
           {getModalities().map((m) => (
             <label

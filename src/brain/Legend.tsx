@@ -7,6 +7,7 @@ import {
   sequentialColor,
   CONVERGENCE_COLORS,
   GAP_CATEGORIES,
+  COMPARE_CATEGORIES,
 } from "@/lib/evidence/overlay";
 
 function Swatch({ color, label }: { color: string; label: string }) {
@@ -25,6 +26,7 @@ function Swatch({ color, label }: { color: string; label: string }) {
 export function Legend() {
   const mode = useVizStore((s) => s.mode);
   const disorderId = useVizStore((s) => s.disorders[0] ?? null);
+  const secondDisorderId = useVizStore((s) => s.disorders[1] ?? null);
   const overlay = useOverlayResult();
 
   if (mode === "anatomical") {
@@ -100,6 +102,41 @@ export function Legend() {
               </span>
             )}
           </div>
+        </>
+      )}
+      {mode === "compare" && overlay.kind === null && (
+        <p className="text-[11px] text-zinc-500">
+          Select two disorders in the filter bar to compare their evidence
+          maps.
+        </p>
+      )}
+      {overlay.kind === "compare" && (
+        <>
+          <h3 className="text-xs font-medium text-zinc-200">
+            Evidence overlap
+          </h3>
+          <div className="mt-2 space-y-1">
+            {COMPARE_CATEGORIES.map((c) => (
+              <div key={c.key} className="flex items-baseline gap-1.5">
+                <span
+                  className="inline-block h-3 w-3 shrink-0 self-center rounded-sm"
+                  style={{ backgroundColor: c.color }}
+                  aria-hidden
+                />
+                <span className="text-[11px] text-zinc-400">
+                  {c.key === "shared"
+                    ? "Evidence for both disorders"
+                    : c.key === "a_only"
+                      ? `Only ${getDisorder(disorderId ?? "")?.name ?? "first disorder"}`
+                      : `Only ${getDisorder(secondDisorderId ?? "")?.name ?? "second disorder"}`}
+                </span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">
+            Regions with ≥1 indexed study per disorder, after filters. Shared
+            evidence does not imply shared mechanisms.
+          </p>
         </>
       )}
       {overlay.kind === "gaps" && (

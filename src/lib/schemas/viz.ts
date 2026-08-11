@@ -7,6 +7,7 @@ export const VizModeSchema = z.enum([
   "disorder",
   "convergence",
   "gaps",
+  "compare",
   "network",
   "representation",
 ]);

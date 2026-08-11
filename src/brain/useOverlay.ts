@@ -18,10 +18,10 @@ export function useEvidenceFilters(): EvidenceFilters {
 /** Shared overlay result — cortex shader, subcortex meshes and legend all use this. */
 export function useOverlayResult(): OverlayResult {
   const mode = useVizStore((s) => s.mode);
-  const disorder = useVizStore((s) => s.disorders[0] ?? null);
+  const disorders = useVizStore((s) => s.disorders);
   const filters = useEvidenceFilters();
   return useMemo(
-    () => computeOverlay(mode, disorder, filters),
-    [mode, disorder, filters],
+    () => computeOverlay(mode, disorders, filters),
+    [mode, disorders, filters],
   );
 }
