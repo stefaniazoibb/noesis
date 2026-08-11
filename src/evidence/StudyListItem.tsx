@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Study } from "@/lib/schemas";
 
 const DIRECTION_GLYPH: Record<string, string> = {
@@ -10,14 +11,26 @@ const DIRECTION_GLYPH: Record<string, string> = {
 export function StudyListItem({
   study,
   statements,
+  detailHref,
 }: {
   study: Study;
   statements?: string[];
+  /** internal study-detail link; when set, the title becomes a link */
+  detailHref?: string;
 }) {
   const firstAuthor = study.authors[0]?.split(" ")[0] ?? "Unknown";
   return (
     <li className="rounded border border-zinc-800/70 bg-zinc-900/40 p-2.5">
-      <p className="text-xs leading-snug text-zinc-200">{study.title}</p>
+      {detailHref ? (
+        <Link
+          href={detailHref as Parameters<typeof Link>[0]["href"]}
+          className="text-xs leading-snug text-zinc-200 hover:text-white"
+        >
+          {study.title}
+        </Link>
+      ) : (
+        <p className="text-xs leading-snug text-zinc-200">{study.title}</p>
+      )}
       <p className="mt-1 text-[11px] text-zinc-500">
         {firstAuthor}
         {study.authors.length > 1 ? " et al." : ""} · {study.journal} ·{" "}

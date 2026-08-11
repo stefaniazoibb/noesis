@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { GlobalSearch } from "./GlobalSearch";
 
-const PLANNED = ["Evidence"];
-
 export function TopNav() {
   return (
     <header className="z-20 flex h-14 shrink-0 items-center justify-between border-b border-zinc-800/80 bg-zinc-950/90 px-5 backdrop-blur">
@@ -30,18 +28,12 @@ export function TopNav() {
         <Link href="/assistant" className="text-zinc-200 hover:text-white">
           Assistant
         </Link>
+        <Link href="/evidence" className="text-zinc-200 hover:text-white">
+          Evidence
+        </Link>
         <Link href="/ml" className="text-zinc-200 hover:text-white">
           ML Lab
         </Link>
-        {PLANNED.map((label) => (
-          <span
-            key={label}
-            title="In development"
-            className="cursor-default text-zinc-600"
-          >
-            {label}
-          </span>
-        ))}
       </nav>
     </header>
   );

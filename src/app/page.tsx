@@ -24,20 +24,17 @@ export default function LandingPage() {
           Explore disorders
         </Link>
         <Link
+          href="/evidence"
+          className="rounded-md border border-zinc-800 px-5 py-2.5 text-sm text-zinc-300 transition-colors hover:border-zinc-700 hover:text-zinc-100"
+        >
+          Explore evidence
+        </Link>
+        <Link
           href="/assistant"
           className="rounded-md border border-zinc-800 px-5 py-2.5 text-sm text-zinc-300 transition-colors hover:border-zinc-700 hover:text-zinc-100"
         >
           Ask the AI
         </Link>
-        {["Explore evidence"].map((l) => (
-          <span
-            key={l}
-            title="In development"
-            className="cursor-default rounded-md border border-zinc-800 px-5 py-2.5 text-sm text-zinc-600"
-          >
-            {l}
-          </span>
-        ))}
       </div>
       <p className="mt-14 max-w-lg text-xs leading-relaxed text-zinc-600">
         A research visualization tool built on the FreeSurfer fsaverage atlas.
