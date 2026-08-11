@@ -47,10 +47,15 @@ Status date: 2026-08-11. Mirrors the session task list; update both together.
 2. #9 Human spot-check of the corpus using `mark_verified.py`
    (owner: Stefania).
 
-**P1 — corpus breadth**
-3. #15 Curate the 8 roster disorders (panic, anorexia, SUD, ASD, FTD, DLB,
-   MSA, ALS) via the standard sweep->curate->verify pipeline.
-4. E2e job in CI (headless WebGL setup).
+**P1 — done 2026-08-11**
+3. ~~#15 roster curation~~ — **19/19 disorders curated: 89 studies / 355
+   assertions, all verified.** First genuine directional conflict (ASD
+   amygdala volume) now in the corpus; honest negatives indexed (rTMS in
+   panic: Cochrane-insufficient; rTMS in ASD: no significant effect).
+4. E2e job in CI (headless WebGL setup) — still open.
+
+**Note:** GAP-ATTENTION now fires 168× on the larger corpus — threshold
+tuning (P2 item 10) has become more pressing.
 
 **P2 — depth features**
 7. #7 Research notebook (localStorage first; human-in-the-loop save/approve).
