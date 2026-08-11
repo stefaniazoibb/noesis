@@ -20,6 +20,10 @@ CURATED_DATE = "2026-08-10"
 def main():
     atlas = json.loads((REPO / "data/atlases/atlas.dk.json").read_text())
     region_ids = {r["id"] for r in atlas["regions"]}
+    verified_file = HERE / "verified_by_human.json"
+    verified_by_human = (
+        json.loads(verified_file.read_text()) if verified_file.exists() else {}
+    )
 
     studies_out, assertions_out = [], []
     seen_pmids = set()
@@ -68,7 +72,7 @@ def main():
             "source": "pubmed",
             "curation": {
                 "method": "manual",
-                "verifiedByHuman": False,
+                "verifiedByHuman": s["id"] in verified_by_human,
                 "metadataVerifiedAgainst": "pubmed_efetch",
                 "curatedDate": CURATED_DATE,
             },
