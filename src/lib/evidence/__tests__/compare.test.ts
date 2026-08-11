@@ -82,3 +82,29 @@ describe("compare overlay values (real corpus)", () => {
     expect(overlay.values.get("sub_lh_hippocampus")).toBe(3); // shared
   });
 });
+
+describe("network overlay (real Yeo memberships)", () => {
+  it("colors members by their primary network with canonical colors", async () => {
+    const { computeOverlay } = await import("../overlay");
+    const overlay = computeOverlay("network", [], {
+      modalities: [],
+      yearMin: null,
+      yearMax: null,
+    });
+    expect(overlay.kind).toBe("network");
+    // canonical correspondences from the Yeo mapping
+    const { getNetworks } = await import("@/lib/repo/entities");
+    const byId = new Map(getNetworks().map((n) => [n.id, n]));
+    expect(overlay.colors.get("dk_lh_precentral")).toBe(
+      byId.get("somatomotor_network")!.color,
+    );
+    expect(overlay.colors.get("dk_lh_lateraloccipital")).toBe(
+      byId.get("visual_network")!.color,
+    );
+    expect(overlay.colors.get("dk_lh_isthmuscingulate")).toBe(
+      byId.get("default_mode_network")!.color,
+    );
+    // subcortical structures have no Yeo membership
+    expect(overlay.colors.has("sub_lh_hippocampus")).toBe(false);
+  });
+});

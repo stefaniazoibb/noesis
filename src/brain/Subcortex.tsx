@@ -40,8 +40,8 @@ function Structure({ region }: { region: Region }) {
     >
       <meshStandardMaterial
         color={
-          overlay.kind === null
-            ? region.color
+          overlay.kind === null || overlay.kind === "network"
+            ? region.color // Yeo networks are cortical-only: keep anatomy
             : (overlay.colors.get(region.id) ?? "#3a3f45")
         }
         roughness={0.55}

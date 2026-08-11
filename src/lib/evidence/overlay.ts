@@ -1,4 +1,5 @@
 import { getEvidenceIndex } from "@/lib/repo/evidence";
+import { getNetworks } from "@/lib/repo/entities";
 import type { EvidenceFilters } from "./metrics";
 import { computeProfiles, type ConvergenceProfile } from "./convergence";
 import type { VizMode } from "@/lib/schemas";
@@ -77,7 +78,7 @@ export const COMPARE_CATEGORIES = [
 ] as const;
 
 export interface OverlayResult {
-  kind: "counts" | "convergence" | "gaps" | "compare" | null;
+  kind: "counts" | "convergence" | "gaps" | "compare" | "network" | null;
   /** region id -> hex color */
   colors: Map<string, string>;
   /** region id -> metric value */
@@ -103,6 +104,19 @@ export function computeOverlay(
 ): OverlayResult {
   const index = getEvidenceIndex();
   const disorder = disorders[0] ?? null;
+  if (mode === "network") {
+    // identity coloring by primary Yeo network (canonical annot colors)
+    const colors = new Map<string, string>();
+    const values = new Map<string, number>();
+    getNetworks().forEach((n, i) => {
+      if (!n.color) return;
+      for (const region of n.regions) {
+        colors.set(region, n.color);
+        values.set(region, i + 1);
+      }
+    });
+    return { kind: "network", colors, values, max: getNetworks().length };
+  }
   if (mode === "compare") {
     const [a, b] = disorders;
     if (!a || !b) return EMPTY;

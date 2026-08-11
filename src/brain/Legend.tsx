@@ -1,7 +1,7 @@
 "use client";
 
 import { useVizStore } from "@/state/vizStore";
-import { getDisorder } from "@/lib/repo/entities";
+import { getDisorder, getNetworks } from "@/lib/repo/entities";
 import { useOverlayResult } from "./useOverlay";
 import {
   sequentialColor,
@@ -42,7 +42,7 @@ export function Legend() {
     : "all indexed disorders";
 
   return (
-    <div className="pointer-events-auto max-w-sm rounded-lg border border-zinc-800 bg-zinc-950/85 p-3 backdrop-blur">
+    <div className="pointer-events-auto max-h-[45vh] max-w-sm overflow-y-auto rounded-lg border border-zinc-800 bg-zinc-950/85 p-3 backdrop-blur">
       {overlay.kind === "counts" && (
         <>
           <h3 className="text-xs font-medium text-zinc-200">
@@ -136,6 +136,34 @@ export function Legend() {
           <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">
             Regions with ≥1 indexed study per disorder, after filters. Shared
             evidence does not imply shared mechanisms.
+          </p>
+        </>
+      )}
+      {overlay.kind === "network" && (
+        <>
+          <h3 className="text-xs font-medium text-zinc-200">
+            Functional networks (Yeo 2011)
+          </h3>
+          <div className="mt-2 space-y-1">
+            {getNetworks().map(
+              (n) =>
+                n.color && (
+                  <div key={n.id} className="flex items-baseline gap-1.5">
+                    <span
+                      className="inline-block h-3 w-3 shrink-0 self-center rounded-sm"
+                      style={{ backgroundColor: n.color }}
+                      aria-hidden
+                    />
+                    <span className="text-[11px] text-zinc-400">{n.name}</span>
+                  </div>
+                ),
+            )}
+          </div>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">
+            Primary membership by vertex overlap (≥25%) between
+            Desikan-Killiany and the Yeo 7-network parcellation on fsaverage
+            (Yeo et al. 2011). Cortical regions only — subcortical structures
+            keep their anatomical colors. Canonical Yeo colors.
           </p>
         </>
       )}

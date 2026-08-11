@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useVizStore } from "@/state/vizStore";
 import { getRegion } from "@/lib/repo/atlas";
-import { getDisorder, getModalities } from "@/lib/repo/entities";
+import { getDisorder, getModalities, getNetworks } from "@/lib/repo/entities";
 import { getEvidenceIndex, getStudy } from "@/lib/repo/evidence";
 import { EVIDENCE_LEVEL_LABEL } from "@/lib/evidence/metrics";
 import { StudyListItem } from "@/evidence/StudyListItem";
@@ -42,6 +42,31 @@ export function RegionPanel() {
               {HEMI_LABEL[region.hemisphere]} · {KIND_LABEL[region.kind]} ·{" "}
               <span className="capitalize">{region.system.replace(/_/g, " ")}</span>
             </p>
+            {(() => {
+              const nets = getNetworks().filter((n) =>
+                n.regions.includes(region.id),
+              );
+              return nets.length > 0 ? (
+                <p className="mt-1 flex flex-wrap items-center gap-1.5">
+                  {nets.map((n) => (
+                    <span
+                      key={n.id}
+                      title={n.membershipSource ?? undefined}
+                      className="flex items-center gap-1 rounded-full border border-zinc-800 px-2 py-0.5 text-[10px] text-zinc-400"
+                    >
+                      {n.color && (
+                        <span
+                          className="inline-block h-2 w-2 rounded-full"
+                          style={{ backgroundColor: n.color }}
+                          aria-hidden
+                        />
+                      )}
+                      {n.name}
+                    </span>
+                  ))}
+                </p>
+              ) : null;
+            })()}
           </div>
           <span
             className="mt-1 inline-block h-3 w-3 shrink-0 rounded-full"

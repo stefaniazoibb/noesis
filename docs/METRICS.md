@@ -86,6 +86,18 @@ disorders the highest-priority category among a region's profiles is shown):
 
 Regions with no indexed evidence keep the anatomical base color.
 
+## Network membership (Networks viz mode)
+
+A cortical region's **primary functional network** is the Yeo 2011 7-network
+label with the highest vertex overlap among network-labeled vertices of that
+region on fsaverage, kept only when that overlap is ≥25%. Computed by
+`pipeline/networks/build_networks.py` (full fraction matrix in
+`pipeline/networks/report.json`); provenance in
+`data/provenance/yeo2011.json`. Cortical only; colors are the canonical Yeo
+colors from the annot color table. DK regions are coarse relative to network
+boundaries — secondary overlaps are discarded from display but preserved in
+the report.
+
 ## Research-question ranking
 
 Generated research questions are ranked by a transparent rule — never by a

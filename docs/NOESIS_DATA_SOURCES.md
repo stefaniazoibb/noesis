@@ -12,6 +12,7 @@ summary; this file adds usage detail and status.
 | PubMed (NCBI E-utilities) | Study discovery + bibliographic metadata + abstracts for curation | `pipeline/curation/fetch_pubmed.py`; verbatim per-PMID cache in `pipeline/curation/cache/` | Metadata freely usable; we store our own faithful finding summaries + links, never verbatim abstracts in `/data` | cache files are the audit trail |
 | OpenAlex | DOI cross-check in the verification gate | `verify_studies.py` (accepts legacy DOI aliases when both resolve to the same target) | CC0 | — |
 | doi.org resolution | DOI-alias adjudication | `verify_studies.py` HEAD requests | — | — |
+| Yeo 2011 7-network parcellation (fsaverage5 annots via CBIG repo) | DK-region network memberships (vertex overlap on fsaverage), canonical network colors | `pipeline/networks/build_networks.py`; cached with SHA-256 | CBIG repository MIT license; cite Yeo et al. 2011 J Neurophysiol | `provenance/yeo2011.json` |
 
 ## Derived artifacts (built, not sourced)
 

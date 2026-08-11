@@ -1,0 +1,18 @@
+{
+  "dataset": "Yeo 2011 7-network parcellation (fsaverage5 annot)",
+  "description": "Functional network parcellation from 1000-subject resting-state clustering; used to compute primary DK-region network memberships by vertex overlap on fsaverage.",
+  "origin": "CBIG repository (ThomasYeoLab/CBIG), Yeo_JNeurophysiol11_SplitLabels/fsaverage5/label",
+  "citation": "Yeo BT et al. The organization of the human cerebral cortex estimated by intrinsic functional connectivity. J Neurophysiol 106:1125-1165 (2011).",
+  "license": "CBIG repository MIT license; parcellation data freely available with citation",
+  "retrievedDate": "2026-08-11",
+  "files": {
+    "lh.Yeo2011_7Networks_N1000.annot": "4d2ea20fa33afa722d35884d27b3577486d8d7e15520d7d23efdd84956139190",
+    "rh.Yeo2011_7Networks_N1000.annot": "53fa768b6c33a3bc8fb5b147d18049684514fcd07e2cbacceeca17cfc21d9e9b"
+  },
+  "method": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+  "limitations": [
+    "Cortical only \u2014 subcortical structures receive no network membership.",
+    "DK regions are coarse relative to network boundaries; primary assignment discards secondary overlaps (recorded in report.json).",
+    "fsaverage5-to-fsaverage nearest-neighbor upsampling smooths network borders slightly."
+  ]
+}

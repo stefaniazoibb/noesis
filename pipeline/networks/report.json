@@ -1,0 +1,617 @@
+{
+  "minPrimaryFraction": 0.25,
+  "fractions": {
+    "dk_lh_bankssts": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.1989,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.1563,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.6448
+    },
+    "dk_lh_caudalanteriorcingulate": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.5207,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.2468,
+      "default_mode_network": 0.2325
+    },
+    "dk_lh_caudalmiddlefrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.166,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.3785,
+      "default_mode_network": 0.4556
+    },
+    "dk_lh_cuneus": {
+      "visual_network": 1.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_entorhinal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.9811,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0189
+    },
+    "dk_lh_fusiform": {
+      "visual_network": 0.5596,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.1336,
+      "salience_network": 0.0,
+      "limbic_network": 0.3061,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0006
+    },
+    "dk_lh_inferiorparietal": {
+      "visual_network": 0.1259,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.1697,
+      "salience_network": 0.0039,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1866,
+      "default_mode_network": 0.5138
+    },
+    "dk_lh_inferiortemporal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.328,
+      "salience_network": 0.0,
+      "limbic_network": 0.3966,
+      "frontoparietal_control_network": 0.1504,
+      "default_mode_network": 0.125
+    },
+    "dk_lh_isthmuscingulate": {
+      "visual_network": 0.1814,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1164,
+      "default_mode_network": 0.7023
+    },
+    "dk_lh_lateraloccipital": {
+      "visual_network": 0.963,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.037,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_lateralorbitofrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0512,
+      "limbic_network": 0.5292,
+      "frontoparietal_control_network": 0.1822,
+      "default_mode_network": 0.2374
+    },
+    "dk_lh_lingual": {
+      "visual_network": 1.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_medialorbitofrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.6529,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.3471
+    },
+    "dk_lh_middletemporal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.1087,
+      "salience_network": 0.0573,
+      "limbic_network": 0.0317,
+      "frontoparietal_control_network": 0.0501,
+      "default_mode_network": 0.7522
+    },
+    "dk_lh_parahippocampal": {
+      "visual_network": 0.3215,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.016,
+      "salience_network": 0.0,
+      "limbic_network": 0.2343,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.4282
+    },
+    "dk_lh_paracentral": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.8212,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.1788,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_parsopercularis": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0292,
+      "salience_network": 0.4402,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.3488,
+      "default_mode_network": 0.1818
+    },
+    "dk_lh_parsorbitalis": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1287,
+      "default_mode_network": 0.8713
+    },
+    "dk_lh_parstriangularis": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.2752,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1896,
+      "default_mode_network": 0.5352
+    },
+    "dk_lh_pericalcarine": {
+      "visual_network": 1.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_postcentral": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.9484,
+      "dorsal_attention_network": 0.0445,
+      "salience_network": 0.007,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_posteriorcingulate": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.1027,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.3362,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.3322,
+      "default_mode_network": 0.2289
+    },
+    "dk_lh_precentral": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.6437,
+      "dorsal_attention_network": 0.1865,
+      "salience_network": 0.1529,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0149,
+      "default_mode_network": 0.002
+    },
+    "dk_lh_precuneus": {
+      "visual_network": 0.1418,
+      "somatomotor_network": 0.0349,
+      "dorsal_attention_network": 0.0936,
+      "salience_network": 0.1234,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1241,
+      "default_mode_network": 0.4822
+    },
+    "dk_lh_rostralanteriorcingulate": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.1308,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.8692
+    },
+    "dk_lh_rostralmiddlefrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.1201,
+      "limbic_network": 0.045,
+      "frontoparietal_control_network": 0.5455,
+      "default_mode_network": 0.2894
+    },
+    "dk_lh_superiorfrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.1243,
+      "dorsal_attention_network": 0.0627,
+      "salience_network": 0.1795,
+      "limbic_network": 0.0016,
+      "frontoparietal_control_network": 0.1104,
+      "default_mode_network": 0.5214
+    },
+    "dk_lh_superiorparietal": {
+      "visual_network": 0.1968,
+      "somatomotor_network": 0.118,
+      "dorsal_attention_network": 0.6487,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0364,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_superiortemporal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.4815,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.1172,
+      "limbic_network": 0.1187,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.2826
+    },
+    "dk_lh_supramarginal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.1374,
+      "dorsal_attention_network": 0.23,
+      "salience_network": 0.3153,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.2063,
+      "default_mode_network": 0.1109
+    },
+    "dk_lh_frontalpole": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.7684,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.2316
+    },
+    "dk_lh_temporalpole": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 1.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_transversetemporal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 1.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_lh_insula": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.3144,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.5744,
+      "limbic_network": 0.0352,
+      "frontoparietal_control_network": 0.0435,
+      "default_mode_network": 0.0325
+    },
+    "dk_rh_bankssts": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.3502,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.3397,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.3101
+    },
+    "dk_rh_caudalanteriorcingulate": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.479,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.3005,
+      "default_mode_network": 0.2205
+    },
+    "dk_rh_caudalmiddlefrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.1843,
+      "salience_network": 0.0043,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.7184,
+      "default_mode_network": 0.093
+    },
+    "dk_rh_cuneus": {
+      "visual_network": 1.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_entorhinal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.9953,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0047
+    },
+    "dk_rh_fusiform": {
+      "visual_network": 0.6333,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0725,
+      "salience_network": 0.0,
+      "limbic_network": 0.2941,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_inferiorparietal": {
+      "visual_network": 0.1248,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.1593,
+      "salience_network": 0.0212,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.2971,
+      "default_mode_network": 0.3976
+    },
+    "dk_rh_inferiortemporal": {
+      "visual_network": 0.0014,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.3147,
+      "salience_network": 0.0,
+      "limbic_network": 0.4757,
+      "frontoparietal_control_network": 0.1544,
+      "default_mode_network": 0.0538
+    },
+    "dk_rh_isthmuscingulate": {
+      "visual_network": 0.2644,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1287,
+      "default_mode_network": 0.6069
+    },
+    "dk_rh_lateraloccipital": {
+      "visual_network": 0.9836,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0164,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_lateralorbitofrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.022,
+      "limbic_network": 0.5754,
+      "frontoparietal_control_network": 0.2313,
+      "default_mode_network": 0.1713
+    },
+    "dk_rh_lingual": {
+      "visual_network": 1.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_medialorbitofrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.6063,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.3937
+    },
+    "dk_rh_middletemporal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.1226,
+      "salience_network": 0.0635,
+      "limbic_network": 0.0512,
+      "frontoparietal_control_network": 0.1382,
+      "default_mode_network": 0.6245
+    },
+    "dk_rh_parahippocampal": {
+      "visual_network": 0.5894,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.2815,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.1291
+    },
+    "dk_rh_paracentral": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.7609,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.2391,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_parsopercularis": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.1602,
+      "salience_network": 0.481,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.3499,
+      "default_mode_network": 0.0089
+    },
+    "dk_rh_parsorbitalis": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.4514,
+      "default_mode_network": 0.5486
+    },
+    "dk_rh_parstriangularis": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.416,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.3042,
+      "default_mode_network": 0.2798
+    },
+    "dk_rh_pericalcarine": {
+      "visual_network": 1.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_postcentral": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.9708,
+      "dorsal_attention_network": 0.0211,
+      "salience_network": 0.0081,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_posteriorcingulate": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.1238,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.3806,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.3597,
+      "default_mode_network": 0.1359
+    },
+    "dk_rh_precentral": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.6284,
+      "dorsal_attention_network": 0.1874,
+      "salience_network": 0.1829,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0013,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_precuneus": {
+      "visual_network": 0.1594,
+      "somatomotor_network": 0.0507,
+      "dorsal_attention_network": 0.151,
+      "salience_network": 0.0811,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1614,
+      "default_mode_network": 0.3965
+    },
+    "dk_rh_rostralanteriorcingulate": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0975,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.9025
+    },
+    "dk_rh_rostralmiddlefrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0914,
+      "limbic_network": 0.0409,
+      "frontoparietal_control_network": 0.7501,
+      "default_mode_network": 0.1175
+    },
+    "dk_rh_superiorfrontal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0672,
+      "dorsal_attention_network": 0.0564,
+      "salience_network": 0.2276,
+      "limbic_network": 0.0015,
+      "frontoparietal_control_network": 0.1716,
+      "default_mode_network": 0.4758
+    },
+    "dk_rh_superiorparietal": {
+      "visual_network": 0.2165,
+      "somatomotor_network": 0.1408,
+      "dorsal_attention_network": 0.6375,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0052,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_superiortemporal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.5612,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.1069,
+      "limbic_network": 0.1082,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.2238
+    },
+    "dk_rh_supramarginal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.1852,
+      "dorsal_attention_network": 0.2533,
+      "salience_network": 0.4199,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.1363,
+      "default_mode_network": 0.0054
+    },
+    "dk_rh_frontalpole": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.8591,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.1409
+    },
+    "dk_rh_temporalpole": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 1.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_transversetemporal": {
+      "visual_network": 0.0,
+      "somatomotor_network": 1.0,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.0,
+      "limbic_network": 0.0,
+      "frontoparietal_control_network": 0.0,
+      "default_mode_network": 0.0
+    },
+    "dk_rh_insula": {
+      "visual_network": 0.0,
+      "somatomotor_network": 0.3517,
+      "dorsal_attention_network": 0.0,
+      "salience_network": 0.5535,
+      "limbic_network": 0.0217,
+      "frontoparietal_control_network": 0.0558,
+      "default_mode_network": 0.0173
+    }
+  }
+}

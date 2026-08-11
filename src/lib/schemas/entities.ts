@@ -36,6 +36,8 @@ export const NetworkSchema = z.object({
   /** atlas region ids; membership requires a documented source */
   regions: z.array(z.string()),
   membershipSource: z.string().nullable(),
+  /** canonical display color (e.g. from the Yeo annot color table) */
+  color: z.string().nullable().default(null),
   synonyms: z.array(z.string()),
 });
 

@@ -1,34 +1,166 @@
 [
   {
-    "id": "default_mode_network",
-    "name": "Default mode network",
-    "description": "A large-scale network engaged during rest and internally directed cognition. Region memberships are not yet populated — they will be ingested from a documented parcellation with provenance, not hand-assigned.",
-    "regions": [],
-    "membershipSource": null,
-    "synonyms": ["DMN", "default network"]
+    "id": "visual_network",
+    "name": "Visual network",
+    "description": "Primary and higher-order visual cortex.",
+    "regions": [
+      "dk_lh_cuneus",
+      "dk_lh_fusiform",
+      "dk_lh_lateraloccipital",
+      "dk_lh_lingual",
+      "dk_lh_pericalcarine",
+      "dk_rh_cuneus",
+      "dk_rh_fusiform",
+      "dk_rh_lateraloccipital",
+      "dk_rh_lingual",
+      "dk_rh_parahippocampal",
+      "dk_rh_pericalcarine"
+    ],
+    "membershipSource": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+    "color": "#781286",
+    "synonyms": [
+      "VIS",
+      "visual system"
+    ]
+  },
+  {
+    "id": "somatomotor_network",
+    "name": "Somatomotor network",
+    "description": "Sensorimotor cortex spanning precentral and postcentral regions.",
+    "regions": [
+      "dk_lh_paracentral",
+      "dk_lh_postcentral",
+      "dk_lh_precentral",
+      "dk_lh_superiortemporal",
+      "dk_lh_transversetemporal",
+      "dk_rh_bankssts",
+      "dk_rh_paracentral",
+      "dk_rh_postcentral",
+      "dk_rh_precentral",
+      "dk_rh_superiortemporal",
+      "dk_rh_transversetemporal"
+    ],
+    "membershipSource": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+    "color": "#4682b4",
+    "synonyms": [
+      "SMN",
+      "sensorimotor network",
+      "motor network"
+    ]
+  },
+  {
+    "id": "dorsal_attention_network",
+    "name": "Dorsal attention network",
+    "description": "A network supporting top-down, goal-directed attention.",
+    "regions": [
+      "dk_lh_superiorparietal",
+      "dk_rh_superiorparietal"
+    ],
+    "membershipSource": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+    "color": "#00760e",
+    "synonyms": [
+      "DAN",
+      "dorsal attention"
+    ]
   },
   {
     "id": "salience_network",
-    "name": "Salience network",
-    "description": "A network implicated in detecting behaviorally relevant stimuli and coordinating switching between large-scale networks. Region memberships pending documented parcellation ingestion.",
-    "regions": [],
-    "membershipSource": null,
-    "synonyms": ["SN", "ventral attention network", "cingulo-opercular network"]
-  },
-  {
-    "id": "frontoparietal_control_network",
-    "name": "Frontoparietal control network",
-    "description": "A network associated with executive control and adaptive task processing. Region memberships pending documented parcellation ingestion.",
-    "regions": [],
-    "membershipSource": null,
-    "synonyms": ["FPCN", "central executive network", "CEN", "executive control network"]
+    "name": "Salience / ventral attention network",
+    "description": "A network implicated in detecting behaviorally relevant stimuli and coordinating switching between large-scale networks.",
+    "regions": [
+      "dk_lh_caudalanteriorcingulate",
+      "dk_lh_insula",
+      "dk_lh_parsopercularis",
+      "dk_lh_posteriorcingulate",
+      "dk_lh_supramarginal",
+      "dk_rh_caudalanteriorcingulate",
+      "dk_rh_insula",
+      "dk_rh_parsopercularis",
+      "dk_rh_parstriangularis",
+      "dk_rh_posteriorcingulate",
+      "dk_rh_supramarginal"
+    ],
+    "membershipSource": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+    "color": "#c43afa",
+    "synonyms": [
+      "SN",
+      "ventral attention network",
+      "cingulo-opercular network",
+      "VAN"
+    ]
   },
   {
     "id": "limbic_network",
     "name": "Limbic network",
-    "description": "A grouping of medial temporal and orbitofrontal structures involved in affect and memory. Region memberships pending documented parcellation ingestion.",
-    "regions": [],
-    "membershipSource": null,
-    "synonyms": ["limbic system network"]
+    "description": "A grouping of temporopolar and orbitofrontal cortex involved in affect and memory.",
+    "regions": [
+      "dk_lh_entorhinal",
+      "dk_lh_frontalpole",
+      "dk_lh_inferiortemporal",
+      "dk_lh_lateralorbitofrontal",
+      "dk_lh_medialorbitofrontal",
+      "dk_lh_temporalpole",
+      "dk_rh_entorhinal",
+      "dk_rh_frontalpole",
+      "dk_rh_inferiortemporal",
+      "dk_rh_lateralorbitofrontal",
+      "dk_rh_medialorbitofrontal",
+      "dk_rh_temporalpole"
+    ],
+    "membershipSource": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+    "color": "#dcf8a4",
+    "synonyms": [
+      "limbic system network"
+    ]
+  },
+  {
+    "id": "frontoparietal_control_network",
+    "name": "Frontoparietal control network",
+    "description": "A network associated with executive control and adaptive task processing.",
+    "regions": [
+      "dk_lh_rostralmiddlefrontal",
+      "dk_rh_caudalmiddlefrontal",
+      "dk_rh_rostralmiddlefrontal"
+    ],
+    "membershipSource": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+    "color": "#e69422",
+    "synonyms": [
+      "FPCN",
+      "central executive network",
+      "CEN",
+      "executive control network",
+      "control network"
+    ]
+  },
+  {
+    "id": "default_mode_network",
+    "name": "Default mode network",
+    "description": "A large-scale network engaged during rest and internally directed cognition.",
+    "regions": [
+      "dk_lh_bankssts",
+      "dk_lh_caudalmiddlefrontal",
+      "dk_lh_inferiorparietal",
+      "dk_lh_isthmuscingulate",
+      "dk_lh_middletemporal",
+      "dk_lh_parahippocampal",
+      "dk_lh_parsorbitalis",
+      "dk_lh_parstriangularis",
+      "dk_lh_precuneus",
+      "dk_lh_rostralanteriorcingulate",
+      "dk_lh_superiorfrontal",
+      "dk_rh_inferiorparietal",
+      "dk_rh_isthmuscingulate",
+      "dk_rh_middletemporal",
+      "dk_rh_parsorbitalis",
+      "dk_rh_precuneus",
+      "dk_rh_rostralanteriorcingulate",
+      "dk_rh_superiorfrontal"
+    ],
+    "membershipSource": "Computed primary membership: highest vertex-overlap (>=25% of network-labeled vertices) between the Desikan-Killiany aparc parcellation and the Yeo 2011 7-network parcellation, both on the fsaverage surface (fsaverage5 annot nearest-neighbor upsampled on the registered sphere). Source: Yeo et al., J Neurophysiol 106:1125-1165 (2011), via the CBIG repository. Full overlap fractions: pipeline/networks/report.json. Cortical regions only.",
+    "color": "#cd3e4e",
+    "synonyms": [
+      "DMN",
+      "default network"
+    ]
   }
 ]

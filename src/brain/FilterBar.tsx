@@ -10,6 +10,7 @@ const MODES: { mode: VizMode; label: string }[] = [
   { mode: "convergence", label: "Convergence" },
   { mode: "gaps", label: "Gaps" },
   { mode: "compare", label: "Compare" },
+  { mode: "network", label: "Networks" },
 ];
 
 export function FilterBar() {
