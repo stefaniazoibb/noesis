@@ -32,8 +32,8 @@ export default async function StudyPage(props: PageProps<"/evidence/[id]">) {
       <Link href="/evidence" className="text-xs text-zinc-500 hover:text-zinc-300">
         ← Evidence browser
       </Link>
-      <div className="mt-3 flex items-start justify-between gap-3">
-        <h1 className="text-xl font-light leading-snug text-zinc-100">
+      <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
+        <h1 className="min-w-0 break-words text-xl font-light leading-snug text-zinc-100">
           {study.title}
         </h1>
         <SaveToNotebook

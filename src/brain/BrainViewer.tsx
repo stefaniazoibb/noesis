@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useProgress } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { useVizStore, type ViewPresetName } from "@/state/vizStore";
 import { CortexHemisphere } from "./CortexHemisphere";
@@ -35,6 +35,23 @@ function CameraPresets() {
   return null;
 }
 
+/** Loading overlay while GLB assets stream in (rendered outside the canvas). */
+function LoadingOverlay() {
+  const { active, progress } = useProgress();
+  if (!active) return null;
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      role="status"
+      aria-live="polite"
+    >
+      <p className="rounded-md border border-zinc-800 bg-zinc-950/80 px-3 py-1.5 text-xs text-zinc-400 backdrop-blur">
+        Loading brain atlas… {Math.round(progress)}%
+      </p>
+    </div>
+  );
+}
+
 export function BrainViewer() {
   const left = useVizStore((s) => s.hemispheres.left);
   const right = useVizStore((s) => s.hemispheres.right);
@@ -50,11 +67,17 @@ export function BrainViewer() {
   );
 
   return (
-    <Canvas
-      camera={{ position: [-215, 105, -195], fov: 40, near: 1, far: 3000 }}
-      dpr={[1, 2]}
-      onPointerMissed={() => selectRegion(null)}
+    <div
+      className="relative h-full w-full"
+      role="img"
+      aria-label="Interactive 3D human brain atlas. Use the mode and view controls to change the visualization; click a region to inspect its evidence."
     >
+      <LoadingOverlay />
+      <Canvas
+        camera={{ position: [-215, 105, -195], fov: 40, near: 1, far: 3000 }}
+        dpr={[1, 2]}
+        onPointerMissed={() => selectRegion(null)}
+      >
       <color attach="background" args={["#0b0d10"]} />
       <hemisphereLight args={["#cdd6e0", "#26292e", 1.1]} />
       <directionalLight position={[-220, 260, -180]} intensity={1.7} />
@@ -71,15 +94,16 @@ export function BrainViewer() {
           <Subcortex />
         </Suspense>
       </group>
-      <OrbitControls
-        makeDefault
-        target={CENTER}
-        enableDamping
-        dampingFactor={0.12}
-        minDistance={70}
-        maxDistance={700}
-      />
-      <CameraPresets />
-    </Canvas>
+        <OrbitControls
+          makeDefault
+          target={CENTER}
+          enableDamping
+          dampingFactor={0.12}
+          minDistance={70}
+          maxDistance={700}
+        />
+        <CameraPresets />
+      </Canvas>
+    </div>
   );
 }

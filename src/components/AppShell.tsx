@@ -3,7 +3,13 @@ import { GlobalSearch } from "./GlobalSearch";
 
 export function TopNav() {
   return (
-    <header className="z-20 flex h-14 shrink-0 items-center justify-between border-b border-zinc-800/80 bg-zinc-950/90 px-5 backdrop-blur">
+    <header className="z-20 flex h-14 shrink-0 items-center justify-between gap-3 border-b border-zinc-800/80 bg-zinc-950/90 px-5 backdrop-blur">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-zinc-800 focus:px-3 focus:py-1.5 focus:text-sm focus:text-zinc-100"
+      >
+        Skip to content
+      </a>
       <div className="flex items-baseline gap-3">
         <Link
           href="/"
@@ -18,7 +24,10 @@ export function TopNav() {
       <div className="flex flex-1 justify-center px-4">
         <GlobalSearch />
       </div>
-      <nav className="flex items-center gap-4 text-sm">
+      <nav
+        aria-label="Primary"
+        className="flex items-center gap-4 overflow-x-auto whitespace-nowrap text-sm"
+      >
         <Link href="/brain" className="text-zinc-200 hover:text-white">
           Brain
         </Link>

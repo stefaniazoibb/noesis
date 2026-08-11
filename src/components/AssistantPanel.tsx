@@ -148,7 +148,7 @@ export function AssistantPanel({ variant }: { variant: "page" | "drawer" }) {
       className={`flex flex-col ${
         variant === "page"
           ? "mx-auto h-full w-full max-w-2xl"
-          : "h-[26rem] w-96 rounded-lg border border-zinc-800 bg-zinc-950/90 backdrop-blur"
+          : "h-[26rem] w-96 max-w-[calc(100vw-2rem)] rounded-lg border border-zinc-800 bg-zinc-950/90 backdrop-blur"
       }`}
     >
       <div

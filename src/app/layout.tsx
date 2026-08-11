@@ -27,7 +27,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex h-full flex-col">
         <TopNav />
-        {children}
+        <div id="main" className="flex min-h-0 flex-1 flex-col">
+          {children}
+        </div>
         <DisclaimerBar />
       </body>
     </html>

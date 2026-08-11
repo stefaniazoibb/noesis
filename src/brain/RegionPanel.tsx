@@ -20,7 +20,7 @@ export function RegionPanel() {
 
   if (!region) {
     return (
-      <aside className="pointer-events-auto w-80 rounded-lg border border-zinc-800 bg-zinc-950/80 p-5 backdrop-blur">
+      <aside className="pointer-events-auto w-80 max-w-[calc(100vw-2rem)] rounded-lg border border-zinc-800 bg-zinc-950/80 p-5 backdrop-blur">
         <p className="text-sm text-zinc-400">
           Rotate, zoom, and hover to explore the atlas. Click a region to
           inspect its evidence.
@@ -33,7 +33,7 @@ export function RegionPanel() {
   const allModalities = getModalities();
 
   return (
-    <aside className="pointer-events-auto flex max-h-[70vh] w-96 flex-col rounded-lg border border-zinc-800 bg-zinc-950/85 backdrop-blur">
+    <aside className="pointer-events-auto flex max-h-[70vh] w-96 max-w-[calc(100vw-2rem)] flex-col rounded-lg border border-zinc-800 bg-zinc-950/85 backdrop-blur">
       <div className="border-b border-zinc-800/70 p-4">
         <div className="flex items-start justify-between gap-3">
           <div>
