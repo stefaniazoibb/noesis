@@ -67,8 +67,11 @@ tuning (P2 item 10) has become more pressing.
     METRICS.md required.
 
 **P3 — the ML frontier (ARCHITECTURE.md §9 v2–v3)**
-11. #12 Python FastAPI service behind the artifact contracts; real-modality
-    features (Neurosynth/NeuroQuery aggregation first, licensing verified);
+11. #12 first increment DONE (2026-08-11): NeuroQuery meta-analytic maps —
+    `pipeline/metamaps/build_metamaps.py` (BSD-3-Clause verified), 19
+    RegionScalarMap artifacts, Meta-map viz mode with a labeled
+    model-generated stratum (never merged with corpus metrics). Remaining
+    #12 scope: Python FastAPI service behind the artifact contracts;
     CCA/contrastive alignment; heterogeneous graph artifact + GNN link
     prediction; ML Lab with enforced subject-level splits.
 

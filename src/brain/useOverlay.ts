@@ -2,7 +2,12 @@
 
 import { useMemo } from "react";
 import { useVizStore } from "@/state/vizStore";
-import { computeOverlay, type OverlayResult } from "@/lib/evidence/overlay";
+import {
+  computeOverlay,
+  scalarMapOverlay,
+  type OverlayResult,
+} from "@/lib/evidence/overlay";
+import { useMetamap } from "@/lib/ml/metamaps";
 import type { EvidenceFilters } from "@/lib/evidence/metrics";
 
 export function useEvidenceFilters(): EvidenceFilters {
@@ -20,8 +25,16 @@ export function useOverlayResult(): OverlayResult {
   const mode = useVizStore((s) => s.mode);
   const disorders = useVizStore((s) => s.disorders);
   const filters = useEvidenceFilters();
-  return useMemo(
-    () => computeOverlay(mode, disorders, filters),
-    [mode, disorders, filters],
+  // metamap overlays come from fetched RegionScalarMap artifacts
+  const metamap = useMetamap(
+    mode === "metamap" ? (disorders[0] ?? null) : null,
   );
+  return useMemo(() => {
+    if (mode === "metamap") {
+      return metamap
+        ? scalarMapOverlay(metamap)
+        : { kind: null, colors: new Map(), values: new Map(), max: 0 };
+    }
+    return computeOverlay(mode, disorders, filters);
+  }, [mode, disorders, filters, metamap]);
 }

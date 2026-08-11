@@ -9,3 +9,5 @@ pydantic
 httpx
 scikit-learn
 umap-learn
+nilearn
+neuroquery

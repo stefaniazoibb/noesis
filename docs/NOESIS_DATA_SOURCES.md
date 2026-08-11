@@ -13,6 +13,7 @@ summary; this file adds usage detail and status.
 | OpenAlex | DOI cross-check in the verification gate | `verify_studies.py` (accepts legacy DOI aliases when both resolve to the same target) | CC0 | — |
 | doi.org resolution | DOI-alias adjudication | `verify_studies.py` HEAD requests | — | — |
 | Yeo 2011 7-network parcellation (fsaverage5 annots via CBIG repo) | DK-region network memberships (vertex overlap on fsaverage), canonical network colors | `pipeline/networks/build_networks.py`; cached with SHA-256 | CBIG repository MIT license; cite Yeo et al. 2011 J Neurophysiol | `provenance/yeo2011.json` |
+| NeuroQuery meta-analytic model (neuroquery + neuroquery_data) | Per-disorder model-generated brain maps aggregated to atlas regions (Meta-map mode; RegionScalarMap artifacts) — separate labeled stratum, never merged with curated metrics | `pipeline/metamaps/build_metamaps.py` | BSD-3-Clause (code + data), verified 2026-08-11; cite Dockès et al. eLife 2020 | `provenance/neuroquery.json` |
 
 ## Derived artifacts (built, not sourced)
 
@@ -25,7 +26,7 @@ runtime from assertions (never stored as truth).
 
 | Source | Planned use | Status |
 |---|---|---|
-| Neurosynth / NeuroQuery | Automated meta-analytic maps aggregated to DK regions (labeled as automated, separate from curated studies); later real-modality features | Not ingested; license check pending |
+| Neurosynth | Alternative automated meta-analytic maps (NeuroQuery ingested 2026-08-11, see above) | Not ingested; NeuroQuery covers the use case |
 | ENIGMA summary statistics | Per-publication regional effect sizes | Case-by-case with each paper |
 | Yeo-style network parcellation | Network memberships with `membershipSource` | Needed for roadmap #10 |
 | HCP-MMP (Glasser) | Finer atlas upgrade | Deferred — WU-Minn terms must be accepted first |

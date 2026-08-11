@@ -139,6 +139,41 @@ export function Legend() {
           </p>
         </>
       )}
+      {mode === "metamap" && overlay.kind === null && (
+        <p className="text-[11px] text-zinc-500">
+          {disorderId
+            ? "Loading meta-analytic map…"
+            : "Select a disorder to view its automated meta-analytic map."}
+        </p>
+      )}
+      {overlay.kind === "metamap" && (
+        <>
+          <h3 className="text-xs font-medium text-zinc-200">
+            Meta-analytic association
+            {disorderId ? ` — ${getDisorder(disorderId)?.name}` : ""}
+          </h3>
+          <div className="mt-2 flex items-center gap-1">
+            {[0.15, 0.35, 0.55, 0.75, 0.95].map((t) => (
+              <span
+                key={t}
+                className="inline-block h-3 w-6"
+                style={{ backgroundColor: sequentialColor(t, 1) }}
+                aria-hidden
+              />
+            ))}
+            <span className="ml-1 text-[10px] text-zinc-500">
+              low → high (max z ≈ {overlay.max.toFixed(1)})
+            </span>
+          </div>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">
+            {overlay.note}
+          </p>
+          <p className="mt-1.5 border-t border-zinc-800/70 pt-1.5 text-[10px] leading-relaxed text-amber-600/80">
+            Model-generated map (automated literature mining) — NOT the
+            curated study corpus shown in the Evidence modes.
+          </p>
+        </>
+      )}
       {overlay.kind === "network" && (
         <>
           <h3 className="text-xs font-medium text-zinc-200">
@@ -194,12 +229,17 @@ export function Legend() {
           </div>
         </>
       )}
-      <p className="mt-2 border-t border-zinc-800/70 pt-1.5 text-[10px] text-zinc-600">
-        Indexed corpus only ({overlay.values.size} regions with evidence) —
-        curated, not a systematic review.
-        {overlay.kind === "gaps" &&
-          " A gap here may be a curation gap, not a gap in the literature."}
-      </p>
+      {(overlay.kind === "counts" ||
+        overlay.kind === "convergence" ||
+        overlay.kind === "compare" ||
+        overlay.kind === "gaps") && (
+        <p className="mt-2 border-t border-zinc-800/70 pt-1.5 text-[10px] text-zinc-600">
+          Indexed corpus only ({overlay.values.size} regions with evidence) —
+          curated, not a systematic review.
+          {overlay.kind === "gaps" &&
+            " A gap here may be a curation gap, not a gap in the literature."}
+        </p>
+      )}
     </div>
   );
 }

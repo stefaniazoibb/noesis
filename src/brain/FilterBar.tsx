@@ -10,6 +10,7 @@ const MODES: { mode: VizMode; label: string }[] = [
   { mode: "convergence", label: "Convergence" },
   { mode: "gaps", label: "Gaps" },
   { mode: "compare", label: "Compare" },
+  { mode: "metamap", label: "Meta-map" },
   { mode: "network", label: "Networks" },
 ];
 
@@ -27,7 +28,10 @@ export function FilterBar() {
     mode === "disorder" ||
     mode === "convergence" ||
     mode === "gaps" ||
-    mode === "compare";
+    mode === "compare" ||
+    mode === "metamap";
+  // modality/year filters act on the curated corpus, not on model-generated maps
+  const corpusFilters = evidenceMode && mode !== "metamap";
 
   return (
     <div className="pointer-events-auto flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-950/80 p-1.5 backdrop-blur">
@@ -94,8 +98,11 @@ export function FilterBar() {
                 ))}
             </select>
           )}
-          <span className="mx-1 h-4 w-px bg-zinc-800" aria-hidden />
-          {getModalities().map((m) => (
+          {corpusFilters && (
+            <span className="mx-1 h-4 w-px bg-zinc-800" aria-hidden />
+          )}
+          {corpusFilters &&
+            getModalities().map((m) => (
             <label
               key={m.id}
               className="flex cursor-pointer items-center gap-1 px-1.5 py-1 text-xs text-zinc-400 hover:text-zinc-200"

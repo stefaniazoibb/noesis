@@ -14,7 +14,9 @@ import {
   StudySchema,
   EvidenceAssertionSchema,
   EmbeddingSetManifestSchema,
+  RegionScalarMapSchema,
 } from "../src/lib/schemas";
+import { readdirSync } from "node:fs";
 
 const DATA = join(import.meta.dirname, "..", "data");
 const errors: string[] = [];
@@ -118,6 +120,28 @@ for (const entity of ["region", "disorder", "study"] as const) {
   }
 }
 
+// meta-analytic RegionScalarMap artifacts (optional, validated when present)
+let metamaps = 0;
+const metamapDir = join(DATA, "metamaps");
+if (existsSync(metamapDir)) {
+  for (const file of readdirSync(metamapDir)) {
+    if (!file.endsWith(".metamap.json")) continue;
+    const parsed = RegionScalarMapSchema.safeParse(
+      JSON.parse(readFileSync(join(metamapDir, file), "utf8")),
+    );
+    if (!parsed.success) {
+      errors.push(`data/metamaps/${file}: ${parsed.error.message}`);
+      continue;
+    }
+    for (const region of Object.keys(parsed.data.values)) {
+      if (!regionIds.has(region)) {
+        errors.push(`data/metamaps/${file}: unknown region id ${region}`);
+      }
+    }
+    metamaps += 1;
+  }
+}
+
 if (errors.length > 0) {
   console.error(`data validation FAILED (${errors.length} error${errors.length > 1 ? "s" : ""}):`);
   for (const e of errors) console.error(`  - ${e}`);
@@ -128,5 +152,5 @@ console.log(
   `data validation OK — regions: ${regionIds.size}, disorders: ${disorders.length}, ` +
     `modalities: ${modalities.length}, networks: ${networks.length}, ` +
     `studies: ${studies.length}, assertions: ${assertions.length}, ` +
-    `embedding sets: ${embeddingSets}`,
+    `embedding sets: ${embeddingSets}, metamaps: ${metamaps}`,
 );

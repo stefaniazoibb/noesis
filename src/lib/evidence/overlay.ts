@@ -78,12 +78,38 @@ export const COMPARE_CATEGORIES = [
 ] as const;
 
 export interface OverlayResult {
-  kind: "counts" | "convergence" | "gaps" | "compare" | "network" | null;
+  kind:
+    | "counts"
+    | "convergence"
+    | "gaps"
+    | "compare"
+    | "network"
+    | "metamap"
+    | null;
   /** region id -> hex color */
   colors: Map<string, string>;
   /** region id -> metric value */
   values: Map<string, number>;
   max: number;
+  /** metric definition carried by artifact-backed overlays (metamap) */
+  note?: string;
+}
+
+/** Build an overlay from a RegionScalarMap artifact (e.g. NeuroQuery maps). */
+export function scalarMapOverlay(map: {
+  values: Record<string, number>;
+  metricDef: string;
+}): OverlayResult {
+  const values = new Map(
+    Object.entries(map.values).map(([r, v]) => [r, Math.max(0, v)]),
+  );
+  const max = Math.max(0, ...values.values());
+  const colors = new Map(
+    [...values.entries()]
+      .filter(([, v]) => v > 0)
+      .map(([r, v]) => [r, sequentialColor(v, max)] as [string, string]),
+  );
+  return { kind: "metamap", colors, values, max, note: map.metricDef };
 }
 
 const EMPTY: OverlayResult = {

@@ -1,0 +1,14 @@
+{
+  "dataset": "NeuroQuery meta-analytic model",
+  "description": "Text-conditioned meta-analytic brain maps generated per disorder name and aggregated to atlas regions.",
+  "origin": "neuroquery Python package + neuroquery_data model (github.com/neuroquery)",
+  "citation": "Dock\u00e8s J et al. NeuroQuery, comprehensive meta-analysis of human brain mapping. eLife 9:e53385 (2020). doi:10.7554/eLife.53385",
+  "license": "BSD-3-Clause (code and data), verified 2026-08-11",
+  "retrievedDate": "2026-08-11",
+  "limitations": [
+    "Model-generated from literature text mining \u2014 not curated studies; displayed as a separate, explicitly labeled evidence stratum.",
+    "MNI305->MNI152 affine approximation (~1-2 mm) when sampling fsaverage voxels.",
+    "Query = disorder display name only; synonym-conditioned maps not yet explored.",
+    "Region aggregation is a mean over voxels; fine-grained peaks within large regions are diluted."
+  ]
+}

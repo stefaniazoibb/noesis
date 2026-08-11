@@ -98,6 +98,16 @@ colors from the annot color table. DK regions are coarse relative to network
 boundaries — secondary overlaps are discarded from display but preserved in
 the report.
 
+## Meta-analytic association (Meta-map viz mode)
+
+Mean NeuroQuery z-value per region for the disorder-name query, computed by
+`pipeline/metamaps/build_metamaps.py` (NeuroQuery model, Dockès et al. eLife
+2020, BSD-3-Clause; fsaverage aparc+aseg sampling with the standard
+MNI305→MNI152 affine). **A separate, model-generated evidence stratum** —
+automated literature text mining, not curated studies, never merged with the
+corpus metrics; negative values clip to 0 for display. Provenance:
+`data/provenance/neuroquery.json`.
+
 ## Research-question ranking
 
 Generated research questions are ranked by a transparent rule — never by a
