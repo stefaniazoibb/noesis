@@ -6,6 +6,7 @@
   "preprocessing": "X used as built (log1p counts -> z-score -> PCA-8). Y: per-region z-score across disorders -> PCA-8 (seed 42).",
   "model": "CCA, 3 components (scikit-learn); significance by 1000 row-permutations of Y (refit per permutation, per-component p = (1+#perm>=observed)/(1+N)).",
   "config": {
+    "entity": "disorder",
     "nComponents": 3,
     "nPermutations": 1000,
     "seed": 42
@@ -20,7 +21,7 @@
   },
   "uncertainty": null,
   "modelVersion": "v1",
-  "created": "2026-08-11",
+  "created": "2026-08-14",
   "outputs": {
     "scores": "alignment_cca_v1.scores.json"
   }

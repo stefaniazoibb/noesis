@@ -117,18 +117,24 @@ rendered. Model outputs are a separate stratum from the curated corpus —
 **ML importance ≠ biological causality**, and candidate links are hypotheses
 about the corpus, never evidence.
 
-### Representation alignment (`alignment_cca_v1`)
+### Representation alignment (`alignment_cca_v1`, `alignment_cca_regions_v1`)
 
-CCA between the 19 disorder evidence-corpus embeddings (PCA-8) and the 19
-NeuroQuery meta-map region profiles (83 regions, column-z-scored, PCA-8).
-Reported per component: canonical correlation (in-sample) and a permutation
-p-value from 1000 refits under row-shuffled Y
-(p = (1 + #perm ≥ observed) / (1 + N)). With n=19, in-sample correlations
-are near-guaranteed to be high — only permutation-significant components
-indicate alignment beyond chance, and the UI applies Bonferroni correction
-across the tested components (α = 0.05/k) before calling any component
-significant. Current result (v1) is an honest negative: cc1 = 0.98 with
-perm p = 0.54, and no component survives correction. Interpretation caveat: both views derive
+CCA between the evidence-corpus embeddings and the NeuroQuery meta-map
+profiles of the same entities — run at two levels: disorders (n=19; Y = 83
+region z-values per disorder) and regions (n=60 regions with indexed
+evidence, a selection biased toward well-studied regions; Y = 19 disorder
+z-values per region). Y is column-z-scored then PCA-8. Reported per
+component: canonical correlation (in-sample) and a permutation p-value from
+1000 refits under row-shuffled Y (p = (1 + #perm ≥ observed) / (1 + N)).
+In-sample correlations are inflated at small n — only permutation-significant
+components indicate alignment beyond chance, and the UI applies Bonferroni
+correction across the tested components (α = 0.05/k) before calling any
+component significant. Current results (v1): disorder level is an honest
+negative (cc1 = 0.98, perm p = 0.54, nothing survives correction — n=19 is
+too small); region level is significant (cc1 = 0.88, cc2 = 0.80, cc3 = 0.66,
+all perm p = 0.001, the floor for 1000 permutations). Either way this
+measures curation/automated-mining consistency, never independent biological
+validation. Interpretation caveat: both views derive
 from the research literature, so even a significant alignment measures
 curation/automated-mining **consistency**, not independent validation.
 

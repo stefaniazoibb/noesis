@@ -1,0 +1,28 @@
+{
+  "runId": "alignment_cca_regions_v1",
+  "task": "alignment",
+  "datasetDef": "X: 60 region evidence-corpus embeddings (region_evidence_pca_v1, corpus ac4d97d111e2 \u2014 regions WITH indexed evidence only, a selection biased toward well-studied regions); Y: the same 60 regions' NeuroQuery meta-map profiles across 19 disorders, column-z-scored, PCA to 8. Both views derive from the research literature \u2014 alignment measures curation/automated-mining consistency, NOT independent biological validation.",
+  "splitStrategy": "permutation_test",
+  "preprocessing": "X used as built (log1p counts -> z-score -> PCA-8). Y: per-disorder z-score across regions -> PCA-8 (seed 42).",
+  "model": "CCA, 3 components (scikit-learn); significance by 1000 row-permutations of Y (refit per permutation, per-component p = (1+#perm>=observed)/(1+N)).",
+  "config": {
+    "entity": "region",
+    "nComponents": 3,
+    "nPermutations": 1000,
+    "seed": 42
+  },
+  "metrics": {
+    "cc1": 0.8792,
+    "cc1_perm_p": 0.001,
+    "cc2": 0.8019,
+    "cc2_perm_p": 0.001,
+    "cc3": 0.6624,
+    "cc3_perm_p": 0.001
+  },
+  "uncertainty": null,
+  "modelVersion": "v1",
+  "created": "2026-08-14",
+  "outputs": {
+    "scores": "alignment_cca_regions_v1.scores.json"
+  }
+}

@@ -88,6 +88,18 @@ def main() -> int:
         page.wait_for_timeout(1500)
         check("region points plotted", page.locator("svg circle").count() >= 50)
 
+        print("ML Lab model runs")
+        page.goto(f"{BASE}/ml/lab", timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(1500)
+        lab = page.locator("main").inner_text()
+        check("alignment + linkpred run cards", "Representation alignment" in lab
+              and "Graph link prediction" in lab)
+        check("validation protocols declared", "Permutation test" in lab
+              and "Grouped pair-level split" in lab)
+        check("candidates labeled model-suggested, not evidence",
+              lab.lower().count("model-suggested") >= 20)
+
         print("search")
         page.goto(BASE, timeout=60_000)
         page.get_by_role("searchbox").fill("amygdala")

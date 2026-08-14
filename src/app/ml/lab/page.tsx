@@ -36,6 +36,7 @@ function MetricRow({ name, value }: { name: string; value: number }) {
 
 function AlignmentDetails({ loaded }: { loaded: LoadedRun }) {
   const m = loaded.run.metrics;
+  const isRegion = loaded.run.config.entity === "region";
   const components = [1, 2, 3]
     .map((k) => ({ k, cc: m[`cc${k}`], p: m[`cc${k}_perm_p`] }))
     .filter((c) => c.cc !== undefined);
@@ -67,35 +68,55 @@ function AlignmentDetails({ loaded }: { loaded: LoadedRun }) {
       </div>
       <p className="mt-2 text-[11px] leading-relaxed text-amber-600/90">
         {anySignificant
-          ? `In-sample canonical correlations are inflated at n=19 disorders — only permutation-significant components (Bonferroni-corrected p < ${alpha.toFixed(4)}) indicate alignment beyond chance.`
-          : "Honest negative: despite high in-sample correlations, no component survives the permutation test with Bonferroni correction at n=19 disorders — no demonstrated alignment between the two representations."}
+          ? `In-sample canonical correlations are inflated at small n — components marked green survive the permutation test (Bonferroni-corrected p < ${alpha.toFixed(4)}) and indicate alignment beyond chance. Both views derive from the literature: this is curation/mining consistency, not biological validation.`
+          : "Honest negative: despite high in-sample correlations, no component survives the permutation test with Bonferroni correction at this sample size — no demonstrated alignment between the two representations."}
       </p>
       {loaded.scores && (
         <div className="mt-3 max-w-md">
           <Scatter
             points={loaded.scores.map((s) => ({
               id: s.id,
-              label: getDisorder(s.id)?.name ?? s.id,
+              label: isRegion
+                ? (getRegion(s.id)?.name ?? s.id)
+                : (getDisorder(s.id)?.name ?? s.id),
               x: s.evidenceCV1,
               y: s.metamapCV1,
-              category: getDisorder(s.id)?.category ?? "psychiatric",
+              category: isRegion
+                ? (getRegion(s.id)?.kind ?? "cortical")
+                : (getDisorder(s.id)?.category ?? "psychiatric"),
             }))}
-            categories={[
-              { key: "psychiatric", label: "Psychiatric", color: "#3987e5" },
-              {
-                key: "neurodegenerative",
-                label: "Neurodegenerative",
-                color: "#d95926",
-              },
-            ]}
+            categories={
+              isRegion
+                ? [
+                    { key: "cortical", label: "Cortical", color: "#3987e5" },
+                    {
+                      key: "subcortical",
+                      label: "Subcortical",
+                      color: "#d95926",
+                    },
+                  ]
+                : [
+                    {
+                      key: "psychiatric",
+                      label: "Psychiatric",
+                      color: "#3987e5",
+                    },
+                    {
+                      key: "neurodegenerative",
+                      label: "Neurodegenerative",
+                      color: "#d95926",
+                    },
+                  ]
+            }
             selectedId={null}
             onSelect={() => {}}
-            directLabels
+            directLabels={!isRegion}
           />
           <p className="mt-1 text-[10px] text-zinc-600">
             First canonical variate: evidence-corpus embedding (x) vs
-            NeuroQuery meta-map profile (y), per disorder. In-sample fit —
-            see the permutation result above before reading structure here.
+            NeuroQuery meta-map profile (y), per{" "}
+            {isRegion ? "region" : "disorder"}. In-sample fit — see the
+            permutation result above before reading structure here.
           </p>
         </div>
       )}

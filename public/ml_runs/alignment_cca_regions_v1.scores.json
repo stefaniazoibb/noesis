@@ -1,0 +1,302 @@
+[
+  {
+    "id": "dk_lh_caudalanteriorcingulate",
+    "evidenceCV1": -0.1708,
+    "metamapCV1": -0.3872
+  },
+  {
+    "id": "dk_lh_caudalmiddlefrontal",
+    "evidenceCV1": -0.8416,
+    "metamapCV1": -0.6984
+  },
+  {
+    "id": "dk_lh_fusiform",
+    "evidenceCV1": 0.0341,
+    "metamapCV1": 0.0374
+  },
+  {
+    "id": "dk_lh_inferiorparietal",
+    "evidenceCV1": -0.6162,
+    "metamapCV1": -0.7659
+  },
+  {
+    "id": "dk_lh_insula",
+    "evidenceCV1": 0.3006,
+    "metamapCV1": 0.8142
+  },
+  {
+    "id": "dk_lh_lateralorbitofrontal",
+    "evidenceCV1": -0.3784,
+    "metamapCV1": -0.1313
+  },
+  {
+    "id": "dk_lh_medialorbitofrontal",
+    "evidenceCV1": -0.3275,
+    "metamapCV1": -0.0317
+  },
+  {
+    "id": "dk_lh_middletemporal",
+    "evidenceCV1": -0.3867,
+    "metamapCV1": -1.3463
+  },
+  {
+    "id": "dk_lh_parahippocampal",
+    "evidenceCV1": -0.2438,
+    "metamapCV1": 0.7356
+  },
+  {
+    "id": "dk_lh_parsopercularis",
+    "evidenceCV1": -0.2712,
+    "metamapCV1": -0.9018
+  },
+  {
+    "id": "dk_lh_parstriangularis",
+    "evidenceCV1": -0.4073,
+    "metamapCV1": -0.8941
+  },
+  {
+    "id": "dk_lh_postcentral",
+    "evidenceCV1": -0.3114,
+    "metamapCV1": -0.3207
+  },
+  {
+    "id": "dk_lh_posteriorcingulate",
+    "evidenceCV1": -0.1054,
+    "metamapCV1": -0.2219
+  },
+  {
+    "id": "dk_lh_precentral",
+    "evidenceCV1": -0.6322,
+    "metamapCV1": -0.5098
+  },
+  {
+    "id": "dk_lh_precuneus",
+    "evidenceCV1": -0.3864,
+    "metamapCV1": -0.8095
+  },
+  {
+    "id": "dk_lh_rostralanteriorcingulate",
+    "evidenceCV1": 0.0816,
+    "metamapCV1": 0.46
+  },
+  {
+    "id": "dk_lh_rostralmiddlefrontal",
+    "evidenceCV1": -0.609,
+    "metamapCV1": -0.6578
+  },
+  {
+    "id": "dk_lh_superiorfrontal",
+    "evidenceCV1": -0.3248,
+    "metamapCV1": -0.3187
+  },
+  {
+    "id": "dk_lh_superiorparietal",
+    "evidenceCV1": -0.4772,
+    "metamapCV1": -0.6262
+  },
+  {
+    "id": "dk_lh_superiortemporal",
+    "evidenceCV1": -1.0351,
+    "metamapCV1": -1.1475
+  },
+  {
+    "id": "dk_lh_supramarginal",
+    "evidenceCV1": -0.8085,
+    "metamapCV1": -0.7997
+  },
+  {
+    "id": "dk_lh_temporalpole",
+    "evidenceCV1": -0.2896,
+    "metamapCV1": -0.7144
+  },
+  {
+    "id": "dk_lh_transversetemporal",
+    "evidenceCV1": -1.0041,
+    "metamapCV1": -0.509
+  },
+  {
+    "id": "dk_rh_caudalanteriorcingulate",
+    "evidenceCV1": -0.1708,
+    "metamapCV1": -0.3206
+  },
+  {
+    "id": "dk_rh_caudalmiddlefrontal",
+    "evidenceCV1": -1.0305,
+    "metamapCV1": -0.7306
+  },
+  {
+    "id": "dk_rh_fusiform",
+    "evidenceCV1": -0.2896,
+    "metamapCV1": 0.1707
+  },
+  {
+    "id": "dk_rh_inferiorparietal",
+    "evidenceCV1": -0.5743,
+    "metamapCV1": -0.6757
+  },
+  {
+    "id": "dk_rh_insula",
+    "evidenceCV1": -0.1234,
+    "metamapCV1": 0.4799
+  },
+  {
+    "id": "dk_rh_lateralorbitofrontal",
+    "evidenceCV1": -0.7472,
+    "metamapCV1": -0.23
+  },
+  {
+    "id": "dk_rh_medialorbitofrontal",
+    "evidenceCV1": -0.469,
+    "metamapCV1": -0.0335
+  },
+  {
+    "id": "dk_rh_middletemporal",
+    "evidenceCV1": -0.8705,
+    "metamapCV1": -0.9472
+  },
+  {
+    "id": "dk_rh_parahippocampal",
+    "evidenceCV1": -0.3693,
+    "metamapCV1": 0.9991
+  },
+  {
+    "id": "dk_rh_parsopercularis",
+    "evidenceCV1": -0.3102,
+    "metamapCV1": -0.6771
+  },
+  {
+    "id": "dk_rh_parstriangularis",
+    "evidenceCV1": -0.3102,
+    "metamapCV1": -0.885
+  },
+  {
+    "id": "dk_rh_postcentral",
+    "evidenceCV1": -0.3114,
+    "metamapCV1": -0.3384
+  },
+  {
+    "id": "dk_rh_posteriorcingulate",
+    "evidenceCV1": 0.1272,
+    "metamapCV1": -0.3119
+  },
+  {
+    "id": "dk_rh_precentral",
+    "evidenceCV1": -0.3097,
+    "metamapCV1": -0.4406
+  },
+  {
+    "id": "dk_rh_precuneus",
+    "evidenceCV1": -0.3864,
+    "metamapCV1": -0.6865
+  },
+  {
+    "id": "dk_rh_rostralanteriorcingulate",
+    "evidenceCV1": 0.4041,
+    "metamapCV1": 0.3516
+  },
+  {
+    "id": "dk_rh_rostralmiddlefrontal",
+    "evidenceCV1": -0.9514,
+    "metamapCV1": -0.6598
+  },
+  {
+    "id": "dk_rh_superiorfrontal",
+    "evidenceCV1": -0.9362,
+    "metamapCV1": -0.43
+  },
+  {
+    "id": "dk_rh_superiorparietal",
+    "evidenceCV1": -0.7099,
+    "metamapCV1": -0.5873
+  },
+  {
+    "id": "dk_rh_superiortemporal",
+    "evidenceCV1": -1.1799,
+    "metamapCV1": -1.3327
+  },
+  {
+    "id": "dk_rh_temporalpole",
+    "evidenceCV1": -0.2896,
+    "metamapCV1": -0.5331
+  },
+  {
+    "id": "dk_rh_transversetemporal",
+    "evidenceCV1": -1.0041,
+    "metamapCV1": -0.9007
+  },
+  {
+    "id": "sub_lh_accumbens",
+    "evidenceCV1": 1.1011,
+    "metamapCV1": 1.3348
+  },
+  {
+    "id": "sub_lh_amygdala",
+    "evidenceCV1": 3.1147,
+    "metamapCV1": 3.6604
+  },
+  {
+    "id": "sub_lh_caudate",
+    "evidenceCV1": 0.7455,
+    "metamapCV1": 0.8012
+  },
+  {
+    "id": "sub_lh_hippocampus",
+    "evidenceCV1": 2.3885,
+    "metamapCV1": 1.3117
+  },
+  {
+    "id": "sub_lh_pallidum",
+    "evidenceCV1": 0.143,
+    "metamapCV1": 1.0768
+  },
+  {
+    "id": "sub_lh_putamen",
+    "evidenceCV1": 2.3575,
+    "metamapCV1": 1.1501
+  },
+  {
+    "id": "sub_lh_thalamus",
+    "evidenceCV1": -0.4836,
+    "metamapCV1": -0.4184
+  },
+  {
+    "id": "sub_mid_brainstem",
+    "evidenceCV1": 0.4089,
+    "metamapCV1": 0.3893
+  },
+  {
+    "id": "sub_rh_accumbens",
+    "evidenceCV1": 1.1011,
+    "metamapCV1": 1.2484
+  },
+  {
+    "id": "sub_rh_amygdala",
+    "evidenceCV1": 2.9968,
+    "metamapCV1": 3.2399
+  },
+  {
+    "id": "sub_rh_caudate",
+    "evidenceCV1": 0.9363,
+    "metamapCV1": 0.6621
+  },
+  {
+    "id": "sub_rh_hippocampus",
+    "evidenceCV1": 2.1189,
+    "metamapCV1": 1.3278
+  },
+  {
+    "id": "sub_rh_pallidum",
+    "evidenceCV1": 0.7375,
+    "metamapCV1": 1.5403
+  },
+  {
+    "id": "sub_rh_putamen",
+    "evidenceCV1": 2.2263,
+    "metamapCV1": 1.3392
+  },
+  {
+    "id": "sub_rh_thalamus",
+    "evidenceCV1": 0.1308,
+    "metamapCV1": -0.1992
+  }
+]

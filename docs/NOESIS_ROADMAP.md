@@ -76,7 +76,11 @@ tuning (P2 item 10) has become more pressing.
     n=19) and relational-GCN link prediction (grouped pair-level split,
     study-leakage-free graph, CF baseline); FastAPI compute service
     (`pipeline/service/app.py`, never a runtime dependency); `/ml/lab` UI
-    rendering only schema-valid runs. Possible future #12 scope: real
+    rendering only schema-valid runs. Third increment (2026-08-14):
+    region-level CCA alignment (alignment_cca_regions_v1, n=60 — all
+    components permutation-significant, complementing the disorder-level
+    honest negative); /ml/lab covered by the committed e2e suite.
+    Possible future #12 scope: real
     modality encoders (OpenNeuro EEG/MRI, subject-level splits for real),
     contrastive alignment once >2 views exist, richer graph (edge
     types/directions), run comparison UI.

@@ -1,4 +1,5 @@
 [
+  "alignment_cca_regions_v1.run.json",
   "alignment_cca_v1.run.json",
   "linkpred_rgcn_v1.run.json"
 ]

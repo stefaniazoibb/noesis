@@ -15,6 +15,7 @@ Then e.g.:  curl -X POST localhost:8500/runs/link_prediction -d '{"seed": 7}' \
 import json
 import sys
 from pathlib import Path
+from typing import Literal
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -35,6 +36,7 @@ app = FastAPI(
 
 
 class AlignmentConfig(BaseModel):
+    entity: Literal["disorder", "region"] = "disorder"
     nComponents: int = 3
     nPermutations: int = 1000
     seed: int = 42

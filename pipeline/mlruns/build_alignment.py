@@ -41,24 +41,32 @@ def canonical_correlations(cca: CCA, x: np.ndarray, y: np.ndarray) -> np.ndarray
 
 
 def run_alignment(config: dict | None = None) -> dict:
-    cfg = {"nComponents": N_COMPONENTS, "nPermutations": N_PERMUTATIONS, "seed": SEED}
+    cfg = {"entity": "disorder", "nComponents": N_COMPONENTS,
+           "nPermutations": N_PERMUTATIONS, "seed": SEED}
     cfg.update(config or {})
+    entity = cfg["entity"]
+    if entity not in ("disorder", "region"):
+        raise SystemExit(f"unknown entity {entity!r} (disorder|region)")
     rng = np.random.default_rng(cfg["seed"])
 
-    manifest = load_json("embeddings/disorder.manifest.json")
+    manifest = load_json(f"embeddings/{entity}.manifest.json")
     ids = manifest["ids"]
     x = np.fromfile(
         DATA / "embeddings" / manifest["vectorsFile"], dtype=np.float32
     ).reshape(len(ids), manifest["dim"]).astype(np.float64)
 
-    # meta-map matrix in the same disorder order; fixed region column order
+    # meta-map matrix in the same row order as X; fixed column order
     maps = {p.stem.removesuffix(".metamap"): json.loads(p.read_text())
             for p in (DATA / "metamaps").glob("*.metamap.json")}
-    missing = [d for d in ids if d not in maps]
-    if missing:
-        raise SystemExit(f"no meta-map for: {missing} — run build_metamaps.py first")
-    regions = sorted(maps[ids[0]]["values"].keys())
-    y_raw = np.array([[maps[d]["values"][r] for r in regions] for d in ids])
+    if entity == "disorder":
+        missing = [d for d in ids if d not in maps]
+        if missing:
+            raise SystemExit(f"no meta-map for: {missing} — run build_metamaps.py first")
+        cols = sorted(maps[ids[0]]["values"].keys())  # regions
+        y_raw = np.array([[maps[d]["values"][c] for c in cols] for d in ids])
+    else:
+        cols = sorted(maps.keys())  # disorders
+        y_raw = np.array([[maps[c]["values"][r] for c in cols] for r in ids])
 
     # column z-score (relative association pattern), PCA to match X's dim
     y_std = (y_raw - y_raw.mean(axis=0)) / (y_raw.std(axis=0) + 1e-9)
@@ -87,22 +95,38 @@ def run_alignment(config: dict | None = None) -> dict:
         metrics[f"cc{j + 1}"] = round(float(observed[j]), 4)
         metrics[f"cc{j + 1}_perm_p"] = round(float(p_values[j]), 4)
 
-    run = {
-        "runId": "alignment_cca_v1",
-        "task": "alignment",
-        "datasetDef": (
+    if entity == "disorder":
+        dataset_def = (
             "X: 19 disorder evidence-corpus embeddings "
             f"({manifest['artifactId']}, corpus {manifest['corpusVersion']}); "
             "Y: 19 NeuroQuery meta-map region profiles (83 regions, "
             "column-z-scored, PCA to 8). Both views derive from the research "
             "literature — alignment measures curation/automated-mining "
             "consistency, NOT independent biological validation."
-        ),
+        )
+        col_desc = "per-region z-score across disorders"
+    else:
+        dataset_def = (
+            f"X: {len(ids)} region evidence-corpus embeddings "
+            f"({manifest['artifactId']}, corpus {manifest['corpusVersion']} — "
+            "regions WITH indexed evidence only, a selection biased toward "
+            f"well-studied regions); Y: the same {len(ids)} regions' "
+            f"NeuroQuery meta-map profiles across {len(cols)} disorders, "
+            "column-z-scored, PCA to 8. Both views derive from the research "
+            "literature — alignment measures curation/automated-mining "
+            "consistency, NOT independent biological validation."
+        )
+        col_desc = "per-disorder z-score across regions"
+
+    run = {
+        "runId": ("alignment_cca_v1" if entity == "disorder"
+                  else "alignment_cca_regions_v1"),
+        "task": "alignment",
+        "datasetDef": dataset_def,
         "splitStrategy": "permutation_test",
         "preprocessing": (
             "X used as built (log1p counts -> z-score -> PCA-8). "
-            "Y: per-region z-score across disorders -> PCA-8 (seed "
-            f"{cfg['seed']})."
+            f"Y: {col_desc} -> PCA-8 (seed {cfg['seed']})."
         ),
         "model": (
             f"CCA, {k} components (scikit-learn); significance by "
@@ -122,4 +146,9 @@ def run_alignment(config: dict | None = None) -> dict:
 
 
 if __name__ == "__main__":
-    run_alignment()
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--entity", choices=["disorder", "region"],
+                        default="disorder")
+    run_alignment({"entity": parser.parse_args().entity})
