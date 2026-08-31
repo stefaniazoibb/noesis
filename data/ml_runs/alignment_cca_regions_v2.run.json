@@ -1,0 +1,28 @@
+{
+  "runId": "alignment_cca_regions_v2",
+  "task": "alignment",
+  "datasetDef": "X: 60 region evidence-corpus embeddings (region_evidence_pca_v1, corpus ac4d97d111e2 \u2014 regions WITH indexed evidence only, a selection biased toward well-studied regions); Y: the same 60 regions' NeuroQuery meta-map profiles across 19 disorders, column-z-scored, PCA to 8. Rows include left/right homolog pairs (near-duplicates in both views), so the permutation null moves homolog pairs as blocks with random within-pair flips; singletons permute among singletons. A naive row shuffle understates the null and inflates significance. Both views derive from the research literature \u2014 alignment measures curation/automated-mining consistency, NOT independent biological validation.",
+  "splitStrategy": "permutation_test",
+  "preprocessing": "X used as built (log1p counts -> z-score -> PCA-8). Y: per-disorder z-score across regions -> PCA-8 (seed 42).",
+  "model": "CCA, 3 components (scikit-learn); significance by 1000 homolog-block permutations of Y (refit per permutation, per-component p = (1+#perm>=observed)/(1+N)). No deflation across components \u2014 p-values for components >= 2 are approximate; significance claims rest on component 1.",
+  "config": {
+    "entity": "region",
+    "nComponents": 3,
+    "nPermutations": 1000,
+    "seed": 42
+  },
+  "metrics": {
+    "cc1": 0.8792,
+    "cc1_perm_p": 0.1279,
+    "cc2": 0.8019,
+    "cc2_perm_p": 0.045,
+    "cc3": 0.6624,
+    "cc3_perm_p": 0.0809
+  },
+  "uncertainty": null,
+  "modelVersion": "v2",
+  "created": "2026-08-31",
+  "outputs": {
+    "scores": "alignment_cca_regions_v2.scores.json"
+  }
+}

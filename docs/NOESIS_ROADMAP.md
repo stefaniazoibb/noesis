@@ -81,9 +81,13 @@ tuning (P2 item 10) has become more pressing.
     study-leakage-free graph, CF baseline); FastAPI compute service
     (`pipeline/service/app.py`, never a runtime dependency); `/ml/lab` UI
     rendering only schema-valid runs. Third increment (2026-08-14):
-    region-level CCA alignment (alignment_cca_regions_v1, n=60 — all
-    components permutation-significant, complementing the disorder-level
-    honest negative); /ml/lab covered by the committed e2e suite.
+    region-level CCA alignment; /ml/lab covered by the committed e2e suite.
+    CORRECTED 2026-08-31 after science review (decision #28):
+    alignment_cca_regions_v1's "all p=0.001 significant" was an artifact of
+    naive row shuffling over L/R homolog pairs — retracted, replaced by v2
+    with a homolog-block permutation null (cc1 p=0.13; both alignment runs
+    are now honest negatives). Link-pred manifests gained bootstrap CIs +
+    full leakage disclosures (GNN vs CF baseline within noise).
     Possible future #12 scope: real
     modality encoders (OpenNeuro EEG/MRI, subject-level splits for real),
     contrastive alignment once >2 views exist, richer graph (edge

@@ -3,7 +3,7 @@
   "task": "link_prediction",
   "datasetDef": "Heterogeneous graph: 19 disorders + 83 regions + 7 Yeo networks; 257 distinct disorder-region pairs from the curated assertions (positives) + region-network membership edges. Study nodes excluded from the graph to prevent study-mediated train/test leakage.",
   "splitStrategy": "grouped_pair_level",
-  "preprocessing": "Assertions collapsed to distinct disorder-region pairs; 70/15/15 pair-level split (179/38/40); message passing on train pairs only; seeded evaluation negatives disjoint from all positives.",
+  "preprocessing": "Assertions collapsed to distinct disorder-region pairs; 70/15/15 pair-level split (179/38/40); message passing on train pairs only; seeded evaluation negatives disjoint from all positives. Caveat: training negatives exclude ALL positives (incl. held-out ones), and evaluation negatives can recur as training negatives \u2014 both make reported AUC/AP mildly optimistic.",
   "model": "2-layer relational GCN (learned 32-d node embeddings, per-relation mean aggregation, dot-product decoder), BCE with 5 sampled negatives/positive, Adam lr=0.01, early stopping on validation ROC-AUC (best epoch 131). PyTorch 2.13.0, CPU.",
   "config": {
     "seed": 42,
@@ -21,9 +21,14 @@
     "baseline_cf_test_auc": 0.7325,
     "n_pairs": 257.0
   },
-  "uncertainty": null,
+  "uncertainty": {
+    "test_auc_ci95_low": 0.6581,
+    "test_auc_ci95_high": 0.8612,
+    "test_ap_ci95_low": 0.7181,
+    "test_ap_ci95_high": 0.8844
+  },
   "modelVersion": "v1",
-  "created": "2026-08-11",
+  "created": "2026-08-31",
   "outputs": {
     "candidates": "linkpred_rgcn_v1.candidates.json"
   }

@@ -4,7 +4,7 @@
   "datasetDef": "X: 19 disorder evidence-corpus embeddings (disorder_evidence_pca_v1, corpus ac4d97d111e2); Y: 19 NeuroQuery meta-map region profiles (83 regions, column-z-scored, PCA to 8). Both views derive from the research literature \u2014 alignment measures curation/automated-mining consistency, NOT independent biological validation.",
   "splitStrategy": "permutation_test",
   "preprocessing": "X used as built (log1p counts -> z-score -> PCA-8). Y: per-region z-score across disorders -> PCA-8 (seed 42).",
-  "model": "CCA, 3 components (scikit-learn); significance by 1000 row-permutations of Y (refit per permutation, per-component p = (1+#perm>=observed)/(1+N)).",
+  "model": "CCA, 3 components (scikit-learn); significance by 1000 row-permutations of Y (refit per permutation, per-component p = (1+#perm>=observed)/(1+N)). No deflation across components \u2014 p-values for components >= 2 are approximate; significance claims rest on component 1.",
   "config": {
     "entity": "disorder",
     "nComponents": 3,
@@ -21,7 +21,7 @@
   },
   "uncertainty": null,
   "modelVersion": "v1",
-  "created": "2026-08-14",
+  "created": "2026-08-31",
   "outputs": {
     "scores": "alignment_cca_v1.scores.json"
   }

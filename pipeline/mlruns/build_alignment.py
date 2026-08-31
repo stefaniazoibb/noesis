@@ -33,6 +33,26 @@ N_PERMUTATIONS = 1000
 SEED = 42
 
 
+def homolog_blocks(ids: list[str]) -> tuple[list[tuple[int, int]], list[int]]:
+    """Group region ids into L/R homolog pairs + midline singletons.
+
+    Homologs (dk_lh_X / dk_rh_X, sub_lh_X / sub_rh_X) are near-duplicates in
+    both representations, so region rows are NOT exchangeable — a naive row
+    shuffle builds an over-tight null and inflates significance (science
+    review 2026-08-31: naive p=0.001 on all components vs nothing surviving
+    Bonferroni under the block null). The permutation must move pairs as
+    units.
+    """
+    by_key: dict[str, list[int]] = {}
+    for i, rid in enumerate(ids):
+        key = rid.replace("_lh_", "_", 1).replace("_rh_", "_", 1)
+        by_key.setdefault(key, []).append(i)
+    pairs = [(v[0], v[1]) for v in by_key.values() if len(v) == 2]
+    singles = [v[0] for v in by_key.values() if len(v) == 1]
+    assert all(len(v) <= 2 for v in by_key.values())
+    return pairs, singles
+
+
 def canonical_correlations(cca: CCA, x: np.ndarray, y: np.ndarray) -> np.ndarray:
     u, v = cca.transform(x, y)
     return np.array(
@@ -76,9 +96,28 @@ def run_alignment(config: dict | None = None) -> dict:
     cca = CCA(n_components=k, max_iter=2000).fit(x, y)
     observed = canonical_correlations(cca, x, y)
 
+    if entity == "region":
+        pairs, singles = homolog_blocks(ids)
+        print(f"region null: {len(pairs)} homolog pairs + {len(singles)} singletons")
+
+    def permute_rows() -> np.ndarray:
+        if entity == "disorder":
+            return rng.permutation(len(ids))
+        # block permutation: homolog pairs move jointly (random within-pair
+        # flip), singletons permute among singletons
+        perm = np.empty(len(ids), dtype=int)
+        for slot, j in zip(pairs, rng.permutation(len(pairs))):
+            a, b = pairs[j]
+            if rng.random() < 0.5:
+                a, b = b, a
+            perm[slot[0]], perm[slot[1]] = a, b
+        for slot, j in zip(singles, rng.permutation(len(singles))):
+            perm[slot] = singles[j]
+        return perm
+
     perm = np.zeros((cfg["nPermutations"], k))
     for i in range(cfg["nPermutations"]):
-        y_perm = y[rng.permutation(len(ids))]
+        y_perm = y[permute_rows()]
         c = CCA(n_components=k, max_iter=2000).fit(x, y_perm)
         perm[i] = canonical_correlations(c, x, y_perm)
     p_values = (1 + (perm >= observed).sum(axis=0)) / (1 + cfg["nPermutations"])
@@ -112,15 +151,20 @@ def run_alignment(config: dict | None = None) -> dict:
             "regions WITH indexed evidence only, a selection biased toward "
             f"well-studied regions); Y: the same {len(ids)} regions' "
             f"NeuroQuery meta-map profiles across {len(cols)} disorders, "
-            "column-z-scored, PCA to 8. Both views derive from the research "
-            "literature — alignment measures curation/automated-mining "
-            "consistency, NOT independent biological validation."
+            "column-z-scored, PCA to 8. Rows include left/right homolog "
+            "pairs (near-duplicates in both views), so the permutation null "
+            "moves homolog pairs as blocks with random within-pair flips; "
+            "singletons permute among singletons. A naive row shuffle "
+            "understates the null and inflates significance. Both views "
+            "derive from the research literature — alignment measures "
+            "curation/automated-mining consistency, NOT independent "
+            "biological validation."
         )
         col_desc = "per-disorder z-score across regions"
 
     run = {
         "runId": ("alignment_cca_v1" if entity == "disorder"
-                  else "alignment_cca_regions_v1"),
+                  else "alignment_cca_regions_v2"),
         "task": "alignment",
         "datasetDef": dataset_def,
         "splitStrategy": "permutation_test",
@@ -130,13 +174,18 @@ def run_alignment(config: dict | None = None) -> dict:
         ),
         "model": (
             f"CCA, {k} components (scikit-learn); significance by "
-            f"{cfg['nPermutations']} row-permutations of Y (refit per "
-            "permutation, per-component p = (1+#perm>=observed)/(1+N))."
+            f"{cfg['nPermutations']} "
+            + ("homolog-block permutations" if entity == "region"
+               else "row-permutations")
+            + " of Y (refit per permutation, per-component "
+            "p = (1+#perm>=observed)/(1+N)). No deflation across "
+            "components — p-values for components >= 2 are approximate; "
+            "significance claims rest on component 1."
         ),
         "config": cfg,
         "metrics": metrics,
         "uncertainty": None,
-        "modelVersion": "v1",
+        "modelVersion": "v1" if entity == "disorder" else "v2",
         "created": date.today().isoformat(),
     }
     write_run(run, {"scores": scores})

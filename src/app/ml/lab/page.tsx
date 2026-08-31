@@ -215,6 +215,10 @@ function RunCard({ loaded }: { loaded: LoadedRun }) {
         {Object.entries(run.metrics).map(([k, v]) => (
           <MetricRow key={k} name={k} value={v} />
         ))}
+        {run.uncertainty &&
+          Object.entries(run.uncertainty).map(([k, v]) => (
+            <MetricRow key={k} name={k} value={v} />
+          ))}
       </div>
       {run.task === "alignment" && <AlignmentDetails loaded={loaded} />}
       {run.task === "link_prediction" && <LinkPredDetails loaded={loaded} />}

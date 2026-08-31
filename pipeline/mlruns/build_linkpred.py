@@ -202,6 +202,23 @@ def run_linkpred(config: dict | None = None) -> dict:
                       if (d, r) not in positives]
         cand_scores = torch.sigmoid(score(h, non_corpus)).numpy()
 
+    # bootstrap 95% CI on the test metrics (rng consumed after all results
+    # above, so earlier numbers are untouched)
+    sp = score(h, test).detach().numpy()
+    sn = score(h, test_neg).detach().numpy()
+    boot_auc, boot_ap = [], []
+    for _ in range(2000):
+        bp = sp[rng.integers(0, len(sp), len(sp))]
+        bn = sn[rng.integers(0, len(sn), len(sn))]
+        yb = np.r_[np.ones(len(bp)), np.zeros(len(bn))]
+        sb = np.r_[bp, bn]
+        boot_auc.append(roc_auc_score(yb, sb))
+        boot_ap.append(average_precision_score(yb, sb))
+    ci = lambda v: (round(float(np.percentile(v, 2.5)), 4),  # noqa: E731
+                    round(float(np.percentile(v, 97.5)), 4))
+    auc_lo, auc_hi = ci(boot_auc)
+    ap_lo, ap_hi = ci(boot_ap)
+
     top = np.argsort(-cand_scores)[: cfg["topK"]]
     candidates = [
         {"disorder": disorders[non_corpus[i][0]],
@@ -227,7 +244,10 @@ def run_linkpred(config: dict | None = None) -> dict:
             "70/15/15 pair-level split "
             f"({len(train)}/{len(val)}/{len(test)}); message passing on "
             "train pairs only; seeded evaluation negatives disjoint from all "
-            "positives."
+            "positives. Caveat: training negatives exclude ALL positives "
+            "(incl. held-out ones), and evaluation negatives can recur as "
+            "training negatives — both make reported AUC/AP mildly "
+            "optimistic."
         ),
         "model": (
             f"2-layer relational GCN (learned {cfg['hidden']}-d node "
@@ -244,7 +264,12 @@ def run_linkpred(config: dict | None = None) -> dict:
             "baseline_cf_test_auc": round(cf_auc(test, test_neg), 4),
             "n_pairs": float(len(pairs)),
         },
-        "uncertainty": None,
+        "uncertainty": {
+            "test_auc_ci95_low": auc_lo,
+            "test_auc_ci95_high": auc_hi,
+            "test_ap_ci95_low": ap_lo,
+            "test_ap_ci95_high": ap_hi,
+        },
         "modelVersion": "v1",
         "created": date.today().isoformat(),
     }

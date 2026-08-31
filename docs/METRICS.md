@@ -103,7 +103,10 @@ the report.
 Mean NeuroQuery z-value per region for the disorder-name query, computed by
 `pipeline/metamaps/build_metamaps.py` (NeuroQuery model, Dockès et al. eLife
 2020, BSD-3-Clause; fsaverage aparc+aseg sampling with the standard
-MNI305→MNI152 affine). **A separate, model-generated evidence stratum** —
+MNI305→MNI152 affine). NeuroQuery values are model-predicted association
+scores on a z scale — regression predictions without calibrated error
+control, not thresholded statistical z-maps.
+**A separate, model-generated evidence stratum** —
 automated literature text mining, not curated studies, never merged with the
 corpus metrics; negative values clip to 0 for display. Provenance:
 `data/provenance/neuroquery.json`.
@@ -117,7 +120,7 @@ rendered. Model outputs are a separate stratum from the curated corpus —
 **ML importance ≠ biological causality**, and candidate links are hypotheses
 about the corpus, never evidence.
 
-### Representation alignment (`alignment_cca_v1`, `alignment_cca_regions_v1`)
+### Representation alignment (`alignment_cca_v1`, `alignment_cca_regions_v2`)
 
 CCA between the evidence-corpus embeddings and the NeuroQuery meta-map
 profiles of the same entities — run at two levels: disorders (n=19; Y = 83
@@ -125,16 +128,23 @@ region z-values per disorder) and regions (n=60 regions with indexed
 evidence, a selection biased toward well-studied regions; Y = 19 disorder
 z-values per region). Y is column-z-scored then PCA-8. Reported per
 component: canonical correlation (in-sample) and a permutation p-value from
-1000 refits under row-shuffled Y (p = (1 + #perm ≥ observed) / (1 + N)).
-In-sample correlations are inflated at small n — only permutation-significant
-components indicate alignment beyond chance, and the UI applies Bonferroni
-correction across the tested components (α = 0.05/k) before calling any
-component significant. Current results (v1): disorder level is an honest
-negative (cc1 = 0.98, perm p = 0.54, nothing survives correction — n=19 is
-too small); region level is significant (cc1 = 0.88, cc2 = 0.80, cc3 = 0.66,
-all perm p = 0.001, the floor for 1000 permutations). Either way this
-measures curation/automated-mining consistency, never independent biological
-validation. Interpretation caveat: both views derive
+1000 refits under permuted Y (p = (1 + #perm ≥ observed) / (1 + N), the
+Phipson–Smyth form). **The null must respect exchangeability.** Disorder
+rows are shuffled freely; region rows are NOT freely exchangeable — the 60
+rows contain 29 left/right homolog pairs that are near-duplicates in both
+views, so the region null permutes homolog pairs as blocks (random
+within-pair flips; singletons among singletons). A naive row shuffle
+understated the null and inflated significance: the retracted
+`alignment_cca_regions_v1` reported all components at p = 0.001, which the
+block null revised to p = 0.128/0.045/0.081 (v2). No deflation is applied
+across components, so p-values for components ≥ 2 are approximate;
+significance claims rest on component 1. The UI applies Bonferroni
+correction across tested components (α = 0.05/k), per run (two alignment
+runs × 3 components = 6 tests total). Current results: **both levels are
+honest negatives** — disorder cc1 = 0.98 with p = 0.54 (n=19 gives the test
+no power), region cc1 = 0.88 with p = 0.13 under the homolog-aware null.
+Either way this would measure curation/automated-mining consistency, never
+independent biological validation. Interpretation caveat: both views derive
 from the research literature, so even a significant alignment measures
 curation/automated-mining **consistency**, not independent validation.
 
@@ -148,14 +158,18 @@ from the graph** because a study linking D and R creates a two-hop
 D–study–R path that leaks held-out pairs (the graph analog of a
 subject-level-split violation). Model: 2-layer relational GCN with learned
 node embeddings and a dot-product decoder; model selection on validation
-ROC-AUC; seeded evaluation negatives disjoint from all positives (per-epoch
-training negatives exclude positives only, so evaluation negatives may also
-be sampled as training negatives — standard practice, but it makes reported
-AUC mildly optimistic). Reported:
-test ROC-AUC, test average precision, and a non-learned
-collaborative-filtering baseline (Jaccard-weighted disorder-disorder voting
-over train pairs) for context. Candidate links = highest-scored pairs absent
-from the corpus, always labeled "model-suggested — not evidence".
+ROC-AUC; seeded evaluation negatives disjoint from all positives. Two
+disclosed optimism sources: training negatives exclude ALL positives
+(including held-out ones, so the model is never trained against test
+pairs), and evaluation negatives can recur as training negatives. Reported:
+test ROC-AUC and average precision with bootstrap 95% CIs (2000 resamples;
+`uncertainty` in the manifest), and a non-learned collaborative-filtering
+baseline (Jaccard-weighted disorder-disorder voting over train pairs) for
+context. At 40 test positives the CI is wide (AUC 0.77, CI [0.66, 0.86]):
+the GNN performs comparably to the baseline (0.73), the difference is within
+noise — the run demonstrates the leakage-controlled protocol, not GNN
+superiority. Candidate links = highest-scored pairs absent from the corpus,
+always labeled "model-suggested — not evidence".
 
 ## Research-question ranking
 
