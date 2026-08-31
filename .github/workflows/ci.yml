@@ -25,5 +25,22 @@ jobs:
         run: npx vitest run
       - name: Production build
         run: npm run build
-# e2e (Playwright, WebGL) runs locally via `npm run e2e` — CI job is a
-# follow-up (headless WebGL setup); see docs/NOESIS_ROADMAP.md.
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: npm ci
+      - name: Install Playwright Chromium
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: E2e smoke suite (WebGL via SwiftShader)
+        run: npm run e2e

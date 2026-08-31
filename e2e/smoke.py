@@ -25,7 +25,12 @@ def check(name: str, ok: bool):
 
 def main() -> int:
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        # SwiftShader keeps WebGL available on GPU-less CI runners; harmless
+        # locally (Playwright headless Chromium already software-renders)
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--use-gl=angle", "--use-angle=swiftshader"],
+        )
         page = browser.new_page(viewport={"width": 1440, "height": 900})
         page.on("pageerror", lambda e: console_errors.append(str(e)))
 
@@ -39,9 +44,17 @@ def main() -> int:
         page.wait_for_load_state("networkidle")
         page.wait_for_timeout(6000)  # GLB parse + first render
         box = page.locator("canvas").bounding_box()
-        page.mouse.click(box["x"] + box["width"] * 0.42, box["y"] + box["height"] * 0.45)
-        page.wait_for_timeout(800)
-        panel = page.locator("aside").inner_text()
+        # first render can take longer on GPU-less CI runners: retry the
+        # pick until the region panel answers (a miss is harmless)
+        panel = ""
+        for _ in range(8):
+            page.mouse.click(
+                box["x"] + box["width"] * 0.42, box["y"] + box["height"] * 0.45
+            )
+            page.wait_for_timeout(800)
+            panel = page.locator("aside").inner_text()
+            if "hemisphere" in panel.lower():
+                break
         check("region picking returns a named region", "hemisphere" in panel.lower())
         page.get_by_role("button", name="Save", exact=True).click()
         page.wait_for_timeout(300)

@@ -52,7 +52,11 @@ Status date: 2026-08-11. Mirrors the session task list; update both together.
    assertions, all verified.** First genuine directional conflict (ASD
    amygdala volume) now in the corpus; honest negatives indexed (rTMS in
    panic: Cochrane-insufficient; rTMS in ASD: no significant effect).
-4. E2e job in CI (headless WebGL setup) — still open.
+4. ~~E2e job in CI~~ — done 2026-08-31: `e2e` job in ci.yml (Playwright
+   Chromium with `--use-gl=angle --use-angle=swiftshader` for GPU-less
+   runners; pick-retry hardening in smoke.py). NOTE: the repo has no git
+   remote yet, so CI has never executed anywhere — the workflow activates
+   on first push to GitHub (owner: Stefania).
 
 **Note:** GAP-ATTENTION now fires 168× on the larger corpus — threshold
 tuning (P2 item 10) has become more pressing.
