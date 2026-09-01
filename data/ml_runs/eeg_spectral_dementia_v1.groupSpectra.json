@@ -1,0 +1,152 @@
+[
+  {
+    "feature": "frontal_delta",
+    "AD": 0.89335,
+    "FTD": 0.89393,
+    "CN": 0.89827
+  },
+  {
+    "feature": "frontal_theta",
+    "AD": 0.05531,
+    "FTD": 0.04824,
+    "CN": 0.04687
+  },
+  {
+    "feature": "frontal_alpha",
+    "AD": 0.0222,
+    "FTD": 0.01995,
+    "CN": 0.02841
+  },
+  {
+    "feature": "frontal_beta",
+    "AD": 0.01946,
+    "FTD": 0.02395,
+    "CN": 0.01971
+  },
+  {
+    "feature": "frontal_gamma",
+    "AD": 0.00955,
+    "FTD": 0.01374,
+    "CN": 0.00665
+  },
+  {
+    "feature": "central_delta",
+    "AD": 0.91597,
+    "FTD": 0.91522,
+    "CN": 0.9125
+  },
+  {
+    "feature": "central_theta",
+    "AD": 0.04887,
+    "FTD": 0.04866,
+    "CN": 0.04737
+  },
+  {
+    "feature": "central_alpha",
+    "AD": 0.01708,
+    "FTD": 0.0164,
+    "CN": 0.02019
+  },
+  {
+    "feature": "central_beta",
+    "AD": 0.01389,
+    "FTD": 0.01466,
+    "CN": 0.01607
+  },
+  {
+    "feature": "central_gamma",
+    "AD": 0.00413,
+    "FTD": 0.005,
+    "CN": 0.00383
+  },
+  {
+    "feature": "temporal_delta",
+    "AD": 0.88526,
+    "FTD": 0.8721,
+    "CN": 0.86732
+  },
+  {
+    "feature": "temporal_theta",
+    "AD": 0.05697,
+    "FTD": 0.05386,
+    "CN": 0.04905
+  },
+  {
+    "feature": "temporal_alpha",
+    "AD": 0.02923,
+    "FTD": 0.03163,
+    "CN": 0.05282
+  },
+  {
+    "feature": "temporal_beta",
+    "AD": 0.01939,
+    "FTD": 0.02683,
+    "CN": 0.02352
+  },
+  {
+    "feature": "temporal_gamma",
+    "AD": 0.00901,
+    "FTD": 0.01536,
+    "CN": 0.0072
+  },
+  {
+    "feature": "parietal_delta",
+    "AD": 0.90463,
+    "FTD": 0.90372,
+    "CN": 0.88771
+  },
+  {
+    "feature": "parietal_theta",
+    "AD": 0.05175,
+    "FTD": 0.05082,
+    "CN": 0.04795
+  },
+  {
+    "feature": "parietal_alpha",
+    "AD": 0.02474,
+    "FTD": 0.0254,
+    "CN": 0.04179
+  },
+  {
+    "feature": "parietal_beta",
+    "AD": 0.0145,
+    "FTD": 0.01524,
+    "CN": 0.01851
+  },
+  {
+    "feature": "parietal_gamma",
+    "AD": 0.00432,
+    "FTD": 0.00475,
+    "CN": 0.00399
+  },
+  {
+    "feature": "occipital_delta",
+    "AD": 0.88529,
+    "FTD": 0.88141,
+    "CN": 0.83453
+  },
+  {
+    "feature": "occipital_theta",
+    "AD": 0.05551,
+    "FTD": 0.05243,
+    "CN": 0.04928
+  },
+  {
+    "feature": "occipital_alpha",
+    "AD": 0.03524,
+    "FTD": 0.0427,
+    "CN": 0.08574
+  },
+  {
+    "feature": "occipital_beta",
+    "AD": 0.01755,
+    "FTD": 0.01779,
+    "CN": 0.02392
+  },
+  {
+    "feature": "occipital_gamma",
+    "AD": 0.00632,
+    "FTD": 0.00559,
+    "CN": 0.00643
+  }
+]

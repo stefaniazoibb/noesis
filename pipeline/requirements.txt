@@ -14,3 +14,4 @@ neuroquery
 torch
 fastapi
 uvicorn
+openneuro-py

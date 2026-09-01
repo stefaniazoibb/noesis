@@ -1,0 +1,12 @@
+{
+  "source": "OpenNeuro ds004504",
+  "doi": "10.18112/openneuro.ds004504.v1.0.9",
+  "license": "CC0 (verified in dataset_description.json at ingestion, 2026-09-01)",
+  "cite": [
+    "Miltiadous et al., Data 8(6):95, 2023, doi:10.3390/data8060095",
+    "Miltiadous et al., IEEE Access 2023, doi:10.1109/ACCESS.2023.3294618"
+  ],
+  "ethics": "AHEPA University Hospital protocol 142/12-04-2023 (per dataset metadata)",
+  "used": "curators' preprocessed derivatives only; raw downloads kept out of the repo (pipeline/encoders/raw/, gitignored); artifacts contain aggregate statistics only",
+  "note": "ds002778 was evaluated first and REJECTED: its README asks that PD-vs-HC ML classification not be performed on it (n too small); nothing from it was retained (decision #29)."
+}

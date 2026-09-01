@@ -171,6 +171,23 @@ noise — the run demonstrates the leakage-controlled protocol, not GNN
 superiority. Candidate links = highest-scored pairs absent from the corpus,
 always labeled "model-suggested — not evidence".
 
+### EEG spectral encoder (`eeg_spectral_dementia_v1`)
+
+First real-modality data in NOĒSIS: OpenNeuro ds004504 (CC0; Miltiadous et
+al. 2023) — resting eyes-closed clinical EEG, 36 AD / 23 FTD / 29 controls.
+Encoder = one vector per subject: relative band power (δ/θ/α/β/γ) averaged
+in 5 scalp zones (25 features) from a Welch PSD over the curators' own
+artifact-cleaned derivatives. Evaluation = dementia-vs-control ROC-AUC as a
+**sanity check that the representation carries the established EEG-slowing
+signal**, with the subject-level split structural (one vector per subject,
+held out whole in leave-one-subject-out CV), a label-permutation test that
+refits the full LOSO loop per permutation, and subject-bootstrap 95% CIs.
+Not a diagnostic tool; scalp EEG maps to no atlas region (decision #8), so
+this run stays disorder-level. Dataset note: ds002778 was evaluated first
+and rejected because its README asks that PD-vs-HC ML classification not be
+performed on it (n≈15 per group) — stewardship terms are checked at
+ingestion, not just licenses (decision #29).
+
 ## Research-question ranking
 
 Generated research questions are ranked by a transparent rule — never by a

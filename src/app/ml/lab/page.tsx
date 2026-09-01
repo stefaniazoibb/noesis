@@ -11,7 +11,8 @@ const SPLIT_LABELS: Record<string, string> = {
     "Grouped pair-level split — every assertion for a disorder-region pair is held out together; study nodes excluded from the graph to prevent study-mediated leakage",
   permutation_test:
     "Permutation test — the model is refit under row-shuffled data; reported p-values compare observed statistics against that null",
-  subject_level: "Subject-level split",
+  subject_level:
+    "Subject-level split — each subject's data is entirely in train or entirely in test (here structural: one feature vector per subject, held out whole in leave-one-subject-out CV)",
   site_aware: "Site-aware split",
   nested_cv: "Nested cross-validation",
 };
@@ -19,7 +20,7 @@ const SPLIT_LABELS: Record<string, string> = {
 const TASK_LABELS: Record<string, string> = {
   alignment: "Representation alignment",
   link_prediction: "Graph link prediction",
-  classification: "Classification",
+  classification: "Classification (representation sanity check)",
   regression: "Regression",
   clustering: "Clustering",
   representation: "Representation",

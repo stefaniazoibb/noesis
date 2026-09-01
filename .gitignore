@@ -49,3 +49,6 @@ pipeline/.venv/
 # env
 .env
 .env.local
+
+# raw neuroimaging downloads (never committed; provenance in data/provenance/)
+pipeline/encoders/raw/

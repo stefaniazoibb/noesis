@@ -1,5 +1,6 @@
 [
   "alignment_cca_regions_v2.run.json",
   "alignment_cca_v1.run.json",
+  "eeg_spectral_dementia_v1.run.json",
   "linkpred_rgcn_v1.run.json"
 ]

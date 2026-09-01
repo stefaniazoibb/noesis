@@ -1,0 +1,33 @@
+{
+  "runId": "eeg_spectral_dementia_v1",
+  "task": "classification",
+  "datasetDef": "OpenNeuro ds004504 (CC0, DOI 10.18112/openneuro.ds004504.v1.0.9; Miltiadous et al., Data 2023): resting-state eyes-closed clinical EEG, 36 Alzheimer's / 23 frontotemporal dementia / 29 controls, 19 channels @ 500 Hz, ~12-14 min/subject; curators' preprocessed derivatives (0.5-45 Hz, A1-A2 reref, ASR, ICA artifact rejection). First REAL-MODALITY data in NOESIS. Classification is a sanity check that the spectral representation carries the established EEG-slowing signal in dementia \u2014 NOT a diagnostic tool, and scalp EEG maps to no atlas region (disorder-level only, decision #8).",
+  "splitStrategy": "subject_level",
+  "preprocessing": "One vector per subject: Welch PSD (4 s windows) over the full cleaned recording; relative band power (delta/theta/alpha/beta/gamma over 0.5-45 Hz total) averaged within 5 scalp zones (frontal/central/temporal/parietal/occipital) = 25 features. Subject-level split is structural: each subject contributes exactly one vector, held out whole in LOSO.",
+  "model": "StandardScaler + L2 logistic regression (scikit-learn), leave-one-subject-out CV, ROC-AUC on pooled held-out predictions. Significance: 1000 label permutations refitting the full LOSO loop (p = (1+#perm>=observed)/(1+N)); subject-bootstrap 95% CI (2000 resamples). AD-vs-CN primary; FTD-vs-CN secondary.",
+  "config": {
+    "seed": 42,
+    "nPermutations": 1000,
+    "nBootstrap": 2000,
+    "features": 25,
+    "welchWindowSec": 4
+  },
+  "metrics": {
+    "ad_vs_cn_auc": 0.8429,
+    "ad_vs_cn_perm_p": 0.001,
+    "ftd_vs_cn_auc": 0.8051,
+    "ftd_vs_cn_perm_p": 0.001,
+    "n_subjects": 88.0
+  },
+  "uncertainty": {
+    "ad_vs_cn_auc_ci95_low": 0.7336,
+    "ad_vs_cn_auc_ci95_high": 0.9373,
+    "ftd_vs_cn_auc_ci95_low": 0.6717,
+    "ftd_vs_cn_auc_ci95_high": 0.917
+  },
+  "modelVersion": "v1",
+  "created": "2026-09-01",
+  "outputs": {
+    "groupSpectra": "eeg_spectral_dementia_v1.groupSpectra.json"
+  }
+}
