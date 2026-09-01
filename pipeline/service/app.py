@@ -6,6 +6,10 @@ service is the researcher's compute box — it re-runs the same pipeline code
 the CLI uses and writes through the same artifact contracts, so a run
 triggered here is indistinguishable from one run by hand.
 
+The EEG/MRI encoder pipelines (pipeline/encoders/) are CLI-only: they need
+the gitignored raw downloads and run for minutes-to-hours, which doesn't fit
+a synchronous POST.
+
 Start (conda env `noesis`, repo root):
     uvicorn pipeline.service.app:app --port 8500
 Then e.g.:  curl -X POST localhost:8500/runs/link_prediction -d '{"seed": 7}' \
@@ -43,6 +47,7 @@ class AlignmentConfig(BaseModel):
 
 
 class LinkPredConfig(BaseModel):
+    relations: Literal["binary", "modality"] = "binary"
     seed: int = 42
     hidden: int = 32
     epochs: int = 400

@@ -266,6 +266,51 @@ export default function LabPage() {
         <p className="mt-6 text-sm text-zinc-500">Loading model runs…</p>
       )}
 
+      {state && state.runs.length > 1 && (
+        <div className="mt-5 overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
+          <h2 className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+            Runs overview
+          </h2>
+          <table className="mt-2 w-full min-w-[34rem] text-left text-[11px]">
+            <thead>
+              <tr className="text-zinc-500">
+                <th className="py-1 pr-3 font-normal">Run</th>
+                <th className="py-1 pr-3 font-normal">Task</th>
+                <th className="py-1 pr-3 font-normal">Protocol</th>
+                <th className="py-1 pr-3 font-normal">Headline result</th>
+                <th className="py-1 font-normal">Created</th>
+              </tr>
+            </thead>
+            <tbody>
+              {state.runs.map(({ run }) => {
+                const headline = Object.entries(run.metrics).find(
+                  ([k]) => k.endsWith("auc") || k === "cc1",
+                );
+                return (
+                  <tr key={run.runId} className="border-t border-zinc-800/60">
+                    <td className="py-1 pr-3 text-zinc-300">{run.runId}</td>
+                    <td className="py-1 pr-3 text-zinc-400">
+                      {TASK_LABELS[run.task] ?? run.task}
+                    </td>
+                    <td className="py-1 pr-3 text-zinc-400">
+                      {run.splitStrategy}
+                    </td>
+                    <td className="py-1 pr-3 tabular-nums text-zinc-300">
+                      {headline ? `${headline[0]} = ${headline[1]}` : "—"}
+                    </td>
+                    <td className="py-1 text-zinc-500">{run.created}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <p className="mt-1.5 text-[10px] leading-relaxed text-zinc-600">
+            Headline numbers are not comparable across tasks or datasets —
+            each card below carries its own validation protocol and caveats.
+          </p>
+        </div>
+      )}
+
       {state && (
         <div className="mt-5 space-y-4">
           {state.runs.map((r) => (

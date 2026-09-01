@@ -148,7 +148,7 @@ independent biological validation. Interpretation caveat: both views derive
 from the research literature, so even a significant alignment measures
 curation/automated-mining **consistency**, not independent validation.
 
-### Graph link prediction (`linkpred_rgcn_v1`)
+### Graph link prediction (`linkpred_rgcn_v1`, `linkpred_rgcn_typed_v1`)
 
 Heterogeneous graph of disorders, regions, and Yeo networks; positives are
 the distinct disorder–region pairs from the curated assertions. **Split:**
@@ -168,8 +168,13 @@ baseline (Jaccard-weighted disorder-disorder voting over train pairs) for
 context. At 40 test positives the CI is wide (AUC 0.77, CI [0.66, 0.86]):
 the GNN performs comparably to the baseline (0.73), the difference is within
 noise — the run demonstrates the leakage-controlled protocol, not GNN
-superiority. Candidate links = highest-scored pairs absent from the corpus,
-always labeled "model-suggested — not evidence".
+superiority. The typed variant (`linkpred_rgcn_typed_v1`) splits
+disorder-region edges into one GCN relation per evidence modality category
+(imaging / electrophysiology / stimulation), same split and seed: test AUC
+0.796 / AP 0.851 vs binary 0.773 / 0.807 — a consistent but
+within-CI-noise improvement. Candidate links = highest-scored pairs absent
+from the corpus, always labeled "model-suggested — not evidence"; candidate
+scores are uncalibrated sigmoid outputs, comparable within a run only.
 
 ### EEG spectral encoder (`eeg_spectral_dementia_v1`)
 
@@ -187,6 +192,25 @@ this run stays disorder-level. Dataset note: ds002778 was evaluated first
 and rejected because its README asks that PD-vs-HC ML classification not be
 performed on it (n≈15 per group) — stewardship terms are checked at
 ingestion, not just licenses (decision #29).
+
+### MRI morphometry encoder (`mri_morphometry_cnp_v1`)
+
+Second real modality: UCLA CNP ds000030 (CC0; Poldrack et al. 2016) via the
+published FreeSurfer stats derivatives only (Gorgolewski et al. 2017; no
+raw MRI) — 265 subjects (125 controls, 50 SCZ, 49 bipolar, 41 ADHD). One
+vector per subject: 68 DK mean thicknesses + eTIV-normalized subcortical
+volumes, keyed to NOĒSIS atlas region ids; age + gender residualized per
+fold (confound model fit on train only). Same LOSO + full-loop permutation
+protocol as the EEG run. **Result: an honest negative for individual-level
+prediction** — SCZ-vs-control AUC 0.556 (perm p 0.19), bipolar 0.52, ADHD
+0.567, all CIs spanning chance — while the aggregate effect-size payload
+shows the canonical ENIGMA group pattern (bilateral temporal thinning,
+d up to 0.6; pallidum/putamen ENLARGED in patients). The two are
+consistent: region effects of d≈0.1–0.5 put the theoretical single-feature
+ceiling near AUC 0.58 (Φ(d/√2)) — **replicated group differences do not
+imply individual discriminability**, which is precisely the
+ML-importance-≠-diagnosis point this Lab exists to make visible. Effect
+sizes are single-dataset, not meta-analytic consensus.
 
 ## Research-question ranking
 

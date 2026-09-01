@@ -1,0 +1,11 @@
+{
+  "source": "OpenNeuro ds000030 (UCLA CNP LA5c)",
+  "doi": "10.18112/openneuro.ds000030.v1.0.0",
+  "license": "CC0 (verified in dataset_description.json at ingestion, 2026-09-01)",
+  "cite": [
+    "Poldrack et al., Sci Data 3:160110, 2016, doi:10.1038/sdata.2016.110",
+    "Gorgolewski et al., F1000Research 6:1262, 2017 (derivatives)"
+  ],
+  "ethics": "UCLA IRB-approved written informed consent (per dataset description)",
+  "used": "FreeSurfer aparc/aseg stats tables from the published derivatives only (legacy S3, R1.0.5); raw MRI never downloaded; artifacts contain aggregate statistics only"
+}

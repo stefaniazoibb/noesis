@@ -91,8 +91,13 @@ def sample_negatives(
 
 def run_linkpred(config: dict | None = None) -> dict:
     cfg = {"seed": SEED, "hidden": HIDDEN, "epochs": EPOCHS, "lr": LR,
-           "negPerPos": NEG_PER_POS, "patience": PATIENCE, "topK": TOP_K}
+           "negPerPos": NEG_PER_POS, "patience": PATIENCE, "topK": TOP_K,
+           # "binary": one disorder-region relation; "modality": one
+           # relation per evidence modality category (typed edges, v2)
+           "relations": "binary"}
     cfg.update(config or {})
+    if cfg["relations"] not in ("binary", "modality"):
+        raise SystemExit(f"unknown relations mode {cfg['relations']!r}")
     rng = np.random.default_rng(cfg["seed"])
     torch.manual_seed(cfg["seed"])
     device = torch.device("cpu")  # determinism over speed at this scale
@@ -119,16 +124,33 @@ def run_linkpred(config: dict | None = None) -> dict:
     n_dis, n_reg = len(disorders), len(regions)
     n_nodes = n_dis + n_reg + len(networks)
     reg_of = lambda r: n_dis + r  # noqa: E731
-    adj_dr = torch.zeros(n_nodes, n_nodes)
-    for d, r in train:  # message passing sees TRAIN pairs only
-        adj_dr[d, reg_of(r)] = adj_dr[reg_of(r), d] = 1
+    train_set = set(train)
+    if cfg["relations"] == "binary":
+        adj_dr = torch.zeros(n_nodes, n_nodes)
+        for d, r in train:  # message passing sees TRAIN pairs only
+            adj_dr[d, reg_of(r)] = adj_dr[reg_of(r), d] = 1
+        dr_adjs = [adj_dr]
+    else:
+        # typed edges: one relation per evidence modality category; a train
+        # pair appears in every category that has an assertion for it
+        category_of = {m["id"]: m["category"]
+                       for m in load_json("modalities/modalities.json")}
+        categories = sorted(set(category_of.values()))
+        by_cat = {cat: torch.zeros(n_nodes, n_nodes) for cat in categories}
+        for a in assertions:
+            pair = (d_idx[a["disorder"]], r_idx[a["region"]])
+            if pair not in train_set:  # still TRAIN pairs only
+                continue
+            adj = by_cat[category_of[a["modality"]]]
+            adj[pair[0], reg_of(pair[1])] = adj[reg_of(pair[1]), pair[0]] = 1
+        dr_adjs = [by_cat[cat] for cat in categories]
     adj_rn = torch.zeros(n_nodes, n_nodes)
     for k, net in enumerate(networks):
         for r in net["regions"]:
             if r in r_idx:
                 i, j = reg_of(r_idx[r]), n_dis + n_reg + k
                 adj_rn[i, j] = adj_rn[j, i] = 1
-    adjs = [row_normalize(a).to(device) for a in (adj_dr, adj_rn)]
+    adjs = [row_normalize(a).to(device) for a in (*dr_adjs, adj_rn)]
 
     # non-learned collaborative-filtering baseline for context: disorders
     # similar in their TRAIN region sets vote for their regions
@@ -228,14 +250,21 @@ def run_linkpred(config: dict | None = None) -> dict:
         for i in top
     ]
 
+    typed = cfg["relations"] == "modality"
     run = {
-        "runId": "linkpred_rgcn_v1",
+        "runId": "linkpred_rgcn_typed_v1" if typed else "linkpred_rgcn_v1",
         "task": "link_prediction",
         "datasetDef": (
             f"Heterogeneous graph: {n_dis} disorders + {n_reg} regions + "
             f"{len(networks)} Yeo networks; {len(pairs)} distinct "
             "disorder-region pairs from the curated assertions (positives) + "
-            "region-network membership edges. Study nodes excluded from the "
+            "region-network membership edges. "
+            + ("Disorder-region edges are TYPED by evidence modality "
+               "category (imaging / electrophysiology / stimulation), one "
+               "GCN relation each; same split and seed as linkpred_rgcn_v1 "
+               "for direct comparison. "
+               if typed else "")
+            + "Study nodes excluded from the "
             "graph to prevent study-mediated train/test leakage."
         ),
         "splitStrategy": "grouped_pair_level",
@@ -250,8 +279,9 @@ def run_linkpred(config: dict | None = None) -> dict:
             "optimistic."
         ),
         "model": (
-            f"2-layer relational GCN (learned {cfg['hidden']}-d node "
-            "embeddings, per-relation mean aggregation, dot-product decoder), "
+            f"2-layer relational GCN over {len(adjs)} relations (learned "
+            f"{cfg['hidden']}-d node embeddings, per-relation mean "
+            "aggregation, dot-product decoder), "
             f"BCE with {cfg['negPerPos']} sampled negatives/positive, Adam "
             f"lr={cfg['lr']}, early stopping on validation ROC-AUC "
             f"(best epoch {best_epoch}). PyTorch {torch.__version__}, CPU."
@@ -282,4 +312,9 @@ def run_linkpred(config: dict | None = None) -> dict:
 
 
 if __name__ == "__main__":
-    run_linkpred()
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--relations", choices=["binary", "modality"],
+                        default="binary")
+    run_linkpred({"relations": parser.parse_args().relations})

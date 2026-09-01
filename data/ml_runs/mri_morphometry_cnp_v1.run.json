@@ -1,0 +1,37 @@
+{
+  "runId": "mri_morphometry_cnp_v1",
+  "task": "classification",
+  "datasetDef": "OpenNeuro ds000030 (UCLA CNP LA5c, CC0, DOI 10.18112/openneuro.ds000030.v1.0.0; Poldrack et al. Sci Data 2016): FreeSurfer stats tables from the curators' derivatives (Gorgolewski et al. F1000Research 2017) \u2014 no raw MRI touched. 265 subjects with usable stats: 125 controls, 50 schizophrenia, 49 bipolar, 41 ADHD. Classification is a sanity check that the morphometric representation carries known group signal \u2014 NOT diagnosis; single-dataset effect sizes are not meta-analytic consensus.",
+  "splitStrategy": "subject_level",
+  "preprocessing": "One vector per subject: 68 DK mean cortical thicknesses + 15 aseg volumes / eTIV, columns keyed to NOESIS atlas region ids. Age + gender residualized per fold (confound regression fit on train only, applied to the held-out subject).",
+  "model": "StandardScaler + L2 logistic regression, leave-one-subject-out CV, pooled ROC-AUC; 500 label permutations refitting the full LOSO loop (p = (1+#perm>=obs)/(1+N)); subject-bootstrap 95% CI (2000 resamples). SCHZ/BIPOLAR/ADHD each vs CONTROL.",
+  "config": {
+    "seed": 42,
+    "nPermutations": 500,
+    "nBootstrap": 2000,
+    "features": 83,
+    "confounds": "age,gender"
+  },
+  "metrics": {
+    "schz_vs_cn_auc": 0.5555,
+    "bipolar_vs_cn_auc": 0.52,
+    "adhd_vs_cn_auc": 0.5672,
+    "schz_vs_cn_perm_p": 0.1856,
+    "bipolar_vs_cn_perm_p": 0.3633,
+    "adhd_vs_cn_perm_p": 0.1477,
+    "n_subjects": 265.0
+  },
+  "uncertainty": {
+    "schz_vs_cn_auc_ci95_low": 0.4621,
+    "bipolar_vs_cn_auc_ci95_low": 0.4296,
+    "adhd_vs_cn_auc_ci95_low": 0.4613,
+    "schz_vs_cn_auc_ci95_high": 0.6474,
+    "bipolar_vs_cn_auc_ci95_high": 0.6103,
+    "adhd_vs_cn_auc_ci95_high": 0.6686
+  },
+  "modelVersion": "v1",
+  "created": "2026-09-01",
+  "outputs": {
+    "effectSizes": "mri_morphometry_cnp_v1.effectSizes.json"
+  }
+}
