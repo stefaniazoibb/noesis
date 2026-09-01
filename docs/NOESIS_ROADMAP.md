@@ -91,10 +91,16 @@ tuning (P2 item 10) has become more pressing.
     with a homolog-block permutation null (cc1 p=0.13; both alignment runs
     are now honest negatives). Link-pred manifests gained bootstrap CIs +
     full leakage disclosures (GNN vs CF baseline within noise).
-    Possible future #12 scope: real
-    modality encoders (OpenNeuro EEG/MRI, subject-level splits for real),
-    contrastive alignment once >2 views exist, richer graph (edge
-    types/directions), run comparison UI.
+13. Real-modality encoder v1 DONE (2026-09-01): OpenNeuro ds004504 resting
+    EEG (AD/FTD/CN, n=88, CC0 + ethics verified; ds002778 rejected on its
+    README's stewardship request, decision #29). `pipeline/encoders/` —
+    subject-level zone band-power features, LOSO + full-loop permutation
+    test, ModelRun `eeg_spectral_dementia_v1` (AD-vs-CN AUC 0.843, canonical
+    EEG-slowing pattern), framed as representation sanity check, never
+    diagnosis; disorder-level only (decision #8).
+    Remaining future scope: MRI encoder, contrastive alignment once >2
+    real views exist, richer graph (edge types/directions), run
+    comparison UI.
 
 ## Technical debt register
 
