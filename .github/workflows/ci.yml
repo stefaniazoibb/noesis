@@ -18,7 +18,9 @@ jobs:
       - name: Data validation (schemas + referential integrity + artifacts)
         run: npm run validate:data
       - name: Types
-        run: npx tsc --noEmit
+        # `next typegen` writes the generated route types (PageProps etc.)
+        # that tsconfig includes from .next/types — absent on a fresh checkout
+        run: npx next typegen && npx tsc --noEmit
       - name: Lint
         run: npm run lint
       - name: Unit tests
