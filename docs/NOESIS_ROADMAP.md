@@ -98,9 +98,17 @@ tuning (P2 item 10) has become more pressing.
     test, ModelRun `eeg_spectral_dementia_v1` (AD-vs-CN AUC 0.843, canonical
     EEG-slowing pattern), framed as representation sanity check, never
     diagnosis; disorder-level only (decision #8).
-    Remaining future scope: MRI encoder, contrastive alignment once >2
-    real views exist, richer graph (edge types/directions), run
-    comparison UI.
+14. Future-scope sweep DONE (2026-09-01): MRI morphometry encoder v1
+    (ds000030 FreeSurfer stats; honest negative for individual prediction,
+    canonical ENIGMA group effect sizes — METRICS.md); typed-edge link
+    prediction (`--relations modality`, within-noise vs binary); /ml/lab
+    runs-overview table. Contrastive alignment DEFERRED with rationale:
+    the real-modality views don't yet share entity coverage rich enough
+    for a defensible multi-view analysis (EEG: 2 disorders,
+    disorder-level; MRI: 3 disorders, region-level effect maps; corpus
+    embeddings: 19 disorders) — forcing it would produce another
+    underpowered n<5 alignment. Revisit when a modality covers most of
+    the roster.
 
 ## Technical debt register
 
