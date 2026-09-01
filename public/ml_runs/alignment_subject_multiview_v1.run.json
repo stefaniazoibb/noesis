@@ -1,0 +1,31 @@
+{
+  "runId": "alignment_subject_multiview_v1",
+  "task": "alignment",
+  "datasetDef": "SUBJECT-LEVEL multi-view alignment, n=250 UCLA CNP subjects with both views: X = 83 morphometry features (DK thickness + eTIV-normalized volumes), Y = resting-state connectivity (2278 Fisher-z edges, PCA-50). This is the multi-view analysis NOESIS deferred until two REAL views shared entities richly \u2014 same individuals, two independent MRI-derived modalities. Alignment = shared anatomy-function individual variation in ONE dataset; not disorder-specific, not causal.",
+  "splitStrategy": "permutation_test",
+  "preprocessing": "Age + gender residualized from BOTH views (full sample) before CCA, so demographics cannot manufacture alignment; connectivity reduced to PCA-50 (fit on residualized features).",
+  "model": "CCA, 5 components; 1000 row permutations of the connectivity view (subjects are exchangeable rows \u2014 no block structure at subject level), refit per permutation, per-component p = (1+#perm>=observed)/(1+N); no deflation across components (components >= 2 approximate; claims rest on component 1).",
+  "config": {
+    "seed": 42,
+    "nComponents": 5,
+    "nPermutations": 1000,
+    "pcaDim": 50
+  },
+  "metrics": {
+    "cc1": 0.9017,
+    "cc2": 0.8673,
+    "cc3": 0.8621,
+    "cc4": 0.8449,
+    "cc5": 0.8314,
+    "cc1_perm_p": 0.002,
+    "cc2_perm_p": 0.0769,
+    "cc3_perm_p": 0.008,
+    "cc4_perm_p": 0.015,
+    "cc5_perm_p": 0.016,
+    "n_subjects": 250.0
+  },
+  "uncertainty": null,
+  "modelVersion": "v1",
+  "created": "2026-09-01",
+  "outputs": {}
+}

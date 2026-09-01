@@ -1,0 +1,37 @@
+{
+  "runId": "conn_fc_cnp_v1",
+  "task": "classification",
+  "datasetDef": "OpenNeuro ds000030 (UCLA CNP, CC0): fmriprep surface-sampled resting-state BOLD (fsaverage5) from the published derivatives \u2014 250 usable subjects (118 CN, 45 SCZ, 48 BD, 39 ADHD); excluded: 0 missing/incomplete, 11 high motion (mean FD > 0.5 mm; by group {'CONTROL': 4, 'SCHZ': 5, 'BIPOLAR': 1, 'ADHD': 1}), 0 short scans. Motion-exclusion rates differ by group \u2014 residual motion confounding cannot be ruled out. Representation sanity check, NOT diagnosis.",
+  "splitStrategy": "subject_level",
+  "preprocessing": "One vector per subject: DK-68 parcel mean timeseries (fsaverage aparc annot restricted to fsaverage5 vertices); confound regression (6 motion params + WhiteMatter + aCompCor00 + linear trend); Pearson correlation -> Fisher z -> upper triangle (2278 features).",
+  "model": "Fold-safe Pipeline(StandardScaler -> PCA-50 -> L2 logistic), stratified 10-fold CV over subjects, pooled out-of-fold ROC-AUC; 1000 label permutations refitting the full CV (p = (1+#perm>=obs)/(1+N)); subject-bootstrap 95% CI (2000 resamples).",
+  "config": {
+    "seed": 42,
+    "nPermutations": 1000,
+    "nBootstrap": 2000,
+    "folds": 10,
+    "pcaDim": 50,
+    "fdMax": 0.5,
+    "confounds": "X,Y,Z,RotX,RotY,RotZ,WhiteMatter,aCompCor00"
+  },
+  "metrics": {
+    "schz_vs_cn_auc": 0.6806,
+    "bipolar_vs_cn_auc": 0.6389,
+    "adhd_vs_cn_auc": 0.3844,
+    "schz_vs_cn_perm_p": 0.003,
+    "bipolar_vs_cn_perm_p": 0.008,
+    "adhd_vs_cn_perm_p": 0.9461,
+    "n_subjects": 250.0
+  },
+  "uncertainty": {
+    "schz_vs_cn_auc_ci95_low": 0.5867,
+    "bipolar_vs_cn_auc_ci95_low": 0.5392,
+    "adhd_vs_cn_auc_ci95_low": 0.2857,
+    "schz_vs_cn_auc_ci95_high": 0.7711,
+    "bipolar_vs_cn_auc_ci95_high": 0.7342,
+    "adhd_vs_cn_auc_ci95_high": 0.4803
+  },
+  "modelVersion": "v1",
+  "created": "2026-09-01",
+  "outputs": {}
+}

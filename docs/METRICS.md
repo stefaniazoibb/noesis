@@ -212,6 +212,39 @@ imply individual discriminability**, which is precisely the
 ML-importance-≠-diagnosis point this Lab exists to make visible. Effect
 sizes are single-dataset, not meta-analytic consensus.
 
+### fMRI connectivity encoder (`conn_fc_cnp_v1`)
+
+Third real modality: resting-state functional connectivity from the CNP
+fmriprep derivatives (surface-sampled BOLD on fsaverage5 — no volumetric
+data). One vector per subject: DK-68 parcel timeseries (fsaverage aparc
+restricted to fsaverage5 vertices), confound regression (6 motion + white
+matter + aCompCor00 + linear trend; **no global-signal regression** —
+deliberate, GSR remains contested), Pearson → Fisher z → 2,278 edges.
+Exclusions disclosed in the manifest (11 subjects with mean FD > 0.5 mm;
+rates differ by group, so residual motion confounding cannot be ruled
+out). Evaluation: fold-safe StandardScaler → PCA-50 → logistic, stratified
+10-fold over subjects, pooled out-of-fold ROC-AUC, 1000 full-CV label
+permutations, subject-bootstrap CIs. Results (n=250): SCZ-vs-CN AUC 0.681
+(perm p = 0.003 — the first permutation-significant individual-level
+signal in the Lab, and stronger than the same cohort's morphometry, 0.556),
+bipolar 0.639 (p = 0.008), ADHD an honest null (0.384, p = 0.95). Sanity
+check of the representation, not diagnosis.
+
+### Subject-level multi-view alignment (`alignment_subject_multiview_v1`)
+
+The multi-view analysis deferred until two real views shared entities
+richly — now possible: morphometry (83 features) × connectivity (PCA-50)
+for the SAME n=250 CNP subjects. Age + gender residualized from both views
+before CCA so demographics cannot manufacture alignment; 1000 row
+permutations of the connectivity view (subjects are exchangeable rows — no
+block structure at subject level, unlike the region-level run); no
+deflation across components, claims rest on component 1. Result: cc1 =
+0.90, perm p = 0.002 — survives Bonferroni (α = 0.05/5): **individual
+brain structure and resting-state function share variation in this
+cohort**. Limitations: one dataset; not disorder-specific (manifest states
+both); additionally, global factors not fully removed (no GSR; thickness
+not size-normalized) may contribute to the shared component.
+
 ## MRI morphometry map (Morphometry viz mode)
 
 Signed Cohen's d (controls minus patients, age/gender-adjusted) per region
