@@ -1,6 +1,9 @@
 # NOĒSIS — Roadmap & Feature Status
 
-Status date: 2026-08-11. Mirrors the session task list; update both together.
+Status date: 2026-09-01. Mirrors the session task list; update both together.
+Repo pushed to https://github.com/stefaniazoibb/noesis (private) 2026-09-01;
+CI live. Open items: #8 (needs ANTHROPIC_API_KEY in .env.local) and #9
+(per-study review via `mark_verified.py --show-next`) — both owner Stefania.
 
 ## Completed (verified, committed)
 
