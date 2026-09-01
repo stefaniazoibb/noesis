@@ -39,8 +39,8 @@ CI live. Open items: #8 (needs ANTHROPIC_API_KEY in .env.local) and #9
 
 ## Broken
 
-- None known. All gates green (tsc, lint, 26 tests, build, validate:data,
-  16-check e2e).
+- None known. All gates green (tsc, lint, 34 tests, build, validate:data
+  incl. 6 ML runs, 20-check e2e locally and in CI).
 
 ## Missing / not started (priority order)
 
@@ -61,8 +61,8 @@ CI live. Open items: #8 (needs ANTHROPIC_API_KEY in .env.local) and #9
    remote yet, so CI has never executed anywhere — the workflow activates
    on first push to GitHub (owner: Stefania).
 
-**Note:** GAP-ATTENTION now fires 168× on the larger corpus — threshold
-tuning (P2 item 10) has become more pressing.
+**Note:** GAP-ATTENTION tuning done (#17, 2026-08-11): ≥3 shared regions +
+≥50% overlap-of-smaller-set → 85 gaps (was 168 on the full corpus).
 
 **P2 — depth features**
 7. #7 Research notebook (localStorage first; human-in-the-loop save/approve).
@@ -112,17 +112,26 @@ tuning (P2 item 10) has become more pressing.
 
 ## Technical debt register
 
+(refreshed 2026-09-01)
+
 - Corpus-wide `verifiedByHuman: false` (by design until #9).
-- AI paths (assistant, questions) never exercised against the live API.
-- Playwright coverage lives outside the repo; no CI.
+- AI paths (assistant, questions) never exercised against the live API
+  (#8 — needs ANTHROPIC_API_KEY).
+- ~~Playwright coverage outside the repo; no CI~~ — committed e2e suite +
+  CI e2e job, green on GitHub runners since 2026-09-01.
 - Evidence JSON bundles into client chunks (fine at this scale; repo seam
   exists for growth).
-- `/api/questions` per-process cache has no invalidation besides restart.
-- Embedding artifacts duplicated (data/ canonical + public/ served copy) —
-  intentional but must stay in sync via the pipeline only.
-- Sparse-evidence disorders (DID/GAD/HD) cluster in embedding space by
-  evidence structure — labeled, but worth a visible per-point evidence-count
-  cue in /ml.
+- `/api/questions` per-process cache has no invalidation — ACCEPTED, not a
+  bug: the corpus is statically imported, so a changed corpus always means
+  a new build/process; within one process the cache can never go stale.
+- Artifact duplication (data/ canonical + public/ served copy: embeddings,
+  metamaps, ml_runs) — intentional; sync only via pipelines; validate-data
+  does not check data↔public sync (verified manually per commit).
+- ~~Per-point evidence-count cue in /ml~~ — point radius ∝ √(distinct
+  studies) with legend note, 2026-09-01.
 - Scene center/camera constants hardcoded in BrainViewer.
 - Intent-parser catalog includes all 83 regions per call (token cost grows
   with atlas upgrades; fine today).
+- Raw encoder downloads (~2.4 GB EEG + 8 MB MRI stats) live in gitignored
+  `pipeline/encoders/raw/` — deletable; artifacts + provenance are the
+  durable record.

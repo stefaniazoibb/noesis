@@ -11,6 +11,8 @@ export interface ScatterPoint {
   x: number;
   y: number;
   category: string;
+  /** point radius in px (evidence-count cue); default 5 */
+  r?: number;
 }
 
 export interface ScatterCategory {
@@ -98,7 +100,7 @@ export function Scatter({
                 <circle
                   cx={cx}
                   cy={cy}
-                  r={9}
+                  r={(p.r ?? 5) + 4}
                   fill="none"
                   stroke="#d9a441"
                   strokeWidth={2}
@@ -107,7 +109,7 @@ export function Scatter({
               <circle
                 cx={cx}
                 cy={cy}
-                r={hover?.id === p.id ? 6.5 : 5}
+                r={(p.r ?? 5) + (hover?.id === p.id ? 1.5 : 0)}
                 fill={colorOf.get(p.category) ?? "#888"}
                 stroke="#0b0d10"
                 strokeWidth={1}

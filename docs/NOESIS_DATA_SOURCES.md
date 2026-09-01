@@ -31,7 +31,7 @@ runtime from assertions (never stored as truth).
 |---|---|---|
 | Neurosynth | Alternative automated meta-analytic maps (NeuroQuery ingested 2026-08-11, see above) | Not ingested; NeuroQuery covers the use case |
 | ENIGMA summary statistics | Per-publication regional effect sizes | Case-by-case with each paper |
-| Yeo-style network parcellation | Network memberships with `membershipSource` | Needed for roadmap #10 |
+| ~~Yeo-style network parcellation~~ | Network memberships with `membershipSource` | Ingested 2026-08-11 (see Yeo 2011 row above) |
 | HCP-MMP (Glasser) | Finer atlas upgrade | Deferred — WU-Minn terms must be accepted first |
 | Harvard-Oxford (FSL) | Subcortex fallback only | Not needed (aseg path worked); **non-commercial license** — avoid |
 | AAL | — | Deferred (registration-gated) |

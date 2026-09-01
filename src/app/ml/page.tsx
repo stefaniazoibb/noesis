@@ -10,6 +10,7 @@ import {
   type EmbeddingEntity,
   type EmbeddingSet,
 } from "@/lib/ml/embeddings";
+import { getAssertions } from "@/lib/repo/evidence";
 import { useVizStore } from "@/state/vizStore";
 import { Scatter, type ScatterCategory, type ScatterPoint } from "@/ml/Scatter";
 import { DetailPanel } from "@/ml/DetailPanel";
@@ -80,18 +81,49 @@ export default function MlPage() {
   const projection =
     set && !set.manifest.projections[projectionChoice] ? "pca" : projectionChoice;
 
+  // per-point evidence-count cue: sparse-evidence entities cluster by
+  // evidence structure, so point size shows how much indexed evidence
+  // backs each position (distinct studies; radius ∝ sqrt(count))
+  const studyCounts = useMemo(() => {
+    const byDisorder = new Map<string, Set<string>>();
+    const byRegion = new Map<string, Set<string>>();
+    const add = (map: Map<string, Set<string>>, key: string, study: string) => {
+      const set = map.get(key) ?? new Set<string>();
+      set.add(study);
+      map.set(key, set);
+    };
+    for (const a of getAssertions()) {
+      add(byDisorder, a.disorder, a.studyId);
+      add(byRegion, a.region, a.studyId);
+    }
+    return { byDisorder, byRegion };
+  }, []);
+
   const points: ScatterPoint[] = useMemo(() => {
     if (!set) return [];
     const proj = set.manifest.projections[projection];
     if (!proj) return [];
-    return set.manifest.ids.map((id, i) => ({
-      id,
-      label: entityLabel(entity, id),
-      x: proj[i][0],
-      y: proj[i][1],
-      category: categoryOf(entity, id),
-    }));
-  }, [set, projection, entity]);
+    const countOf = (id: string) =>
+      entity === "disorder"
+        ? (studyCounts.byDisorder.get(id)?.size ?? 0)
+        : entity === "region"
+          ? (studyCounts.byRegion.get(id)?.size ?? 0)
+          : null;
+    return set.manifest.ids.map((id, i) => {
+      const n = countOf(id);
+      return {
+        id,
+        label:
+          n === null
+            ? entityLabel(entity, id)
+            : `${entityLabel(entity, id)} — ${n} indexed ${n === 1 ? "study" : "studies"}`,
+        x: proj[i][0],
+        y: proj[i][1],
+        category: categoryOf(entity, id),
+        r: n === null ? 5 : 3 + Math.sqrt(n) * 1.1,
+      };
+    });
+  }, [set, projection, entity, studyCounts]);
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-6">
@@ -185,6 +217,8 @@ export default function MlPage() {
               built {set.manifest.created}. Positions derive from the indexed
               evidence corpus (curated, not a systematic review); 2D
               projections can distort distances.
+              {entity !== "study" &&
+                " Point size = distinct indexed studies — small points sit where they do on thin evidence."}
             </p>
           </div>
           <aside className="w-full shrink-0 space-y-3 lg:w-80">
