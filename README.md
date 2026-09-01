@@ -57,7 +57,25 @@ Meshes: `pipeline/meshes/` (fsaverage → GLB + region sidecars). Evidence:
 `pipeline/curation/` (PubMed cache → curated judgments → build →
 **verification gate**). Representations:
 `pipeline/embeddings/build_representation.py`. Human review:
-`pipeline/curation/mark_verified.py --list`.
+`pipeline/curation/mark_verified.py --show-next`. Meta-maps / morphometry
+maps / ML runs: `pipeline/metamaps/`, `pipeline/encoders/`,
+`pipeline/mlruns/` (see `docs/METRICS.md` for every displayed definition).
+
+## Deploying a demo
+
+The web app has **zero Python runtime dependencies** — every model result
+is a static, schema-validated artifact in `public/`. It deploys to Vercel
+as-is:
+
+```bash
+npx vercel login          # once, with your account
+npx vercel --prod         # from the repo root
+```
+
+(`npx vercel deploy --temporary` gives an account-less preview URL that
+expires within the hour unless claimed.) The assistant degrades gracefully
+without `ANTHROPIC_API_KEY`; set it in the Vercel project env to enable
+live answers.
 
 ## Documentation
 
