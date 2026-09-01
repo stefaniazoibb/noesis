@@ -4,41 +4,57 @@ import { useEffect, useState } from "react";
 import { RegionScalarMapSchema, type RegionScalarMap } from "@/lib/schemas";
 
 /**
- * Loader for NeuroQuery meta-analytic RegionScalarMap artifacts
- * (pipeline/metamaps). These are MODEL-GENERATED maps — a separate,
- * explicitly labeled evidence stratum from the curated corpus.
+ * Loaders for per-disorder RegionScalarMap artifacts:
+ * - metamaps: NeuroQuery meta-analytic maps (model-generated stratum)
+ * - morphomaps: CNP MRI morphometry effect sizes (data-derived stratum)
+ * Both are explicitly labeled strata, separate from the curated corpus.
  */
+
+export type ScalarMapKind = "metamaps" | "morphomaps";
 
 const cache = new Map<string, Promise<RegionScalarMap | null>>();
 
-function load(disorderId: string): Promise<RegionScalarMap | null> {
-  let p = cache.get(disorderId);
+export function loadScalarMap(
+  kind: ScalarMapKind,
+  disorderId: string,
+): Promise<RegionScalarMap | null> {
+  const ext = kind === "metamaps" ? "metamap" : "morphomap";
+  const key = `${kind}/${disorderId}`;
+  let p = cache.get(key);
   if (!p) {
-    p = fetch(`/metamaps/${disorderId}.metamap.json`)
+    p = fetch(`/${kind}/${disorderId}.${ext}.json`)
       .then((r) => (r.ok ? r.json() : null))
       .then((raw) => (raw ? RegionScalarMapSchema.parse(raw) : null))
       .catch(() => null);
-    cache.set(disorderId, p);
+    cache.set(key, p);
   }
   return p;
 }
 
-export function useMetamap(disorderId: string | null): RegionScalarMap | null {
+export function useScalarMap(
+  kind: ScalarMapKind,
+  disorderId: string | null,
+): RegionScalarMap | null {
   const [state, setState] = useState<{
-    id: string;
+    key: string;
     map: RegionScalarMap | null;
   } | null>(null);
 
+  const key = disorderId ? `${kind}/${disorderId}` : null;
   useEffect(() => {
-    if (!disorderId) return;
+    if (!key || !disorderId) return;
     let alive = true;
-    load(disorderId).then((map) => {
-      if (alive) setState({ id: disorderId, map });
+    loadScalarMap(kind, disorderId).then((map) => {
+      if (alive) setState({ key, map });
     });
     return () => {
       alive = false;
     };
-  }, [disorderId]);
+  }, [key, kind, disorderId]);
 
-  return state?.id === disorderId ? state.map : null;
+  return state?.key === key ? state.map : null;
+}
+
+export function useMetamap(disorderId: string | null): RegionScalarMap | null {
+  return useScalarMap("metamaps", disorderId);
 }

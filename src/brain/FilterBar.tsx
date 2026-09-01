@@ -11,6 +11,7 @@ const MODES: { mode: VizMode; label: string }[] = [
   { mode: "gaps", label: "Gaps" },
   { mode: "compare", label: "Compare" },
   { mode: "metamap", label: "Meta-map" },
+  { mode: "morphomap", label: "Morphometry" },
   { mode: "network", label: "Networks" },
 ];
 
@@ -29,9 +30,12 @@ export function FilterBar() {
     mode === "convergence" ||
     mode === "gaps" ||
     mode === "compare" ||
-    mode === "metamap";
-  // modality/year filters act on the curated corpus, not on model-generated maps
-  const corpusFilters = evidenceMode && mode !== "metamap";
+    mode === "metamap" ||
+    mode === "morphomap";
+  // modality/year filters act on the curated corpus, not on model- or
+  // data-derived maps
+  const corpusFilters =
+    evidenceMode && mode !== "metamap" && mode !== "morphomap";
 
   return (
     <div className="pointer-events-auto flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-950/80 p-1.5 backdrop-blur">

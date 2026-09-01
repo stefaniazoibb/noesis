@@ -212,6 +212,31 @@ imply individual discriminability**, which is precisely the
 ML-importance-≠-diagnosis point this Lab exists to make visible. Effect
 sizes are single-dataset, not meta-analytic consensus.
 
+## MRI morphometry map (Morphometry viz mode)
+
+Signed Cohen's d (controls minus patients, age/gender-adjusted) per region
+from ModelRun `mri_morphometry_cnp_v1` (UCLA CNP, single dataset), written
+as RegionScalarMap artifacts by `pipeline/encoders/build_morphomaps.py` to
+`data/morphomaps/`. Available only for the CNP cohorts (schizophrenia,
+bipolar disorder, ADHD). Diverging display: blue = thinner/smaller in
+patients, orange = larger in patients; |d| < 0.1 keeps the anatomical base
+color — a display floor, **not** a significance threshold. A separate,
+data-derived stratum: never merged with corpus metrics, not meta-analytic
+consensus, and group differences ≠ individual prediction (the same run's
+classification AUC is near chance).
+
+## Evidence-strata agreement (disorder pages)
+
+Spearman rank correlation across all atlas regions between per-region
+values of the available strata: curated-corpus distinct-study counts,
+NeuroQuery z (clipped at 0), and |Cohen's d| from the CNP morphometry map
+(absolute value: the question is WHERE effects are, not their direction).
+Ties get average ranks. A consistency check between evidence streams —
+corpus × NeuroQuery agreement is curation/mining consistency (both derive
+from the literature); comparisons with the MRI map contrast literature
+attention against one cohort's group anatomy. Never validation of any
+single stream.
+
 ## Research-question ranking
 
 Generated research questions are ranked by a transparent rule — never by a

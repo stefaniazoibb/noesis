@@ -8,6 +8,7 @@ import { StudyListItem } from "@/evidence/StudyListItem";
 import { GapsSection } from "@/evidence/GapsSection";
 import { PersonalExperienceNote } from "@/components/PersonalExperienceNote";
 import { ResearchOpportunities } from "@/components/ResearchOpportunities";
+import { StrataAgreement } from "@/components/StrataAgreement";
 import { SaveToNotebook } from "@/components/SaveToNotebook";
 
 export function generateStaticParams() {
@@ -142,6 +143,8 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
       </section>
 
       <GapsSection disorderId={disorder.id} />
+
+      <StrataAgreement disorderId={disorder.id} />
 
       <ResearchOpportunities disorderId={disorder.id} />
 

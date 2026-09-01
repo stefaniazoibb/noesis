@@ -9,6 +9,7 @@ export const VizModeSchema = z.enum([
   "gaps",
   "compare",
   "metamap",
+  "morphomap",
   "network",
   "representation",
 ]);

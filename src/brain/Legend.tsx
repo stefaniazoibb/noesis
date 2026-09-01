@@ -5,6 +5,7 @@ import { getDisorder, getNetworks } from "@/lib/repo/entities";
 import { useOverlayResult } from "./useOverlay";
 import {
   sequentialColor,
+  divergingColor,
   CONVERGENCE_COLORS,
   GAP_CATEGORIES,
   COMPARE_CATEGORIES,
@@ -145,6 +146,48 @@ export function Legend() {
             ? "Loading meta-analytic map…"
             : "Select a disorder to view its automated meta-analytic map."}
         </p>
+      )}
+      {mode === "morphomap" && overlay.kind === null && (
+        <p className="text-[11px] text-zinc-500">
+          {disorderId
+            ? "No MRI morphometry map for this disorder — maps exist only for the UCLA CNP cohorts (schizophrenia, bipolar disorder, ADHD)."
+            : "Select a disorder to view its MRI morphometry effect-size map (available: schizophrenia, bipolar disorder, ADHD)."}
+        </p>
+      )}
+      {overlay.kind === "morphomap" && (
+        <>
+          <h3 className="text-xs font-medium text-zinc-200">
+            MRI morphometry effect sizes
+            {disorderId ? ` — ${getDisorder(disorderId)?.name}` : ""}
+          </h3>
+          <div className="mt-2 flex items-center gap-1">
+            {[-0.95, -0.55, -0.15, 0.15, 0.55, 0.95].map((t) => (
+              <span
+                key={t}
+                className="inline-block h-3 w-5"
+                style={{
+                  backgroundColor:
+                    Math.abs(t) < 0.14 ? "#3a3f45" : divergingColor(t, 1),
+                }}
+                aria-hidden
+              />
+            ))}
+            <span className="ml-1 text-[10px] text-zinc-500">
+              larger in patients ← → smaller/thinner in patients (max |d| ≈{" "}
+              {overlay.max.toFixed(2)})
+            </span>
+          </div>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">
+            {overlay.note} Regions with |d| &lt; 0.1 keep the anatomical
+            color (display floor, not a significance threshold).
+          </p>
+          <p className="mt-1.5 border-t border-zinc-800/70 pt-1.5 text-[10px] leading-relaxed text-amber-600/80">
+            Data-derived map from ONE dataset (UCLA CNP) — a separate
+            stratum from the curated study corpus, and group differences do
+            not imply individual prediction (this cohort&apos;s
+            classification AUC is near chance; see ML Lab).
+          </p>
+        </>
       )}
       {overlay.kind === "metamap" && (
         <>

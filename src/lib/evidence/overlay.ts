@@ -85,6 +85,7 @@ export interface OverlayResult {
     | "compare"
     | "network"
     | "metamap"
+    | "morphomap"
     | null;
   /** region id -> hex color */
   colors: Map<string, string>;
@@ -110,6 +111,37 @@ export function scalarMapOverlay(map: {
       .map(([r, v]) => [r, sequentialColor(v, max)] as [string, string]),
   );
   return { kind: "metamap", colors, values, max, note: map.metricDef };
+}
+
+/**
+ * Diverging ramp for SIGNED effect-size maps: blue = positive (smaller /
+ * thinner in patients), orange = negative (larger in patients). Both ends
+ * from the validated categorical palette; magnitude drives lightness.
+ */
+const DIV_POS = ["#256abf", "#3987e5", "#6da7ec", "#9ec5f4"];
+const DIV_NEG = ["#a44420", "#d95926", "#e37c50", "#efab8b"];
+
+export function divergingColor(value: number, absMax: number): string {
+  const ramp = value >= 0 ? DIV_POS : DIV_NEG;
+  const t = absMax <= 0 ? 0 : Math.min(1, Math.abs(value) / absMax);
+  return ramp[Math.round(t * (ramp.length - 1))];
+}
+
+/** Overlay from a SIGNED RegionScalarMap (MRI morphometry effect sizes). */
+export function divergingScalarMapOverlay(map: {
+  values: Record<string, number>;
+  metricDef: string;
+}): OverlayResult {
+  const values = new Map(Object.entries(map.values));
+  const max = Math.max(...[...values.values()].map(Math.abs), 0);
+  // |d| < 0.1 keeps the anatomical base color: visual noise floor, not a
+  // significance claim (definition in docs/METRICS.md)
+  const colors = new Map(
+    [...values.entries()]
+      .filter(([, v]) => Math.abs(v) >= 0.1)
+      .map(([r, v]) => [r, divergingColor(v, max)] as [string, string]),
+  );
+  return { kind: "morphomap", colors, values, max, note: map.metricDef };
 }
 
 const EMPTY: OverlayResult = {
