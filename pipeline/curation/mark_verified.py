@@ -6,10 +6,14 @@ it to set curation.verifiedByHuman).
 
 Usage:
   python mark_verified.py --list                 # unreviewed studies
+  python mark_verified.py --show study_a         # full review context for one
+  python mark_verified.py --show-next            # same, for the first pending
   python mark_verified.py study_a study_b ...    # mark reviewed (today)
   python mark_verified.py --all                  # refuse: review is per-study
 
-After marking, re-run build_evidence.py and `npm run validate:data`.
+--show prints the study record, its assertions, and the cached PubMed
+abstract side by side; review = confirm each assertion is supported by the
+abstract. After marking, re-run build_evidence.py and `npm run validate:data`.
 """
 
 import json
@@ -28,11 +32,56 @@ def load_verified() -> dict:
     return {}
 
 
+def show_study(study: dict, verified: dict) -> None:
+    assertions = [
+        a for a in json.loads(
+            (REPO / "data/evidence/assertions.json").read_text())
+        if a["studyId"] == study["id"]
+    ]
+    status = (f"verified {verified[study['id']]}" if study["id"] in verified
+              else "PENDING review")
+    print(f"{study['id']}  [{status}]")
+    print(f"  {study['title']}")
+    print(f"  {study.get('journal', '?')} {study['year']}  "
+          f"PMID {study['pmid']}  DOI {study['doi']}")
+    print(f"  https://pubmed.ncbi.nlm.nih.gov/{study['pmid']}/")
+    print(f"\n  Assertions to confirm against the abstract "
+          f"({len(assertions)}):")
+    for a in assertions:
+        print(f"   - [{a['modality']}] {a['disorder']} / {a['region']}: "
+              f"{a['findingType']} {a['direction'] or '(no direction)'} "
+              f"({a['causalSupport']})")
+        print(f"     \"{a['statement']}\"")
+    cache = HERE / "cache" / f"pmid_{study['pmid']}.json"
+    if cache.exists():
+        abstract = json.loads(cache.read_text()).get("abstract") or ""
+        print(f"\n  Cached abstract ({cache.name}):")
+        for para in abstract.split("\n"):
+            print(f"    {para}")
+    else:
+        print("\n  WARNING: no cached abstract — review via the PubMed link.")
+    print(f"\n  When confirmed:  python mark_verified.py {study['id']}")
+
+
 def main():
     args = sys.argv[1:]
     studies = json.loads((REPO / "data/studies/studies.json").read_text())
     ids = {s["id"] for s in studies}
     verified = load_verified()
+
+    if args and args[0] in ("--show", "--show-next"):
+        if args[0] == "--show-next":
+            pending = [s for s in studies if s["id"] not in verified]
+            if not pending:
+                print("All studies verified.")
+                return
+            show_study(pending[0], verified)
+            return
+        if len(args) != 2 or args[1] not in ids:
+            sys.exit(f"Usage: mark_verified.py --show <study_id>; "
+                     f"unknown: {args[1:]}")
+        show_study(next(s for s in studies if s["id"] == args[1]), verified)
+        return
 
     if not args or args == ["--list"]:
         pending = [s for s in studies if s["id"] not in verified]
