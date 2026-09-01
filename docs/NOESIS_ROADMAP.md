@@ -102,13 +102,16 @@ CI live. Open items: #8 (needs ANTHROPIC_API_KEY in .env.local) and #9
     (ds000030 FreeSurfer stats; honest negative for individual prediction,
     canonical ENIGMA group effect sizes — METRICS.md); typed-edge link
     prediction (`--relations modality`, within-noise vs binary); /ml/lab
-    runs-overview table. Contrastive alignment DEFERRED with rationale:
-    the real-modality views don't yet share entity coverage rich enough
-    for a defensible multi-view analysis (EEG: 2 disorders,
-    disorder-level; MRI: 3 disorders, region-level effect maps; corpus
-    embeddings: 19 disorders) — forcing it would produce another
-    underpowered n<5 alignment. Revisit when a modality covers most of
-    the roster.
+    runs-overview table. Contrastive alignment was DEFERRED here (views
+    shared too few entities) — resolved at subject level in item 15.
+15. "Cool three" sweep DONE (2026-09-01, commits d25dc73..6fcb158):
+    Morphometry viz mode + strata-agreement cards; Vercel deployability
+    verified end-to-end (README documents; permanent deploy needs
+    Stefania's `vercel login`); fMRI connectivity encoder
+    (conn_fc_cnp_v1 — SCZ AUC 0.68 perm-significant, ADHD honest null)
+    + the formerly-deferred multi-view alignment, now at subject level
+    with n=250 (alignment_subject_multiview_v1: cc1=0.90, p=0.002,
+    survives Bonferroni — first positive alignment finding). 8 ML runs.
 
 ## Technical debt register
 
