@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import { GapsExplorer } from "@/evidence/GapsExplorer";
 
 export const metadata: Metadata = {
-  title: "Research gaps — NOĒSIS",
+  title: "Research gaps · NOĒSIS",
   description:
-    "Rule-based evidence gaps, sparse coverage, missing modality combinations, contradictions and AI-generated research questions — each linked to its evidence.",
+    "Rule-based evidence gaps, sparse coverage, missing modality combinations, contradictions and AI-generated research questions, each linked to its evidence.",
 };
 
 export default function GapsPage() {

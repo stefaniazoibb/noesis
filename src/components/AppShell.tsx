@@ -64,13 +64,13 @@ function MoreMenu({ pathname }: { pathname: string }) {
       >
         More
         <span aria-hidden className="ml-1 text-[10px] text-text-3">
-          ▾
+          +
         </span>
       </button>
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-full z-50 mt-2 w-60 rounded-lg border border-line bg-ink-2/95 p-1.5 shadow-2xl shadow-black/40 backdrop-blur"
+          className="absolute right-0 top-full z-50 mt-2 w-60 rounded-[4px] border border-line bg-white p-1.5 shadow-lg shadow-black/10"
         >
           {SECONDARY_NAV.map((n) => (
             <Link
@@ -78,7 +78,7 @@ function MoreMenu({ pathname }: { pathname: string }) {
               role="menuitem"
               href={n.href as Href}
               onClick={() => setOpen(false)}
-              className="block rounded-md px-3 py-2 hover:bg-surface"
+              className="block rounded-[3px] px-3 py-2 hover:bg-surface"
             >
               <span className="block text-[13px] text-text">{n.label}</span>
               <span className="block text-[11px] text-text-3">{n.note}</span>
@@ -94,7 +94,6 @@ export function TopNav() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isLanding = pathname === "/";
 
   // close the mobile menu on navigation
   const [lastPath, setLastPath] = useState(pathname);
@@ -110,14 +109,14 @@ export function TopNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const solid = !isLanding || scrolled || mobileOpen;
+  const solid = scrolled || mobileOpen;
 
   return (
     <header
       className={`sticky top-0 z-40 shrink-0 border-b transition-colors duration-300 ${
         solid
-          ? "border-line/80 bg-ink/85 backdrop-blur-md"
-          : "border-transparent bg-transparent"
+          ? "border-line bg-ink/95 backdrop-blur-sm"
+          : "border-line bg-ink"
       }`}
     >
       <a
@@ -128,11 +127,11 @@ export function TopNav() {
       </a>
       <div className="flex h-14 items-center gap-3 px-4 sm:px-5">
         <Link href="/" className="group flex shrink-0 items-baseline gap-3">
-          <span className="text-[15px] font-light uppercase tracking-[0.38em] text-text">
+          <span className="text-[16px] font-semibold tracking-[0.06em] text-text">
             NOĒSIS
           </span>
-          <span className="hidden text-[11px] text-text-3 2xl:inline">
-            an AI atlas of brain, behavior &amp; evidence
+          <span className="hidden text-[12px] text-text-3 2xl:inline">
+            brain evidence atlas
           </span>
         </Link>
 
@@ -155,7 +154,7 @@ export function TopNav() {
                 {active && (
                   <span
                     aria-hidden
-                    className="absolute inset-x-2.5 -bottom-[11px] h-px bg-amber"
+                    className="absolute inset-x-2.5 -bottom-[11px] h-[2px] bg-text"
                   />
                 )}
               </Link>
@@ -170,7 +169,7 @@ export function TopNav() {
 
         <button
           type="button"
-          className="ml-auto rounded-md border border-line px-2.5 py-1.5 text-[12px] text-text-2 hover:text-text lg:hidden md:ml-2"
+          className="ml-auto rounded-[3px] border border-line-strong px-2.5 py-1.5 text-[13px] text-text lg:hidden md:ml-2"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           onClick={() => setMobileOpen((v) => !v)}
@@ -204,7 +203,7 @@ export function TopNav() {
               </li>
             ))}
           </ul>
-          <p className="mt-4 px-3 text-[10px] uppercase tracking-[0.18em] text-text-3">
+          <p className="mt-4 px-3 font-mono text-[11px] text-text-3">
             More
           </p>
           <ul className="mt-1 grid grid-cols-1 gap-0.5 sm:grid-cols-2">
@@ -227,7 +226,7 @@ export function TopNav() {
 
 export function DisclaimerBar() {
   return (
-    <footer className="z-20 shrink-0 border-t border-line/80 bg-ink px-5 py-2 text-center text-[11px] leading-relaxed text-text-3">
+    <footer className="z-20 shrink-0 border-t border-line bg-ink px-5 py-2.5 text-center text-[12px] leading-relaxed text-text-3">
       This platform visualizes research evidence and computational models.
       Associations shown here do not establish causation and should not be used
       for individual diagnosis.

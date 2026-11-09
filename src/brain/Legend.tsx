@@ -32,7 +32,7 @@ export function Legend() {
 
   if (mode === "anatomical") {
     return (
-      <span className="pointer-events-none rounded bg-zinc-950/60 px-2 py-1 text-[10px] uppercase tracking-wider text-zinc-600">
+      <span className="pointer-events-none rounded bg-zinc-950/60 px-2 py-1 font-mono text-[10px] text-zinc-600">
         Anatomical mode · Desikan-Killiany (fsaverage)
       </span>
     );
@@ -47,7 +47,7 @@ export function Legend() {
       {overlay.kind === "counts" && (
         <>
           <h3 className="text-xs font-medium text-zinc-200">
-            Evidence density — {scope}
+            Evidence density: {scope}
           </h3>
           <p className="mt-1 text-[11px] leading-relaxed text-zinc-500">
             Number of distinct indexed studies with at least one finding
@@ -80,7 +80,7 @@ export function Legend() {
       {overlay.kind === "convergence" && (
         <>
           <h3 className="text-xs font-medium text-zinc-200">
-            Cross-modal convergence — {scope}
+            Cross-modal convergence: {scope}
           </h3>
           <p className="mt-1 text-[11px] leading-relaxed text-zinc-500">
             Number of independent modality categories (imaging,
@@ -150,7 +150,7 @@ export function Legend() {
       {mode === "morphomap" && overlay.kind === null && (
         <p className="text-[11px] text-zinc-500">
           {disorderId
-            ? "No MRI morphometry map for this disorder — maps exist only for the UCLA CNP cohorts (schizophrenia, bipolar disorder, ADHD)."
+            ? "No MRI morphometry map for this disorder; maps exist only for the UCLA CNP cohorts (schizophrenia, bipolar disorder, ADHD)."
             : "Select a disorder to view its MRI morphometry effect-size map (available: schizophrenia, bipolar disorder, ADHD)."}
         </p>
       )}
@@ -158,7 +158,7 @@ export function Legend() {
         <>
           <h3 className="text-xs font-medium text-zinc-200">
             MRI morphometry effect sizes
-            {disorderId ? ` — ${getDisorder(disorderId)?.name}` : ""}
+            {disorderId ? `: ${getDisorder(disorderId)?.name}` : ""}
           </h3>
           <div className="mt-2 flex items-center gap-1">
             {[-0.95, -0.55, -0.15, 0.15, 0.55, 0.95].map((t) => (
@@ -167,7 +167,7 @@ export function Legend() {
                 className="inline-block h-3 w-5"
                 style={{
                   backgroundColor:
-                    Math.abs(t) < 0.14 ? "#3a3f45" : divergingColor(t, 1),
+                    Math.abs(t) < 0.14 ? "#b3aca3" : divergingColor(t, 1),
                 }}
                 aria-hidden
               />
@@ -182,7 +182,7 @@ export function Legend() {
             color (display floor, not a significance threshold).
           </p>
           <p className="mt-1.5 border-t border-zinc-800/70 pt-1.5 text-[10px] leading-relaxed text-amber-600/80">
-            Data-derived map from ONE dataset (UCLA CNP) — a separate
+            Data-derived map from ONE dataset (UCLA CNP), a separate
             stratum from the curated study corpus, and group differences do
             not imply individual prediction (this cohort&apos;s
             classification AUC is near chance; see ML Lab).
@@ -193,7 +193,7 @@ export function Legend() {
         <>
           <h3 className="text-xs font-medium text-zinc-200">
             Meta-analytic association
-            {disorderId ? ` — ${getDisorder(disorderId)?.name}` : ""}
+            {disorderId ? `: ${getDisorder(disorderId)?.name}` : ""}
           </h3>
           <div className="mt-2 flex items-center gap-1">
             {[0.15, 0.35, 0.55, 0.75, 0.95].map((t) => (
@@ -212,7 +212,7 @@ export function Legend() {
             {overlay.note}
           </p>
           <p className="mt-1.5 border-t border-zinc-800/70 pt-1.5 text-[10px] leading-relaxed text-amber-600/80">
-            Model-generated map (automated literature mining) — NOT the
+            Model-generated map (automated literature mining), NOT the
             curated study corpus shown in the Evidence modes.
           </p>
         </>
@@ -240,7 +240,7 @@ export function Legend() {
           <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">
             Primary membership by vertex overlap (≥25%) between
             Desikan-Killiany and the Yeo 7-network parcellation on fsaverage
-            (Yeo et al. 2011). Cortical regions only — subcortical structures
+            (Yeo et al. 2011). Cortical regions only; subcortical structures
             keep their anatomical colors. Canonical Yeo colors.
           </p>
         </>
@@ -248,7 +248,7 @@ export function Legend() {
       {overlay.kind === "gaps" && (
         <>
           <h3 className="text-xs font-medium text-zinc-200">
-            Evidence structure — {scope}
+            Evidence structure: {scope}
           </h3>
           <p className="mt-1 text-[11px] leading-relaxed text-zinc-500">
             Each region is classified by the structure of its indexed
@@ -265,7 +265,7 @@ export function Legend() {
                 />
                 <span className="text-[11px] text-zinc-400">
                   {c.label}
-                  <span className="text-zinc-600"> — {c.definition}</span>
+                  <span className="text-zinc-600">: {c.definition}</span>
                 </span>
               </div>
             ))}
@@ -277,7 +277,7 @@ export function Legend() {
         overlay.kind === "compare" ||
         overlay.kind === "gaps") && (
         <p className="mt-2 border-t border-zinc-800/70 pt-1.5 text-[10px] text-zinc-600">
-          Indexed corpus only ({overlay.values.size} regions with evidence) —
+          Indexed corpus only ({overlay.values.size} regions with evidence);
           curated, not a systematic review.
           {overlay.kind === "gaps" &&
             " A gap here may be a curation gap, not a gap in the literature."}

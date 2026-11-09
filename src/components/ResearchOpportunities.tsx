@@ -62,7 +62,7 @@ export function ResearchOpportunities({ disorderId }: { disorderId: string }) {
         setState({
           kind: "error",
           message:
-            data?.message ?? "Generation is unavailable right now — try again.",
+            data?.message ?? "Generation is unavailable right now. Try again.",
         });
         return;
       }
@@ -80,7 +80,7 @@ export function ResearchOpportunities({ disorderId }: { disorderId: string }) {
   return (
     <section className="mt-4 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Research opportunities
         </h2>
         {state.kind !== "done" && (
@@ -100,7 +100,7 @@ export function ResearchOpportunities({ disorderId }: { disorderId: string }) {
       {state.kind === "idle" && (
         <p className="mt-2 text-xs text-zinc-500">
           Turns this disorder&rsquo;s detected evidence gaps into candidate
-          research questions — each grounded in, and cited against, the
+          research questions, each grounded in, and cited against, the
           indexed studies behind the gap.
         </p>
       )}
@@ -172,7 +172,7 @@ export function ResearchOpportunities({ disorderId }: { disorderId: string }) {
               </summary>
               <div className="mt-1.5 space-y-1 text-[11px] text-zinc-500">
                 <p>
-                  Gap: {q.provenance.ruleName} — {q.provenance.gapDescription}
+                  Gap: {q.provenance.ruleName} · {q.provenance.gapDescription}
                 </p>
                 <p>Ranking: {q.rank.explanation}.</p>
                 <p className="flex flex-wrap gap-1.5">

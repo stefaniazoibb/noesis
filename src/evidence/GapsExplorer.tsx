@@ -46,7 +46,7 @@ function GapCard({ g }: { g: EvidenceGap }) {
     <li className="rounded-lg border border-line bg-ink p-4">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.16em] text-cyan">{GAP_RULES[g.ruleId].name}</p>
+          <p className="font-mono text-[10px] text-cyan">{GAP_RULES[g.ruleId].name}</p>
           <h3 className="mt-1 text-[14px] text-text">
             {regionLabel(g.region)} <span className="text-text-3">·</span> {disorderName(g.disorder)}
           </h3>
@@ -59,7 +59,7 @@ function GapCard({ g }: { g: EvidenceGap }) {
         </span>
       </div>
       <p className="mt-2 text-[12px] leading-relaxed text-text-2">{gapSentence(g)}</p>
-      <p className="mt-3 text-[10px] uppercase tracking-[0.14em] text-text-3">Evidence behind the gap</p>
+      <p className="mt-3 font-mono text-[10px] text-text-3">Evidence behind the gap</p>
       <ul className="mt-1.5 flex flex-wrap gap-1.5">
         {ids.slice(0, 8).map((id) => {
           const s = studyRef(id);
@@ -68,7 +68,7 @@ function GapCard({ g }: { g: EvidenceGap }) {
               <Link
                 href={`/evidence/${id}`}
                 title={s.title}
-                className="block rounded border border-line px-1.5 py-0.5 text-[11px] text-text-2 hover:border-amber/50 hover:text-text"
+                className="block rounded border border-line px-1.5 py-0.5 text-[11px] text-text-2 hover:border-text hover:text-text"
               >
                 {s.label}
               </Link>
@@ -78,7 +78,7 @@ function GapCard({ g }: { g: EvidenceGap }) {
         {ids.length > 8 && <li className="text-[11px] text-text-3">+{ids.length - 8} more</li>}
       </ul>
       <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]">
-        <Link href={`/brain?disorder=${g.disorder}&region=${g.region}&mode=gaps`} className="text-amber underline decoration-amber/30 underline-offset-4">
+        <Link href={`/brain?disorder=${g.disorder}&region=${g.region}&mode=gaps`} className="text-text underline decoration-line-strong underline-offset-4">
           On the brain
         </Link>
         <Link href={`/convergence?disorder=${g.referenceDisorder ?? g.disorder}&region=${g.region}`} className="text-text-2 underline decoration-line-strong underline-offset-4 hover:text-text">
@@ -89,7 +89,7 @@ function GapCard({ g }: { g: EvidenceGap }) {
           entry={{
             key: `gap:${g.ruleId}:${g.disorder}:${g.region}:${g.referenceDisorder ?? ""}`,
             type: "gap",
-            title: `${regionLabel(g.region)} — ${disorderName(g.disorder)}`,
+            title: `${regionLabel(g.region)} · ${disorderName(g.disorder)}`,
             subtitle: GAP_RULES[g.ruleId].name,
             body: gapSentence(g),
             href: `/gaps?rule=${g.ruleId}&disorder=${g.disorder}`,
@@ -133,7 +133,7 @@ export function GapsExplorer() {
 
   return (
     <div>
-      <PageHeader eyebrow="Research application · Research gaps" title="What the corpus doesn’t know">
+      <PageHeader eyebrow="Research gaps" title="What the corpus doesn’t know">
         <p>
           Four documented rules scan the indexed corpus for structural holes. Every gap carries the
           studies that define it, and every AI-generated question links back to its gap. A gap here
@@ -142,7 +142,7 @@ export function GapsExplorer() {
       </PageHeader>
 
       {/* rule summary */}
-      <ul className="mt-8 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-8 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
         {(Object.keys(GAP_RULES) as GapRuleId[]).map((id) => {
           const n = allGaps.filter((g) => g.ruleId === id).length;
           const active = rule === id;
@@ -217,7 +217,7 @@ export function GapsExplorer() {
             <div className="px-4 pt-4">
               <select value={qDisorder} onChange={(e) => setQDisorder(e.target.value)} aria-label="Disorder for research questions" className={`${selectClass} w-full`}>
                 {getDisorders().map((d) => (
-                  <option key={d.id} value={d.id}>{d.name} — {gapsPerDisorder(d.id)} gaps</option>
+                  <option key={d.id} value={d.id}>{d.name} · {gapsPerDisorder(d.id)} gaps</option>
                 ))}
               </select>
             </div>
@@ -261,7 +261,7 @@ export function GapsExplorer() {
           <div className="overflow-x-auto px-2 py-3">
             <table className="w-full text-[12px]">
               <thead>
-                <tr className="text-[10px] uppercase tracking-[0.14em] text-text-3">
+                <tr className="font-mono text-[10px] text-text-3">
                   <th className="px-3 py-1.5 text-left font-normal">Disorder</th>
                   {modalities.map((m) => (
                     <th key={m.id} className="px-2 py-1.5 text-center font-normal">{m.abbreviation}</th>
@@ -327,7 +327,7 @@ export function GapsExplorer() {
           <ul className="flex flex-wrap gap-1.5 px-5 py-4">
             {noEvidence.map((id) => (
               <li key={id}>
-                <Link href={`/brain?region=${id}`} className="block rounded border border-line px-2 py-0.5 text-[11px] text-text-2 hover:border-amber/50 hover:text-text">
+                <Link href={`/brain?region=${id}`} className="block rounded border border-line px-2 py-0.5 text-[11px] text-text-2 hover:border-text hover:text-text">
                   {regionLabel(id)}
                 </Link>
               </li>

@@ -60,7 +60,7 @@ function RegionList({
 }) {
   return (
     <div className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-      <h3 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+      <h3 className="font-mono text-[11px] text-zinc-500">
         {title} ({rows.length})
       </h3>
       {rows.length === 0 ? (
@@ -136,7 +136,7 @@ export default function ComparePage() {
       </h1>
       <p className="mt-2 text-sm text-zinc-500">
         Shared and disorder-specific evidence, modality overlap, direction
-        differences, and computational similarity — all over the indexed
+        differences, and computational similarity, all over the indexed
         corpus.
       </p>
 
@@ -163,25 +163,25 @@ export default function ComparePage() {
       {comparison && (
         <div className="mt-6 space-y-4">
           <div className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-            <h3 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+            <h3 className="font-mono text-[11px] text-zinc-500">
               Computational similarity
             </h3>
             <p className="mt-1.5 text-sm text-zinc-300">
               {similarity === null && "Computing…"}
               {similarity === "missing" &&
-                "Not available — one of the disorders has no embedding (no indexed evidence)."}
+                "Not available: one of the disorders has no embedding (no indexed evidence)."}
               {typeof similarity === "number" &&
                 `cosine ${similarity.toFixed(2)} between the evidence-derived embeddings`}
             </p>
             <p className="mt-1 text-[11px] text-zinc-600">
               Computational similarity based on the indexed evidence and the
-              learned representation — not clinical equivalence. Sparse
+              learned representation, not clinical equivalence. Sparse
               corpora can resemble each other in evidence structure alone.
             </p>
           </div>
 
           <div className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-            <h3 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+            <h3 className="font-mono text-[11px] text-zinc-500">
               Shared regions ({comparison.shared.length})
             </h3>
             {comparison.shared.length === 0 ? (
@@ -230,7 +230,7 @@ export default function ComparePage() {
           </div>
 
           <div className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-            <h3 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+            <h3 className="font-mono text-[11px] text-zinc-500">
               Modality overlap (distinct studies)
             </h3>
             <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-xs">
@@ -245,7 +245,7 @@ export default function ComparePage() {
           </div>
 
           <div className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-            <h3 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+            <h3 className="font-mono text-[11px] text-zinc-500">
               Cross-disorder direction differences
             </h3>
             {comparison.directionDifferences.length === 0 ? (
@@ -258,7 +258,7 @@ export default function ComparePage() {
                 {comparison.directionDifferences.map((d) => (
                   <li key={`${d.region}-${d.findingType}`} className="text-xs text-zinc-400">
                     <span className="text-zinc-300">{regionLabel(d.region)}</span>{" "}
-                    — {d.findingType.replace(/_/g, " ")}:{" "}
+                    · {d.findingType.replace(/_/g, " ")}:{" "}
                     {disorderName(a)} {d.aDirection} vs {disorderName(b)}{" "}
                     {d.bDirection}
                   </li>

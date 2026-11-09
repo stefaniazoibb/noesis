@@ -210,7 +210,7 @@ export function AssistantPanel({
     } catch {
       push({
         role: "assistant",
-        text: "Network error — the assistant could not be reached.",
+        text: "Network error: the assistant could not be reached.",
         error: true,
       });
     } finally {
@@ -253,7 +253,7 @@ export function AssistantPanel({
       className={`flex flex-col ${
         page
           ? "w-full"
-          : "h-[26rem] w-96 max-w-[calc(100vw-1.5rem)] rounded-xl border border-line bg-ink-2/95 backdrop-blur"
+          : "h-[26rem] w-96 max-w-[calc(100vw-1.5rem)] rounded-[4px] border border-line bg-ink-2/95 backdrop-blur"
       }`}
     >
       <div
@@ -280,17 +280,17 @@ export function AssistantPanel({
               </p>
             ) : (
               <div
-                className={`rounded-xl border ${page ? "p-5" : "mr-2 p-3"} ${
+                className={`rounded-[4px] border ${page ? "p-5" : "mr-2 p-3"} ${
                   m.error ? "border-amber-900/60 bg-amber-950/20" : "border-line bg-ink-2/70"
                 }`}
               >
                 {m.kind === "answer" && (
-                  <p className="mb-2 text-[10px] uppercase tracking-[0.18em] text-amber">
+                  <p className="mb-2 font-mono text-[10px] text-amber">
                     AI synthesis · interpretation of the cited records
                   </p>
                 )}
                 {m.kind === "retrieval" && (
-                  <p className="mb-2 text-[10px] uppercase tracking-[0.18em] text-cyan">
+                  <p className="mb-2 font-mono text-[10px] text-cyan">
                     Retrieved evidence · no AI synthesis
                   </p>
                 )}
@@ -304,12 +304,12 @@ export function AssistantPanel({
                     {m.flags.strippedCitations > 0 &&
                       `${m.flags.strippedCitations} unverifiable citation(s) removed. `}
                     {m.flags.uncitedSentences > 0 &&
-                      `${m.flags.uncitedSentences} statement(s) lack direct citations — verify carefully.`}
+                      `${m.flags.uncitedSentences} statement(s) lack direct citations. Verify carefully.`}
                   </p>
                 )}
                 {m.regions && m.regions.length > 0 && (
                   <div className="mt-3">
-                    <p className="text-[10px] uppercase tracking-[0.16em] text-text-3">
+                    <p className="font-mono text-[10px] text-text-3">
                       Regions in this answer · show on the atlas
                     </p>
                     <div className="mt-1.5 flex flex-wrap gap-1.5">
@@ -321,7 +321,7 @@ export function AssistantPanel({
                             key={id}
                             type="button"
                             onClick={() => showOnAtlas(id)}
-                            className="rounded-full border border-line px-2.5 py-0.5 text-[11px] text-text-2 hover:border-amber/50 hover:text-amber"
+                            className="rounded-[3px] border border-line px-2 py-0.5 text-[11px] text-text-2 hover:border-text hover:text-amber"
                           >
                             {r.name}
                             {r.hemisphere !== "midline" && ` (${HEMI[r.hemisphere]})`}
@@ -333,7 +333,7 @@ export function AssistantPanel({
                 )}
                 {m.citations && m.citations.length > 0 && (
                   <div className="mt-4 border-t border-line pt-3">
-                    <p className="mb-2 text-[10px] uppercase tracking-[0.16em] text-text-3">
+                    <p className="mb-2 font-mono text-[10px] text-text-3">
                       Sources · indexed evidence ({m.citations.length})
                     </p>
                     <SourceCards citations={m.citations} compact={!page} />
@@ -341,7 +341,7 @@ export function AssistantPanel({
                 )}
                 {m.kind === "answer" && m.citations?.length === 0 && !m.error && (
                   <p className="mt-2 text-[11px] text-text-3">
-                    This answer cites no indexed study — treat it as unsupported.
+                    This answer cites no indexed study. Treat it as unsupported.
                   </p>
                 )}
                 <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
@@ -380,7 +380,7 @@ export function AssistantPanel({
         {suggestions.length > 0 && (
           <div className={page ? "" : "pt-1"}>
             {page && (
-              <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-text-3">Try a question</p>
+              <p className="mb-3 font-mono text-[10px] text-text-3">Try a question</p>
             )}
             <ul className={page ? "grid gap-2 sm:grid-cols-2" : "flex flex-wrap gap-1.5"}>
               {suggestions.map((s) => (
@@ -390,7 +390,7 @@ export function AssistantPanel({
                     onClick={() => ask(s)}
                     className={
                       page
-                        ? "h-full w-full rounded-xl border border-line bg-ink-2/60 px-4 py-3 text-left text-[13px] leading-snug text-text-2 transition-colors hover:border-amber/50 hover:text-text"
+                        ? "h-full w-full rounded-[4px] border border-line bg-ink-2/60 px-4 py-3 text-left text-[13px] leading-snug text-text-2 transition-colors hover:border-text hover:text-text"
                         : "rounded-full border border-line px-2.5 py-1 text-[11px] text-text-2 transition-colors hover:border-line-strong hover:text-text"
                     }
                   >
@@ -405,7 +405,7 @@ export function AssistantPanel({
       <form
         className={
           page
-            ? "sticky bottom-3 mt-8 flex gap-2 rounded-xl border border-line bg-ink-2/95 p-2 shadow-2xl shadow-black/40 backdrop-blur"
+            ? "sticky bottom-3 mt-8 flex gap-2 rounded-[4px] border border-line bg-ink-2/95 p-2 shadow-2xl shadow-black/40 backdrop-blur"
             : "flex gap-2 border-t border-line p-3"
         }
         onSubmit={(e) => {
@@ -423,7 +423,7 @@ export function AssistantPanel({
         <button
           type="submit"
           disabled={loading || !input.trim()}
-          className="rounded-lg bg-amber px-4 py-2 text-[12px] font-medium uppercase tracking-[0.14em] text-ink transition-colors hover:bg-[#e6bb7d] disabled:opacity-40"
+          className="rounded-[3px] bg-text px-4 py-2 text-[13px] font-medium text-white transition-colors hover:bg-[#3a3a35] disabled:opacity-40"
         >
           Ask
         </button>

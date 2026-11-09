@@ -158,6 +158,7 @@ export default function LandingPage() {
         densityRamp={densityRamp}
         regionEvidence={regionEvidence}
         counts={{
+          assertions: counts.assertions,
           cortical: counts.corticalRegions,
           subcortical: counts.subcorticalRegions,
           regionsWithEvidence: counts.regionsWithEvidence,
@@ -170,18 +171,18 @@ export default function LandingPage() {
       <Section id="evidence" className="bg-ink">
         <Reveal>
           <Eyebrow index="03">Evidence at scale</Eyebrow>
-          <SectionTitle>A curated corpus where every claim has an address.</SectionTitle>
+          <SectionTitle>A curated, verifiable evidence corpus</SectionTitle>
           <Lede>
-            Each study enters from its cached PubMed record and is verified
-            against PubMed and OpenAlex before it can be indexed. Where an
+            Each study is curated from its PubMed record and verified against
+            PubMed and OpenAlex before it is indexed. Where an
             abstract names an atlas region, its findings are broken into
-            assertions — one disorder, one region, one modality, one
-            direction — so every coloured region traces back to a paper.
+            assertions (one disorder, one region, one modality, one direction),
+            so every shaded region traces back to a publication.
           </Lede>
         </Reveal>
 
         <Reveal className="mt-14">
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5">
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-3 lg:grid-cols-5">
             {[
               { v: counts.studies, l: "studies", d: "DOI/PMID-verified publications" },
               { v: counts.assertions, l: "assertions", d: "disorder · region · modality · finding" },
@@ -210,7 +211,7 @@ export default function LandingPage() {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[1.25fr_1fr]">
           <Reveal>
-            <h3 className="text-[13px] text-text">Studies per disorder</h3>
+            <h3 className="text-[14px] font-medium text-text">Studies per disorder</h3>
             <div className="mt-4">
               <BarList
                 caption="Distinct indexed studies per disorder; a study about several disorders counts once for each."
@@ -227,7 +228,7 @@ export default function LandingPage() {
           </Reveal>
           <div className="space-y-12">
             <Reveal delay={80}>
-              <h3 className="text-[13px] text-text">Publication years</h3>
+              <h3 className="text-[14px] font-medium text-text">Publication years</h3>
               <div className="mt-4">
                 <Columns
                   data={years.map((y) => ({ x: y.year, y: y.studies }))}
@@ -237,7 +238,7 @@ export default function LandingPage() {
               </div>
             </Reveal>
             <Reveal delay={140}>
-              <h3 className="text-[13px] text-text">Modalities</h3>
+              <h3 className="text-[14px] font-medium text-text">Modalities</h3>
               <div className="mt-4">
                 <BarList
                   caption="Studies using each modality (a study can use several)."
@@ -256,7 +257,7 @@ export default function LandingPage() {
 
         {/* provenance chain */}
         <Reveal className="mt-20">
-          <h3 className="text-[13px] text-text">The provenance chain — one real example</h3>
+          <h3 className="text-[14px] font-medium text-text">Provenance of one finding</h3>
           <p className="mt-1 text-[12px] text-text-3">
             The most-studied region–disorder pair in the corpus, traced to its source.
           </p>
@@ -293,9 +294,9 @@ export default function LandingPage() {
             ].map((c, i) => {
               const body = (
                 <>
-                  <p className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-text-3">
+                  <p className="flex items-center justify-between font-mono text-[11px] text-text-3">
                     <span>
-                      <span className="text-amber tabular-nums">{i + 1}</span> · {c.k}
+                      <span className="text-text tabular-nums">{i + 1}</span> · {c.k}
                     </span>
                     {i < 3 && (
                       <span aria-hidden className="hidden text-text-3 md:inline">
@@ -317,20 +318,20 @@ export default function LandingPage() {
                         href={c.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="block h-full rounded-xl border border-line bg-ink-2 p-4 transition-colors hover:border-amber/50"
+                        className="block h-full rounded-[4px] border border-line bg-ink-2 p-4 transition-colors hover:border-text"
                       >
                         {body}
                       </a>
                     ) : (
                       <Link
                         href={c.href as never}
-                        className="block h-full rounded-xl border border-line bg-ink-2 p-4 transition-colors hover:border-amber/50"
+                        className="block h-full rounded-[4px] border border-line bg-ink-2 p-4 transition-colors hover:border-text"
                       >
                         {body}
                       </Link>
                     )
                   ) : (
-                    <div className="h-full rounded-xl border border-line bg-ink-2 p-4">{body}</div>
+                    <div className="h-full rounded-[4px] border border-line bg-ink-2 p-4">{body}</div>
                   )}
                 </li>
               );
@@ -343,19 +344,19 @@ export default function LandingPage() {
       </Section>
 
       {/* ---------------- 04 CONVERGENCE ---------------- */}
-      <Section id="convergence" className="bg-ink-2/40">
+      <Section id="convergence" className="bg-white">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.2fr]">
           <Reveal>
             <Eyebrow index="04">Where evidence converges</Eyebrow>
-            <SectionTitle>Agreement across methods, not just more papers.</SectionTitle>
+            <SectionTitle>Agreement across independent methods</SectionTitle>
             <Lede>
               A finding reported with structural MRI and again with EEG or
               brain stimulation rests on methodologically independent
               evidence, which is why NOĒSIS counts independent modality{" "}
-              <em>categories</em> — two imaging methods count once.
+              <em>categories</em>: two imaging methods count once.
             </Lede>
-            <div className="mt-10 rounded-xl border border-line bg-ink p-5">
-              <h3 className="text-[13px] text-text">
+            <div className="mt-10 rounded-[4px] border border-line bg-ink p-5">
+              <h3 className="text-[14px] font-medium text-text">
                 Region–disorder pairs by number of independent categories
               </h3>
               <ul className="mt-4 space-y-2">
@@ -377,15 +378,14 @@ export default function LandingPage() {
               <p className="mt-4 text-[11px] leading-relaxed text-text-3">
                 Of {totalPairs} indexed region–disorder pairs, {convergent.length} draw on two or
                 more independent categories, and {strongPairs} meets the rule-based
-                &ldquo;Strong&rdquo; label (≥3 studies and ≥2 categories). Convergence is rare in
-                this corpus; this may reflect how the corpus was curated rather than the
-                literature.
+                &ldquo;Strong&rdquo; label (at least 3 studies and 2 categories). This may reflect
+                how the corpus was curated rather than the literature.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="overflow-hidden rounded-xl border border-line bg-ink">
+            <div className="overflow-hidden rounded-[4px] border border-line bg-ink">
               <table className="w-full text-left text-[12px]">
                 <caption className="border-b border-line px-5 py-4 text-left">
                   <span className="block text-[13px] text-text">Every multi-category pair in the corpus</span>
@@ -394,7 +394,7 @@ export default function LandingPage() {
                   </span>
                 </caption>
                 <thead>
-                  <tr className="text-[10px] uppercase tracking-[0.14em] text-text-3">
+                  <tr className="font-mono text-[11px] text-text-3">
                     <th className="px-5 py-2.5 font-normal">Region · disorder</th>
                     {["imaging", "electrophysiology", "stimulation"].map((c) => (
                       <th key={c} className="px-2 py-2.5 text-center font-normal">
@@ -413,7 +413,7 @@ export default function LandingPage() {
                           href={`/convergence?disorder=${p.disorder}&region=${p.region}`}
                           className="block"
                         >
-                          <span className="text-text group-hover:text-amber">{p.regionName}</span>
+                          <span className="text-text group-hover:underline">{p.regionName}</span>
                           <span className="block text-[11px] text-text-3">{p.disorderName}</span>
                         </Link>
                       </td>
@@ -446,11 +446,11 @@ export default function LandingPage() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 rounded-lg border-l-2 border-amber/60 bg-surface/40 px-4 py-3 text-[12px] leading-relaxed text-text-2">
+            <p className="mt-4 rounded-lg border-l-2 border-text bg-surface px-4 py-3 text-[12px] leading-relaxed text-text-2">
               Convergence profiles are rule-based summaries of the indexed corpus. Agreement
-              between methods is reported separately; it does not establish causation, and
-              its dimensions (studies, categories, direction consistency, conflicts,
-              interventions) are reported separately, never collapsed into one score.
+              between methods does not establish causation. The dimensions (studies,
+              categories, direction consistency, conflicts, interventions) are reported
+              separately and never collapsed into one score.
             </p>
             <div className="mt-6">
               <TextLink href="/convergence">Open the convergence explorer</TextLink>
@@ -463,11 +463,11 @@ export default function LandingPage() {
       <Section id="disagreement" className="bg-ink">
         <Reveal>
           <Eyebrow index="05">Where science disagrees</Eyebrow>
-          <SectionTitle>Disagreement is shown, not smoothed over.</SectionTitle>
+          <SectionTitle>Conflicting and sparse evidence</SectionTitle>
           <Lede>
-            When studies report opposite directions for the same finding,
-            NOĒSIS puts both sides next to each other with what differs between
-            them — year, population, design. It never decides who is right.
+            When studies report opposite directions for the same finding, both
+            sides are listed with their year, population and design. NOĒSIS
+            does not decide between them.
           </Lede>
         </Reveal>
 
@@ -481,9 +481,9 @@ export default function LandingPage() {
               conflictCards.map((group) => {
                 const c = group[0];
                 return (
-                  <article key={group.map((g) => g.region).join()} className="rounded-xl border border-conflict/40 bg-ink-2">
+                  <article key={group.map((g) => g.region).join()} className="rounded-[4px] border border-conflict/40 bg-ink-2">
                     <header className="border-b border-line px-5 py-4">
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-conflict">
+                      <p className="font-mono text-[11px] text-conflict">
                         Directional conflict
                       </p>
                       <h3 className="mt-1.5 text-[16px] text-text">
@@ -526,7 +526,7 @@ export default function LandingPage() {
                       ))}
                     </div>
                     <p className="border-t border-line px-5 py-3 text-[11px] text-text-3">
-                      Possible reasons — design, age range, sample definition — are for the
+                      Possible reasons, such as design, age range or sample definition, are for the
                       researcher to judge. Shown on the atlas as a conflict overlay.
                     </p>
                   </article>
@@ -537,9 +537,9 @@ export default function LandingPage() {
 
           <div className="space-y-8">
             <Reveal delay={80}>
-              <h3 className="text-[13px] text-text">Modalities with fewest indexed studies</h3>
+              <h3 className="text-[14px] font-medium text-text">Modalities with fewest indexed studies</h3>
               <p className="mt-1 text-[12px] text-text-3">
-                Share of the {modTotal} indexed studies using each method — may reflect curation.
+                Share of the {modTotal} indexed studies using each method. Low shares may reflect curation.
               </p>
               <ul className="mt-4 space-y-2">
                 {modCov.map((m) => (
@@ -559,7 +559,7 @@ export default function LandingPage() {
               </ul>
             </Reveal>
             <Reveal delay={140}>
-              <h3 className="text-[13px] text-text">Sparse evidence</h3>
+              <h3 className="text-[14px] font-medium text-text">Sparse evidence</h3>
               <p className="mt-1 text-[12px] text-text-3">Disorders with the fewest indexed studies.</p>
               <ul className="mt-3 divide-y divide-line/70 border-y border-line/70">
                 {sparse.map((d) => (
@@ -582,20 +582,20 @@ export default function LandingPage() {
       </Section>
 
       {/* ---------------- 06 GAPS ---------------- */}
-      <Section id="gaps" className="bg-ink-2/40">
+      <Section id="gaps" className="bg-white">
         <Reveal>
           <Eyebrow index="06">Discover what we don&rsquo;t know</Eyebrow>
-          <SectionTitle>From documented gaps to testable questions.</SectionTitle>
+          <SectionTitle>Evidence gaps and research questions</SectionTitle>
           <Lede>
-            Four published rules scan the corpus for structural holes — a
-            region studied heavily with imaging but never with
-            electrophysiology, or associations never tested by intervention.
-            Each gap carries the studies that define it.
+            Four published rules scan the corpus for missing evidence: for
+            example, a region studied repeatedly with imaging but never with
+            electrophysiology, or an association never tested by intervention.
+            Each gap keeps the studies that define it.
           </Lede>
         </Reveal>
 
         <Reveal className="mt-14">
-          <ol className="grid gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-4">
+          <ol className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line md:grid-cols-4">
             {[
               {
                 tag: "Observed evidence",
@@ -635,7 +635,7 @@ export default function LandingPage() {
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2">
           <Reveal>
-            <h3 className="text-[13px] text-text">{gaps.length} gaps detected by four rules</h3>
+            <h3 className="text-[14px] font-medium text-text">{gaps.length} gaps detected by four rules</h3>
             <ul className="mt-4 space-y-4">
               {gapRules.map((r) => (
                 <li key={r.ruleId} className="border-l border-line-strong pl-4">
@@ -650,8 +650,8 @@ export default function LandingPage() {
           </Reveal>
           {topGap && (
             <Reveal delay={100}>
-              <article className="rounded-xl border border-line bg-ink p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-cyan">
+              <article className="rounded-[4px] border border-line bg-ink p-5">
+                <p className="font-mono text-[11px] text-cyan">
                   Highest-ranked gap · {GAP_RULES[topGap.ruleId].name}
                 </p>
                 <h3 className="mt-2 text-[16px] text-text">
@@ -667,7 +667,7 @@ export default function LandingPage() {
                         : "Independent studies report opposite directions."}
                 </p>
                 <p className="mt-3 text-[11px] text-text-3">Ranking: {rankExplanation(topGap)}.</p>
-                <p className="mt-4 text-[10px] uppercase tracking-[0.16em] text-text-3">Defined by</p>
+                <p className="mt-4 font-mono text-[11px] text-text-3">Defined by</p>
                 <ul className="mt-2 flex flex-wrap gap-1.5">
                   {topGap.supportingStudyIds.slice(0, 6).map((id) => {
                     const s = studyRef(id);
@@ -687,12 +687,12 @@ export default function LandingPage() {
                   })}
                 </ul>
                 <div className="mt-5 rounded-lg border border-dashed border-line-strong p-4">
-                  <p className="text-[10px] uppercase tracking-[0.16em] text-amber">
-                    AI interpretation · generated on request
+                  <p className="font-mono text-[11px] text-text-2">
+                    AI interpretation, generated on request
                   </p>
                   <p className="mt-2 text-[12px] leading-relaxed text-text-3">
                     On the Research Gaps page the assistant turns this gap into a question,
-                    rationale, hypothesis and methodology — citing only the studies above. The
+                    rationale, hypothesis and methodology, citing only the studies above. The
                     question type ({topGap.ruleId === "GAP-ATTENTION" ? "comparative" : topGap.ruleId === "GAP-IMG-EP" ? "cross-modal" : topGap.ruleId === "GAP-OBS-INT" ? "interventional" : "methodological"}),
                     the ranking and the candidate region are fixed by the rule, not chosen by the model.
                   </p>
@@ -714,12 +714,12 @@ export default function LandingPage() {
         <div className="grid gap-14 lg:grid-cols-[1fr_1.35fr] lg:items-center">
           <Reveal>
             <Eyebrow index="07">Explore the representations</Eyebrow>
-            <SectionTitle>A shared space built from evidence.</SectionTitle>
+            <SectionTitle>A shared representation space</SectionTitle>
             <Lede>
               Regions, disorders and studies are each described by their
-              evidence profile — which modalities, regions and findings the
-              corpus links them to — and projected with PCA and UMAP. Entities
-              with similar evidence profiles land close together.
+              evidence profile: the modalities, regions and findings the corpus
+              links them to. PCA and UMAP project these profiles into two
+              dimensions, so entities with similar profiles sit close together.
             </Lede>
             <ul className="mt-8 space-y-3 text-[13px] leading-relaxed">
               <li className="flex gap-3">
@@ -751,32 +751,32 @@ export default function LandingPage() {
       </Section>
 
       {/* ---------------- 08 ASK ---------------- */}
-      <Section id="ask" className="bg-ink-2/40">
+      <Section id="ask" className="bg-white">
         <Reveal>
           <Eyebrow index="08">Ask NOĒSIS</Eyebrow>
-          <SectionTitle>Answers that show their sources.</SectionTitle>
+          <SectionTitle>A research assistant grounded in the corpus</SectionTitle>
           <Lede>
             The assistant answers only from records it retrieves from the
             corpus. Citations outside the retrieved set are removed and
-            uncited scientific statements are flagged. Below is the real
-            retrieval step for one question — the evidence the model is allowed
+            uncited scientific statements are flagged. Below is the actual
+            retrieval step for one question: the evidence the model is allowed
             to see.
           </Lede>
         </Reveal>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
-            <div className="rounded-xl border border-line bg-ink">
+            <div className="rounded-[4px] border border-line bg-ink">
               <div className="border-b border-line px-5 py-4">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-text-3">Question</p>
+                <p className="font-mono text-[11px] text-text-3">Question</p>
                 <p className="mt-1.5 font-serif text-[22px] leading-snug text-text">
-                  &ldquo;{exampleQuestion}&rdquo;
+                  {exampleQuestion}
                 </p>
               </div>
               <ol className="divide-y divide-line/70">
                 <li className="px-5 py-4">
                   <p className="text-[11px] text-text">
-                    <span className="tabular-nums text-amber">1</span> · Entity linking
+                    <span className="font-mono text-text">1</span> · Entity linking
                   </p>
                   <p className="mt-1.5 text-[12px] text-text-3">
                     The question maps to the catalogue entry{" "}
@@ -789,7 +789,7 @@ export default function LandingPage() {
                 </li>
                 <li className="px-5 py-4">
                   <p className="text-[11px] text-text">
-                    <span className="tabular-nums text-amber">2</span> · Deterministic retrieval ·{" "}
+                    <span className="font-mono text-text">2</span> · Deterministic retrieval ·{" "}
                     {retrieval.studies.length} records
                   </p>
                   <ul className="mt-3 space-y-1.5">
@@ -797,7 +797,7 @@ export default function LandingPage() {
                       <li key={p.region} className="flex items-baseline justify-between gap-3 text-[12px]">
                         <Link
                           href={`/brain?region=${p.region}&disorder=${p.disorder}&mode=disorder`}
-                          className="text-text-2 underline decoration-line-strong underline-offset-4 hover:text-amber"
+                          className="text-text-2 underline decoration-line-strong underline-offset-4 hover:underline"
                         >
                           {regionLabel(p.region)}
                         </Link>
@@ -810,7 +810,7 @@ export default function LandingPage() {
                 </li>
                 <li className="px-5 py-4">
                   <p className="text-[11px] text-text">
-                    <span className="tabular-nums text-amber">3</span> · Synthesis + citation check
+                    <span className="font-mono text-text">3</span> · Synthesis + citation check
                   </p>
                   <p className="mt-1.5 text-[12px] leading-relaxed text-text-3">
                     The model writes a short, hedged synthesis citing these records inline. A
@@ -822,25 +822,25 @@ export default function LandingPage() {
               <div className="flex flex-wrap items-center gap-3 border-t border-line px-5 py-4">
                 <Link
                   href={`/assistant?q=${encodeURIComponent(exampleQuestion)}`}
-                  className="rounded-full bg-amber px-5 py-2.5 text-[12px] font-medium uppercase tracking-[0.16em] text-ink hover:bg-[#e6bb7d]"
+                  className="rounded-[3px] bg-text px-5 py-3 text-[14px] font-medium text-white transition-colors hover:bg-[#3a3a35]"
                 >
                   Ask this question
                 </Link>
-                <span className="text-[11px] text-text-3">
-                  Live answers need an API key; without one the assistant still returns the
-                  retrieved records.
+                <span className="text-[12px] text-text-3">
+                  Without a configured API key the assistant returns the retrieved
+                  records only, with no synthesis.
                 </span>
               </div>
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-text-3">
+            <p className="font-mono text-[11px] text-text-3">
               Source cards · retrieved evidence
             </p>
             <ul className="mt-3 space-y-3">
               {exampleSources.map((s) => (
-                <li key={s.id} className="rounded-xl border border-line bg-ink p-4">
-                  <Link href={`/evidence/${s.id}`} className="text-[13px] leading-snug text-text hover:text-amber">
+                <li key={s.id} className="rounded-[4px] border border-line bg-ink p-4">
+                  <Link href={`/evidence/${s.id}`} className="text-[13px] leading-snug text-text hover:underline">
                     {s.title}
                   </Link>
                   <p className="mt-1.5 text-[11px] text-text-3">
@@ -863,18 +863,18 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 rounded-xl border border-line bg-ink p-4">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-text-3">
+            <div className="mt-6 rounded-[4px] border border-line bg-ink p-4">
+              <p className="font-mono text-[11px] text-text-3">
                 Language drives the atlas
               </p>
-              <p className="mt-2 text-[13px] text-text">&ldquo;Show schizophrenia evidence, fMRI only&rdquo;</p>
+              <p className="mt-2 text-[13px] text-text">Show schizophrenia evidence, fMRI only</p>
               <pre className="mt-3 overflow-x-auto rounded-md bg-surface px-3 py-2 text-[11px] leading-relaxed text-text-2">
 {`{ "mode": "disorder",
   "disorders": ["schizophrenia"],
   "modalities": ["fmri"] }`}
               </pre>
               <p className="mt-2 text-[11px] text-text-3">
-                Commands compile to a validated view-state patch — never to free-form actions.
+                Commands compile to a validated view-state patch, never to free-form actions.
               </p>
               <div className="mt-3">
                 <TextLink href="/brain?disorder=schizophrenia&mode=disorder&modality=fmri">
@@ -887,41 +887,54 @@ export default function LandingPage() {
       </Section>
 
       {/* ---------------- 09 CLOSING ---------------- */}
-      <section id="enter" className="relative overflow-hidden border-t border-line/70 px-5 py-28 sm:px-8 sm:py-40">
-        <div aria-hidden className="hairline-grid absolute inset-0 opacity-50" />
-        <div className="relative mx-auto max-w-4xl text-center">
+      <section id="enter" className="border-t border-line bg-white px-5 py-24 sm:px-8 sm:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-end">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-text-3">09</p>
-            <h2 className="mt-6 text-balance font-serif text-5xl leading-[1.05] text-text sm:text-7xl">
+            <h2 className="max-w-2xl text-[38px] font-medium leading-[1.06] tracking-[-0.03em] text-text sm:text-[56px]">
               Explore the evidence.
               <br />
-              <span className="italic text-amber">Understand the unknown.</span>
+              <span className="text-text-3">Understand the unknown.</span>
             </h2>
-            <div className="mt-12">
+            <div className="mt-10">
               <Link
                 href="/brain"
-                className="inline-block rounded-full bg-amber px-8 py-3.5 text-[12px] font-medium uppercase tracking-[0.2em] text-ink transition-colors hover:bg-[#e6bb7d]"
+                className="inline-block rounded-[3px] bg-text px-6 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-[#3a3a35]"
               >
                 Enter the atlas
               </Link>
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <nav aria-label="Project resources" className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 text-[13px]">
-              <Link href="/about#methodology" className="text-text-2 hover:text-text">Methodology</Link>
-              <Link href="/about#metrics" className="text-text-2 hover:text-text">Metric definitions</Link>
-              <Link href="/about#data-sources" className="text-text-2 hover:text-text">Data sources</Link>
-              <Link href="/about#limitations" className="text-text-2 hover:text-text">Limitations</Link>
-              {GITHUB_URL && (
-                <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="text-text-2 hover:text-text">
-                  GitHub
-                </a>
-              )}
+            <nav aria-label="Project resources">
+              <ul className="divide-y divide-line border-y border-line text-[14px]">
+                {[
+                  ["/about#methodology", "Methodology"],
+                  ["/about#metrics", "Metric definitions"],
+                  ["/about#data-sources", "Data sources"],
+                  ["/about#limitations", "Limitations"],
+                ].map(([href, label]) => (
+                  <li key={href}>
+                    <Link href={href as never} className="flex items-center justify-between py-2.5 text-text hover:underline">
+                      {label}
+                      <span aria-hidden className="text-text-3">→</span>
+                    </Link>
+                  </li>
+                ))}
+                {GITHUB_URL && (
+                  <li>
+                    <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="flex items-center justify-between py-2.5 text-text hover:underline">
+                      Source code on GitHub
+                      <span aria-hidden className="text-text-3">↗</span>
+                    </a>
+                  </li>
+                )}
+              </ul>
             </nav>
-            <p className="mx-auto mt-10 max-w-xl text-[12px] leading-relaxed text-text-3">
-              NOĒSIS is a research visualization tool, not a diagnostic system. Findings are
-              group-level averages from a curated corpus and often cannot describe any one
-              person&rsquo;s experience; anything personal belongs with a licensed clinician.
+            <p className="mt-6 text-[13px] leading-relaxed text-text-3">
+              NOĒSIS is a research visualization tool, not a diagnostic system.
+              Findings are group-level averages from a curated corpus and often
+              cannot describe one person&rsquo;s experience. Anything personal
+              belongs with a licensed clinician.
             </p>
           </Reveal>
         </div>

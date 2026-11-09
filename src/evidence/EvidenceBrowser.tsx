@@ -29,7 +29,7 @@ function StudyDetail({ study, onClose }: { study: Study; onClose: () => void }) 
     <div className="flex max-h-[calc(100dvh-7rem)] flex-col">
       <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.18em] text-text-3">Study detail</p>
+          <p className="font-mono text-[10px] text-text-3">Study detail</p>
           <h2 className="mt-1.5 text-[15px] leading-snug text-text">{study.title}</h2>
           <p className="mt-1.5 text-[12px] text-text-3">
             {study.authors.slice(0, 3).join(", ")}
@@ -43,18 +43,18 @@ function StudyDetail({ study, onClose }: { study: Study; onClose: () => void }) 
       <div className="min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-4 text-[12px]">
         <div className="flex flex-wrap gap-2">
           {study.doi && (
-            <a href={`https://doi.org/${study.doi}`} target="_blank" rel="noreferrer" className="rounded-md border border-line px-2 py-1 text-text-2 hover:border-amber/50 hover:text-text">
+            <a href={`https://doi.org/${study.doi}`} target="_blank" rel="noreferrer" className="rounded-md border border-line px-2 py-1 text-text-2 hover:border-text hover:text-text">
               DOI {study.doi}
             </a>
           )}
           {study.pmid && (
-            <a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noreferrer" className="rounded-md border border-line px-2 py-1 text-text-2 hover:border-amber/50 hover:text-text">
+            <a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noreferrer" className="rounded-md border border-line px-2 py-1 text-text-2 hover:border-text hover:text-text">
               PubMed {study.pmid}
             </a>
           )}
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-[0.16em] text-text-3">Indexed finding</p>
+          <p className="font-mono text-[10px] text-text-3">Indexed finding</p>
           <p className="mt-1.5 leading-relaxed text-text">{study.finding}</p>
           <p className="mt-2 text-text-3">
             {study.modalities.map((m) => modAbbr.get(m) ?? m).join(", ")} · {study.findingType.replace(/_/g, " ")}
@@ -64,12 +64,12 @@ function StudyDetail({ study, onClose }: { study: Study; onClose: () => void }) 
           {study.population && <p className="mt-1 text-text-3">{study.population}</p>}
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-[0.16em] text-text-3">
+          <p className="font-mono text-[10px] text-text-3">
             Traceability · {assertions.length} region {assertions.length === 1 ? "assertion" : "assertions"}
           </p>
           {assertions.length === 0 ? (
             <p className="mt-1.5 text-text-3">
-              Indexed at disorder level only — the abstract names no atlas-mappable region (e.g. scalp EEG).
+              Indexed at disorder level only; the abstract names no atlas-mappable region (e.g. scalp EEG).
             </p>
           ) : (
             <ul className="mt-2 space-y-2.5">
@@ -106,7 +106,7 @@ function StudyDetail({ study, onClose }: { study: Study; onClose: () => void }) 
                 aiGenerated: false,
               }}
             />
-            <Link href={`/evidence/${study.id}`} className="text-amber underline decoration-amber/30 underline-offset-4">
+            <Link href={`/evidence/${study.id}`} className="text-text underline decoration-line-strong underline-offset-4">
               Full record →
             </Link>
           </div>
@@ -187,7 +187,7 @@ export function EvidenceBrowser() {
 
   return (
     <div>
-      <PageHeader eyebrow="Research application · Evidence" title="Evidence browser">
+      <PageHeader eyebrow="Evidence" title="Evidence browser">
         <p>
           The complete indexed corpus. Every study enters from its PubMed record, is verified against
           PubMed and OpenAlex, and, where the abstract names an atlas-mappable region, is broken into
@@ -203,7 +203,7 @@ export function EvidenceBrowser() {
             onChange={(e) => setText(e.target.value)}
             placeholder="Search title, author, journal, finding, DOI, PMID…"
             aria-label="Filter studies"
-            className="min-w-56 flex-1 rounded-md border border-line bg-surface px-3 py-1.5 text-[13px] text-text placeholder:text-text-3 focus:border-amber/60 focus:outline-none"
+            className="min-w-56 flex-1 rounded-md border border-line bg-surface px-3 py-1.5 text-[13px] text-text placeholder:text-text-3 focus:border-text focus:outline-none"
           />
           <select value={sort} onChange={(e) => setSort(e.target.value as typeof sort)} aria-label="Sort" className={selectClass}>
             <option value="newest">Newest first</option>
@@ -271,9 +271,9 @@ export function EvidenceBrowser() {
 
       <div className="mt-3 grid gap-6 lg:grid-cols-[1fr_26rem]">
         {studies.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-line px-6 py-14 text-center">
+          <div className="rounded-[4px] border border-dashed border-line px-6 py-14 text-center">
             <p className="text-[14px] text-text">No indexed studies match these filters.</p>
-            <p className="mt-1 text-[12px] text-text-3">The corpus is curated and small — absence here is not evidence of absence.</p>
+            <p className="mt-1 text-[12px] text-text-3">The corpus is curated and small; absence here is not evidence of absence.</p>
             <button type="button" onClick={reset} className="mt-4 text-[12px] text-amber">Clear filters</button>
           </div>
         ) : (
@@ -319,7 +319,7 @@ export function EvidenceBrowser() {
             </Panel>
           ) : (
             <Panel className="hidden p-5 lg:block">
-              <p className="text-[10px] uppercase tracking-[0.18em] text-text-3">Traceability</p>
+              <p className="font-mono text-[10px] text-text-3">Traceability</p>
               <p className="mt-2 text-[13px] leading-relaxed text-text-2">
                 Choose <span className="text-amber">Trace evidence</span> on any study to see its
                 region assertions, the disorders they concern, and links to the 3D atlas and to the

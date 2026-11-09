@@ -8,11 +8,11 @@ import { Scatter } from "@/ml/Scatter";
 
 const SPLIT_LABELS: Record<string, string> = {
   grouped_pair_level:
-    "Grouped pair-level split — every assertion for a disorder-region pair is held out together; study nodes excluded from the graph to prevent study-mediated leakage",
+    "Grouped pair-level split: every assertion for a disorder-region pair is held out together; study nodes excluded from the graph to prevent study-mediated leakage",
   permutation_test:
-    "Permutation test — the model is refit under row-shuffled data; reported p-values compare observed statistics against that null",
+    "Permutation test: the model is refit under row-shuffled data; reported p-values compare observed statistics against that null",
   subject_level:
-    "Subject-level split — each subject's data is entirely in train or entirely in test (here structural: one feature vector per subject, held out whole in leave-one-subject-out CV)",
+    "Subject-level split: each subject's data is entirely in train or entirely in test (here structural: one feature vector per subject, held out whole in leave-one-subject-out CV)",
   site_aware: "Site-aware split",
   nested_cv: "Nested cross-validation",
 };
@@ -69,8 +69,8 @@ function AlignmentDetails({ loaded }: { loaded: LoadedRun }) {
       </div>
       <p className="mt-2 text-[11px] leading-relaxed text-amber-600/90">
         {anySignificant
-          ? `In-sample canonical correlations are inflated at small n — components marked green survive the permutation test (Bonferroni-corrected p < ${alpha.toFixed(4)}) and indicate alignment beyond chance. Both views derive from the literature: this is curation/mining consistency, not biological validation.`
-          : "Honest negative: despite high in-sample correlations, no component survives the permutation test with Bonferroni correction at this sample size — no demonstrated alignment between the two representations."}
+          ? `In-sample canonical correlations are inflated at small n; components marked green survive the permutation test (Bonferroni-corrected p < ${alpha.toFixed(4)}) and indicate alignment beyond chance. Both views derive from the literature: this is curation/mining consistency, not biological validation.`
+          : "Honest negative: despite high in-sample correlations, no component survives the permutation test with Bonferroni correction at this sample size; no demonstrated alignment between the two representations."}
       </p>
       {loaded.scores && (
         <div className="mt-3 max-w-md">
@@ -89,23 +89,23 @@ function AlignmentDetails({ loaded }: { loaded: LoadedRun }) {
             categories={
               isRegion
                 ? [
-                    { key: "cortical", label: "Cortical", color: "#3987e5" },
+                    { key: "cortical", label: "Cortical", color: "#2a78d6" },
                     {
                       key: "subcortical",
                       label: "Subcortical",
-                      color: "#d95926",
+                      color: "#eb6834",
                     },
                   ]
                 : [
                     {
                       key: "psychiatric",
                       label: "Psychiatric",
-                      color: "#3987e5",
+                      color: "#2a78d6",
                     },
                     {
                       key: "neurodegenerative",
                       label: "Neurodegenerative",
-                      color: "#d95926",
+                      color: "#eb6834",
                     },
                   ]
             }
@@ -116,7 +116,7 @@ function AlignmentDetails({ loaded }: { loaded: LoadedRun }) {
           <p className="mt-1 text-[10px] text-zinc-600">
             First canonical variate: evidence-corpus embedding (x) vs
             NeuroQuery meta-map profile (y), per{" "}
-            {isRegion ? "region" : "disorder"}. In-sample fit — see the
+            {isRegion ? "region" : "disorder"}. In-sample fit; see the
             permutation result above before reading structure here.
           </p>
         </div>
@@ -129,13 +129,13 @@ function LinkPredDetails({ loaded }: { loaded: LoadedRun }) {
   if (!loaded.candidates) return null;
   return (
     <div className="mt-3">
-      <h4 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+      <h4 className="font-mono text-[11px] text-zinc-500">
         Top model-suggested candidate links
       </h4>
       <p className="mt-1 text-[11px] leading-relaxed text-amber-600/90">
         Disorder-region pairs ABSENT from the curated corpus that the model
         ranks highly from graph structure alone. These are hypotheses about
-        the corpus, not evidence and not biology — a high score may simply
+        the corpus, not evidence and not biology; a high score may simply
         reflect curation patterns.
       </p>
       <div className="mt-2 overflow-x-auto">
@@ -170,7 +170,7 @@ function LinkPredDetails({ loaded }: { loaded: LoadedRun }) {
                   {c.score.toFixed(2)}
                 </td>
                 <td className="py-1 text-[10px] uppercase tracking-wide text-amber-600/80">
-                  model-suggested — not evidence
+                  model-suggested, not evidence
                 </td>
               </tr>
             ))}
@@ -234,7 +234,7 @@ export default function LabPage() {
     <main className="route-fade mx-auto w-full max-w-5xl flex-1 px-5 py-10 sm:px-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h1 className="font-serif text-[40px] leading-tight text-zinc-100">
-          ML Lab — model runs
+          ML Lab: model runs
         </h1>
         <Link
           href="/ml"
@@ -305,7 +305,7 @@ export default function LabPage() {
             </tbody>
           </table>
           <p className="mt-1.5 text-[10px] leading-relaxed text-zinc-600">
-            Headline numbers are not comparable across tasks or datasets —
+            Headline numbers are not comparable across tasks or datasets;
             each card below carries its own validation protocol and caveats.
           </p>
         </div>
@@ -325,7 +325,7 @@ export default function LabPage() {
                 Run not rendered: {r.file}
               </h2>
               <p className="mt-1 text-[11px] text-zinc-500">
-                Failed artifact validation ({r.reason}) — runs without a valid
+                Failed artifact validation ({r.reason}); runs without a valid
                 manifest and declared split strategy are never displayed.
               </p>
             </section>

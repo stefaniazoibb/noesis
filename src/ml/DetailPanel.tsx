@@ -25,7 +25,7 @@ export function DetailPanel({
   if (!selectedId) {
     return (
       <p className="text-sm text-zinc-500">
-        Select a point to inspect its embedding neighborhood — or select a
+        Select a point to inspect its embedding neighborhood, or select a
         region on the 3D brain and return here.
       </p>
     );
@@ -117,7 +117,7 @@ export function DetailPanel({
         )}
       </div>
 
-      <h4 className="mt-4 text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+      <h4 className="mt-4 font-mono text-[11px] text-zinc-500">
         Nearest neighbors (cosine)
       </h4>
       <ul className="mt-1.5 space-y-1">
@@ -137,7 +137,7 @@ export function DetailPanel({
         ))}
       </ul>
       <p className="mt-3 border-t border-zinc-800/70 pt-2 text-[10px] leading-relaxed text-zinc-600">
-        Computational similarity over the indexed evidence corpus — not
+        Computational similarity over the indexed evidence corpus, not
         anatomical proximity, and not clinical equivalence.
       </p>
     </div>

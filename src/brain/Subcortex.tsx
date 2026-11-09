@@ -52,7 +52,7 @@ function Structure({ region }: { region: Region }) {
         color={
           overlay.kind === null || overlay.kind === "network"
             ? region.color // Yeo networks are cortical-only: keep anatomy
-            : (overlay.colors.get(region.id) ?? "#3a3f45")
+            : (overlay.colors.get(region.id) ?? "#cfccc5")
         }
         roughness={0.55}
         emissive={selected ? "#c58f3c" : hovered ? "#39678c" : "#000000"}

@@ -39,7 +39,7 @@ function StudyChip({ id }: { id: string }) {
     <Link
       href={`/evidence/${id}`}
       title={s.title}
-      className="rounded border border-line px-1.5 py-0.5 text-[11px] text-text-2 hover:border-amber/50 hover:text-text"
+      className="rounded border border-line px-1.5 py-0.5 text-[11px] text-text-2 hover:border-text hover:text-text"
     >
       {surname(s.authors[0])} {s.year}
     </Link>
@@ -86,7 +86,7 @@ function ProfileDetail({ p }: { p: ConvergenceProfile }) {
   return (
     <div className="grid gap-5 px-5 pb-5 pt-1 md:grid-cols-2">
       <div>
-        <p className="text-[10px] uppercase tracking-[0.16em] text-text-3">Studies by modality category</p>
+        <p className="font-mono text-[10px] text-text-3">Studies by modality category</p>
         <ul className="mt-2 space-y-2">
           {CATS.map((c) => (
             <li key={c} className="text-[12px]">
@@ -106,7 +106,7 @@ function ProfileDetail({ p }: { p: ConvergenceProfile }) {
       </div>
       <div className="space-y-3 text-[12px]">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.16em] text-text-3">Conflicts</p>
+          <p className="font-mono text-[10px] text-text-3">Conflicts</p>
           {p.conflicts.length === 0 ? (
             <p className="mt-1 text-text-3">No directional conflict among indexed studies.</p>
           ) : (
@@ -121,7 +121,7 @@ function ProfileDetail({ p }: { p: ConvergenceProfile }) {
           )}
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-[0.16em] text-text-3">Intervention coverage</p>
+          <p className="font-mono text-[10px] text-text-3">Intervention coverage</p>
           <p className="mt-1 text-text-2">
             {p.interventionalStudyIds.length} interventional · {p.correlationalStudyIds.length} correlational
             {p.interventionalStudyIds.length > 0 && (
@@ -136,7 +136,7 @@ function ProfileDetail({ p }: { p: ConvergenceProfile }) {
         </p>
         <Link
           href={`/brain?disorder=${p.disorder}&region=${p.region}&mode=convergence`}
-          className="inline-block text-[12px] text-amber underline decoration-amber/30 underline-offset-4"
+          className="inline-block text-[12px] text-text underline decoration-line-strong underline-offset-4"
         >
           View on the 3D brain →
         </Link>
@@ -199,7 +199,7 @@ export function ConvergenceExplorer() {
 
   return (
     <div>
-      <PageHeader eyebrow="Research application · Convergence" title="Convergence explorer">
+      <PageHeader eyebrow="Convergence" title="Convergence explorer">
         <p>
           Every indexed region–disorder pair has a profile: how many studies, how many{" "}
           <em>independent</em> modality categories, whether directions agree, whether any study
@@ -260,7 +260,7 @@ export function ConvergenceExplorer() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-[36rem] text-left text-[12px]">
               <thead>
-                <tr className="text-[10px] uppercase tracking-[0.14em] text-text-3">
+                <tr className="font-mono text-[10px] text-text-3">
                   <th className="px-5 py-2 font-normal">Dimension</th>
                   {pinnedProfiles.map((p) => (
                     <th key={keyOf(p)} className="px-4 py-2 font-normal normal-case tracking-normal">
@@ -304,13 +304,13 @@ export function ConvergenceExplorer() {
             </p>
           ) : rows.length === 0 ? (
             <p className="px-5 py-10 text-center text-[13px] text-text-3">
-              No profiles match. The corpus is curated and small — absence here is not evidence of absence.
+              No profiles match. The corpus is curated and small; absence here is not evidence of absence.
             </p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full min-w-[46rem] text-left text-[12px]">
                 <thead className="sticky top-0 bg-ink-2">
-                  <tr className="text-[10px] uppercase tracking-[0.14em] text-text-3">
+                  <tr className="font-mono text-[10px] text-text-3">
                     <th className="w-8 px-3 py-2.5 font-normal"><span className="sr-only">Pin</span></th>
                     <th className="px-2 py-2.5 font-normal">{view === "region" ? "Disorder" : "Region · disorder"}</th>
                     <th className="px-2 py-2.5 text-right font-normal">Studies</th>
@@ -334,7 +334,7 @@ export function ConvergenceExplorer() {
                             <button
                               type="button"
                               aria-pressed={pinned.includes(k)}
-                              aria-label={`Pin ${regionLabel(p.region)} — ${disorderName(p.disorder)} for comparison`}
+                              aria-label={`Pin ${regionLabel(p.region)} · ${disorderName(p.disorder)} for comparison`}
                               onClick={() => togglePin(k)}
                               className={pinned.includes(k) ? "text-amber" : "text-text-3 hover:text-text"}
                             >
@@ -386,7 +386,7 @@ export function ConvergenceExplorer() {
             <h2 className="text-[13px] text-text">How to read a profile</h2>
             <dl className="mt-3 space-y-2.5 text-text-3">
               <div><dt className="text-text-2">Studies</dt><dd>Distinct studies with ≥1 assertion for the pair.</dd></div>
-              <div><dt className="text-text-2">Modality categories</dt><dd>Imaging, electrophysiology, stimulation. fMRI + sMRI count once — convergence measures methodological independence.</dd></div>
+              <div><dt className="text-text-2">Modality categories</dt><dd>Imaging, electrophysiology, stimulation. fMRI + sMRI count once, because convergence measures methodological independence.</dd></div>
               <div><dt className="text-text-2">Direction consistency</dt><dd>Share of (study, finding type, direction) units agreeing with their finding type&rsquo;s majority. Not assessed below 2 units.</dd></div>
               <div><dt className="text-text-2">Conflicts</dt><dd>Same finding type, opposite directions. Listed with both sides, never adjudicated.</dd></div>
               <div><dt className="text-text-2">Level</dt><dd>Mixed → Strong (≥3 studies, ≥2 categories) → Moderate (≥2) → Emerging (1).</dd></div>

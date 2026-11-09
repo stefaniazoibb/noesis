@@ -49,7 +49,7 @@ export function ViewerControls() {
 
   return (
     <div className="pointer-events-auto flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-950/80 p-1.5 backdrop-blur">
-      <span className="px-1 text-[10px] uppercase tracking-wider text-zinc-500">
+      <span className="px-1 font-mono text-[10px] text-zinc-500">
         Hemis
       </span>
       <Toggle
@@ -75,7 +75,7 @@ export function ViewerControls() {
         Subcortex
       </Toggle>
       <span className="mx-1 h-4 w-px bg-zinc-800" aria-hidden />
-      <span className="px-1 text-[10px] uppercase tracking-wider text-zinc-500">
+      <span className="px-1 font-mono text-[10px] text-zinc-500">
         View
       </span>
       {VIEWS.map((v) => (

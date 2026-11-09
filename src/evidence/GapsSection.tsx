@@ -56,7 +56,7 @@ export function GapsSection({ disorderId }: { disorderId: string }) {
   return (
     <section className="mt-4 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
       <div className="flex items-baseline justify-between gap-2">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Evidence conflicts &amp; gaps
         </h2>
         <Link
@@ -72,7 +72,7 @@ export function GapsSection({ disorderId }: { disorderId: string }) {
         <p className="mt-1 text-xs text-zinc-500">
           No directional conflicts among the indexed studies for this
           disorder (the corpus is built largely from meta-analyses, which
-          tend to agree — conflicts would surface with primary-study
+          tend to agree; conflicts would surface with primary-study
           curation).
         </p>
       ) : (
@@ -81,7 +81,7 @@ export function GapsSection({ disorderId }: { disorderId: string }) {
             p.conflicts.map((c) => (
               <li key={`${p.region}-${c.findingType}`} className="text-xs">
                 <span className="text-zinc-300">
-                  {regionLabel(p.region)} — {c.findingType.replace(/_/g, " ")}:
+                  {regionLabel(p.region)} · {c.findingType.replace(/_/g, " ")}:
                 </span>{" "}
                 <span className="text-zinc-500">
                   increased{" "}
@@ -124,7 +124,7 @@ export function GapsSection({ disorderId }: { disorderId: string }) {
                     className="text-xs"
                   >
                     <span className="text-zinc-300">{regionLabel(g.region)}</span>{" "}
-                    <span className="text-zinc-500">— {gapText(g)}</span>{" "}
+                    <span className="text-zinc-500">· {gapText(g)}</span>{" "}
                     {g.supportingStudyIds.slice(0, 4).map((id) => (
                       <StudyCite key={id} id={id} />
                     ))}
@@ -146,7 +146,7 @@ export function GapsSection({ disorderId }: { disorderId: string }) {
 
       <p className="mt-4 border-t border-zinc-800/70 pt-2 text-[10px] leading-relaxed text-zinc-600">
         Rule-based detection over the indexed corpus (thresholds in
-        docs/METRICS.md) — a gap here may be a curation gap, not a gap in the
+        docs/METRICS.md); a gap here may be a curation gap, not a gap in the
         literature. Not assessed by the current schema:{" "}
         {NOT_ASSESSED_DIMENSIONS.map((d) => d.replace(/_/g, " ")).join(", ")}.
       </p>

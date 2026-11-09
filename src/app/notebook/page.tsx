@@ -72,7 +72,7 @@ export default function NotebookPage() {
       </div>
       <p className="mt-2 text-sm text-zinc-500">
         Your saved regions, disorders, studies, AI answers and research
-        questions — stored in this browser only. AI proposes, you validate:
+        questions, stored in this browser only. AI proposes, you validate:
         nothing lands here unless you saved it, and nothing here feeds back
         into the evidence database.
       </p>
@@ -89,7 +89,7 @@ export default function NotebookPage() {
       ) : (
         ORDER.filter((t) => entries.some((e) => e.type === t)).map((type) => (
           <section key={type} className="mt-6">
-            <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+            <h2 className="font-mono text-[11px] text-zinc-500">
               {TYPE_LABELS[type]} ({entries.filter((e) => e.type === type).length})
             </h2>
             <ul className="mt-2 space-y-2">
@@ -129,7 +129,7 @@ export default function NotebookPage() {
                     </div>
                     {e.aiGenerated && (
                       <p className="mt-1 text-[10px] text-amber-600/80">
-                        AI-generated from the indexed evidence — not
+                        AI-generated from the indexed evidence, not
                         experimentally validated.
                       </p>
                     )}

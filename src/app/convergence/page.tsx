@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { ConvergenceExplorer } from "@/evidence/ConvergenceExplorer";
 
 export const metadata: Metadata = {
-  title: "Convergence — NOĒSIS",
+  title: "Convergence · NOĒSIS",
   description:
     "Compare rule-based convergence profiles across regions, disorders and modality categories.",
 };

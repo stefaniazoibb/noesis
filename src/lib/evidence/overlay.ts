@@ -5,20 +5,20 @@ import { computeProfiles, type ConvergenceProfile } from "./convergence";
 import type { VizMode } from "@/lib/schemas";
 
 /**
- * Overlay palette: dataviz reference sequential blue ramp. On the dark scene
- * low values recede (dark blue) and high values pop (light blue).
+ * Overlay palette: dataviz reference sequential blue ramp, ordered for the
+ * light (paper) theme: low values are light, high values dark.
  */
 const SEQ = [
-  "#0d366b", "#104281", "#184f95", "#1c5cab", "#256abf", "#2a78d6",
-  "#3987e5", "#5598e7", "#6da7ec", "#86b6ef", "#9ec5f4",
+  "#9ec5f4", "#86b6ef", "#6da7ec", "#5598e7", "#3987e5", "#2a78d6",
+  "#256abf", "#1c5cab", "#184f95", "#104281", "#0d366b",
 ];
 
-/** Ordinal steps for convergence counts 1..4 (dark-surface bounds respected). */
+/** Ordinal steps for convergence counts 1..4 (light theme: more = darker). */
 export const CONVERGENCE_COLORS: Record<number, string> = {
-  1: "#184f95",
-  2: "#2a78d6",
-  3: "#6da7ec",
-  4: "#b7d3f6",
+  1: "#9ec5f4",
+  2: "#3987e5",
+  3: "#1c5cab",
+  4: "#0d366b",
 };
 
 export function sequentialColor(value: number, max: number): string {
@@ -118,8 +118,9 @@ export function scalarMapOverlay(map: {
  * thinner in patients), orange = negative (larger in patients). Both ends
  * from the validated categorical palette; magnitude drives lightness.
  */
-const DIV_POS = ["#256abf", "#3987e5", "#6da7ec", "#9ec5f4"];
-const DIV_NEG = ["#a44420", "#d95926", "#e37c50", "#efab8b"];
+// light theme: larger |effect| = darker
+const DIV_POS = ["#9ec5f4", "#6da7ec", "#3987e5", "#256abf"];
+const DIV_NEG = ["#efab8b", "#e37c50", "#d95926", "#a44420"];
 
 export function divergingColor(value: number, absMax: number): string {
   const ramp = value >= 0 ? DIV_POS : DIV_NEG;

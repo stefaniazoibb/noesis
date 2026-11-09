@@ -94,9 +94,8 @@ export function Counter({ value, className = "" }: { value: number; className?: 
 
 export function Eyebrow({ index, children }: { index: string; children: ReactNode }) {
   return (
-    <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-text-3">
-      <span className="tabular-nums text-amber">{index}</span>
-      <span aria-hidden className="h-px w-8 bg-line-strong" />
+    <p className="flex items-baseline gap-3 text-[13px] font-medium text-text-3">
+      <span className="font-mono text-[12px] font-normal">{String(Number(index))}</span>
       {children}
     </p>
   );
@@ -104,7 +103,7 @@ export function Eyebrow({ index, children }: { index: string; children: ReactNod
 
 export function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mt-4 max-w-3xl text-balance font-serif text-4xl leading-[1.05] text-text sm:text-5xl">
+    <h2 className="mt-3 max-w-3xl text-balance text-[32px] font-medium leading-[1.1] tracking-[-0.025em] text-text sm:text-[40px]">
       {children}
     </h2>
   );
@@ -112,7 +111,7 @@ export function SectionTitle({ children }: { children: ReactNode }) {
 
 export function Lede({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-5 max-w-2xl text-pretty text-[15px] leading-relaxed text-text-2 sm:text-base">
+    <p className="mt-5 max-w-2xl text-pretty text-[16px] leading-relaxed text-text-2">
       {children}
     </p>
   );
@@ -122,9 +121,9 @@ export function TextLink({ href, children }: { href: string; children: ReactNode
   return (
     <Link
       href={href as Href}
-      className="group inline-flex items-center gap-2 text-[13px] text-amber hover:text-amber/80"
+      className="group inline-flex items-center gap-2 text-[14px] font-medium text-text"
     >
-      <span className="underline decoration-amber/30 underline-offset-4 group-hover:decoration-amber">
+      <span className="underline decoration-line-strong underline-offset-4 group-hover:decoration-text">
         {children}
       </span>
       <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -162,7 +161,7 @@ export function BarList({
               </span>
               <span className="relative h-[14px] flex-1">
                 <span
-                  className="absolute inset-y-0 left-0 rounded-r-[4px] bg-amber/80 transition-colors group-hover:bg-amber"
+                  className="absolute inset-y-0 left-0 rounded-r-[2px] bg-text-3 transition-colors group-hover:bg-text"
                   style={{ width: `${(r.value / m) * 100}%`, minWidth: r.value > 0 ? 3 : 0 }}
                 />
               </span>
@@ -191,7 +190,7 @@ export function BarList({
               {hover === r.key && r.detail && (
                 <span
                   role="tooltip"
-                  className="pointer-events-none absolute right-10 top-1/2 z-10 -translate-y-1/2 whitespace-nowrap rounded border border-line bg-ink-2 px-2 py-1 text-[11px] text-text-2 shadow-lg"
+                  className="pointer-events-none absolute right-10 top-1/2 z-10 -translate-y-1/2 whitespace-nowrap rounded-[3px] border border-line bg-white px-2 py-1 text-[12px] text-text-2 shadow-sm"
                 >
                   {r.detail}
                 </span>
@@ -234,7 +233,7 @@ export function Columns({
           aria-label={caption}
           onMouseLeave={() => setHover(null)}
         >
-          <line x1={0} x2={W} y1={H} y2={H} stroke="#2e3843" strokeWidth={1} />
+          <line x1={0} x2={W} y1={H} y2={H} stroke="#c3c1b9" strokeWidth={1} />
           {data.map((d, i) => {
             const bh = (d.y / max) * (H - 6);
             const x = i * (bw + gap);
@@ -244,7 +243,7 @@ export function Columns({
                 {d.y > 0 && (
                   <path
                     d={`M${x},${H} V${H - bh + 3} q0,-3 3,-3 h${bw - 6} q3,0 3,3 V${H} Z`}
-                    fill={hover === i ? "#d9a45b" : "rgba(217,164,91,0.72)"}
+                    fill={hover === i ? "#141412" : "#6b6b64"}
                   />
                 )}
                 {(i === 0 || i === data.length - 1 || (d.x % 5 === 0 && i > 1 && i < data.length - 2)) && (
@@ -253,7 +252,7 @@ export function Columns({
                     y={H + 14}
                     textAnchor="middle"
                     fontSize={10}
-                    fill="#8a949f"
+                    fill="#6b6b64"
                   >
                     {d.x}
                   </text>
@@ -265,7 +264,7 @@ export function Columns({
         {h && (
           <span
             role="tooltip"
-            className="pointer-events-none absolute right-0 top-0 rounded border border-line bg-ink-2 px-2 py-1 text-[11px] text-text-2"
+            className="pointer-events-none absolute right-0 top-0 rounded-[3px] border border-line bg-white px-2 py-1 text-[12px] text-text-2"
           >
             {h.x}: <span className="tabular-nums text-text">{h.y}</span> {h.y === 1 ? "study" : "studies"}
           </span>

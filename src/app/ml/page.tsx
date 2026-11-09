@@ -25,7 +25,7 @@ const ENTITIES: { key: EmbeddingEntity; label: string }[] = [
 ];
 
 // dark-mode categorical slots from the validated reference palette
-const SLOT = ["#3987e5", "#d95926", "#199e70"];
+const SLOT = ["#2a78d6", "#eb6834", "#1baf7a"];
 
 const CATEGORIES: Record<EmbeddingEntity, ScatterCategory[]> = {
   region: [
@@ -118,7 +118,7 @@ export default function MlPage() {
         label:
           n === null
             ? entityLabel(entity, id)
-            : `${entityLabel(entity, id)} — ${n} indexed ${n === 1 ? "study" : "studies"}`,
+            : `${entityLabel(entity, id)} · ${n} indexed ${n === 1 ? "study" : "studies"}`,
         x: proj[i][0],
         y: proj[i][1],
         category: categoryOf(entity, id),
@@ -136,19 +136,19 @@ export default function MlPage() {
   return (
     <main className="route-fade mx-auto w-full max-w-7xl flex-1 px-5 py-10 sm:px-8">
       <PageHeader
-        eyebrow="Research application · Representations"
+        eyebrow="Representations"
         title="Representation space"
         actions={
           <Link
             href="/ml/lab"
-            className="rounded-md border border-line px-3 py-1.5 text-[12px] text-text-2 hover:border-amber/50 hover:text-text"
+            className="rounded-md border border-line px-3 py-1.5 text-[12px] text-text-2 hover:border-text hover:text-text"
           >
             Validated model runs →
           </Link>
         }
       >
         <p>
-          Regions, disorders and studies embedded by their evidence profiles — which modalities,
+          Regions, disorders and studies embedded by their evidence profiles: which modalities,
           regions and findings the corpus links them to. Nearby points have similar{" "}
           <em>evidence profiles</em>; that is computational similarity over a curated corpus, not
           anatomical distance, shared biology or clinical equivalence.
@@ -202,7 +202,7 @@ export default function MlPage() {
             }}
             placeholder={`Find a ${entity}…`}
             aria-label={`Find a ${entity} in the plot`}
-            className="w-full rounded-md border border-line bg-surface px-3 py-1.5 text-[12px] text-text placeholder:text-text-3 focus:border-amber/60 focus:outline-none"
+            className="w-full rounded-md border border-line bg-surface px-3 py-1.5 text-[12px] text-text placeholder:text-text-3 focus:border-text focus:outline-none"
           />
           {matches && (
             <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] tabular-nums text-text-3">
@@ -257,7 +257,7 @@ export default function MlPage() {
               evidence corpus (curated, not a systematic review); 2D
               projections can distort distances.
               {entity !== "study" &&
-                " Point size = distinct indexed studies — small points sit where they do on thin evidence."}
+                " Point size = distinct indexed studies; small points sit where they do on thin evidence."}
             </p>
           </div>
           <aside className="w-full shrink-0 space-y-3 lg:w-80">
@@ -275,7 +275,7 @@ export default function MlPage() {
                   <dt className="text-text-2">{projection === "pca" ? "What the axes are" : "What UMAP preserves"}</dt>
                   <dd className="text-text-3">
                     {projection === "pca"
-                      ? "Principal components — linear axes with published loadings (below)."
+                      ? "Principal components: linear axes with published loadings (below)."
                       : "Local neighbourhoods only. Axis values, cluster sizes and between-cluster distances carry no meaning."}
                   </dd>
                 </div>
@@ -288,7 +288,7 @@ export default function MlPage() {
                 </div>
               </dl>
             </Panel>
-            <div className="rounded-xl border border-line bg-ink-2/70 p-4">
+            <div className="rounded-[4px] border border-line bg-ink-2/70 p-4">
               <DetailPanel
                 entity={entity}
                 set={set}

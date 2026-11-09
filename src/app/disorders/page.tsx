@@ -4,7 +4,7 @@ import { getDisorders } from "@/lib/repo/entities";
 import { PersonalExperienceNote } from "@/components/PersonalExperienceNote";
 
 export const metadata: Metadata = {
-  title: "Disorders — NOĒSIS",
+  title: "Disorders · NOĒSIS",
 };
 
 const CATEGORY_LABEL = {
@@ -30,7 +30,7 @@ export default function DisordersPage() {
       </div>
       <p className="mt-2 text-sm text-zinc-400">
         {disorders.length} disorders indexed. Each page summarizes the
-        disorder and — once the curated corpus is ingested — its study-level
+        disorder and, where available, its study-level
         evidence.
       </p>
       <PersonalExperienceNote compact />

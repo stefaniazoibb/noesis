@@ -84,7 +84,7 @@ export default function BrainPage() {
                 type="button"
                 onClick={() => setAssistantOpen((v) => !v)}
                 aria-expanded={assistantOpen}
-                className="rounded-md border border-line bg-ink-2/85 px-3 py-1.5 text-xs text-text-2 backdrop-blur transition-colors hover:border-amber/50 hover:text-text"
+                className="rounded-md border border-line bg-ink-2/85 px-3 py-1.5 text-xs text-text-2 backdrop-blur transition-colors hover:border-text hover:text-text"
               >
                 {assistantOpen ? "Close assistant" : "Ask NOĒSIS"}
               </button>

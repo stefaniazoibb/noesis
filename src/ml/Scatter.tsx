@@ -107,7 +107,7 @@ export function Scatter({
                   cy={cy}
                   r={(p.r ?? 5) + 3.5}
                   fill="none"
-                  stroke="#6fc6d2"
+                  stroke="#0b6e7a"
                   strokeWidth={1.5}
                 />
               )}
@@ -117,7 +117,7 @@ export function Scatter({
                   cy={cy}
                   r={(p.r ?? 5) + 4}
                   fill="none"
-                  stroke="#d9a45b"
+                  stroke="#141412"
                   strokeWidth={2}
                 />
               )}
@@ -126,7 +126,7 @@ export function Scatter({
                 cy={cy}
                 r={(p.r ?? 5) + (hover?.id === p.id ? 1.5 : 0)}
                 fill={colorOf.get(p.category) ?? "#888"}
-                stroke="#121820"
+                stroke="#ffffff"
                 strokeWidth={1}
                 className="cursor-pointer"
                 onClick={(e) => {
@@ -143,7 +143,7 @@ export function Scatter({
                   x={cx + 9}
                   y={cy + 3.5}
                   className="pointer-events-none select-none"
-                  fill="#c3c8ce"
+                  fill="#34342f"
                   fontSize={11}
                 >
                   {p.label}

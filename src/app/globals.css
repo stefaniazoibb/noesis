@@ -1,74 +1,70 @@
 @import "tailwindcss";
 
 /*
- * NOĒSIS design system (2026-11 redesign).
+ * NOĒSIS design system, v2 (2026-11): scientific-publication style.
  *
- * The existing components are written against Tailwind's zinc/amber scales.
- * Rather than rewriting every component, the scales are remapped here onto
- * the NOĒSIS palette, so the whole app shifts to the new system at once and
- * new components use the semantic tokens below.
+ * Paper ground, ink type, one typeface family (IBM Plex Sans + Plex Mono for
+ * data). The interface itself is monochrome; colour is reserved for data
+ * (brain overlays, charts) and for the few states that need it (conflict,
+ * rule-based, warnings). Existing components are written against Tailwind's
+ * zinc/amber scales, so those scales are remapped here: zinc becomes the ink
+ * scale (950 = paper, 100 = ink) and every surface follows at once.
  */
 
 :root {
-  --background: #0b0e12;
-  --foreground: #f2f0e9;
-  --bg-2: #121820;
-  --surface: #19212b;
-  --surface-2: #1f2833;
-  --line: #222b35;
-  --line-strong: #2e3843;
-  --text: #f2f0e9;
-  --text-2: #a0aab5;
-  --text-3: #8a949f;
-  --amber: #d9a45b;
-  --amber-soft: #b98a4c;
-  --cyan: #6fc6d2;
-  --conflict: #c87979;
+  --background: #f7f7f4;
+  --foreground: #141412;
   --nav-h: 3.5rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-serif-display);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  /* display type is the same family, set tighter (see .font-serif below) */
+  --font-serif: var(--font-plex-sans);
 
   /* semantic tokens */
-  --color-ink: #0b0e12;
-  --color-ink-2: #121820;
-  --color-surface: #19212b;
-  --color-surface-2: #1f2833;
-  --color-line: #222b35;
-  --color-line-strong: #2e3843;
-  --color-text: #f2f0e9;
-  --color-text-2: #a0aab5;
-  --color-text-3: #8a949f;
-  --color-amber: #d9a45b;
-  --color-amber-soft: #b98a4c;
-  --color-cyan: #6fc6d2;
-  --color-conflict: #c87979;
+  --color-ink: #f7f7f4; /* page ground ("paper") */
+  --color-ink-2: #ffffff; /* panels, cards */
+  --color-surface: #efefea; /* inputs, quiet fills */
+  --color-surface-2: #e7e7e1;
+  --color-line: #dedcd5; /* hairlines */
+  --color-line-strong: #c3c1b9;
+  --color-text: #141412;
+  --color-text-2: #45453f;
+  --color-text-3: #6b6b64;
+  /* "amber" is the interactive role: ink-black, not a decorative hue */
+  --color-amber: #141412;
+  --color-amber-soft: #45453f;
+  --color-cyan: #0b6e7a; /* rule-based / convergence data mark */
+  --color-conflict: #b42318;
 
-  /* zinc remapped onto the NOĒSIS neutrals (cool slate, warm paper text) */
-  --color-zinc-50: #f7f5ef;
-  --color-zinc-100: #f2f0e9;
-  --color-zinc-200: #dedcd5;
-  --color-zinc-300: #c4c8cc;
-  --color-zinc-400: #a0aab5;
-  --color-zinc-500: #8a949f;
-  --color-zinc-600: #737d88;
-  --color-zinc-700: #2e3843;
-  --color-zinc-800: #222b35;
-  --color-zinc-900: #19212b;
-  --color-zinc-950: #121820;
+  /* zinc remapped onto the ink scale (950 = paper ... 50 = ink) */
+  --color-zinc-50: #0b0b0a;
+  --color-zinc-100: #141412;
+  --color-zinc-200: #24241f;
+  --color-zinc-300: #34342f;
+  --color-zinc-400: #45453f;
+  --color-zinc-500: #5e5e57;
+  --color-zinc-600: #6b6b64;
+  --color-zinc-700: #d3d1c9;
+  --color-zinc-800: #dedcd5;
+  --color-zinc-900: #efefea;
+  --color-zinc-950: #ffffff;
 
-  /* amber (warnings, AI labels) remapped onto the NOĒSIS amber */
-  --color-amber-400: #e6bb7d;
-  --color-amber-500: #d9a45b;
-  --color-amber-600: #d9a45b;
-  --color-amber-700: #a87d44;
-  --color-amber-900: #4a3720;
-  --color-amber-950: #241b10;
+  /* warnings / AI labels: a dark ochre that reads on paper (≥4.5:1) */
+  --color-amber-400: #8a5a0b;
+  --color-amber-500: #8a5a0b;
+  --color-amber-600: #8a5a0b;
+  --color-amber-700: #6e4808;
+  --color-amber-900: #e9d9b8;
+  --color-amber-950: #faf3e3;
+
+  --color-emerald-400: #12704a;
+  --color-emerald-500: #12704a;
+  --color-emerald-900: #b9dccb;
 }
 
 html {
@@ -80,35 +76,47 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01", "tnum" 0;
   overflow-x: hidden;
 }
 
+/* display type: same family, medium weight, tight tracking */
+.font-serif {
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  font-style: normal;
+}
+
+.tabular-nums,
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
 ::selection {
-  background: rgb(217 164 91 / 0.35);
-  color: #f2f0e9;
+  background: rgb(20 20 18 / 0.14);
 }
 
 :focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid #141412;
   outline-offset: 2px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
-/* thin, quiet scrollbars inside panels */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #2e3843 transparent;
+  scrollbar-color: #c3c1b9 transparent;
 }
 
-/* ---- landing-page motion (all disabled under reduced motion) ---- */
+/* ---- motion (all disabled under reduced motion) ---- */
 
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(12px);
   transition:
-    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    opacity 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -116,25 +124,15 @@ body {
 }
 
 .route-fade {
-  animation: route-fade 320ms ease-out both;
+  animation: route-fade 260ms ease-out both;
 }
 @keyframes route-fade {
   from {
     opacity: 0;
-    transform: translateY(6px);
   }
   to {
     opacity: 1;
-    transform: none;
   }
-}
-
-.hairline-grid {
-  background-image:
-    linear-gradient(to right, rgb(46 56 67 / 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(46 56 67 / 0.35) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
 }
 
 @media (prefers-reduced-motion: reduce) {

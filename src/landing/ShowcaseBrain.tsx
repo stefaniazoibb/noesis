@@ -203,61 +203,6 @@ function ShowcaseStructure({
   );
 }
 
-/** Restrained ambient dust — decorative only, not anatomical, not data. */
-let dotTexture: THREE.CanvasTexture | null = null;
-function getDotTexture(): THREE.CanvasTexture {
-  if (!dotTexture) {
-    const c = document.createElement("canvas");
-    c.width = c.height = 32;
-    const g = c.getContext("2d")!;
-    const grad = g.createRadialGradient(16, 16, 0, 16, 16, 16);
-    grad.addColorStop(0, "rgba(255,255,255,1)");
-    grad.addColorStop(0.4, "rgba(255,255,255,0.6)");
-    grad.addColorStop(1, "rgba(255,255,255,0)");
-    g.fillStyle = grad;
-    g.fillRect(0, 0, 32, 32);
-    dotTexture = new THREE.CanvasTexture(c);
-  }
-  return dotTexture;
-}
-
-function Dust({ count = 220 }: { count?: number }) {
-  const ref = useRef<THREE.Points>(null);
-  const geometry = useMemo(() => {
-    const g = new THREE.BufferGeometry();
-    const p = new Float32Array(count * 3);
-    let seed = 7;
-    const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-    for (let i = 0; i < count; i++) {
-      const r = 165 + rand() * 70;
-      const th = rand() * Math.PI * 2;
-      const ph = Math.acos(2 * rand() - 1);
-      p[i * 3] = CENTER[0] + r * Math.sin(ph) * Math.cos(th);
-      p[i * 3 + 1] = CENTER[1] + r * Math.cos(ph) * 0.7;
-      p[i * 3 + 2] = CENTER[2] + r * Math.sin(ph) * Math.sin(th);
-    }
-    g.setAttribute("position", new THREE.BufferAttribute(p, 3));
-    return g;
-  }, [count]);
-  useFrame((_, dt) => {
-    if (ref.current) ref.current.rotation.y += dt * 0.012;
-  });
-  return (
-    <points ref={ref} geometry={geometry} raycast={() => null}>
-      <pointsMaterial
-        color="#d9a45b"
-        map={getDotTexture()}
-        alphaTest={0.01}
-        size={2.2}
-        sizeAttenuation
-        transparent
-        opacity={0.4}
-        depthWrite={false}
-      />
-    </points>
-  );
-}
-
 /** Touch devices: no orbit controls (they would capture page scrolling);
  *  the camera slowly circles the brain instead. */
 function AutoSpin({ spin }: { spin: boolean }) {
@@ -375,9 +320,9 @@ export default function ShowcaseBrain({
         style={{ touchAction: "pan-y" }}
       >
         <PerformanceMonitor onDecline={() => setDpr(1)} flipflops={1} />
-        <hemisphereLight args={["#e6dccb", "#1a2029", 1.05]} />
-        <directionalLight position={[-220, 260, -180]} intensity={1.6} color="#fff4e2" />
-        <directionalLight position={[200, -40, 220]} intensity={0.55} color="#6fc6d2" />
+        <hemisphereLight args={["#ffffff", "#8c8a84", 1.15]} />
+        <directionalLight position={[-220, 260, -180]} intensity={1.5} color="#ffffff" />
+        <directionalLight position={[200, -40, 220]} intensity={0.5} color="#dfe6ec" />
         <ViewShift shiftX={shiftX} shiftY={shiftY} />
         <group rotation={[-Math.PI / 2, 0, 0]}>
           <Suspense fallback={null}>
@@ -407,7 +352,6 @@ export default function ShowcaseBrain({
               ))}
           </Suspense>
         </group>
-        {!reduced && !lowEnd && <Dust />}
         {coarse ? (
           <AutoSpin spin={!reduced} />
         ) : (

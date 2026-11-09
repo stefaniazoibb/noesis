@@ -13,7 +13,7 @@ export interface RepPoint {
 }
 
 // validated categorical slots (dataviz validator, dark surface: all checks pass)
-const COLORS = { psychiatric: "#3987e5", neurodegenerative: "#d95926" } as const;
+const COLORS = { psychiatric: "#2a78d6", neurodegenerative: "#eb6834" } as const;
 const W = 620;
 const H = 400;
 const PAD = 34;
@@ -48,7 +48,7 @@ export function RepresentationPreview({
   const ordered = [...points].sort((a, b) => (a.id === hover ? 1 : b.id === hover ? -1 : 0));
 
   return (
-    <figure className="rounded-xl border border-line bg-ink-2/60 p-4">
+    <figure className="rounded-[4px] border border-line bg-ink-2/60 p-4">
       <div className="relative">
         <svg
           viewBox={`0 0 ${W} ${H}`}
@@ -56,12 +56,12 @@ export function RepresentationPreview({
           role="img"
           aria-label="Disorders positioned by the first two principal components of their evidence profiles"
         >
-          <line x1={PAD} x2={W - PAD} y1={H - PAD} y2={H - PAD} stroke="#2e3843" />
-          <line x1={PAD} x2={PAD} y1={PAD} y2={H - PAD} stroke="#2e3843" />
-          <text x={W - PAD} y={H - 10} textAnchor="end" fontSize={11} fill="#8a949f">
+          <line x1={PAD} x2={W - PAD} y1={H - PAD} y2={H - PAD} stroke="#c3c1b9" />
+          <line x1={PAD} x2={PAD} y1={PAD} y2={H - PAD} stroke="#c3c1b9" />
+          <text x={W - PAD} y={H - 10} textAnchor="end" fontSize={11} fill="#6b6b64">
             PC1 · {(pc1 * 100).toFixed(0)}% of variance
           </text>
-          <text x={12} y={PAD - 12} fontSize={11} fill="#8a949f">
+          <text x={12} y={PAD - 12} fontSize={11} fill="#6b6b64">
             PC2 · {(pc2 * 100).toFixed(0)}%
           </text>
           {ordered.map((p) => {
@@ -81,7 +81,7 @@ export function RepresentationPreview({
                   cy={sy(p.y)}
                   r={r}
                   fill={COLORS[p.category]}
-                  stroke="#121820"
+                  stroke="#ffffff"
                   strokeWidth={2}
                 />
                 {(active || p.studies >= 6) && (
@@ -90,7 +90,7 @@ export function RepresentationPreview({
                     textAnchor={sx(p.x) > W * 0.72 ? "end" : "start"}
                     y={sy(p.y) + 4}
                     fontSize={11}
-                    fill={active ? "#f2f0e9" : "#a0aab5"}
+                    fill={active ? "#141412" : "#45453f"}
                     className="pointer-events-none select-none"
                   >
                     {p.label}
@@ -122,7 +122,7 @@ export function RepresentationPreview({
           Neurodegenerative
         </span>
         <span>Point size = distinct indexed studies.</span>
-        <Link href="/ml" className="ml-auto text-amber underline decoration-amber/30 underline-offset-4">
+        <Link href="/ml" className="ml-auto text-text underline decoration-line-strong underline-offset-4">
           Open the explorer →
         </Link>
       </figcaption>

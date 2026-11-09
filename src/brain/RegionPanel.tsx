@@ -21,12 +21,12 @@ export function RegionPanel() {
   if (!region) {
     return (
       <aside className="pointer-events-auto hidden w-80 max-w-[calc(100vw-2rem)] rounded-lg border border-zinc-800 bg-zinc-950/80 p-5 backdrop-blur sm:block">
-        <p className="text-[10px] uppercase tracking-[0.18em] text-text-3">
+        <p className="font-mono text-[10px] text-text-3">
           Desikan-Killiany · fsaverage
         </p>
         <p className="mt-2 text-sm leading-relaxed text-zinc-400">
           Drag to rotate, scroll to zoom, hover to name a region. Click a
-          region — or find it by name — to inspect its indexed evidence.
+          region, or find it by name, to inspect its indexed evidence.
         </p>
       </aside>
     );
@@ -81,7 +81,7 @@ export function RegionPanel() {
           <button
             type="button"
             onClick={() => useVizStore.getState().requestFocus(region.id)}
-            className="text-[11px] text-amber/90 underline decoration-amber/30 hover:text-amber"
+            className="text-[11px] text-amber/90 underline decoration-line-strong hover:text-amber"
           >
             Fly to region
           </button>
@@ -116,7 +116,7 @@ export function RegionPanel() {
           <p className="text-sm text-zinc-500">
             No indexed evidence links this region to a disorder
             {filters.modalities.length > 0 ? " under the active filters" : ""}.
-            The corpus is curated and small — absence of evidence here is not
+            The corpus is curated and small; absence of evidence here is not
             evidence of absence.
           </p>
         )}
@@ -136,7 +136,7 @@ export function RegionPanel() {
                 </h3>
                 <span
                   className="rounded-full border border-zinc-700 px-2 py-0.5 text-[10px] text-zinc-300"
-                  title="Rule-based label computed from the indexed corpus — see docs/METRICS.md"
+                  title="Rule-based label computed from the indexed corpus; see docs/METRICS.md"
                 >
                   {EVIDENCE_LEVEL_LABEL[g.level]}
                 </span>
@@ -148,7 +148,7 @@ export function RegionPanel() {
                   .map((m) =>
                     g.modalities.includes(m.id)
                       ? `${m.abbreviation} ✓`
-                      : `${m.abbreviation} —`,
+                      : `${m.abbreviation} –`,
                   )
                   .join("  ")}
               </p>
@@ -168,7 +168,7 @@ export function RegionPanel() {
           );
         })}
         <p className="border-t border-zinc-800/70 pt-2 text-[10px] leading-relaxed text-zinc-600">
-          Associations reflect the indexed studies above (each with DOI/PMID) —
+          Associations reflect the indexed studies above (each with DOI/PMID);
           they do not establish causation or diagnosis.
         </p>
       </div>

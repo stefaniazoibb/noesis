@@ -87,6 +87,15 @@ Still open: a test on a physical phone; Draco-compressing the cortex GLBs
 (the largest remaining transfer); making the repository public and
 deploying (owner decisions).
 
+## 2026-11-09 public release
+
+- Repository made public (abstract cache removed from history, #43);
+  design system v2 (#44): light scientific-publication style, Plex type,
+  monochrome UI, em-dash-free interface copy, overlay ramps re-ordered for
+  a light ground; landing story tracks steps by scroll position.
+- Temporary Vercel preview deployed without the API key (assistant in
+  keyless retrieval mode). A permanent deployment needs `vercel login`.
+
 ## Broken
 
 - None known. All gates green on 2026-11-09 (tsc, lint, 49 unit tests,

@@ -18,7 +18,7 @@ export function generateStaticParams() {
 export async function generateMetadata(props: PageProps<"/disorders/[id]">) {
   const { id } = await props.params;
   const disorder = getDisorder(id);
-  return { title: disorder ? `${disorder.name} — NOĒSIS` : "NOĒSIS" };
+  return { title: disorder ? `${disorder.name} · NOĒSIS` : "NOĒSIS" };
 }
 
 const HEMI_SHORT = { left: "L", right: "R", midline: "" };
@@ -82,7 +82,7 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
       <PersonalExperienceNote />
 
       <section className="mt-8 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Cross-modal evidence
         </h2>
         <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-sm">
@@ -102,7 +102,7 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
       </section>
 
       <section className="mt-4 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Implicated regions ({pairs.length})
         </h2>
         {pairs.length === 0 ? (
@@ -137,7 +137,7 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
         )}
         <p className="mt-3 text-[11px] text-zinc-600">
           &ldquo;Strong / Moderate / Emerging / Mixed&rdquo; are rule-based
-          labels over the indexed corpus (docs/METRICS.md) — not clinical
+          labels over the indexed corpus (docs/METRICS.md), not clinical
           consensus.
         </p>
       </section>
@@ -149,7 +149,7 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
       <ResearchOpportunities disorderId={disorder.id} />
 
       <section className="mt-4">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Indexed studies ({studies.length})
         </h2>
         <ul className="mt-2 space-y-2">
@@ -169,7 +169,7 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
       </div>
 
       <p className="mt-10 text-xs leading-relaxed text-zinc-600">
-        The indexed corpus is curated and small — it is not a systematic
+        The indexed corpus is curated and small; it is not a systematic
         review, and associations shown here do not establish causation or
         support diagnosis.
       </p>

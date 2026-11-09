@@ -18,10 +18,13 @@ embedding artifact sets, 8 ML runs, 49 unit tests, 49-check e2e suite.
   `/brain`, Evidence `/evidence`, Convergence `/convergence`, Research Gaps
   `/gaps`, Representations `/ml`, Ask NOĒSIS `/assistant`, About `/about`;
   "More" keeps `/disorders`, `/compare`, `/ml/lab`, `/notebook`.
-- **Design system** — `src/app/globals.css`: palette tokens, zinc/amber
-  scales remapped onto the palette (decision #33), Instrument Serif display
-  + Geist sans, reveal/route transitions disabled under reduced motion;
-  page primitives in `src/components/PageHeader.tsx`.
+- **Design system v2** — `src/app/globals.css`: scientific-publication
+  style (decision #44). Light paper ground, IBM Plex Sans + Plex Mono, a
+  monochrome interface with colour reserved for data; Tailwind zinc/amber
+  scales remapped onto the ink scale so every component follows (#33).
+  Landing: two-column text + pinned brain "plate" with figure captions,
+  position-based step tracking. Page primitives in
+  `src/components/PageHeader.tsx`.
 
 ## Stack
 

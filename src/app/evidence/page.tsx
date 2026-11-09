@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { EvidenceBrowser } from "@/evidence/EvidenceBrowser";
 
 export const metadata: Metadata = {
-  title: "Evidence — NOĒSIS",
+  title: "Evidence · NOĒSIS",
   description:
     "Browse the curated, DOI/PMID-verified study corpus by disorder, region, modality, direction and year, with full traceability to assertions and regions.",
 };

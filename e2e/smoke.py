@@ -37,7 +37,8 @@ def main() -> int:
         print("landing + nav")
         page.goto(BASE, timeout=120_000)
         page.wait_for_load_state("networkidle")
-        check("landing renders", "NOĒSIS" in page.locator("h1").inner_text())
+        check("landing renders", "Understanding the brain" in page.locator("h1").inner_text()
+              and "NOĒSIS" in page.locator("header").first.inner_text())
 
         print("3D brain")
         page.goto(f"{BASE}/brain", timeout=120_000)

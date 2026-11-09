@@ -39,7 +39,7 @@ export function FilterBar() {
 
   return (
     <div className="pointer-events-auto flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-950/80 p-1.5 backdrop-blur">
-      <span className="px-1 text-[10px] uppercase tracking-wider text-zinc-500">
+      <span className="px-1 font-mono text-[10px] text-zinc-500">
         Mode
       </span>
       {MODES.map((m) => (
@@ -110,7 +110,7 @@ export function FilterBar() {
             <label
               key={m.id}
               className="flex cursor-pointer items-center gap-1 px-1.5 py-1 text-xs text-zinc-400 hover:text-zinc-200"
-              title={`${m.name} — leave all unchecked to include every modality`}
+              title={`${m.name}. Leave all unchecked to include every modality`}
             >
               <input
                 type="checkbox"

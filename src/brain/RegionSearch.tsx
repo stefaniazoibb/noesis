@@ -44,7 +44,7 @@ export function RegionSearch() {
         aria-controls={listId}
         aria-autocomplete="list"
         aria-label="Find a brain region by anatomical name"
-        placeholder="Find a region — e.g. insula, amygdala"
+        placeholder="Find a region, e.g. insula or amygdala"
         value={q}
         onChange={(e) => {
           setQ(e.target.value);
@@ -67,7 +67,7 @@ export function RegionSearch() {
             setOpen(false);
           }
         }}
-        className="w-full rounded-lg border border-line bg-ink-2/85 px-3 py-2 text-xs text-text placeholder:text-text-3 backdrop-blur focus:border-amber/60 focus:outline-none"
+        className="w-full rounded-lg border border-line bg-ink-2/85 px-3 py-2 text-xs text-text placeholder:text-text-3 backdrop-blur focus:border-text focus:outline-none"
       />
       {open && results.length > 0 && (
         <ul

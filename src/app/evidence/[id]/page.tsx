@@ -12,7 +12,7 @@ export function generateStaticParams() {
 export async function generateMetadata(props: PageProps<"/evidence/[id]">) {
   const { id } = await props.params;
   const study = getStudy(id);
-  return { title: study ? `${study.title.slice(0, 60)}… — NOĒSIS` : "NOĒSIS" };
+  return { title: study ? `${study.title.slice(0, 60)}… · NOĒSIS` : "NOĒSIS" };
 }
 
 const HEMI = { left: "L", right: "R", midline: "" };
@@ -76,7 +76,7 @@ export default async function StudyPage(props: PageProps<"/evidence/[id]">) {
       </p>
 
       <section className="mt-6 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Indexed finding
         </h2>
         <p className="mt-1.5 text-sm leading-relaxed text-zinc-300">
@@ -130,12 +130,12 @@ export default async function StudyPage(props: PageProps<"/evidence/[id]">) {
       </section>
 
       <section className="mt-4 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Region assertions ({assertions.length})
         </h2>
         {assertions.length === 0 ? (
           <p className="mt-1.5 text-xs text-zinc-500">
-            This study is indexed at disorder level only — its abstract does
+            This study is indexed at disorder level only; its abstract does
             not name atlas-mappable regions (e.g. scalp-level EEG), so no
             region assertions were created.
           </p>
@@ -170,7 +170,7 @@ export default async function StudyPage(props: PageProps<"/evidence/[id]">) {
       </section>
 
       <section className="mt-4 rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
-        <h2 className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+        <h2 className="font-mono text-[11px] text-zinc-500">
           Curation record
         </h2>
         <dl className="mt-2 grid gap-x-6 gap-y-1.5 text-xs sm:grid-cols-2">
@@ -209,7 +209,7 @@ export default async function StudyPage(props: PageProps<"/evidence/[id]">) {
 
       <p className="mt-8 text-xs leading-relaxed text-zinc-600">
         The indexed finding is a faithful summary written from the study
-        abstract — always verify against the original publication via the
+        abstract. Always verify against the original publication via the
         DOI/PMID links above.
       </p>
     </main>

@@ -82,7 +82,7 @@ export function StrataAgreement({ disorderId }: { disorderId: string }) {
       {
         pair: "Curated corpus × NeuroQuery",
         rho: spearman(corpusV, metaV),
-        note: "distinct-study counts vs meta-analytic z — both literature-derived, so agreement here is curation/mining consistency",
+        note: "distinct-study counts vs meta-analytic z; both literature-derived, so agreement here is curation/mining consistency",
       },
     ];
     if (morphomap) {
@@ -91,12 +91,12 @@ export function StrataAgreement({ disorderId }: { disorderId: string }) {
         {
           pair: "Curated corpus × MRI morphometry",
           rho: spearman(corpusV, morphoV),
-          note: "study counts vs |Cohen's d| (single dataset) — literature attention vs one cohort's group anatomy",
+          note: "study counts vs |Cohen's d| (single dataset); literature attention vs one cohort's group anatomy",
         },
         {
           pair: "NeuroQuery × MRI morphometry",
           rho: spearman(metaV, morphoV),
-          note: "meta-analytic z vs |Cohen's d| — automated literature mining vs one cohort's group anatomy",
+          note: "meta-analytic z vs |Cohen's d|; automated literature mining vs one cohort's group anatomy",
         },
       );
     }
@@ -113,7 +113,7 @@ export function StrataAgreement({ disorderId }: { disorderId: string }) {
       <p className="mt-1 text-[11px] leading-relaxed text-zinc-500">
         Do independent evidence streams point at the same regions? Spearman
         rank correlation across all atlas regions. A consistency check
-        between strata — not validation of any single stream.
+        between strata, not validation of any single stream.
       </p>
       <div className="mt-3 space-y-2">
         {rows.map((row) => (

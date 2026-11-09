@@ -159,7 +159,7 @@ function LoadingOverlay() {
       aria-live="polite"
     >
       <div className="w-56 rounded-lg border border-line bg-ink-2/85 px-4 py-3 backdrop-blur">
-        <p className="text-[11px] uppercase tracking-[0.18em] text-text-3">
+        <p className="font-mono text-[11px] text-text-3">
           Loading fsaverage atlas
         </p>
         <div className="mt-2 h-px w-full bg-line">
@@ -205,13 +205,13 @@ export function BrainViewer() {
         onPointerMissed={() => selectRegion(null)}
       >
       <PerformanceMonitor onDecline={() => setDpr(1)} flipflops={1} />
-      <color attach="background" args={["#0b0e12"]} />
-      <hemisphereLight args={["#cdd6e0", "#26292e", 1.1]} />
+      <color attach="background" args={["#ecebe6"]} />
+      <hemisphereLight args={["#ffffff", "#8c8a84", 1.15]} />
       <directionalLight position={[-220, 260, -180]} intensity={1.7} />
       <directionalLight
         position={[200, -40, 220]}
         intensity={0.45}
-        color="#8fa8bd"
+        color="#dfe6ec"
       />
       {/* FreeSurfer surface RAS (z superior) → three.js y-up */}
       <group rotation={[-Math.PI / 2, 0, 0]}>

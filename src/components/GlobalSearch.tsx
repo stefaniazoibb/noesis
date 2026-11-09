@@ -80,7 +80,7 @@ export function GlobalSearch() {
             setOpen(false);
           }
         }}
-        className="w-full rounded-md border border-line bg-surface/70 px-3 py-1.5 text-xs text-text placeholder:text-text-3 focus:border-amber/60 focus:outline-none"
+        className="w-full rounded-md border border-line bg-surface/70 px-3 py-1.5 text-xs text-text placeholder:text-text-3 focus:border-text focus:outline-none"
       />
       {open && (
         <ul className="absolute left-0 right-0 top-full z-50 mt-1 max-h-96 overflow-y-auto rounded-md border border-zinc-800 bg-zinc-950/95 py-1 shadow-xl backdrop-blur">
@@ -98,7 +98,7 @@ export function GlobalSearch() {
                   <span className="line-clamp-2 text-xs text-zinc-200">
                     {r.title}
                   </span>
-                  <span className="shrink-0 text-[10px] uppercase tracking-wider text-zinc-500">
+                  <span className="shrink-0 font-mono text-[10px] text-zinc-500">
                     {TYPE_LABEL[r.type]}
                   </span>
                 </span>

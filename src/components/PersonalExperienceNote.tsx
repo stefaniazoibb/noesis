@@ -11,7 +11,7 @@ export function PersonalExperienceNote({
   if (compact) {
     return (
       <p className="mt-6 rounded-lg border border-zinc-800/70 bg-zinc-900/30 px-4 py-3 text-xs leading-relaxed text-zinc-400">
-        Research findings describe averages across many people — they often
+        Research findings describe averages across many people, and they often
         cannot capture any one person&rsquo;s experience. If these conditions
         touch your life, please talk with a licensed psychologist,
         psychiatrist, or neurologist you trust.
@@ -26,7 +26,7 @@ export function PersonalExperienceNote({
         often cannot describe any individual&rsquo;s experience of a
         condition. If you or someone close to you is affected by any of the
         disorders on this page, your experience matters beyond what research
-        summaries can capture — please discuss it with a licensed
+        summaries can capture. Please discuss it with a licensed
         psychologist, psychiatrist, or neurologist you trust.
       </p>
     </div>

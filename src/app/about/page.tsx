@@ -5,7 +5,7 @@ import { corpusCounts, gapCountsByRule } from "@/lib/evidence/summary";
 import { GITHUB_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About & methodology — NOĒSIS",
+  title: "About & methodology · NOĒSIS",
   description:
     "How NOĒSIS is built: curation pipeline, metric definitions, data sources, scientific-integrity rules and limitations.",
 };
@@ -24,7 +24,7 @@ const SOURCES = [
   { s: "PubMed (NCBI E-utilities)", u: "Study discovery, bibliographic metadata, abstracts for curation", l: "Metadata freely usable; abstracts never stored in /data" },
   { s: "OpenAlex", u: "DOI cross-check in the verification gate", l: "CC0" },
   { s: "Yeo et al. 2011 7-network parcellation", u: "Network memberships of DK regions", l: "MIT (CBIG repository)" },
-  { s: "NeuroQuery (Dockès et al. 2020)", u: "Model-generated meta-analytic maps — a separate, labelled stratum", l: "BSD-3-Clause" },
+  { s: "NeuroQuery (Dockès et al. 2020)", u: "Model-generated meta-analytic maps, a separate, labelled stratum", l: "BSD-3-Clause" },
   { s: "OpenNeuro ds004504 (Miltiadous et al. 2023)", u: "EEG spectral encoder (ML Lab), disorder-level only", l: "CC0" },
   { s: "OpenNeuro ds000030, UCLA CNP (Poldrack et al. 2016)", u: "MRI morphometry and fMRI connectivity encoders (ML Lab)", l: "CC0" },
 ];
@@ -34,7 +34,7 @@ export default function AboutPage() {
   const rules = gapCountsByRule();
   return (
     <main className="route-fade mx-auto w-full max-w-7xl flex-1 px-5 py-10 sm:px-8">
-      <PageHeader eyebrow="About · Methodology" title="How NOĒSIS works">
+      <PageHeader eyebrow="About" title="How NOĒSIS works">
         <p>
           NOĒSIS connects a real 3D brain atlas to a curated, DOI/PMID-verified evidence corpus,
           rule-based convergence and gap analytics, evidence-derived ML representations and a
@@ -140,9 +140,9 @@ export default function AboutPage() {
 
           <section>
             <H2 id="data-sources">Data sources</H2>
-            <div className="mt-6 overflow-x-auto rounded-xl border border-line">
+            <div className="mt-6 overflow-x-auto rounded-[4px] border border-line">
               <table className="w-full min-w-[36rem] text-left text-[12px]">
-                <thead className="bg-ink-2 text-[10px] uppercase tracking-[0.14em] text-text-3">
+                <thead className="bg-ink-2 font-mono text-[10px] text-text-3">
                   <tr>
                     <th className="px-4 py-2.5 font-normal">Source</th>
                     <th className="px-4 py-2.5 font-normal">Used for</th>
@@ -190,16 +190,16 @@ export default function AboutPage() {
           <section>
             <H2 id="project">Project &amp; code</H2>
             <p className="mt-4">
-              Built with Next.js, React Three Fiber and Zod-validated static artifacts — no runtime
+              Built with Next.js, React Three Fiber and Zod-validated static artifacts, with no runtime
               database and no Python in the deployed app. The offline pipeline (meshes, curation,
               embeddings, ML runs) is Python.
             </p>
             <ul className="mt-5 flex flex-wrap gap-3 text-[13px]">
               {GITHUB_URL && (
-                <li><a href={GITHUB_URL} target="_blank" rel="noreferrer" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-amber/50">GitHub repository</a></li>
+                <li><a href={GITHUB_URL} target="_blank" rel="noreferrer" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-text">GitHub repository</a></li>
               )}
-              <li><Link href="/ml/lab" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-amber/50">ML Lab model runs</Link></li>
-              <li><Link href="/evidence" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-amber/50">Evidence corpus</Link></li>
+              <li><Link href="/ml/lab" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-text">ML Lab model runs</Link></li>
+              <li><Link href="/evidence" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-text">Evidence corpus</Link></li>
             </ul>
             <p className="mt-4 text-[12px] text-text-3">
               Documentation in the repository: docs/NOESIS_ARCHITECTURE.md, docs/NOESIS_SCIENTIFIC_RULES.md,

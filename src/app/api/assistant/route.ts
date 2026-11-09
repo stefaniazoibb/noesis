@@ -72,7 +72,7 @@ function retrievalOnly(question: string) {
   if (retrieval.studies.length === 0) {
     return NextResponse.json({
       type: "retrieval",
-      answer: `${keyNote} No indexed records in the corpus match this question either — try naming a disorder, region or modality.`,
+      answer: `${keyNote} No indexed records in the corpus match this question either. Try naming a disorder, region or modality.`,
       citations: [],
       regions: [],
       flags: { strippedCitations: 0, uncitedSentences: 0 },
@@ -82,7 +82,7 @@ function retrievalOnly(question: string) {
   return NextResponse.json({
     type: "retrieval",
     answer:
-      `${keyNote} Below are the ${retrieval.studies.length} indexed records the assistant would synthesize from — the evidence itself, without interpretation.` +
+      `${keyNote} Below are the ${retrieval.studies.length} indexed records the assistant would synthesize from: the evidence itself, without interpretation.` +
       (entities.disorders.length + entities.regions.length + entities.modalities.length === 0
         ? " The question names no disorder, region or modality from the catalogue, so these records were matched by text only and may be loosely related. Corpus-wide coverage counts are on the Research Gaps page."
         : ""),
@@ -90,7 +90,7 @@ function retrievalOnly(question: string) {
     regions: answerRegions(entities.regions, retrieval),
     flags: { strippedCitations: 0, uncitedSentences: 0 },
     disclaimer:
-      "Retrieved by deterministic matching over the curated corpus — not a synthesis. Read the records themselves before drawing conclusions.",
+      "Retrieved by deterministic matching over the curated corpus, not a synthesis. Read the records themselves before drawing conclusions.",
   });
 }
 
@@ -113,7 +113,7 @@ function vizResponse(intent: Intent) {
     patch,
     selectRegion: intent.vizCommand?.selectRegion ?? null,
     explanation:
-      "Updated the visualization. Overlays show only indexed evidence — see the legend for the metric definition.",
+      "Updated the visualization. Overlays show only indexed evidence; see the legend for the metric definition.",
   });
 }
 
@@ -124,7 +124,7 @@ function noEvidenceAnswer() {
   return NextResponse.json({
     type: "answer",
     answer:
-      `No indexed evidence matches this question, so I can't answer it from the corpus — and I don't answer scientific questions from model memory. ` +
+      `No indexed evidence matches this question, so I can't answer it from the corpus, and I don't answer scientific questions from model memory. ` +
       `The current corpus covers ${getStudies().length} curated studies across ${disorders}, with fMRI, sMRI, EEG and TMS evidence.`,
     citations: [],
     flags: { strippedCitations: 0, uncitedSentences: 0 },
@@ -158,7 +158,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           type: "answer",
           answer:
-            "Tell me which disorder to generate research questions for (e.g. \"generate research questions about OCD\") — I derive them from that disorder's detected evidence gaps.",
+            "Tell me which disorder to generate research questions for (e.g. \"generate research questions about OCD\"). I derive them from that disorder's detected evidence gaps.",
           citations: [],
           flags: { strippedCitations: 0, uncitedSentences: 0 },
           disclaimer: null,
@@ -195,14 +195,14 @@ export async function POST(req: NextRequest) {
           uncitedSentences: 0,
         },
         disclaimer:
-          "AI-generated research opportunities based on the indexed evidence — not validated research conclusions.",
+          "AI-generated research opportunities based on the indexed evidence, not validated research conclusions.",
       });
     }
     if (intent.intent === "smalltalk") {
       return NextResponse.json({
         type: "answer",
         answer:
-          "I answer questions about the evidence indexed in NOĒSIS — brain regions, disorders, modalities and studies — and I can drive the 3D brain (e.g. \"show depression evidence, fMRI only\"). What would you like to explore?",
+          "I answer questions about the evidence indexed in NOĒSIS (brain regions, disorders, modalities and studies), and I can drive the 3D brain (e.g. \"show depression evidence, fMRI only\"). What would you like to explore?",
         citations: [],
         flags: { strippedCitations: 0, uncitedSentences: 0 },
         disclaimer: null,

@@ -124,7 +124,7 @@ export function toMarkdown(entries: NotebookEntry[]): string {
       if (e.subtitle) lines.push(e.subtitle);
       if (e.aiGenerated)
         lines.push(
-          "_AI-generated from the indexed evidence — not experimentally validated._",
+          "_AI-generated from the indexed evidence, not experimentally validated._",
         );
       if (e.body) lines.push("", e.body);
       if (e.citations?.length) {
