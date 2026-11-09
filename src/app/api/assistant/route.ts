@@ -6,13 +6,16 @@ import {
 } from "@/ai/provider";
 import { parseIntent, type Intent } from "@/ai/intent";
 import { retrieve } from "@/ai/retrieval";
-import { SYNTHESIS_SYSTEM, buildEvidenceContext } from "@/ai/prompts";
+import { SYNTHESIS_SYSTEM, buildEvidenceContext, corpusFacts } from "@/ai/prompts";
 import { validateCitations } from "@/ai/citations";
 import { getAtlas } from "@/lib/repo/atlas";
 import { getDisorders, getModalities } from "@/lib/repo/entities";
 import { getStudies } from "@/lib/repo/evidence";
 import { VizStatePatchSchema } from "@/lib/schemas";
 import { generateQuestion, rankedGapsFor } from "@/ai/questions";
+import { linkEntities } from "@/ai/linkEntities";
+import type { RetrievalResult } from "@/ai/retrieval";
+import type { Study } from "@/lib/schemas";
 
 const DISCLAIMER =
   "AI-generated synthesis based on indexed evidence. Verify against the original publications.";
@@ -23,6 +26,72 @@ function scientificTerms(): string[] {
     ...getModalities().flatMap((m) => [m.name, m.abbreviation]),
     ...getAtlas().regions.map((r) => r.name),
   ];
+}
+
+function citationOf(s: Study) {
+  return {
+    id: s.id,
+    title: s.title,
+    firstAuthor: s.authors[0] ?? null,
+    journal: s.journal,
+    year: s.year,
+    doi: s.doi,
+    pmid: s.pmid,
+    modalities: s.modalities,
+  };
+}
+
+/** Regions the answer concerns: named in the question first, then the
+ *  best-supported retrieved pairs — lets the UI drive the 3D atlas. */
+function answerRegions(intentRegions: string[], r: RetrievalResult): string[] {
+  const out: string[] = [...intentRegions];
+  for (const p of r.pairs) if (!out.includes(p.region)) out.push(p.region);
+  return out.slice(0, 6);
+}
+
+function hasCredentials(): boolean {
+  return Boolean(
+    process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN,
+  );
+}
+
+/**
+ * Graceful degradation without an API key: deterministic entity linking +
+ * the same deterministic retrieval, returned as source cards. No model is
+ * involved, so nothing is synthesized — the records are shown as-is.
+ */
+function retrievalOnly(question: string) {
+  const entities = linkEntities(question);
+  const retrieval = retrieve(question, {
+    intent: "question",
+    ...entities,
+    vizCommand: null,
+  });
+  const keyNote =
+    "Live AI synthesis needs an Anthropic API key (ANTHROPIC_API_KEY), which is not configured on this deployment.";
+  if (retrieval.studies.length === 0) {
+    return NextResponse.json({
+      type: "retrieval",
+      answer: `${keyNote} No indexed records in the corpus match this question either — try naming a disorder, region or modality.`,
+      citations: [],
+      regions: [],
+      flags: { strippedCitations: 0, uncitedSentences: 0 },
+      disclaimer: null,
+    });
+  }
+  return NextResponse.json({
+    type: "retrieval",
+    answer:
+      `${keyNote} Below are the ${retrieval.studies.length} indexed records the assistant would synthesize from — the evidence itself, without interpretation.` +
+      (entities.disorders.length + entities.regions.length + entities.modalities.length === 0
+        ? " The question names no disorder, region or modality from the catalogue, so these records were matched by text only and may be loosely related. Corpus-wide coverage counts are on the Research Gaps page."
+        : ""),
+    citations: retrieval.studies.map(citationOf),
+    regions: answerRegions(entities.regions, retrieval),
+    flags: { strippedCitations: 0, uncitedSentences: 0 },
+    disclaimer:
+      "Retrieved by deterministic matching over the curated corpus — not a synthesis. Read the records themselves before drawing conclusions.",
+  });
 }
 
 function vizResponse(intent: Intent) {
@@ -70,6 +139,8 @@ export async function POST(req: NextRequest) {
   if (!question || question.length > 2000) {
     return NextResponse.json({ error: "invalid_question" }, { status: 400 });
   }
+
+  if (!hasCredentials()) return retrievalOnly(question);
 
   try {
     const intent = (await parseIntent(question)) ?? {
@@ -151,29 +222,21 @@ export async function POST(req: NextRequest) {
       raw,
       new Set(retrieval.studies.map((s) => s.id)),
       scientificTerms(),
+      corpusFacts(),
     );
     const byId = new Map(retrieval.studies.map((s) => [s.id, s]));
-    const citations = validated.citedIds.map((id) => {
-      const s = byId.get(id)!;
-      return {
-        id,
-        title: s.title,
-        journal: s.journal,
-        year: s.year,
-        doi: s.doi,
-        pmid: s.pmid,
-      };
-    });
+    const citations = validated.citedIds.map((id) => citationOf(byId.get(id)!));
 
     return NextResponse.json({
       type: "answer",
       answer: validated.text,
       citations,
       flags: {
-        strippedCitations: validated.strippedIds.length,
+        strippedCitations: validated.strippedIds.length + validated.strippedCorpusMarkers,
         uncitedSentences: validated.uncitedScientificSentences,
       },
       retrieved: retrieval.studies.length,
+      regions: answerRegions(intent.regions, retrieval),
       disclaimer: DISCLAIMER,
     });
   } catch (err) {
@@ -186,16 +249,7 @@ export async function POST(req: NextRequest) {
         disclaimer: null,
       });
     }
-    if (isAuthError(err)) {
-      return NextResponse.json(
-        {
-          error: "no_credentials",
-          message:
-            "The AI assistant needs an Anthropic API key. Add ANTHROPIC_API_KEY to .env.local and restart the dev server.",
-        },
-        { status: 503 },
-      );
-    }
+    if (isAuthError(err)) return retrievalOnly(question);
     console.error("assistant route error:", err);
     return NextResponse.json({ error: "assistant_failed" }, { status: 500 });
   }

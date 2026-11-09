@@ -7,7 +7,7 @@ import { featureLabel } from "./labels";
 export function LoadingsPanel({ loadings }: { loadings: Loadings | null }) {
   if (!loadings) return null;
   return (
-    <details className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-3">
+    <details open className="rounded-xl border border-line bg-ink-2/70 p-4">
       <summary className="cursor-pointer text-xs font-medium text-zinc-300">
         What do the PCA axes mean?
       </summary>

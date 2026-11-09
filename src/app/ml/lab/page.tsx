@@ -231,9 +231,9 @@ export default function LabPage() {
   const { state, error } = useRuns();
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-6">
+    <main className="route-fade mx-auto w-full max-w-5xl flex-1 px-5 py-10 sm:px-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-2xl font-light tracking-wide text-zinc-100">
+        <h1 className="font-serif text-[40px] leading-tight text-zinc-100">
           ML Lab — model runs
         </h1>
         <Link

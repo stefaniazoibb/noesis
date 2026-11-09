@@ -18,6 +18,20 @@ export function GlobalSearch() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const rootRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // "/" focuses search from anywhere (unless already typing)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (e.key !== "/" || e.metaKey || e.ctrlKey) return;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable)) return;
+      e.preventDefault();
+      inputRef.current?.focus();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -44,11 +58,12 @@ export function GlobalSearch() {
   };
 
   return (
-    <div ref={rootRef} className="relative w-64 max-w-[40vw]">
+    <div ref={rootRef} className="relative w-full md:w-56 xl:w-72">
       <input
+        ref={inputRef}
         type="search"
         value={query}
-        placeholder="Search regions, disorders, studies, DOI/PMID…"
+        placeholder="Search regions, disorders, DOI/PMID…  /"
         aria-label="Global search"
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => setOpen(results.length > 0)}
@@ -65,7 +80,7 @@ export function GlobalSearch() {
             setOpen(false);
           }
         }}
-        className="w-full rounded-md border border-zinc-800 bg-zinc-900/70 px-3 py-1.5 text-xs text-zinc-200 placeholder:text-zinc-600 focus:border-zinc-600 focus:outline-none"
+        className="w-full rounded-md border border-line bg-surface/70 px-3 py-1.5 text-xs text-text placeholder:text-text-3 focus:border-amber/60 focus:outline-none"
       />
       {open && (
         <ul className="absolute left-0 right-0 top-full z-50 mt-1 max-h-96 overflow-y-auto rounded-md border border-zinc-800 bg-zinc-950/95 py-1 shadow-xl backdrop-blur">

@@ -1,10 +1,27 @@
 # NOĒSIS — Current Architecture (as-built)
 
-Status date: 2026-08-11. This documents what **exists in the repository**;
-the founding design is `docs/ARCHITECTURE.md` (v1 blueprint, still accurate
-in its principles). Numbers: ~5.7k lines TS/TSX (63 files), ~1.8k lines
-Python, 2.3 MB mesh assets, 62 studies / 236 assertions / 19 disorders,
-3 embedding artifact sets, 20 unit tests, 14 commits.
+Status date: 2026-11-09 (redesign branch `redesign-2026-11`). This documents
+what **exists in the repository**; the founding design is
+`docs/ARCHITECTURE.md` (v1 blueprint, still accurate in its principles).
+Numbers: 89 studies / 355 assertions / 19 disorders / 83 regions, 3
+embedding artifact sets, 8 ML runs, 49 unit tests, 49-check e2e suite.
+
+## Product surfaces (2026-11 redesign)
+
+- **Landing `/`** — scroll-driven story, statically prerendered:
+  hero + "brain as a map" share one sticky `ShowcaseBrain` canvas
+  (`src/landing/AtlasStory.tsx`), then evidence at scale, convergence,
+  disagreement, gaps, representations, Ask, closing. Every number comes
+  from `src/lib/evidence/summary.ts` at build time; the Ask section shows
+  the real deterministic retrieval (`retrieve()`) for one question.
+- **Application** (primary nav, `src/components/AppShell.tsx`): Explore
+  `/brain`, Evidence `/evidence`, Convergence `/convergence`, Research Gaps
+  `/gaps`, Representations `/ml`, Ask NOĒSIS `/assistant`, About `/about`;
+  "More" keeps `/disorders`, `/compare`, `/ml/lab`, `/notebook`.
+- **Design system** — `src/app/globals.css`: palette tokens, zinc/amber
+  scales remapped onto the palette (decision #33), Instrument Serif display
+  + Geist sans, reveal/route transitions disabled under reduced motion;
+  page primitives in `src/components/PageHeader.tsx`.
 
 ## Stack
 
@@ -55,8 +72,11 @@ src/
                         gap rules, overlay computation (all modes)
   lib/ml/               similarity (cosine/kNN), embeddings loader
   ai/                   provider (opus-5 synth + haiku intent, env-overridable),
-                        intent, retrieval, prompts, citations validator,
-                        questions (gap->question pipeline)
+                        intent, linkEntities (no-model fallback), retrieval,
+                        prompts (+ corpus coverage block), citations validator
+                        ([corpus] marker), questions (gap->question pipeline)
+  landing/              AtlasStory, ShowcaseBrain, RepresentationPreview, ui
+  lib/evidence/summary  build-time corpus summaries for landing/about/gaps
   ml/ components/ evidence/ search/ state/  UI + MiniSearch + zustand VizState
 scripts/                validate-data.ts (CI gate), report-gaps.ts
 docs/                   ARCHITECTURE (blueprint), METRICS, NOESIS_* (this set)
@@ -84,8 +104,17 @@ docs/                   ARCHITECTURE (blueprint), METRICS, NOESIS_* (this set)
 - **Research questions**: deterministic gap ranking (magnitude × published
   rule weight) + fixed question type per rule + grounded package -> LLM prose
   -> citation validation. LLM never scores/ranks/picks targets.
-- **Deep links**: /brain?region|disorder|disorder2(-)|mode|modality; search
-  results and pages navigate into configured viz states.
+- **Deep links**: /brain?region|disorder|disorder2(-)|mode|modality (a
+  region deep link also flies the camera to it); /convergence?disorder&region;
+  /gaps?rule&disorder; /evidence?disorder|region|modality|q; /assistant?q.
+- **Camera rig** (`BrainViewer` `CameraRig`): eased presets, reset, and
+  fly-to-region using centroids computed from the real mesh vertices
+  (`src/brain/regionGeometry.ts`); instant under reduced motion; portrait
+  screens start further out.
+- **Assistant fallback**: no `ANTHROPIC_API_KEY` → deterministic entity
+  linking (`src/ai/linkEntities.ts`) + the same retrieval, returned as
+  source cards labelled "no AI synthesis" (decision #37). Answers carry the
+  regions they concern so the UI can drive the atlas.
 
 ## Cross-cutting constraints
 

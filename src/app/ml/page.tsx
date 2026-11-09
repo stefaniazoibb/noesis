@@ -16,6 +16,7 @@ import { Scatter, type ScatterCategory, type ScatterPoint } from "@/ml/Scatter";
 import { DetailPanel } from "@/ml/DetailPanel";
 import { LoadingsPanel } from "@/ml/LoadingsPanel";
 import { entityLabel, modalityCategoryOf } from "@/ml/labels";
+import { PageHeader, Panel, Segmented } from "@/components/PageHeader";
 
 const ENTITIES: { key: EmbeddingEntity; label: string }[] = [
   { key: "region", label: "Regions" },
@@ -58,6 +59,7 @@ interface Loaded {
 export default function MlPage() {
   const [entity, setEntity] = useState<EmbeddingEntity>("region");
   const [projectionChoice, setProjectionChoice] = useState<string>("umap");
+  const [query, setQuery] = useState("");
   const [loaded, setLoaded] = useState<Loaded | null>(null);
   // brain -> representation-space bridge: arriving from the 3D brain with a
   // selected region opens that region here (navigation remounts this page)
@@ -125,44 +127,45 @@ export default function MlPage() {
     });
   }, [set, projection, entity, studyCounts]);
 
+  const matches = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (q.length < 2) return null;
+    return new Set(points.filter((p) => p.label.toLowerCase().includes(q)).map((p) => p.id));
+  }, [query, points]);
+
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-6">
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-2xl font-light tracking-wide text-zinc-100">
-          Representation space
-        </h1>
-        <p className="text-xs text-zinc-500">
-          Learned evidence-space representation — not anatomical distance.
-          {" · "}
+    <main className="route-fade mx-auto w-full max-w-7xl flex-1 px-5 py-10 sm:px-8">
+      <PageHeader
+        eyebrow="Research application · Representations"
+        title="Representation space"
+        actions={
           <Link
             href="/ml/lab"
-            className="text-zinc-400 underline-offset-2 hover:text-zinc-200 hover:underline"
+            className="rounded-md border border-line px-3 py-1.5 text-[12px] text-text-2 hover:border-amber/50 hover:text-text"
           >
-            Model runs →
+            Validated model runs →
           </Link>
+        }
+      >
+        <p>
+          Regions, disorders and studies embedded by their evidence profiles — which modalities,
+          regions and findings the corpus links them to. Nearby points have similar{" "}
+          <em>evidence profiles</em>; that is computational similarity over a curated corpus, not
+          anatomical distance, shared biology or clinical equivalence.
         </p>
-      </div>
+      </PageHeader>
 
-      <div className="mt-4 flex flex-wrap items-center gap-1">
-        {ENTITIES.map((e) => (
-          <button
-            key={e.key}
-            type="button"
-            aria-pressed={entity === e.key}
-            onClick={() => {
-              setEntity(e.key);
-              setSelected(null);
-            }}
-            className={`rounded px-2.5 py-1 text-xs transition-colors ${
-              entity === e.key
-                ? "bg-zinc-700/80 text-zinc-100"
-                : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"
-            }`}
-          >
-            {e.label}
-          </button>
-        ))}
-        <span className="mx-2 h-4 w-px bg-zinc-800" aria-hidden />
+      <div className="mt-8 flex flex-wrap items-center gap-3">
+        <Segmented
+          label="Entity type"
+          value={entity}
+          onChange={(v) => {
+            setEntity(v);
+            setSelected(null);
+            setQuery("");
+          }}
+          options={ENTITIES.map((e) => ({ value: e.key, label: e.label }))}
+        />
         {["umap", "pca"].map((p) => {
           const available = !!set?.manifest.projections[p];
           return (
@@ -187,7 +190,42 @@ export default function MlPage() {
             </button>
           );
         })}
+        <div className="relative ml-auto w-full sm:w-72">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && matches && matches.size > 0) {
+                setSelected([...matches][0]);
+              }
+            }}
+            placeholder={`Find a ${entity}…`}
+            aria-label={`Find a ${entity} in the plot`}
+            className="w-full rounded-md border border-line bg-surface px-3 py-1.5 text-[12px] text-text placeholder:text-text-3 focus:border-amber/60 focus:outline-none"
+          />
+          {matches && (
+            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] tabular-nums text-text-3">
+              {matches.size} match{matches.size === 1 ? "" : "es"}
+            </span>
+          )}
+        </div>
       </div>
+      {matches && matches.size > 0 && matches.size <= 8 && (
+        <ul className="mt-2 flex flex-wrap gap-1.5">
+          {[...matches].map((id) => (
+            <li key={id}>
+              <button
+                type="button"
+                onClick={() => setSelected(id)}
+                className="rounded border border-line px-2 py-0.5 text-[11px] text-text-2 hover:border-cyan/50 hover:text-text"
+              >
+                {entityLabel(entity, id)}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {error && (
         <p className="mt-6 text-sm text-amber-600/90">
@@ -211,6 +249,7 @@ export default function MlPage() {
               selectedId={selected}
               onSelect={setSelected}
               directLabels={entity === "disorder"}
+              highlightIds={matches}
             />
             <p className="mt-2 text-[10px] leading-relaxed text-zinc-600">
               {set.manifest.method} · corpus {set.manifest.corpusVersion} ·
@@ -222,7 +261,34 @@ export default function MlPage() {
             </p>
           </div>
           <aside className="w-full shrink-0 space-y-3 lg:w-80">
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950/60 p-4">
+            <Panel className="p-4">
+              <h2 className="text-[13px] text-text">Reading this plot</h2>
+              <dl className="mt-2 space-y-2 text-[11px] leading-relaxed">
+                <div>
+                  <dt className="text-text-2">What a point is</dt>
+                  <dd className="text-text-3">
+                    One {entity}, described by log-scaled, standardised counts of its indexed
+                    evidence per modality category, region or disorder.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-text-2">{projection === "pca" ? "What the axes are" : "What UMAP preserves"}</dt>
+                  <dd className="text-text-3">
+                    {projection === "pca"
+                      ? "Principal components — linear axes with published loadings (below)."
+                      : "Local neighbourhoods only. Axis values, cluster sizes and between-cluster distances carry no meaning."}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-text-2">What proximity is not</dt>
+                  <dd className="text-text-3">
+                    Anatomical distance, shared mechanism, or clinical similarity. Entities with
+                    little indexed evidence can sit together simply because they are sparse.
+                  </dd>
+                </div>
+              </dl>
+            </Panel>
+            <div className="rounded-xl border border-line bg-ink-2/70 p-4">
               <DetailPanel
                 entity={entity}
                 set={set}

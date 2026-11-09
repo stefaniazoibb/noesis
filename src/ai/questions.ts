@@ -133,7 +133,8 @@ const SYSTEM = `You write ONE research question for NOĒSIS, grounded ONLY in th
 2. Cite supporting studies inline as [study_id] in the rationale (only ids present in the package).
 3. Hedged, association-level language. The hypothesis must be framed as requiring empirical validation.
 4. methodologyNotes: 1-2 sentences of practical study-design considerations. limitations: 1-2 sentences, including that the gap is derived from a small curated corpus.
-5. Be concise: one sentence for the question; 2-3 sentences each for the rest.`;
+5. Be concise: one sentence for the question; 2-3 sentences each for the rest.
+6. Propose only measurements the candidate modalities can actually make in humans. Scalp EEG/MEG record population activity at the scalp and cannot measure single-neuron firing or deep-structure activity directly; TMS reaches superficial cortex, not deep subcortical structures. If a modality cannot reach the region, say so and frame the question around what it can measure (e.g. cortical correlates or network-level signals).`
 
 export interface ResearchQuestion {
   question: string;

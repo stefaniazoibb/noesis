@@ -28,12 +28,12 @@ export default async function StudyPage(props: PageProps<"/evidence/[id]">) {
   );
 
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-10">
+    <main className="route-fade mx-auto w-full max-w-3xl flex-1 px-5 py-10 sm:px-8">
       <Link href="/evidence" className="text-xs text-zinc-500 hover:text-zinc-300">
         ← Evidence browser
       </Link>
       <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
-        <h1 className="min-w-0 break-words text-xl font-light leading-snug text-zinc-100">
+        <h1 className="min-w-0 break-words font-serif text-[30px] leading-tight text-zinc-100">
           {study.title}
         </h1>
         <SaveToNotebook

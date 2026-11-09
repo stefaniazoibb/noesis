@@ -43,12 +43,12 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
   );
 
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-10">
+    <main className="route-fade mx-auto w-full max-w-3xl flex-1 px-5 py-10 sm:px-8">
       <Link href="/disorders" className="text-xs text-zinc-500 hover:text-zinc-300">
         ← Disorder library
       </Link>
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="min-w-0 break-words text-2xl font-light tracking-wide text-zinc-100">
+        <h1 className="min-w-0 break-words font-serif text-[40px] leading-tight text-zinc-100">
           {disorder.name}
         </h1>
         <div className="flex shrink-0 items-center gap-2">

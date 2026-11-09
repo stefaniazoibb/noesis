@@ -9,6 +9,11 @@ import { useSidecar, type SidecarData } from "./sidecar";
 import { createCortexAssets } from "./cortexMaterial";
 import { useOverlayResult } from "./useOverlay";
 import { hexToRgb } from "@/lib/evidence/overlay";
+import {
+  centroidsFromVertices,
+  rasToWorld,
+  registerCentroid,
+} from "./regionGeometry";
 
 function firstGeometry(scene: THREE.Object3D): THREE.BufferGeometry | null {
   let g: THREE.BufferGeometry | null = null;
@@ -44,6 +49,15 @@ export function CortexHemisphere({ hemi }: { hemi: "lh" | "rh" }) {
         "aRegion",
         new THREE.BufferAttribute(Float32Array.from(sidecar.vertexRegion), 1),
       );
+    }
+    if (geometry && sidecar) {
+      const pos = geometry.getAttribute("position");
+      const c = centroidsFromVertices(
+        pos.array as ArrayLike<number>,
+        sidecar.vertexRegion,
+        sidecar.regionIndexToId,
+      );
+      for (const [id, [x, y, z]] of c) registerCentroid(id, rasToWorld(x, y, z));
     }
   }, [geometry, sidecar]);
 

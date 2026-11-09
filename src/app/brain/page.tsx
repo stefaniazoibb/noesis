@@ -12,6 +12,7 @@ import { ViewerControls } from "@/brain/ViewerControls";
 import { FilterBar } from "@/brain/FilterBar";
 import { Legend } from "@/brain/Legend";
 import { HoverLabel } from "@/brain/HoverLabel";
+import { RegionSearch } from "@/brain/RegionSearch";
 import { AssistantPanel } from "@/components/AssistantPanel";
 
 /** Applies ?region= / ?disorder= / ?mode= / ?modality= once on mount, so
@@ -32,6 +33,7 @@ function DeepLink() {
     if (region && getRegion(region)) {
       s.selectRegion(region);
       if (region.startsWith("sub_")) s.setShowSubcortical(true);
+      s.requestFocus(region);
     }
     if (disorder && getDisorder(disorder)) {
       if (disorder2 && getDisorder(disorder2)) {
@@ -55,23 +57,26 @@ function DeepLink() {
 
 export default function BrainPage() {
   const [assistantOpen, setAssistantOpen] = useState(false);
+  const [legendOpen, setLegendOpen] = useState(true);
   return (
-    <div className="relative min-h-0 flex-1">
+    <div className="relative min-h-[34rem] flex-1 overflow-hidden">
       <Suspense fallback={null}>
         <DeepLink />
       </Suspense>
       <div className="absolute inset-0">
         <BrainViewer />
       </div>
-      <div className="pointer-events-none absolute inset-0 flex flex-col justify-between p-4">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex max-w-[60%] flex-col items-start gap-2">
+      {/* overlay chrome: stacks on narrow screens, floats on wide ones */}
+      <div className="pointer-events-none absolute inset-0 flex flex-col justify-between gap-3 p-3 sm:p-4">
+        <div className="flex flex-col items-stretch gap-3 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex min-w-0 flex-col items-start gap-2 lg:max-w-[58%]">
             <FilterBar />
             <ViewerControls />
+            <RegionSearch />
           </div>
           <RegionPanel />
         </div>
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex flex-col-reverse items-stretch gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div className="pointer-events-auto flex flex-col items-start gap-2">
             {assistantOpen && <AssistantPanel variant="drawer" />}
             <div className="flex items-end gap-2">
@@ -79,14 +84,24 @@ export default function BrainPage() {
                 type="button"
                 onClick={() => setAssistantOpen((v) => !v)}
                 aria-expanded={assistantOpen}
-                className="rounded-md border border-zinc-800 bg-zinc-950/80 px-3 py-1.5 text-xs text-zinc-300 backdrop-blur transition-colors hover:border-zinc-700 hover:text-zinc-100"
+                className="rounded-md border border-line bg-ink-2/85 px-3 py-1.5 text-xs text-text-2 backdrop-blur transition-colors hover:border-amber/50 hover:text-text"
               >
-                {assistantOpen ? "Close assistant" : "Assistant"}
+                {assistantOpen ? "Close assistant" : "Ask NOĒSIS"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setLegendOpen((v) => !v)}
+                aria-expanded={legendOpen}
+                className="rounded-md border border-line bg-ink-2/85 px-3 py-1.5 text-xs text-text-2 backdrop-blur transition-colors hover:text-text sm:hidden"
+              >
+                {legendOpen ? "Hide legend" : "Legend"}
               </button>
               <HoverLabel />
             </div>
           </div>
-          <Legend />
+          <div className={legendOpen ? "pointer-events-none flex justify-end" : "hidden sm:flex sm:justify-end"}>
+            <Legend />
+          </div>
         </div>
       </div>
     </div>

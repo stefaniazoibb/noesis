@@ -139,6 +139,98 @@ def main() -> int:
             "Anthropic API key" in text or "[1]" in text or "corpus" in text,
         )
 
+
+        print("landing narrative (data-driven)")
+        import json, pathlib
+        root = pathlib.Path(__file__).parent.parent
+        n_studies = len(json.loads((root / "data/studies/studies.json").read_text()))
+        n_assert = len(json.loads((root / "data/evidence/assertions.json").read_text()))
+        page.goto(BASE, timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        ev = page.locator("#evidence")
+        ev.scroll_into_view_if_needed()
+        page.wait_for_timeout(2500)
+        ev_text = ev.inner_text()
+        check("landing counters match the data files",
+              str(n_studies) in ev_text and str(n_assert) in ev_text)
+        check("provenance chain links a DOI/PMID",
+              page.locator("#evidence a[href*='doi.org'], #evidence a[href*='pubmed']").count() > 0)
+        for sid in ["convergence", "disagreement", "gaps", "representations", "ask", "enter"]:
+            check(f"landing section #{sid}", page.locator(f"#{sid}").count() == 1)
+        check("ask section shows real source cards",
+              page.locator("#ask a[href^='/evidence/study_']").count() >= 3)
+        check("landing page scrolls (no scroll lock)",
+              page.evaluate("document.documentElement.scrollHeight > 4 * window.innerHeight"))
+
+        print("explore: anatomical search")
+        page.goto(f"{BASE}/brain", timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(4000)
+        page.get_by_label("Find a brain region by anatomical name").fill("insula")
+        page.wait_for_timeout(300)
+        page.keyboard.press("Enter")
+        page.wait_for_timeout(1500)
+        check("region search selects the region", "Insula" in page.locator("aside").inner_text())
+        page.get_by_role("button", name="Reset view").click()
+        page.wait_for_timeout(800)
+        check("reset view clears the selection", "Insula" not in page.locator("aside").inner_text())
+
+        print("convergence explorer")
+        page.goto(f"{BASE}/convergence", timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(1000)
+        check("convergence profiles listed", page.locator("tbody tr").count() >= 10)
+        page.get_by_role("button", name="≥2 categories").click()
+        page.wait_for_timeout(500)
+        rows = page.locator("tbody tr").count()
+        check("≥2-category filter narrows the table", 0 < rows < 40)
+        page.locator("tbody tr button[aria-expanded]").first.click()
+        page.wait_for_timeout(500)
+        check("profile expands to its studies",
+              page.locator("tbody a[href^='/evidence/study_']").count() > 0)
+
+        print("research gaps")
+        page.goto(f"{BASE}/gaps", timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(1000)
+        gtext = page.locator("main").inner_text()
+        check("gap cards with provenance", page.locator("main li a[href^='/evidence/study_']").count() > 5)
+        check("modality matrix + sparse coverage",
+              "Missing modality combinations" in gtext and "sparse coverage" in gtext)
+        check("curation-gap caveat shown", "curation gap" in gtext)
+
+        print("evidence traceability")
+        page.goto(f"{BASE}/evidence?disorder=autism_spectrum_disorder", timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(800)
+        page.get_by_role("button", name="Trace evidence").first.click()
+        page.wait_for_timeout(500)
+        check("trace panel lists region assertions",
+              page.locator("aside a[href^='/brain?region=']").count() > 0)
+
+        print("about")
+        page.goto(f"{BASE}/about", timeout=60_000)
+        page.wait_for_load_state("networkidle")
+        atext = page.locator("main").inner_text()
+        check("about: methodology, metrics, sources, limitations",
+              all(k in atext for k in ["Methodology", "Metric definitions", "Data sources", "Limitations"]))
+
+        print("mobile")
+        m = browser.new_page(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
+        m.on("pageerror", lambda e: console_errors.append(str(e)))
+        for path in ["/", "/brain", "/evidence", "/convergence", "/gaps", "/ml", "/assistant", "/about"]:
+            m.goto(f"{BASE}{path}", timeout=60_000)
+            m.wait_for_load_state("networkidle")
+            m.wait_for_timeout(800)
+            over = m.evaluate("document.documentElement.scrollWidth - window.innerWidth")
+            check(f"mobile {path}: no horizontal page scroll", over <= 1)
+        m.goto(BASE, timeout=60_000)
+        m.get_by_role("button", name="Menu").click()
+        m.wait_for_timeout(300)
+        check("mobile menu lists sections",
+              m.locator("#mobile-nav a[href='/convergence']").count() == 1)
+        m.close()
+
         browser.close()
 
     filtered = [e for e in console_errors if "503" not in e]

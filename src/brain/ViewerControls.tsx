@@ -2,7 +2,7 @@
 
 import { useVizStore, type ViewPresetName } from "@/state/vizStore";
 
-const VIEWS: { name: ViewPresetName; label: string }[] = [
+const VIEWS: { name: Exclude<ViewPresetName, "reset">; label: string }[] = [
   { name: "left", label: "L" },
   { name: "right", label: "R" },
   { name: "anterior", label: "Ant" },
@@ -45,6 +45,7 @@ export function ViewerControls() {
   const showSub = useVizStore((s) => s.showSubcortical);
   const setShowSubcortical = useVizStore((s) => s.setShowSubcortical);
   const requestView = useVizStore((s) => s.requestView);
+  const resetView = useVizStore((s) => s.resetView);
 
   return (
     <div className="pointer-events-auto flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-950/80 p-1.5 backdrop-blur">
@@ -82,6 +83,15 @@ export function ViewerControls() {
           {v.label}
         </Toggle>
       ))}
+      <span className="mx-1 h-4 w-px bg-zinc-800" aria-hidden />
+      <button
+        type="button"
+        onClick={resetView}
+        title="Return the camera home and clear the selection"
+        className="rounded px-2 py-1 text-xs text-amber/90 transition-colors hover:bg-zinc-800/60 hover:text-amber"
+      >
+        Reset view
+      </button>
     </div>
   );
 }

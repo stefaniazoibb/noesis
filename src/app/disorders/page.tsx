@@ -16,9 +16,9 @@ const CATEGORY_LABEL = {
 export default function DisordersPage() {
   const disorders = getDisorders();
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-10">
+    <main className="route-fade mx-auto w-full max-w-3xl flex-1 px-5 py-10 sm:px-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-2xl font-light tracking-wide text-zinc-100">
+        <h1 className="font-serif text-[40px] leading-tight text-zinc-100">
           Disorder library
         </h1>
         <Link

@@ -20,10 +20,13 @@ export function RegionPanel() {
 
   if (!region) {
     return (
-      <aside className="pointer-events-auto w-80 max-w-[calc(100vw-2rem)] rounded-lg border border-zinc-800 bg-zinc-950/80 p-5 backdrop-blur">
-        <p className="text-sm text-zinc-400">
-          Rotate, zoom, and hover to explore the atlas. Click a region to
-          inspect its evidence.
+      <aside className="pointer-events-auto hidden w-80 max-w-[calc(100vw-2rem)] rounded-lg border border-zinc-800 bg-zinc-950/80 p-5 backdrop-blur sm:block">
+        <p className="text-[10px] uppercase tracking-[0.18em] text-text-3">
+          Desikan-Killiany · fsaverage
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+          Drag to rotate, scroll to zoom, hover to name a region. Click a
+          region — or find it by name — to inspect its indexed evidence.
         </p>
       </aside>
     );
@@ -33,7 +36,7 @@ export function RegionPanel() {
   const allModalities = getModalities();
 
   return (
-    <aside className="pointer-events-auto flex max-h-[70vh] w-96 max-w-[calc(100vw-2rem)] flex-col rounded-lg border border-zinc-800 bg-zinc-950/85 backdrop-blur">
+    <aside className="pointer-events-auto flex max-h-[42vh] w-full flex-col rounded-lg border border-zinc-800 bg-zinc-950/90 backdrop-blur lg:max-h-[70vh] lg:w-96">
       <div className="border-b border-zinc-800/70 p-4">
         <div className="flex items-start justify-between gap-3">
           <div>
@@ -74,7 +77,20 @@ export function RegionPanel() {
             aria-hidden
           />
         </div>
-        <div className="mt-2 flex items-center gap-3">
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+          <button
+            type="button"
+            onClick={() => useVizStore.getState().requestFocus(region.id)}
+            className="text-[11px] text-amber/90 underline decoration-amber/30 hover:text-amber"
+          >
+            Fly to region
+          </button>
+          <Link
+            href={`/convergence?region=${region.id}`}
+            className="text-[11px] text-zinc-500 underline decoration-zinc-700 hover:text-zinc-300"
+          >
+            Convergence profile →
+          </Link>
           <Link
             href="/ml"
             className="text-[11px] text-zinc-500 underline decoration-zinc-700 hover:text-zinc-300"

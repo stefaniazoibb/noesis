@@ -31,12 +31,15 @@ export function Scatter({
   selectedId,
   onSelect,
   directLabels = false,
+  highlightIds,
 }: {
   points: ScatterPoint[];
   categories: ScatterCategory[];
   selectedId: string | null;
   onSelect: (id: string | null) => void;
   directLabels?: boolean;
+  /** search matches: drawn with a ring; non-matches are dimmed */
+  highlightIds?: Set<string> | null;
 }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [transform, setTransform] = useState<ZoomTransform>(zoomIdentity);
@@ -94,15 +97,27 @@ export function Scatter({
           const cy = transform.applyY(ys(p.y));
           if (cx < -20 || cx > W + 20 || cy < -20 || cy > H + 20) return null;
           const selected = p.id === selectedId;
+          const dimmed = !!highlightIds && highlightIds.size > 0 && !highlightIds.has(p.id) && !selected;
+          const matched = !!highlightIds && highlightIds.has(p.id);
           return (
-            <g key={p.id}>
+            <g key={p.id} opacity={dimmed ? 0.22 : 1}>
+              {matched && !selected && (
+                <circle
+                  cx={cx}
+                  cy={cy}
+                  r={(p.r ?? 5) + 3.5}
+                  fill="none"
+                  stroke="#6fc6d2"
+                  strokeWidth={1.5}
+                />
+              )}
               {selected && (
                 <circle
                   cx={cx}
                   cy={cy}
                   r={(p.r ?? 5) + 4}
                   fill="none"
-                  stroke="#d9a441"
+                  stroke="#d9a45b"
                   strokeWidth={2}
                 />
               )}
@@ -111,7 +126,7 @@ export function Scatter({
                 cy={cy}
                 r={(p.r ?? 5) + (hover?.id === p.id ? 1.5 : 0)}
                 fill={colorOf.get(p.category) ?? "#888"}
-                stroke="#0b0d10"
+                stroke="#121820"
                 strokeWidth={1}
                 className="cursor-pointer"
                 onClick={(e) => {
@@ -138,9 +153,17 @@ export function Scatter({
           );
         })}
       </svg>
-      {hover && !directLabels && (
-        <div className="pointer-events-none absolute left-2 top-2 rounded border border-zinc-800 bg-zinc-950/90 px-2 py-1 text-xs text-zinc-200">
+      {hover && (
+        <div
+          role="tooltip"
+          className="pointer-events-none absolute z-10 max-w-64 -translate-x-1/2 -translate-y-full rounded-md border border-line bg-ink px-2.5 py-1.5 text-[11px] text-text shadow-lg"
+          style={{
+            left: `${(transform.applyX(xs(hover.x)) / W) * 100}%`,
+            top: `calc(${(transform.applyY(ys(hover.y)) / H) * 100}% - 10px)`,
+          }}
+        >
           {hover.label}
+          <span className="block text-[10px] text-text-3">click to inspect</span>
         </div>
       )}
       <div className="mt-2 flex flex-wrap items-center gap-4">

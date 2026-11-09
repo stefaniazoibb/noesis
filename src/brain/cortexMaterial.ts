@@ -82,7 +82,7 @@ function createCortexMaterial(
     shader.vertexShader = shader.vertexShader
       .replace(
         "#include <common>",
-        "#include <common>\nattribute float aRegion;\nvarying float vRegion;",
+        "#include <common>\nattribute float aRegion;\nflat varying float vRegion;",
       )
       .replace(
         "#include <begin_vertex>",
@@ -91,7 +91,7 @@ function createCortexMaterial(
     shader.fragmentShader = shader.fragmentShader
       .replace(
         "#include <common>",
-        "#include <common>\nuniform float uHover;\nuniform float uSelected;\nuniform sampler2D uOverlayTex;\nvarying float vRegion;",
+        "#include <common>\nuniform float uHover;\nuniform float uSelected;\nuniform sampler2D uOverlayTex;\nflat varying float vRegion;",
       )
       .replace(
         "#include <dithering_fragment>",
@@ -105,6 +105,6 @@ if (uSelected > 0.5 && abs(vRegion - uSelected) < 0.5) {
 }`,
       );
   };
-  m.customProgramCacheKey = () => "cortex-region-highlight";
+  m.customProgramCacheKey = () => "cortex-region-highlight-flat";
   return m;
 }

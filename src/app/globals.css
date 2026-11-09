@@ -1,8 +1,30 @@
 @import "tailwindcss";
 
+/*
+ * NOĒSIS design system (2026-11 redesign).
+ *
+ * The existing components are written against Tailwind's zinc/amber scales.
+ * Rather than rewriting every component, the scales are remapped here onto
+ * the NOĒSIS palette, so the whole app shifts to the new system at once and
+ * new components use the semantic tokens below.
+ */
+
 :root {
-  --background: #0b0d10;
-  --foreground: #d8dde3;
+  --background: #0b0e12;
+  --foreground: #f2f0e9;
+  --bg-2: #121820;
+  --surface: #19212b;
+  --surface-2: #1f2833;
+  --line: #222b35;
+  --line-strong: #2e3843;
+  --text: #f2f0e9;
+  --text-2: #a0aab5;
+  --text-3: #8a949f;
+  --amber: #d9a45b;
+  --amber-soft: #b98a4c;
+  --cyan: #6fc6d2;
+  --conflict: #c87979;
+  --nav-h: 3.5rem;
 }
 
 @theme inline {
@@ -10,11 +32,49 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif-display);
+
+  /* semantic tokens */
+  --color-ink: #0b0e12;
+  --color-ink-2: #121820;
+  --color-surface: #19212b;
+  --color-surface-2: #1f2833;
+  --color-line: #222b35;
+  --color-line-strong: #2e3843;
+  --color-text: #f2f0e9;
+  --color-text-2: #a0aab5;
+  --color-text-3: #8a949f;
+  --color-amber: #d9a45b;
+  --color-amber-soft: #b98a4c;
+  --color-cyan: #6fc6d2;
+  --color-conflict: #c87979;
+
+  /* zinc remapped onto the NOĒSIS neutrals (cool slate, warm paper text) */
+  --color-zinc-50: #f7f5ef;
+  --color-zinc-100: #f2f0e9;
+  --color-zinc-200: #dedcd5;
+  --color-zinc-300: #c4c8cc;
+  --color-zinc-400: #a0aab5;
+  --color-zinc-500: #8a949f;
+  --color-zinc-600: #737d88;
+  --color-zinc-700: #2e3843;
+  --color-zinc-800: #222b35;
+  --color-zinc-900: #19212b;
+  --color-zinc-950: #121820;
+
+  /* amber (warnings, AI labels) remapped onto the NOĒSIS amber */
+  --color-amber-400: #e6bb7d;
+  --color-amber-500: #d9a45b;
+  --color-amber-600: #d9a45b;
+  --color-amber-700: #a87d44;
+  --color-amber-900: #4a3720;
+  --color-amber-950: #241b10;
 }
 
-html,
-body {
-  height: 100%;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 1rem);
+  background: var(--background);
 }
 
 body {
@@ -22,4 +82,71 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+::selection {
+  background: rgb(217 164 91 / 0.35);
+  color: #f2f0e9;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* thin, quiet scrollbars inside panels */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2e3843 transparent;
+}
+
+/* ---- landing-page motion (all disabled under reduced motion) ---- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.route-fade {
+  animation: route-fade 320ms ease-out both;
+}
+@keyframes route-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hairline-grid {
+  background-image:
+    linear-gradient(to right, rgb(46 56 67 / 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(46 56 67 / 0.35) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .route-fade {
+    animation: none;
+  }
 }

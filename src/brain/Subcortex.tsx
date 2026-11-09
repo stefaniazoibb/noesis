@@ -1,12 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 import { useVizStore } from "@/state/vizStore";
 import { subcorticalRegions } from "@/lib/repo/atlas";
 import type { Region } from "@/lib/schemas";
 import { useOverlayResult } from "./useOverlay";
+import { rasToWorld, registerCentroid } from "./regionGeometry";
 
 function Structure({ region }: { region: Region }) {
   const overlay = useOverlayResult();
@@ -23,6 +24,15 @@ function Structure({ region }: { region: Region }) {
     });
     return g;
   }, [scene]);
+
+  useEffect(() => {
+    if (!geometry) return;
+    const g = geometry as THREE.BufferGeometry;
+    g.computeBoundingBox();
+    const c = new THREE.Vector3();
+    g.boundingBox?.getCenter(c);
+    registerCentroid(region.id, rasToWorld(c.x, c.y, c.z));
+  }, [geometry, region.id]);
 
   if (!geometry) return null;
   return (

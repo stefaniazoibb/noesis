@@ -24,6 +24,11 @@ representations, and a citation-validated AI research assistant.
 - **Ask** — a RAG assistant that answers only from retrieved evidence, cites
   every claim, and drives the 3D visualization from natural language.
 
+The site opens on a scroll-driven introduction built from the live
+corpus; the research application lives behind the main navigation
+(Explore · Evidence · Convergence · Research Gaps · Representations ·
+Ask NOĒSIS · About).
+
 **Not a diagnostic tool.** Associations shown do not establish causation.
 Research findings are group-level averages that often cannot describe an
 individual's experience — anything personal belongs with a licensed
@@ -38,7 +43,8 @@ npm run dev            # http://localhost:3000
 
 The AI assistant and research-question generation need an Anthropic API key:
 copy `.env.example` to `.env.local` and set `ANTHROPIC_API_KEY`. Everything
-else works without it.
+else works without it, and without a key the assistant still returns the
+matching indexed records as labelled source cards (no synthesis).
 
 ## Scripts
 
@@ -47,7 +53,8 @@ else works without it.
 | `npm run dev` / `build` / `start` | Next.js app |
 | `npm run validate:data` | Zod schemas + referential integrity + artifact checks (CI gate) |
 | `npm test` | unit tests (vitest) |
-| `npm run e2e` | 17-check Playwright smoke suite (self-contained server) |
+| `npm run check:ai` | live check of the AI layer with your key (a few cents): intent, retrieval, synthesis, citation validation, one research question |
+| `npm run e2e` | 49-check Playwright suite incl. phone-width layouts (self-contained server) |
 | `npm run report:gaps` | convergence profiles + detected evidence gaps |
 | `npm run lint` | ESLint incl. Next 16 hooks rules |
 
@@ -71,6 +78,11 @@ as-is:
 npx vercel login          # once, with your account
 npx vercel --prod         # from the repo root
 ```
+
+In the Vercel project settings, add `ANTHROPIC_API_KEY` (server-side
+only; never prefix it with `NEXT_PUBLIC_`). Add `NEXT_PUBLIC_GITHUB_URL`
+only once the repository is public — the site hides the GitHub link
+while it is unset.
 
 (`npx vercel deploy --temporary` gives an account-less preview URL that
 expires within the hour unless claimed.) The assistant degrades gracefully

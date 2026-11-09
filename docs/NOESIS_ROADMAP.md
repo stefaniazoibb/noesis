@@ -1,6 +1,6 @@
 # NOĒSIS — Roadmap & Feature Status
 
-Status date: 2026-09-01. Mirrors the session task list; update both together.
+Status date: 2026-11-09. Mirrors the session task list; update both together.
 Repo pushed to https://github.com/stefaniazoibb/noesis (private) 2026-09-01;
 CI live. Open items: #8 (needs ANTHROPIC_API_KEY in .env.local) and #9
 (per-study review via `mark_verified.py --show-next`) — both owner Stefania.
@@ -37,16 +37,66 @@ CI live. Open items: #8 (needs ANTHROPIC_API_KEY in .env.local) and #9
   suite, all passing); GitHub Actions gates (validate:data, tsc, lint,
   vitest, build).
 
+## 2026-11 product evolution & redesign (branch `redesign-2026-11`, uncommitted)
+
+- Design system: dark editorial palette, serif display type, remapped
+  Tailwind scales (decision #33), sticky navigation with the seven primary
+  sections + "More", mobile menu, `/` search shortcut, route fade.
+- Landing page: scroll-driven, data-driven story over the real fsaverage
+  brain (decisions #34–35) — nine sections, statically prerendered.
+- Explore: anatomical region search, eased camera presets, fly-to-region,
+  reset view, responsive overlay layout, crisp region boundaries (#36).
+- New `/convergence` (profiles by disorder or region across disorders,
+  pin-and-compare up to three, expandable study lists) and `/gaps`
+  (ranked gap cards with provenance, sparse coverage, missing modality
+  matrix, conflicts, regions without evidence, AI questions per disorder).
+- Evidence browser: region / direction / year filters, sort, URL filters,
+  traceability panel (assertions → atlas, DOI/PMID).
+- Representations: point search + highlight, placed tooltips, "reading
+  this plot" panel, loadings open by default.
+- Ask: example questions, labelled synthesis vs sources, source cards,
+  region chips that drive the atlas, `?q=` hand-off, keyless retrieval-only
+  mode (#37), corpus-coverage citations (#38), direction info in context.
+- `/about`: methodology, metric definitions, integrity rules, data
+  sources, data-driven limitations.
+- Tests: +15 unit tests (summary, entity linker, corpus marker, surnames);
+  e2e suite extended from 20 to 49 checks (landing data, new pages,
+  traceability, region search, eight pages at phone width, mobile menu).
+- ESLint now ignores `.vercel/**` (the CLI build output produced 71
+  spurious lint errors).
+
+Limitations pass (2026-11-09, same branch):
+- **#8 live AI verification DONE** with a real key (`npm run check:ai`):
+  intent, retrieval, synthesis and validation pass; the run exposed and
+  fixed grouped `[a, b]` citations bypassing the validator and an
+  implausible EEG methodology in a generated question (decision #42).
+  Pipeline also covered by a stubbed-model route test (4 cases).
+- **Science review DONE** (independent pass against the integrity rules):
+  11 findings, all applied — `[corpus]` laundering guard (#40), ADHD/AD
+  and "brains"/brainstem entity-linking bugs, eight copy corrections
+  (density-as-quality, unsupported causal phrasing, validator over-claims).
+- **Performance measured** on the production build: 60 fps on desktop and
+  on a 390 px / DPR 3 viewport with 4x CPU throttling (Apple M4 GPU via
+  Metal); 26–27 fps on software rendering, the worst case without a GPU.
+  Both 3D views now drop to 1x pixels when frame rate declines; low-core
+  devices start at 1x without antialiasing or particles. Transfer ≈1.4 MB
+  per 3D page, dominated by the two cortex meshes.
+- Landing HTML 202 → 183 KB raw (≈30 KB gzipped): atlas palettes now derived
+  client-side. GitHub link hidden until `NEXT_PUBLIC_GITHUB_URL` is set (#41).
+Still open: a test on a physical phone; Draco-compressing the cortex GLBs
+(the largest remaining transfer); making the repository public and
+deploying (owner decisions).
+
 ## Broken
 
-- None known. All gates green (tsc, lint, 34 tests, build, validate:data
-  incl. 6 ML runs, 20-check e2e locally and in CI).
+- None known. All gates green on 2026-11-09 (tsc, lint, 49 unit tests,
+  build, validate:data incl. 8 ML runs, 49-check e2e locally).
 
 ## Missing / not started (priority order)
 
 **P0 — verify the AI layer**
-1. #8 Live end-to-end AI verification (assistant + question generation) —
-   **blocked on ANTHROPIC_API_KEY in `.env.local`** (owner: Stefania).
+1. ~~#8 Live end-to-end AI verification~~ — DONE 2026-11-09
+   (`npm run check:ai`, see the limitations pass above).
 2. #9 Human spot-check of the corpus using `mark_verified.py`
    (owner: Stefania).
 

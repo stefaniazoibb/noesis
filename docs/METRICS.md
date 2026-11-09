@@ -282,6 +282,36 @@ comparative). The LLM writes only the prose; candidate regions, modalities,
 provenance, and ranking are deterministic, and inline citations are
 validated against the gap's own studies.
 
+## Corpus summaries (landing page, About, Research Gaps)
+
+Computed by `src/lib/evidence/summary.ts` at build time; unit tests pin
+them to the raw files.
+
+| Quantity | Definition |
+|---|---|
+| Studies / assertions / disorders | Record counts of the validated data files. |
+| Regions with evidence | Atlas regions with ≥1 assertion for any disorder. |
+| Studies per disorder | Distinct studies listing the disorder (a multi-disorder study counts once per disorder). |
+| Studies per modality | Distinct studies using the modality (a study can use several). |
+| Pairs by number of categories | Distinct disorder–region pairs grouped by their cross-modal convergence value. |
+| Provenance example | The pair with the most distinct studies (ties by id) and its first assertion by id. |
+| Landing density step | Same as "Study count" above, across all indexed disorders, no filters. |
+
+## Corpus-coverage citations (assistant)
+
+The synthesis prompt carries a deterministic CORPUS COVERAGE block
+(distinct studies per disorder and per modality). Statements drawn from it
+must cite `[corpus]`. The validator honours the marker only when the
+sentence names a disorder or modality from the block, states one of that
+entity's true counts, and contains no finding vocabulary (region names,
+directions, volume/activation/connectivity, "associated"…). Otherwise the
+marker is removed (no badge renders), counted in the stripped-citation
+flag, and the sentence is treated as uncited. Grouped citations
+(`[study_a, study_b]`) are split and each id validated separately. Note the
+limit: validation proves a cited study was retrieved, not that it supports
+the exact sentence.
+Coverage describes the curated corpus, never the literature.
+
 ## Not yet implemented
 
 Disorder specificity, network centrality, and representation similarity are

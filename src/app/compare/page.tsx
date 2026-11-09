@@ -130,8 +130,8 @@ export default function ComparePage() {
   );
 
   return (
-    <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-10">
-      <h1 className="text-2xl font-light tracking-wide text-zinc-100">
+    <main className="route-fade mx-auto w-full max-w-4xl flex-1 px-5 py-10 sm:px-8">
+      <h1 className="font-serif text-[40px] leading-tight text-zinc-100">
         Compare disorders
       </h1>
       <p className="mt-2 text-sm text-zinc-500">
