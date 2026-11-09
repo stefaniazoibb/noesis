@@ -52,3 +52,8 @@ pipeline/.venv/
 
 # raw neuroimaging downloads (never committed; provenance in data/provenance/)
 pipeline/encoders/raw/
+
+# PubMed record cache: verbatim abstracts may be publisher-copyrighted, so
+# they stay local and are never redistributed. Rebuild with
+#   python pipeline/curation/fetch_pubmed.py fetch <pmids...>
+pipeline/curation/cache/

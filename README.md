@@ -60,6 +60,10 @@ matching indexed records as labelled source cards (no synthesis).
 
 ### Offline pipeline (conda env `noesis`, `pipeline/requirements.txt`)
 
+The PubMed abstract cache is not in the repository (abstracts may be
+publisher-copyrighted); rebuild it before re-curating with
+`python pipeline/curation/fetch_pubmed.py fetch $(jq -r '.[].pmid // empty' data/studies/studies.json)`.
+
 Meshes: `pipeline/meshes/` (fsaverage → GLB + region sidecars). Evidence:
 `pipeline/curation/` (PubMed cache → curated judgments → build →
 **verification gate**). Representations:

@@ -1,0 +1,11 @@
+# Never upload local secrets or offline-pipeline material to Vercel
+.env
+.env.*
+!.env.example
+pipeline/
+.vercel/
+.next/
+node_modules/
+e2e/
+*.bundle
+docs/EXPANSION_PROMPT.md
