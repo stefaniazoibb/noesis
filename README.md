@@ -2,26 +2,33 @@
 
 **An AI atlas of brain, behavior & evidence.**
 
+**Live demo: [noesis-hazel.vercel.app](https://noesis-hazel.vercel.app)**
+
+[![NOĒSIS landing page: a rotating 3D fsaverage brain beside the headline "Understanding the brain through evidence"](docs/img/landing.jpg)](https://noesis-hazel.vercel.app)
+
+The public demo runs without an AI key: the assistant shows the evidence it
+retrieves as source cards, without AI synthesis.
+
 NOĒSIS connects a real 3D human brain atlas to a DOI/PMID-verified evidence
 corpus, convergence and evidence-gap analytics, evidence-derived ML
 representations, and a citation-validated AI research assistant.
 
-- **Explore** — an interactive fsaverage/Desikan-Killiany brain (68 cortical
+- **Explore:** an interactive fsaverage/Desikan-Killiany brain (68 cortical
   regions + 15 subcortical structures) with evidence-density, cross-modal
   convergence, evidence-structure (gaps/conflicts), and disorder-comparison
   overlays; every legend states its metric's definition.
-- **Evidence** — 89 curated studies / 355 assertions across 19 psychiatric
+- **Evidence:** 89 curated studies / 355 assertions across 19 psychiatric
   and neurodegenerative disorders; every association is traceable
   region → assertion → study → DOI/PMID, and every study's metadata is
   verified against PubMed and OpenAlex before ingestion.
-- **Converge & discover** — rule-based convergence profiles, conflict
+- **Converge & discover:** rule-based convergence profiles, conflict
   surfacing (never auto-adjudicated), documented gap-detection rules, and
   AI-generated research questions grounded in those gaps with full
   provenance chains.
-- **Represent** — interpretable PCA/UMAP embeddings of regions, disorders
+- **Represent:** interpretable PCA/UMAP embeddings of regions, disorders
   and studies computed from the evidence corpus, explorable in 2D and
   bridged both ways with the 3D atlas.
-- **Ask** — a RAG assistant that answers only from retrieved evidence, cites
+- **Ask:** a RAG assistant that answers only from retrieved evidence, cites
   every claim, and drives the 3D visualization from natural language.
 
 The site opens on a scroll-driven introduction built from the live
