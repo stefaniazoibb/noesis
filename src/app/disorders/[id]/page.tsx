@@ -78,6 +78,11 @@ export default async function DisorderPage(props: PageProps<"/disorders/[id]">) 
           {disorder.overview}
         </p>
       )}
+      {disorder.overview && (
+        <p className="mt-1 text-[11px] text-zinc-500">
+          General background, not drawn from the indexed corpus.
+        </p>
+      )}
 
       <PersonalExperienceNote />
 

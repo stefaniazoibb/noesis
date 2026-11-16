@@ -27,7 +27,7 @@ import { AtlasStory, type RegionEvidence } from "@/landing/AtlasStory";
 import { BarList, Columns, Counter, Reveal } from "@/landing/ui";
 import { RepresentationPreview, type RepPoint } from "@/landing/RepresentationPreview";
 import { getDisorders } from "@/lib/repo/entities";
-import { GITHUB_URL } from "@/lib/site";
+import { AUTHOR, CONTACT_EMAIL, GITHUB_URL, HOST } from "@/lib/site";
 import { SiteNav } from "@/site/SiteNav";
 import { Mark } from "@/site/Mark";
 import { AucStrip, Chapter, Display, Fn, Kicker, Lead } from "@/site/ui";
@@ -229,9 +229,9 @@ export default function LandingPage() {
             <Kicker>Provenance</Kicker>
             <Display>Every finding has an address.</Display>
             <Lead>
-              A shaded region is never an opinion. It is a count of assertions, and every assertion points to one
-              study with a DOI or PMID that was checked against PubMed and OpenAlex before it was indexed. Pick a
-              finding and follow it to its source.
+              A shaded region is a count, not an impression. Each assertion was extracted by a curator from a
+              published abstract and points to one study, whose DOI or PMID was checked against PubMed and OpenAlex
+              before it was indexed. Pick a finding and follow it to its source.
             </Lead>
           </Reveal>
 
@@ -440,9 +440,10 @@ export default function LandingPage() {
               <Display dark>Regions work in networks.</Display>
               <Lead dark>
                 The {nets.corticalTotal} cortical regions are grouped into the seven resting-state networks of Yeo and
-                colleagues, by how much of each region a network covers on the same fsaverage surface.<Fn n={5} /> These
-                are published anatomical memberships. NOĒSIS draws no fibre tracts and no connections that are not in
-                its data.
+                colleagues, by how much of each region a network covers on the same fsaverage surface.<Fn n={5} /> The
+                networks come from a published resting-state functional parcellation: regions whose activity rises and
+                falls together at rest. They describe correlated activity, not anatomical wiring, and NOĒSIS draws no
+                fibre tracts or connections that are not in its data.
               </Lead>
             </Reveal>
           </div>
@@ -467,7 +468,7 @@ export default function LandingPage() {
             <Reveal className="h-full">
               <article className="flex h-full flex-col rounded-[4px] border border-line bg-white p-6">
                 <p className="font-mono text-[11px] text-text-3">EEG · resting state</p>
-                <h3 className="mt-3 text-[22px] font-medium leading-tight text-text">Less alpha power in Alzheimer&rsquo;s disease</h3>
+                <h3 className="mt-3 text-[22px] font-medium leading-tight text-text">Less alpha power in Alzheimer&rsquo;s disease, in this dataset</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-text-2">
                   Relative alpha power by scalp zone, {enc.eeg.n} people with Alzheimer&rsquo;s disease, frontotemporal
                   dementia or no dementia.<Fn n={6} />
@@ -507,7 +508,7 @@ export default function LandingPage() {
             <Reveal delay={60} className="h-full">
               <article className="flex h-full flex-col rounded-[4px] border border-line bg-white p-6">
                 <p className="font-mono text-[11px] text-text-3">Structural MRI · cortical thickness</p>
-                <h3 className="mt-3 text-[22px] font-medium leading-tight text-text">Thinner temporal cortex in schizophrenia</h3>
+                <h3 className="mt-3 text-[22px] font-medium leading-tight text-text">Thinner temporal cortex in schizophrenia, in this cohort</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-text-2">
                   Largest group differences in thickness, {enc.mri.nPatients} patients and {enc.mri.nControls} controls,
                   age and sex removed.<Fn n={7} />
@@ -770,8 +771,15 @@ export default function LandingPage() {
             </Reveal>
             <Reveal delay={100}>
               <p className="text-[14px] leading-relaxed text-offwhite-2">
-                This platform visualises research evidence and computational models. Associations shown here do not
-                establish causation and should not be used for individual diagnosis.
+                NOĒSIS is an independent, non-commercial project by {AUTHOR}, made for scientific exploration and
+                learning. It summarises published, group-level research and is not medical advice: it cannot diagnose,
+                predict or guide treatment for anyone. Read findings against the original publications and their
+                limitations. AI-written text is labelled and can contain errors, even when its citations are valid.
+              </p>
+              <p className="mt-4 text-[12px] leading-relaxed text-offwhite-3">
+                Contact: <a href={`mailto:${CONTACT_EMAIL}`} className="underline underline-offset-4 hover:text-offwhite">{CONTACT_EMAIL}</a>
+                {" · "}Hosted by {HOST}.{" "}
+                <Link href="/about#project" className="underline underline-offset-4 hover:text-offwhite">Licences and credits</Link>
               </p>
             </Reveal>
           </div>

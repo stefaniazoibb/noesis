@@ -49,6 +49,10 @@ export default function AssistantPage() {
             </dl>
           </div>
           <p className="text-text-3">
+            When live answers are enabled, your question is sent to Anthropic&rsquo;s API to write the answer.
+            Please don&rsquo;t enter personal or health information.
+          </p>
+          <p className="text-text-3">
             You can also drive the atlas: &ldquo;show schizophrenia evidence, fMRI only&rdquo;. See the{" "}
             <Link href="/about#methodology" className="underline decoration-line-strong underline-offset-4 hover:text-text">methodology</Link>.
           </p>

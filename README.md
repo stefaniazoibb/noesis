@@ -113,3 +113,9 @@ live answers.
 | `docs/ARCHITECTURE.md` | the founding blueprint |
 
 Project subagents for Claude Code live in `.claude/agents/`.
+
+## Licence
+
+Original code: MIT. Original written content: CC BY 4.0. Third-party data, meshes and fonts keep their own terms, listed in `data/LICENSES.md` (the FreeSurfer licence for the meshes is in `public/meshes/FREESURFER_LICENSE.txt`). See `LICENSE`.
+
+NOĒSIS is an independent, non-commercial project for scientific exploration. It is not medical advice and cannot diagnose, predict or guide treatment for anyone.

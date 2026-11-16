@@ -128,6 +128,11 @@ export function AskDemo({
                 {recorded.uncitedScientificSentences} uncited claims flagged
               </dd>
             </dl>
+            <p className="mt-4 border-l-2 border-line-strong pl-3 text-[12px] leading-relaxed text-text-3">
+              <span className="text-text-2">Editor&rsquo;s note, not part of the recorded answer:</span> the rTMS
+              estimate (Hedges g −0.73) comes from a meta-analysis across several neuropsychiatric disorders, not
+              from studies of depression alone (source {order.get("study_kan_2023") ?? "list"}).
+            </p>
             {recorded.corpusChanged && (
               <p className="mt-3 text-[12px] text-amber-400">
                 The corpus has changed since this answer was recorded. A live answer may differ.
