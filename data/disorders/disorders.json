@@ -31,7 +31,7 @@
     "id": "bipolar_disorder",
     "name": "Bipolar disorder",
     "category": "psychiatric",
-    "overview": "A mood disorder characterized by episodes of mania or hypomania, typically alternating with depressive episodes. Neuroimaging research has repeatedly examined fronto-limbic emotion-regulation circuitry, with heterogeneous findings across illness phases and medication states.",
+    "overview": "A mood disorder characterized by episodes of mania or hypomania, often with depressive episodes. Neuroimaging research has repeatedly examined fronto-limbic emotion-regulation circuitry, with heterogeneous findings across illness phases and medication states.",
     "synonyms": ["BD", "bipolar affective disorder", "manic depression", "bipolar I", "bipolar II"]
   },
   {

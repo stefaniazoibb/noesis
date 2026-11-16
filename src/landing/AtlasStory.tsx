@@ -234,8 +234,8 @@ export function AtlasStory(props: AtlasStoryProps) {
               Understanding the brain through evidence.
             </h1>
             <p className="mt-6 max-w-md text-[17px] leading-relaxed text-text-2">
-              An interactive intelligence platform connecting brain anatomy,
-              scientific evidence and artificial intelligence.
+              An interactive scientific exploration of the human brain and the
+              published evidence about it.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link

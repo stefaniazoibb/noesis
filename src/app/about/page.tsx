@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { corpusCounts, gapCountsByRule } from "@/lib/evidence/summary";
-import { GITHUB_URL } from "@/lib/site";
+import { GITHUB_URL, AUTHOR, CONTACT_EMAIL, HOST } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About & methodology · NOĒSIS",
@@ -201,6 +201,19 @@ export default function AboutPage() {
               <li><Link href="/ml/lab" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-text">ML Lab model runs</Link></li>
               <li><Link href="/evidence" className="rounded-md border border-line px-3 py-1.5 text-text hover:border-text">Evidence corpus</Link></li>
             </ul>
+            <p className="mt-6 text-[13px] leading-relaxed text-text-2">
+              NOĒSIS is an independent, non-commercial portfolio project by {AUTHOR}. Contact:{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="underline underline-offset-4">{CONTACT_EMAIL}</a>.
+              Hosted by {HOST}.
+            </p>
+            <p className="mt-3 text-[13px] leading-relaxed text-text-2">
+              Licences: original code under MIT, original written content under CC BY 4.0. Third-party material
+              keeps its own terms and is not covered by these licences: the 3D meshes are modified derivatives of
+              FreeSurfer&rsquo;s fsaverage (FreeSurfer Software License, MGH); network memberships from Yeo et al. 2011
+              (CBIG); meta-analytic maps from NeuroQuery (BSD-3-Clause); EEG and MRI analyses of OpenNeuro ds004504 and
+              ds000030 (CC0); bibliographic metadata from PubMed and OpenAlex; IBM Plex fonts (SIL Open Font License).
+              The recorded assistant answer is model output. Details in data/LICENSES.md.
+            </p>
             <p className="mt-4 text-[12px] text-text-3">
               Documentation in the repository: docs/NOESIS_ARCHITECTURE.md, docs/NOESIS_SCIENTIFIC_RULES.md,
               docs/METRICS.md, docs/NOESIS_DATA_SOURCES.md, docs/NOESIS_DECISIONS.md, docs/NOESIS_ROADMAP.md.
