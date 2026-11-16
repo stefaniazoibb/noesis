@@ -115,8 +115,9 @@ def main() -> int:
               lab.lower().count("model-suggested") >= 20)
 
         print("search")
-        page.goto(BASE, timeout=60_000)
-        page.get_by_role("searchbox").fill("amygdala")
+        # global search lives in the app nav; the public landing page ("/") has its own nav without it
+        page.goto(f"{BASE}/brain", timeout=60_000)
+        page.get_by_role("searchbox", name="Global search").fill("amygdala")
         page.wait_for_timeout(600)
         check("search results", page.locator("li button").count() > 0)
 
