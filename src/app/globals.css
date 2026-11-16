@@ -62,6 +62,17 @@
   --color-amber-900: #e9d9b8;
   --color-amber-950: #faf3e3;
 
+  /* graphite stage (landing only): behind 3D brain sections and the close.
+     Light partners of the data marks keep >= 4.5:1 on graphite. */
+  --color-graphite: #16171a;
+  --color-graphite-2: #1f2024;
+  --color-graphite-line: #33353b;
+  --color-offwhite: #ecebe6;
+  --color-offwhite-2: #b2b0a9;
+  --color-offwhite-3: #8d8b85;
+  --color-cyan-light: #5fb6bf;
+  --color-conflict-light: #e9786d;
+
   --color-emerald-400: #12704a;
   --color-emerald-500: #12704a;
   --color-emerald-900: #b9dccb;
@@ -146,5 +157,53 @@ body {
   }
   .route-fade {
     animation: none;
+  }
+}
+
+/* ---- public landing (src/site) ---- */
+
+/* SVG connector that draws itself once its chapter is visible */
+.trace-line {
+  stroke-dasharray: var(--len, 400);
+  stroke-dashoffset: var(--len, 400);
+  transition: stroke-dashoffset 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.is-visible .trace-line,
+.trace-line.is-drawn {
+  stroke-dashoffset: 0;
+}
+
+.site-details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.site-details > summary::-webkit-details-marker {
+  display: none;
+}
+.site-details[open] .site-details-sign {
+  transform: rotate(45deg);
+}
+.site-details-sign {
+  transition: transform 200ms ease-out;
+}
+
+.snap-strip {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.snap-strip::-webkit-scrollbar {
+  display: none;
+}
+.snap-strip > * {
+  scroll-snap-align: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-line {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+  .site-details-sign {
+    transition: none;
   }
 }

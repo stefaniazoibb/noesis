@@ -111,6 +111,9 @@ export function TopNav() {
 
   const solid = scrolled || mobileOpen;
 
+  // the public landing page ("/") has its own product nav (src/site/SiteNav)
+  if (pathname === "/") return null;
+
   return (
     <header
       className={`sticky top-0 z-40 shrink-0 border-b transition-colors duration-300 ${
@@ -225,6 +228,9 @@ export function TopNav() {
 }
 
 export function DisclaimerBar() {
+  // the landing page carries the same statement in its closing chapter
+  const pathname = usePathname();
+  if (pathname === "/") return null;
   return (
     <footer className="z-20 shrink-0 border-t border-line bg-ink px-5 py-2.5 text-center text-[12px] leading-relaxed text-text-3">
       This platform visualizes research evidence and computational models.

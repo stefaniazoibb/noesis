@@ -1,0 +1,54 @@
+{
+  "kind": "recorded-demonstration",
+  "question": "Which brain regions are most consistently associated with major depressive disorder?",
+  "intent": {
+    "intent": "question",
+    "disorders": [
+      "major_depressive_disorder"
+    ],
+    "regions": [],
+    "modalities": [],
+    "vizCommand": null
+  },
+  "recordedAt": "2026-11-16T12:26:53.252Z",
+  "requestedModel": "claude-opus-5",
+  "model": "claude-opus-5",
+  "responseId": "msg_011Ch6c2omnQ427EXUqQhXLx",
+  "requestId": "req_011Ch6c2nxfJnTz87GoYfaCi",
+  "stopReason": "end_turn",
+  "usage": {
+    "input": 5347,
+    "output": 929
+  },
+  "corpusFingerprint": "77c26eff5143d2ef",
+  "retrievedStudyIds": [
+    "study_schmaal_2017",
+    "study_fan_2025",
+    "study_zhou_2024",
+    "study_kan_2023",
+    "study_bromis_2018",
+    "study_schmaal_2016",
+    "study_videbech_2004",
+    "study_luo_2025",
+    "study_vandervinne_2017",
+    "study_deniz_2026",
+    "study_wang_2025",
+    "study_fu_2025"
+  ],
+  "rawAnswer": "Across the curated records, the most consistently implicated region in major depressive disorder is the hippocampus, with bilateral volume reductions reported at a Moderate evidence level by three structural MRI sources: the ENIGMA MDD mega-analysis [study_schmaal_2016], an earlier meta-analysis reporting roughly 8% left and 10% right reductions that scaled with number of episodes [study_videbech_2004], and a cross-disorder meta-analysis in which hippocampal reduction was shared between PTSD and MDD [study_bromis_2018]. The anterior cingulate cortex is the next most convergent, also at Moderate level: rostral and caudal ACC show thinner cortex in adults with MDD [study_schmaal_2017], while resting-state work reports subregion-specific connectivity alterations — subgenual ACC with emotion-related regions, pregenual with sensorimotor, dorsal with cognition-related regions — a pattern coded as mixed in direction rather than uniformly reduced [study_zhou_2024], alongside reduced sgACC–amygdala connectivity in adults with recurrent MDD [study_fan_2025]. Note that the latter study found adolescent patients comparable to controls and cautioned that small samples inflate effects [study_fan_2025].\n\nAt the Emerging level, single records implicate the orbitofrontal cortex (lateral and medial), posterior cingulate and insula via reduced cortical thickness with small effect sizes (d -0.10 to -0.14) [study_schmaal_2017], the amygdala via reduced connectivity [study_fan_2025], and left middle frontal/DLPFC territory indirectly, where repetitive TMS was associated with a medium reduction in depressive symptoms (Hedges g -0.73) [study_kan_2023]. The EEG literature here disagrees and maps to no atlas region: one meta-analysis reported a small but significant frontal alpha asymmetry effect with high heterogeneity [study_luo_2025], whereas another found a negligible, non-significant effect with limited diagnostic value [study_vandervinne_2017]. Major depressive disorder is represented by 9 studies in this atlas (fMRI 2, sMRI 4, EEG 2, TMS 1) [corpus] — these counts describe the curated corpus, not the full literature, so absence of a region here should not be read as evidence against it.",
+  "answer": "Across the curated records, the most consistently implicated region in major depressive disorder is the hippocampus, with bilateral volume reductions reported at a Moderate evidence level by three structural MRI sources: the ENIGMA MDD mega-analysis [study_schmaal_2016], an earlier meta-analysis reporting roughly 8% left and 10% right reductions that scaled with number of episodes [study_videbech_2004], and a cross-disorder meta-analysis in which hippocampal reduction was shared between PTSD and MDD [study_bromis_2018]. The anterior cingulate cortex is the next most convergent, also at Moderate level: rostral and caudal ACC show thinner cortex in adults with MDD [study_schmaal_2017], while resting-state work reports subregion-specific connectivity alterations — subgenual ACC with emotion-related regions, pregenual with sensorimotor, dorsal with cognition-related regions — a pattern coded as mixed in direction rather than uniformly reduced [study_zhou_2024], alongside reduced sgACC–amygdala connectivity in adults with recurrent MDD [study_fan_2025]. Note that the latter study found adolescent patients comparable to controls and cautioned that small samples inflate effects [study_fan_2025].\n\nAt the Emerging level, single records implicate the orbitofrontal cortex (lateral and medial), posterior cingulate and insula via reduced cortical thickness with small effect sizes (d -0.10 to -0.14) [study_schmaal_2017], the amygdala via reduced connectivity [study_fan_2025], and left middle frontal/DLPFC territory indirectly, where repetitive TMS was associated with a medium reduction in depressive symptoms (Hedges g -0.73) [study_kan_2023]. The EEG literature here disagrees and maps to no atlas region: one meta-analysis reported a small but significant frontal alpha asymmetry effect with high heterogeneity [study_luo_2025], whereas another found a negligible, non-significant effect with limited diagnostic value [study_vandervinne_2017]. Major depressive disorder is represented by 9 studies in this atlas (fMRI 2, sMRI 4, EEG 2, TMS 1) [corpus] — these counts describe the curated corpus, not the full literature, so absence of a region here should not be read as evidence against it.",
+  "citedIds": [
+    "study_schmaal_2016",
+    "study_videbech_2004",
+    "study_bromis_2018",
+    "study_schmaal_2017",
+    "study_zhou_2024",
+    "study_fan_2025",
+    "study_kan_2023",
+    "study_luo_2025",
+    "study_vandervinne_2017"
+  ],
+  "strippedIds": [],
+  "strippedCorpusMarkers": 0,
+  "uncitedScientificSentences": 0
+}
