@@ -115,8 +115,9 @@ def main() -> int:
               lab.lower().count("model-suggested") >= 20)
 
         print("search")
-        page.goto(BASE, timeout=60_000)
-        page.get_by_role("searchbox").fill("amygdala")
+        # global search lives in the app nav; the public landing page ("/") has its own nav without it
+        page.goto(f"{BASE}/brain", timeout=60_000)
+        page.get_by_role("searchbox", name="Global search").fill("amygdala")
         page.wait_for_timeout(600)
         check("search results", page.locator("li button").count() > 0)
 
@@ -156,7 +157,8 @@ def main() -> int:
               str(n_studies) in ev_text and str(n_assert) in ev_text)
         check("provenance chain links a DOI/PMID",
               page.locator("#evidence a[href*='doi.org'], #evidence a[href*='pubmed']").count() > 0)
-        for sid in ["convergence", "disagreement", "gaps", "representations", "ask", "enter"]:
+        # chapter ids of the editorial landing page (#disagreement now sits in #convergence, #representations in #multimodal)
+        for sid in ["disorders", "convergence", "networks", "multimodal", "gaps", "ask", "method", "faq", "enter"]:
             check(f"landing section #{sid}", page.locator(f"#{sid}").count() == 1)
         check("ask section shows real source cards",
               page.locator("#ask a[href^='/evidence/study_']").count() >= 3)
@@ -225,7 +227,8 @@ def main() -> int:
             m.wait_for_timeout(800)
             over = m.evaluate("document.documentElement.scrollWidth - window.innerWidth")
             check(f"mobile {path}: no horizontal page scroll", over <= 1)
-        m.goto(BASE, timeout=60_000)
+        # the app's mobile menu lives in the app nav, which the landing page ("/") replaces with its own
+        m.goto(f"{BASE}/brain", timeout=60_000)
         m.get_by_role("button", name="Menu").click()
         m.wait_for_timeout(300)
         check("mobile menu lists sections",
